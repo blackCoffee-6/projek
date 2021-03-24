@@ -27,7 +27,7 @@
             <tbody>
             <tr>
                 <td>
-                    <select class="custom-select" id="ajuan" name="bidang">
+                    <!-- <select class="custom-select" id="ajuan" name="bidang">
                         <option value="">Pilih..</option>
                         <option value="1">R&D</option>
                         <option value="2">Produksi</option>
@@ -36,7 +36,7 @@
                         <option value="5">Teknik</option>
                         <option value="6">SCM</option>
                         <option value="3">Pengadaan</option>
-                    </select>
+                    </select> -->
                 </td>
                 <td>04/USL/IV/2020</td>
                 <td>

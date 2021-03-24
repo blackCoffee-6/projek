@@ -26,11 +26,6 @@ Route::get('/login', function () {
 
 //Route untuk menampilkan list data user
 Route::get('/List/Data/User', 'userController@getListUser');
-//*
-
-// Route::get('/List/Data/User', function () {
-//     return view('listUser');
-// });
 
 Route::get('/', function () {
     return view('welcome');
