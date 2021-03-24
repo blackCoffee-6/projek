@@ -25,6 +25,7 @@ class CreateFupsTable extends Migration
             // $table->foreignId('product_id')->references('id')->on('products');
             $table->string('no_usulan');
             $table->date('date');
+            $table->string('produk');
             $table->string('ket_ketentuan');
             $table->string('ket_usulan');
             $table->string('ket_alasan');

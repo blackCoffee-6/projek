@@ -26,8 +26,6 @@ Route::get('/login', function () {
 
 //Route untuk menampilkan list data user
 Route::get('/List/Data/User', 'userController@getListUser');
-<<<<<<< HEAD
-=======
 //*
 
 //----- Route Bidang ------//
@@ -36,7 +34,6 @@ Route::get('/List/Data/Bidang', 'BidangController@getBidang');
 //Route untuk menghapus bidang
 Route::get('/Hapus/Data/Bidang/{id}', 'BidangController@deleteData');
 //*
->>>>>>> 03661a9efe2eeb017be914f9eaaf1f8c67d07e4c
 
 Route::get('/', function () {
     return view('welcome');
@@ -58,9 +55,6 @@ Route::get('/control', function () {
     return view('control');
 });
 
-Route::get('/usulan', function () {
-    return view('halup');
-});
 
 Route::get('/tanggapan', function () {
     return view('tanggapan');
@@ -82,6 +76,10 @@ Route::get('/lihat-data', function () {
     return view('baca-approve');
 });
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/usulan', 'FUPController@show');
+Route::post('/usulan/store', 'FUPController@store');

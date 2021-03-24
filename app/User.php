@@ -39,7 +39,7 @@ class User extends Authenticatable
         return $this->hasMany(FUP::class);
     }
 
-    public function bidang(){
+    public function Bidang(){
         return $this->belongsTo(Bidang::class);
     }
 
