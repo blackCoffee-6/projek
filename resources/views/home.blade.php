@@ -9,7 +9,7 @@
         <a href="/tanggapan">Transaksi</a>
         <a href="/kajian">Report</a>
         <a href="/kontrol">Kontrol</a>
-        <a href="#">Data Bidang</a>
+        <a href="/List/Data/Bidang">Data Bidang</a>
         <a href="/List/Data/User">Data User</a>
     </nav>
 </div>

@@ -145,7 +145,7 @@
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd"></textarea>
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="tanggal">
+                        <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="example-date-input" name="tanggal">
                     </td>
                 </tr>
             </tbody>
@@ -169,7 +169,7 @@
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd"></textarea>
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="tanggal">
+                        <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="example-date-input" name="tanggal">
                     </td>
                 </tr>
             </tbody>
@@ -199,7 +199,7 @@
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd"></textarea>
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="tanggal">
+                        <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="example-date-input" name="tanggal">
                     </td>
                 </tr>
             </tbody>

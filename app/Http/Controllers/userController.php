@@ -32,8 +32,7 @@ class userController extends Controller
     }
 
     //untuk melihat list user
-    public function getListUser(Request $id){
-        $bidang = Bidang::find($id);
+    public function getListUser(){
         $listUser = User::all();
         return view('/listUser', compact('listUser'));
     }

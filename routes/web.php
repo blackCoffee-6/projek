@@ -28,9 +28,12 @@ Route::get('/login', function () {
 Route::get('/List/Data/User', 'userController@getListUser');
 //*
 
-// Route::get('/List/Data/User', function () {
-//     return view('listUser');
-// });
+//----- Route Bidang ------//
+//Route untuk menampilkan list Bidang
+Route::get('/List/Data/Bidang', 'BidangController@getBidang');
+//Route untuk menghapus bidang
+Route::get('/Hapus/Data/Bidang/{id}', 'BidangController@deleteData');
+//*
 
 Route::get('/', function () {
     return view('welcome');
