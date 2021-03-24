@@ -33,10 +33,10 @@
                 @foreach ($listUser as $user)
                 <tr>
                     <th scope="row">1</th>
-                    <td>{{$user->name}}</td>
+                    <td>{{$user->username}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->phone}}</td>
-                    <td>{{$user->Bidang->name}}</td>
+                    <td>{{$user->bidang->name}}</td>
                     <td>
                         <a href="#"><button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="	fa fa-edit"></i></button></a>
                         <a href="#"><button class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fa fa-trash"></i></button></a>
