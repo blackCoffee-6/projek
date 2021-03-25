@@ -24,6 +24,8 @@ Route::get('/login', function () {
 });
 //Route untuk menampilkan list data user
 Route::get('/List/Data/User', 'userController@getListUser');
+//Route untuk menghapus user
+Route::get('/Hapus/Data/User{id}', 'userController@deleteUser');
 //*
 
 //----- Route Bidang ------//

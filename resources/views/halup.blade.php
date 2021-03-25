@@ -33,7 +33,7 @@
                     </td>
                     <td>04/USL/IV/2020</td>
                     <td>
-                        <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="datepicker" name="tanggal">
+                        <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="datepicker" name="date_usulan">
                     </td>
                 </tr>
                 </tbody>
@@ -48,7 +48,7 @@
                     <tr>
                         <td>
                             <select class="form-control" id="inputGroupSelect01" name="produk">
-                                <option selected>Choose...</option>
+                                <option value="">Pilih...</option>
                                 @foreach($product as $pro)
                                     <option value="{{$pro->id}}">{{$pro->name}}</option>
                                 @endforeach
@@ -64,7 +64,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="kondisi"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ket_ketentuan"></textarea>
                         </td>
                     </tr>
                 </tbody>
@@ -77,7 +77,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="up"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ket_usulan"></textarea>
                     </td>
                 </tr>
                 </tbody>
@@ -89,7 +89,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="alasan"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ket_alasan"></textarea>
                         </td>
                     </tr>
                 </tbody>
@@ -100,12 +100,12 @@
                     <tr>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="sementara">
-                                <label class="form-check-label" for="inlineRadio1">Sementara</label>
+                                <input class="form-check-input" type="radio" name="ch_sifat" id="sementara" value="sementara">
+                                <label class="form-check-label" for="sementara">Sementara</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="tetap">
-                                <label class="form-check-label" for="inlineRadio2">Tetap</label>
+                                <input class="form-check-input" type="radio" name="ch_sifat" id="tetap" value="tetap">
+                                <label class="form-check-label" for="tetap">Tetap</label>
                             </div>
                         </td>
                     </tr>
@@ -129,16 +129,16 @@
                 <tbody>
                     <tr>
                         <td>
-                            <input class="form-control" type="text" name="asman">
+                            <input class="form-control" type="text" name="pic_asman">
                         </td>
                         <td>
-                            <input class="form-control" type="text" name="nama-usulan">
+                            <input class="form-control" type="text" name="pic_nama">
                         </td>
                         <td>
-                            <!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd"></textarea> -->
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                         </td>
                         <td>
-                            <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="example-date-input" name="tanggal">
+                            <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="example-date-input" name="pic_date">
                         </td>
                     </tr>
                 </tbody>
@@ -153,16 +153,16 @@
                 <tbody>
                     <tr>
                         <td>
-                            <input class="form-control" type="text" name="asman">
+                            <input class="form-control" type="text" name="cip_manager">
                         </td>
                         <td>
-                            <input class="form-control" type="text" name="nama-usulan">
+                            <input class="form-control" type="text" name="cip_nama">
                         </td>
                         <td>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                         </td>
                         <td>
-                            <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="example-date-input" name="tanggal">
+                            <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="example-date-input" name="cip_date">
                         </td>
                     </tr>
                 </tbody>
@@ -183,16 +183,16 @@
                 <tbody>
                     <tr>
                         <td>
-                            <input class="form-control" type="text" name="asman">
+                            <input class="form-control" type="text" name="qa_asman">
                         </td>
                         <td>
-                            <input class="form-control" type="text" name="nama-usulan">
+                            <input class="form-control" type="text" name="qa_nama">
                         </td>
                         <td>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                         </td>
                         <td>
-                            <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="example-date-input" name="tanggal">
+                            <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="example-date-input" name="qa_date">
                         </td>
                     </tr>
                 </tbody>
@@ -205,11 +205,11 @@
                     <tr>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="radio1" id="tidak" value="tidak">
+                                <input class="form-check-input" type="radio" name="bidang_tidak" id="tidak" value="tidak">
                                 <label class="form-check-label" for="tidak">Tidak</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="radio1" id="perlu" value="perlu" re>
+                                <input class="form-check-input" type="radio" name="bidang_perlu" id="perlu" value="perlu">
                                 <label class="form-check-label" for="perlu">Perlu, dari Bidang :</label>
                             </div>
                         </td>

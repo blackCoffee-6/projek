@@ -39,7 +39,7 @@
                     <td>{{$user->Bidang->name}}</td>
                     <td>
                         <a href="#"><button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="	fa fa-edit"></i></button></a>
-                        <a href="#"><button class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fa fa-trash"></i></button></a>
+                        <a href="/Hapus/Data/User{{$user->id}}"><button class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fa fa-trash"></i></button></a>
                     </td>
                 </tr>
                 @endforeach

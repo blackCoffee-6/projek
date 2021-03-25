@@ -43,13 +43,6 @@ class userController extends Controller
         if($validated->fails()) return redirect()->back()->withInput($request->all())->withErrors($validated->errors());
 
         try{
-            // User::insert(array(
-            //     'Username' => $request->name,
-            //     'Email' => $request->email,
-            //     'Phone' => $request->phone,
-            //     'Password' => bcrypt($request->password),
-            //     'Bidang' => $request->bidang
-            // ));
             $user = new User;
             $user->username = $request->name;
             $user->email = $request->email;
@@ -67,8 +60,30 @@ class userController extends Controller
         }
     }
 
+    //untuk menampilkan bidang yang ada pada register.blade
     public function getBidang(){
         $bidang = Bidang::all();
         return view('auth.register', ['bidang'=>$bidang]);
+    }
+
+    //untuk menghapus user
+    public function deleteUser($id){
+        $user = User::where('id', $id)->first();
+        $user->delete();
+
+        return redirect()->back();
+    }
+
+    //untuk mengupdate data user
+    public function updateUser(Request $request, $id){
+        $user = User::all();
+        $user = User::find($id);
+
+        $user->username = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->save();
+
+        return view('listUser', compact('user'));
     }
 }

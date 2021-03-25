@@ -6,6 +6,7 @@ use App\FUP;
 use App\Product;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FUPController extends Controller
 {
@@ -18,12 +19,10 @@ class FUPController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
-
-        // FUP::create([
+        FUP::create([
+            'ket_ketentuan' => $request->ket_ketentuan,
             // 'no_usulan' => $request-> nousulan,
             // 'date' => $request-> nousulan,
-            // 'ket_ketentuan' => $request-> nousulan ,
             // 'ket_usulan' => $request-> nousulan,
             // 'ket_alasan' => $request-> nousulan,
             // 'ch_sifat' => $request-> nousulan,
@@ -39,8 +38,8 @@ class FUPController extends Controller
             // 'tanggapan' => $request-> nousulan,
             // 'bidang' => $request-> nousulan,
             // 'file' => $request-> nousulan
-        // ]);
-
+        ]);
+        dd($request);
         //atau
 
         // FUP::create($request->all());

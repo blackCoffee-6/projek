@@ -45,7 +45,7 @@
         }
         
         /* Style sidebar links */
-        .sidebar a {
+        .sidebar a, .dropdown-btn {
           padding: 6px 8px 6px 16px;
           text-decoration: none;
           font-size: 20px;
@@ -54,10 +54,16 @@
         }
         
         /* Style links on mouse-over */
-        .sidebar a:hover {
+        .sidebar a:hover, .dropdown-btn:hover {
           color: #f1f1f1;
         }
         
+        .dropdown-container {
+        display: none;
+        background-color: #262626;
+        padding-left: 8px;
+        }
+
         /* Style the main content */
         .main {
           margin-left: 160px; /* Same as the width of the sidenav */
