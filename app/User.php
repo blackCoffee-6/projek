@@ -39,9 +39,9 @@ class User extends Authenticatable
         return $this->hasMany(FUP::class);
     }
 
-    public function Bidang(){
-        return $this->hasOne(Bidang::class, 'bidang_id');
-    }
+    // public function Bidang(){
+    //     return $this->belongsTo(Bidang::class, 'bidang_id');
+    // }
 
     protected $table = "users";
 }

@@ -14,16 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//-----Route User----//
 //Route untuk register
 Route::post('/SubmitRegistration', 'userController@Register');
 Route::get('/registerview', 'userController@getBidang');
-
 //Route untuk melihat register dan login page
 Route::get('/login', function () {
     return view('/login');
 });
-//*
-
 //Route untuk menampilkan list data user
 Route::get('/List/Data/User', 'userController@getListUser');
 //*
