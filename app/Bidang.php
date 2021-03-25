@@ -10,7 +10,7 @@ class Bidang extends Model
     protected $table = "bidangs";
 
     public function User(){
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class);
     }
 
     public function FUP(){

@@ -53,9 +53,6 @@ Route::get('/control', function () {
     return view('control');
 });
 
-Route::get('/usulan', function () {
-    return view('halup');
-});
 
 Route::get('/tanggapan', function () {
     return view('tanggapan');
@@ -77,6 +74,10 @@ Route::get('/lihat-data', function () {
     return view('baca-approve');
 });
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/usulan', 'FUPController@show');
+Route::post('/usulan/store', 'FUPController@store');

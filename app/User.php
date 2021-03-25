@@ -38,10 +38,10 @@ class User extends Authenticatable
     public function FUP(){
         return $this->hasMany(FUP::class);
     }
-
-    // public function Bidang(){
-    //     return $this->belongsTo(Bidang::class, 'bidang_id');
-    // }
+    
+    public function Bidang(){
+        return $this->belongsTo(Bidang::class);
+    }
 
     protected $table = "users";
 }
