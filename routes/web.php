@@ -43,10 +43,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/approve', function () {
-    return view('approve');
-});
-
 Route::get('/create', function () {
     return view('create');
 });
@@ -76,9 +72,6 @@ Route::get('/list-up', function () {
     return view('list-usulan');
 });
 
-Route::get('/lihat-data', function () {
-    return view('baca-approve');
-});
 
 
 Auth::routes();
@@ -87,3 +80,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/usulan', 'FUPController@show');
 Route::post('/usulan/store', 'FUPController@store');
+
+Route::get('/approve', 'ApproveController@index');
+Route::get('/lihat-data/{id}', 'ApproveController@show');

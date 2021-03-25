@@ -19,30 +19,24 @@ class FUPController extends Controller
 
     public function store(Request $request)
     {
-        FUP::create([
-            'ket_ketentuan' => $request->ket_ketentuan,
-            // 'no_usulan' => $request-> nousulan,
-            // 'date' => $request-> nousulan,
-            // 'ket_usulan' => $request-> nousulan,
-            // 'ket_alasan' => $request-> nousulan,
-            // 'ch_sifat' => $request-> nousulan,
-            // 'pic_asman' => $request-> nousulan,
-            // 'pic_nama' => $request-> nousulan,
-            // 'pic_date' => $request-> nousulan,
-            // 'cip_manager' => $request-> nousulan,
-            // 'cip_nama' => $request-> nousulan,
-            // 'cip_date' => $request-> nousulan,
-            // 'qa_asman' => $request-> nousulan,
-            // 'qa_nama' => $request-> nousulan,
-            // 'qa_date' => $request-> nousulan,
-            // 'tanggapan' => $request-> nousulan,
-            // 'bidang' => $request-> nousulan,
-            // 'file' => $request-> nousulan
-        ]);
-        dd($request);
-        //atau
+        $user = Auth::user();
 
-        // FUP::create($request->all());
+        $request->request->add(['user_id' => $user->id]);
+        $request->request->add(['product_id' => $request->produk]);
+        $request->request->add(['bidang_id' => $user->Bidang->id]);
+        
+        
+        // dd($request->hasFile('image_uploded'));
+
+        if ($request->hasFile('file')){ 
+            $file = $request->file->getClientOriginalName() . '-' . time() . '.' . $request->file->extension();
+            $request->file->move(public_path('file'), $file);
+            // dd($image);
+         }
+         $request->request->add(['file' => $request->file->getClientOriginalName()]);
+        //  dd($request->all());
+
+        FUP::create($request->all());
         
         return view('/home');
         

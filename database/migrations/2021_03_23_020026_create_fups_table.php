@@ -19,10 +19,6 @@ class CreateFupsTable extends Migration
             $table->foreignId('user_id')->constrained()
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            
-            $table->foreignId('approval_id')->constrained()
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
 
             $table->foreignId('product_id')->constrained()
             ->onDelete('cascade')
@@ -32,9 +28,8 @@ class CreateFupsTable extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
             
-            $table->string('no_usulan');
+            $table->string('no_usulan')->nullable();
             $table->date('date');
-            $table->string('produk');
             $table->string('ket_ketentuan');
             $table->string('ket_usulan');
             $table->string('ket_alasan');
@@ -49,8 +44,7 @@ class CreateFupsTable extends Migration
             $table->string('qa_nama');
             $table->date('qa_date');
             $table->string('tanggapan');
-            $table->string('bidang');
-            $table->string('file');
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }

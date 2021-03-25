@@ -15,7 +15,7 @@
     Usulan Perubahan
     </h1>
     <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a>
-    <form action="/usulan/store" method="POST">
+    <form action="/usulan/store" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="container my-4">
             <table class="table table-bordered my-3">
@@ -33,7 +33,7 @@
                     </td>
                     <td>04/USL/IV/2020</td>
                     <td>
-                        <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="datepicker" name="date_usulan">
+                        <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="datepicker" name="date">
                     </td>
                 </tr>
                 </tbody>
@@ -205,11 +205,11 @@
                     <tr>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="bidang_tidak" id="tidak" value="tidak">
+                                <input class="form-check-input" type="radio" name="tanggapan" id="tidak" value="tidak">
                                 <label class="form-check-label" for="tidak">Tidak</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="bidang_perlu" id="perlu" value="perlu">
+                                <input class="form-check-input" type="radio" name="tanggapan" id="perlu" value="perlu">
                                 <label class="form-check-label" for="perlu">Perlu, dari Bidang :</label>
                             </div>
                         </td>

@@ -27,20 +27,11 @@
             <tbody>
             <tr>
                 <td>
-                    <select class="custom-select" id="ajuan" name="bidang">
-                        <option value="">Pilih</option>
-                        <option value="1">R&D</option>
-                        <option value="2">Produksi</option>
-                        <option value="3">Pemasaran</option>
-                        <option value="4">QC</option>
-                        <option value="5">Teknik</option>
-                        <option value="6">SCM</option>
-                        <option value="3">Pengadaan</option>
-                    </select>
+                    {{$fup->Bidang->name}}
                 </td>
                 <td>04/USL/IV/2020</td>
                 <td>
-                    <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="datepicker" name="tanggal">
+                    {{$fup->date}}
                 </td>
             </tr>
             </tbody>
@@ -54,12 +45,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <select class="custom-select" id="inputGroupSelect01" name="produk">
-                            <option selected>Choose...</option>
-                            <option value="1">Bahan</option>
-                            <option value="2">Mesin</option>
-                            <option value="3">Dokumen</option>
-                        </select>
+                        {{$fup->Product->name}}
                     </td>
                 </tr>
             </tbody>
@@ -71,7 +57,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="kondisi"></textarea>
+                        {{$fup->ket_ketentuan}}
                     </td>
                 </tr>
             </tbody>
@@ -84,7 +70,7 @@
         <tbody>
             <tr>
                 <td>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="up"></textarea>
+                    {{$fup->ket_usulan}}
                 </td>
             </tr>
             </tbody>
@@ -96,7 +82,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="alasan"></textarea>
+                        {{$fup->ket_alasan}}
                     </td>
                 </tr>
             </tbody>
@@ -106,14 +92,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Sementara</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tetap</label>
-                        </div>
+                        {{$fup->ch_sifat}}
                     </td>
                 </tr>
             </tbody>
@@ -136,16 +115,16 @@
             <tbody>
                 <tr>
                     <td>
-                        <input class="form-control" type="text" name="asman">
+                        {{$fup->pic_asman}}
                     </td>
                     <td>
-                        <input class="form-control" type="text" name="nama-usulan">
+                        {{$fup->pic_nama}}
                     </td>
                     <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="tanggal">
+                        {{$fup->pic_date}}
                     </td>
                 </tr>
             </tbody>
@@ -160,16 +139,16 @@
             <tbody>
                 <tr>
                     <td>
-                        <input class="form-control" type="text" name="asman">
+                        {{$fup->cip_manager}}
                     </td>
                     <td>
-                        <input class="form-control" type="text" name="nama-usulan">
+                        {{$fup->cip_nama}}
                     </td>
                     <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="tanggal">
+                        {{$fup->cip_date}}
                     </td>
                 </tr>
             </tbody>
@@ -190,16 +169,16 @@
             <tbody>
                 <tr>
                     <td>
-                        <input class="form-control" type="text" name="asman">
+                        {{$fup->qa_asman}}
                     </td>
                     <td>
-                        <input class="form-control" type="text" name="nama-usulan">
+                        {{$fup->qa_nama}}
                     </td>
                     <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="tanggal">
+                        {{$fup->qa_date}}
                     </td>
                 </tr>
             </tbody>
@@ -211,15 +190,9 @@
             <tbody>
                 <tr>
                     <td>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="radio1" id="tidak" value="tidak">
-                            <label class="form-check-label" for="tidak">Tidak</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="radio1" id="perlu" value="perlu" re>
-                            <label class="form-check-label" for="perlu">Perlu, dari Bidang :</label>
-                        </div>
+                        {{$fup->tanggapan}}
                     </td>
+                    @if($fup->tanggapan != "tidak")
                     <td>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
@@ -262,6 +235,7 @@
                             <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                         </div>
                     </td>
+                    @endif
                 </tr>
             </tbody>
         </table>
@@ -272,6 +246,7 @@
                 </tr>
             </thead>
             <tbody>
+            <form action="#" method="POST">
                 <tr>
                     <td>
                         <div class="form-check form-check-inline">
@@ -290,8 +265,9 @@
                 </tr>
             </tbody>
         </table>
-        <button type="button" class="btn btn-success my-2">Submit</button>
-        <a href="/home"><button type="button" class="btn btn-danger my-2 mx-2">Cancel</button></a>
+            <button type="button" class="btn btn-success my-2">Submit</button>
+        </form>
+        <a href="/home" type="button" class="btn btn-danger my-2 mx-2">Cancel</a>
     </div>
 </div>
 @endsection

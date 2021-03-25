@@ -36,40 +36,24 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($fup as $fup)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>IT</td>
+                    <th scope="row">{{$loop->iteration}}</th>
+                    <td>{{$fup->Bidang->name}}</td>
                     <td>04/USL/IV/2020</td>
-                    <td>07/04/2020</td>
+                    <td>{{$fup->date}}</td>
                     <td>
-                        Tanggapan
+                        {{$fup->ket_usulan}}
                     </td>
                     <td>
-                        <a href="/lihat-data"><button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</button></a>
+                        <a href="/lihat-data/{{$fup->id}}"><button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</button></a>
                     </td>
                     <td>Pending</td>
                 </tr>
+                @endforeach
                 </tbody>
             </table>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+            <!-- seharusnya pake pagination aja -->
         </div>
     </div>
 @endsection
