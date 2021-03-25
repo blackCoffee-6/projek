@@ -86,4 +86,11 @@ class userController extends Controller
 
         return view('listUser', compact('user'));
     }
+
+    //untuk menyalurkan controller ke blade edit user
+    public function connectDataUser($id){
+        $user = User::find($id);
+        return view('listUser', compact('user'));
+    }
+
 }
