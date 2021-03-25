@@ -100,11 +100,11 @@
                     <tr>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="sementara">
                                 <label class="form-check-label" for="inlineRadio1">Sementara</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="tetap">
                                 <label class="form-check-label" for="inlineRadio2">Tetap</label>
                             </div>
                         </td>
@@ -135,7 +135,7 @@
                             <input class="form-control" type="text" name="nama-usulan">
                         </td>
                         <td>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd"></textarea>
+                            <!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd"></textarea> -->
                         </td>
                         <td>
                             <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="example-date-input" name="tanggal">

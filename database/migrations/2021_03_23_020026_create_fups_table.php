@@ -14,15 +14,24 @@ class CreateFupsTable extends Migration
     public function up()
     {
         Schema::create('fups', function (Blueprint $table) {
-            $table->increments('id');
-            // $table->integer('user_id')->unsigned();
-            // $table->foreignId('user_id')->references('id')->on('users');
-            // $table->integer('approval_id')->unsigned();
-            // $table->foreignId('approval_id')->references('id')->on('approvals');
-            // $table->integer('bidang_id')->unsigned();
-            // $table->foreignId('bidang_id')->references('id')->on('bidangs');
-            // $table->integer('product_id')->unsigned();
-            // $table->foreignId('product_id')->references('id')->on('products');
+            $table->id();
+
+            $table->foreignId('user_id')->constrained()
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+            
+            $table->foreignId('approval_id')->constrained()
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->foreignId('product_id')->constrained()
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+            
+            $table->foreignId('bidang_id')->constrained()
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+            
             $table->string('no_usulan');
             $table->date('date');
             $table->string('produk');

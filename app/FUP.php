@@ -11,18 +11,18 @@ class FUP extends Model
     protected $guarded = ['id'];
 
     public function User(){
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class);
     }
 
     public function Approval(){
-        return $this->belongsTo(Approval::class, 'approval_id');
+        return $this->belongsTo(Approval::class);
     }
 
     public function Bidang(){
-        return $this->belongsTo(Bidang::class, 'bidang_id');
+        return $this->belongsTo(Bidang::class);
     }
 
     public function Product(){
-        return $this->belongsTo(Product::class, 'product_id');
+        return $this->belongsTo(Product::class);
     }
 }
