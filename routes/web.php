@@ -32,7 +32,7 @@ Route::get('/List/Data/User', 'userController@getListUser');
 //Route untuk menampilkan list Bidang
 Route::get('/List/Data/Bidang', 'BidangController@getBidang');
 //Route untuk menghapus bidang
-Route::get('/Hapus/Data/Bidang/{id}', 'BidangController@deleteData');
+Route::get('/Hapus/Data/Bidang/{id}', 'BidangController@destroy');
 //*
 
 Route::get('/', function () {

@@ -14,7 +14,7 @@ class CreateApprovalsTable extends Migration
     public function up()
     {
         Schema::create('approvals', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('approvalName');
             $table->string('password');
             $table->rememberToken();

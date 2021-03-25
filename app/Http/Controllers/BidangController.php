@@ -10,14 +10,16 @@ class BidangController extends Controller
     //untuk melihat list bidang
     public function getBidang(){
         $bidang = Bidang::all();
-        return view('/listBidang', ['bidang'=>$bidang]);
+        return view('/listBidang', compact('bidang'));
     }
 
     //untuk menghapus bidang
-    public function deleteData($id){
-        $bidang = new Bidang;
-        $bidang->deleteBidang($id);
-
-        return redirect('/listBidang');
+    public function destroy($id){
+        $bidang = Bidang::where('id',$id)->firstOrFail();
+        $bidang->delete();
+        if($bidang != null){
+            $bidang->delete();
+        }
+        return redirect()->back();
     }
 }
