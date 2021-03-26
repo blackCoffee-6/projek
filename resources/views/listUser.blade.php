@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'List User')
+
 @section('content')
 <div class="sidebar">
     <nav class="mt-2">
@@ -38,8 +40,8 @@
                     <td>{{$user->phone}}</td>
                     <td>{{$user->Bidang->name}}</td>
                     <td>
-                        <a href="#"><button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="	fa fa-edit"></i></button></a>
-                        <a href="/Hapus/Data/User{{$user->id}}"><button class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fa fa-trash"></i></button></a>
+                        <a href="/Edit/User/{{$user->id}}" class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fa fa-edit"></i></a>
+                        <a href="/Hapus/Data/User/{{$user->id}}" class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
                 @endforeach

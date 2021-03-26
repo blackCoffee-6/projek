@@ -65,32 +65,29 @@ class userController extends Controller
         $bidang = Bidang::all();
         return view('auth.register', ['bidang'=>$bidang]);
     }
-
-    //untuk menghapus user
-    public function deleteUser($id){
-        $user = User::where('id', $id)->first();
-        $user->delete();
-
-        return redirect()->back();
+    
+    //untuk menyalurkan controller ke blade edit user
+    public function edit($id){
+        $user = User::find($id);
+        return view('user.edit', compact('user'));
     }
 
     //untuk mengupdate data user
-    public function updateUser(Request $request, $id){
-        $user = User::all();
+    public function update(Request $request, $id){
         $user = User::find($id);
 
-        $user->username = $request->name;
+        $user->username = $request->username;
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->save();
 
-        return view('listUser', compact('user'));
+        return redirect('/List/Data/User');
     }
+    
+    //untuk menghapus user
+    public function destroy($id){
+        User::find($id)->delete(); 
 
-    //untuk menyalurkan controller ke blade edit user
-    public function connectDataUser($id){
-        $user = User::find($id);
-        return view('listUser', compact('user'));
+        return redirect()->back();
     }
-
 }
