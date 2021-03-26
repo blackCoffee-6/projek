@@ -71,7 +71,7 @@ class userController extends Controller
         $user = User::where('id', $id)->first();
         $user->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('failed', "User profil berhasil di hapus!");
     }
 
     //untuk mengupdate data user
@@ -84,13 +84,13 @@ class userController extends Controller
         $user->phone = $request->phone;
         $user->save();
 
-        return view('listUser', compact('user'));
+        return redirect('/List/Data/User')->with('alert', "Berhasil memperbarui profil user!");
     }
 
     //untuk menyalurkan controller ke blade edit user
     public function connectDataUser($id){
         $user = User::find($id);
-        return view('listUser', compact('user'));
+        return view('editUser', compact('user'));
     }
 
 }

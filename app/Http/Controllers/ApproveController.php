@@ -18,6 +18,12 @@ class ApproveController extends Controller
         return view('approve', compact('fup'));
     }
 
+    //untuk menampilkan list-usulan.blade.php
+    public function indexListFUP(){
+        $fup = FUP::all();
+        return view('list-usulan', compact('fup'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

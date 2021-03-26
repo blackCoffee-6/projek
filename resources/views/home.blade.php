@@ -77,7 +77,7 @@
                     <div class="card bg-c-blue order-card">
                         <div class="card-block">
                             <h5 class="m-b-20 text-center">Usulan Perubahan</h5>
-                            <a href="/list-up"><button type="button" class="btn btn-outline-light btn-block">Lihat</button></a>
+                            <a href="/List/Usulan Perubahan"><button type="button" class="btn btn-outline-light btn-block">Lihat</button></a>
                         </div>
                     </div>
                 </div>

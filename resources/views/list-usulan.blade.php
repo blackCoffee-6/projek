@@ -33,21 +33,23 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>IT</td>
-                    <td>04/USL/IV/2020</td>
-                    <td>07/04/2020</td>
-                    <td>
-                        Tanggapan
-                    </td>
-                    <td>12/05/2021</td>
-                    <td>Pending</td>
-                    <td>
-                        <a href="#"><button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="	fa fa-edit"></i></button></a>
-                        <a href="#"><button class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fa fa-trash"></i></button></a>
-                    </td>
-                </tr>
+                    @foreach ($fup as $fup)
+                    <tr>
+                        <th scope="row">{{$loop->iteration}}</th>
+                        <td>{{$fup->Bidang->name}}</td>
+                        <td>04/USL/IV/2020</td>
+                        <td>{{$fup->date}}</td>
+                        <td>
+                            {{$fup->ket_usulan}}
+                        </td>
+                        <td>12/05/2021</td>
+                        <td>Pending</td>
+                        <td>
+                            <a href="#"><button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="	fa fa-edit"></i></button></a>
+                            <a href="#"><button class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fa fa-trash"></i></button></a>
+                        </td>
+                    </tr>
+                    @endforeach
                 </tbody>
             </table>
             <nav aria-label="Page navigation example">

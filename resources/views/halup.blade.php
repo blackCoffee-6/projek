@@ -33,7 +33,7 @@
                     </td>
                     <td>04/USL/IV/2020</td>
                     <td>
-                        <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="datepicker" name="date">
+                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="datepicker" name="date">
                     </td>
                 </tr>
                 </tbody>
@@ -138,7 +138,7 @@
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                         </td>
                         <td>
-                            <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="example-date-input" name="pic_date">
+                            <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="example-date-input" name="pic_date">
                         </td>
                     </tr>
                 </tbody>
@@ -162,7 +162,7 @@
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                         </td>
                         <td>
-                            <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="example-date-input" name="cip_date">
+                            <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="example-date-input" name="cip_date">
                         </td>
                     </tr>
                 </tbody>
@@ -192,7 +192,7 @@
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                         </td>
                         <td>
-                            <input class="form-control" type="date" value="<?= date("m/d/Y"); ?>" id="example-date-input" name="qa_date">
+                            <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="example-date-input" name="qa_date">
                         </td>
                     </tr>
                 </tbody>

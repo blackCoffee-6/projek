@@ -45,7 +45,7 @@
                         Tanggapan
                     </td>
                     <td>
-                        <a href="#"><button class="btn btn-secondary my-2 my-sm-0" type="submit"><i class="fa fa-user-plus"></i>  Kajian</button></a>
+                        <a href="/tanggapan"><button class="btn btn-warning my-2 my-sm-0" type="submit"><i class="fa fa-user-plus"></i>  Tanggapi</button></a>
                     </td>
                     <td>Pending</td>
                 </tr>

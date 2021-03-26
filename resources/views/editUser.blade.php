@@ -19,10 +19,11 @@
 <div class="main">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8 text-center">
+            <div class="col-md-8">
                 <div class="card">
+                    <div class="card-header">{{ __('Edit User Profile') }}</div>
                     <div class="card-body">
-                        <form action="{{ url("/Update/User/{$user-id}")}}" method="post">
+                        <form action="{{ url("/Update/User/{$user->id}")}}" method="post">
                         @csrf
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -60,12 +61,27 @@
                             </div>
                         </div>
 
-                        <button class="btn btn-success">
-                            Update
-                        </button>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary" name="submit">
+                                    {{ __('Update') }}
+                                </button>
+                            </div>
+                        </div>
                         </form>
                     </div>
                 </div>
+                @if (session('failed'))
+                    <div class="alert alert-danger" role="alert">
+                        <button type="button" class="close" data-dismiss="alert">x</button>
+                        {{ session('failed')}}
+                    </div>
+                    @elseif (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        <button type="button" class="close" data-dismiss="alert">x</button>
+                        {{ session('status')}}
+                    </div>
+                @endif
             </div>
         </div>
     </div>

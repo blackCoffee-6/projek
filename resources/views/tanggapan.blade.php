@@ -142,10 +142,10 @@
                         <input class="form-control" type="text" name="asman">
                     </td>
                     <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="tanggal">
+                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="example-date-input" name="tanggal">
                     </td>
                 </tr>
             </tbody>
@@ -178,10 +178,10 @@
                         <input class="form-control" type="text" name="asman">
                     </td>
                     <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="tanggal">
+                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="example-date-input" name="tanggal">
                     </td>
                 </tr>
             </tbody>
@@ -214,10 +214,10 @@
                         <input class="form-control" type="text" name="asman">
                     </td>
                     <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="tanggal">
+                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="example-date-input" name="tanggal">
                     </td>
                 </tr>
             </tbody>
