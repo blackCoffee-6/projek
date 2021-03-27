@@ -30,18 +30,12 @@ class userController extends Controller
         ]);
         return $validated;
     }
-
-    //untuk melihat list user
-    public function getListUser(){
-        $listUser = User::all();
-        return view('/listUser', compact('listUser'));
-    }
-
+    
     //untuk memasukan form registrasi user kedalam database
     public function Register(Request $request){
         $validated = $this->validateRequest($request);
         if($validated->fails()) return redirect()->back()->withInput($request->all())->withErrors($validated->errors());
-
+        
         try{
             $user = new User;
             $user->username = $request->name;
@@ -59,13 +53,19 @@ class userController extends Controller
             return redirect('/registerview')->with('failed', "Terjadi Error saat melakukan Registrasi");
         }
     }
-
+    
     //untuk menampilkan bidang yang ada pada register.blade
     public function getBidang(){
         $bidang = Bidang::all();
-        return view('auth.register', ['bidang'=>$bidang]);
+        return view('auth.register', compact('bidang'));
     }
     
+    //untuk melihat list user
+    public function index(){
+        $listUser = User::all();
+        return view('user.index', compact('listUser'));
+    }
+
     //untuk menyalurkan controller ke blade edit user
     public function edit($id){
         $user = User::find($id);
@@ -81,13 +81,13 @@ class userController extends Controller
         $user->phone = $request->phone;
         $user->save();
 
-        return redirect('/List/Data/User');
+        return redirect('/user')->with('alert', "Berhasil memperbarui profil user!");
     }
     
     //untuk menghapus user
     public function destroy($id){
         User::find($id)->delete(); 
 
-        return redirect()->back();
+        return redirect()->back()->with('failed', "User profil berhasil di hapus!");
     }
 }

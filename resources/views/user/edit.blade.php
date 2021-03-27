@@ -16,15 +16,17 @@
     </nav>
 </div>
 
-<div class="main">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8 text-center">
-                <div class="card">
-                    <div class="card-body">
-                        <form action="/Update/User/{{$user->id}}" method="POST">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Edit User Profile</div>
+
+                <div class="card-body">
+                    <form method="POST" action="/user/{{$user->id}}">
                         @csrf
                         @method('PUT')
+
                         <div class="form-group row">
                             <label for="username" class="col-md-4 col-form-label text-md-right">Username</label>
                             <div class="col-md-6">
@@ -61,11 +63,25 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-success">
-                            Update
-                        </button>
-                        </form>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-success">
+                                    Update
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    @if (session('failed'))
+                    <div class="alert alert-danger" role="alert">
+                        <button type="button" class="close" data-dismiss="alert">x</button>
+                        {{ session('failed')}}
                     </div>
+                    @elseif (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        <button type="button" class="close" data-dismiss="alert">x</button>
+                        {{ session('status')}}
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>

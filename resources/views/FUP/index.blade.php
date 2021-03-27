@@ -16,8 +16,20 @@
         <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a>
         <div class="container my-4">
             <div class="input-group">
-                <a href="/usulan"><button class="btn btn-success"><i class="fa fa-plus-square"></i>   Buat Ulasan Perubahan</button></a> 
+                <a href="/FUP/create"><button class="btn btn-success"><i class="fa fa-plus-square"></i>   Buat Ulasan Perubahan</button></a> 
             </div>
+            
+            @if(session('alert'))
+            <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                {{ session('alert')}}
+            </div>
+            @elseif(session('failed'))
+            <div class="alert alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                {{ session('failed')}}
+            </div>
+            @endif
         
             <table class="table table-bordered my-3">
                 <thead>
@@ -33,21 +45,27 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>IT</td>
-                    <td>04/USL/IV/2020</td>
-                    <td>07/04/2020</td>
-                    <td>
-                        Tanggapan
-                    </td>
-                    <td>12/05/2021</td>
-                    <td>Pending</td>
-                    <td>
-                        <a href="#"><button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="	fa fa-edit"></i></button></a>
-                        <a href="#"><button class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fa fa-trash"></i></button></a>
-                    </td>
-                </tr>
+                    @foreach ($fup as $fup)
+                    <tr>
+                        <th scope="row">{{$loop->iteration}}</th>
+                        <td>{{$fup->Bidang->name}}</td>
+                        <td>04/USL/IV/2020</td>
+                        <td>{{$fup->date}}</td>
+                        <td>
+                            {{$fup->ket_usulan}}
+                        </td>
+                        <td>12/05/2021</td>
+                        <td>Pending</td>
+                        <td>
+                            <form action="/FUP/{{$fup->id}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                                <a href="/FUP/{{$fup->id}}/edit" class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fa fa-edit"></i></a>
+                                <button class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fa fa-trash"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
                 </tbody>
             </table>
             <nav aria-label="Page navigation example">
