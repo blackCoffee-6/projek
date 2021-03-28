@@ -1,20 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
-<div class="sidebar">
-    <nav class="mt-2">
-        <a href="/home"><i class="fa fa-fw fa-home"></i>Dashboard</a>
-        <a href="/usulan">Master Data</a>
-        <a href="#services">Transaksi</a>
-        <a href="/kajian">Report</a>
-    </nav>
-</div>
-
 <div class="main">
     <h1 class="display-5 mx-5 text-center">
     Usulan Perubahan
     </h1>
-    <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a>
+    <!-- <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a> -->
     <form action="/FUP/{{$fup->id}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')

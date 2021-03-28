@@ -28,10 +28,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/create', function () {
-    return view('create');
-});
-
 Route::get('/review', function () {
     return view('review');
 });
@@ -56,7 +52,10 @@ Route::get('/list-up', function () {
     return view('list-usulan');
 });
 
-
+// TEMPLATE BARU
+Route::get('/main', function () {
+    return view('layouts.main');
+});
 
 Auth::routes();
 
@@ -76,7 +75,6 @@ Route::resource('/user', 'userController');
 
 //----- Route Bidang ------//
 //Route untuk menampilkan list Bidang
-Route::get('/List/Data/Bidang', 'BidangController@getBidang');
+Route::get('/List/Data/Bidang', 'BidangController@index');
 //Route untuk menghapus bidang
 Route::get('/Hapus/Data/Bidang/{id}', 'BidangController@destroy');
-//-------------------------------------//

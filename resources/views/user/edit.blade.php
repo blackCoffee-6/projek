@@ -1,21 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('title', 'Edit User')
 
 @section('content')
-<!-- Sidebar -->
-<div class="sidebar">
-    <nav class="mt-2">
-        <a href="/home"><i class="fa fa-fw fa-home"></i>Dashboard</a>
-        <a href="/usulan">Master Data</a>
-        <a href="/tanggapan">Transaksi</a>
-        <a href="/kajian">Report</a>
-        <a href="/kontrol">Kontrol</a>
-        <a href="/List/Data/Bidang">Data Bidang</a>
-        <a href="/List/Data/User">Data User</a>
-    </nav>
-</div>
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

@@ -1,21 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
-<div class="sidebar">
-    <nav class="mt-2">
-        <a href="/home"><i class="fa fa-fw fa-home"></i>Dashboard</a>
-        <a href="/usulan">Master Data</a>
-        <a href="/tanggapan">Transaksi</a>
-        <a href="/kajian">Report</a>
-        <a href="/kontrol">Kontrol</a>
-    </nav>
-</div>
-
 <div class="main">
     <h1 class="display-5 mx-5 text-center">
         Kontrol Perubahan
     </h1>
-    <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a>
+    <!-- <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a> -->
     <div class="container my-4">
         <table class="table table-bordered">
             <tr>
