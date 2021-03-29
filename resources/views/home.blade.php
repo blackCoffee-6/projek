@@ -37,14 +37,14 @@
     <div class="card text-white bg-flat-color-5">
         <div class="card-body pb-0">
             <div class="dropdown float-right">
-                <a href="/approve" class="btn bg-transparent theme-toggle text-light">
+                <a href="/tanggapan" class="btn bg-transparent theme-toggle text-light">
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
             <h4 class="mb-0">
                 <span class="count">10468</span>
             </h4>
-            <p class="text-light">Menunggu Kajian</p>
+            <p class="text-light">Menunggu Tanggapan</p>
             <div class="chart-wrapper px-0" style="height:70px;" height="70">
                 <canvas id="widgetChart2"></canvas>
             </div>
@@ -55,7 +55,7 @@
     <div class="card text-white bg-flat-color-3">
         <div class="card-body pb-0">
             <div class="dropdown float-right">
-                <a href="/approve" class="btn bg-transparent theme-toggle text-light">
+                <a href="/kajian" class="btn bg-transparent theme-toggle text-light">
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
@@ -73,7 +73,7 @@
     <div class="card text-white bg-flat-color-4">
         <div class="card-body pb-0">
             <div class="dropdown float-right">
-                <a href="/approve" class="btn bg-transparent theme-toggle text-light">
+                <a href="/kontrol" class="btn bg-transparent theme-toggle text-light">
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
@@ -119,7 +119,7 @@
     </div>
 </div>
 <div class="col-sm-6 col-lg-3">
-    <div class="card text-white bg-flat-color-5">
+    <div class="card text-white bg-flat-color-3">
         <div class="card-body pb-0">
             <div class="dropdown float-right">
                 <a href="/create" class="btn bg-transparent theme-toggle text-light">
@@ -134,7 +134,7 @@
     </div>
 </div>
 <div class="col-sm-6 col-lg-3">
-    <div class="card text-white bg-flat-color-3">
+    <div class="card text-white bg-flat-color-4">
         <div class="card-body pb-0">
             <div class="dropdown float-right">
                 <a href="/review" class="btn bg-transparent theme-toggle text-light">
