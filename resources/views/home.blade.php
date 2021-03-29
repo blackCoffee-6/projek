@@ -122,7 +122,7 @@
     <div class="card text-white bg-flat-color-3">
         <div class="card-body pb-0">
             <div class="dropdown float-right">
-                <a href="/create" class="btn bg-transparent theme-toggle text-light">
+                <a href="/review" class="btn bg-transparent theme-toggle text-light">
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
