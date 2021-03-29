@@ -27,7 +27,7 @@
             <div class="alert alert-danger" role="alert">
                 <button type="button" class="close" data-dismiss="alert">x</button>
                 {{ session('failed')}}
-            </div>
+            </div>  
         @endif
         <table class="table table-bordered my-3">
             <thead>

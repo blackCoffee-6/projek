@@ -20,6 +20,6 @@ class BidangController extends Controller
         if($bidang != null){
             $bidang->delete();
         }
-        return redirect()->back();
+        return redirect()->back()->with('alert', "Berhasil menghapus bidang!");
     }
 }

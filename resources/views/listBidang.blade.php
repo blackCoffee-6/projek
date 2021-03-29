@@ -20,6 +20,12 @@
     </h1>
     <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a>
     <div class="container my-4">
+        @if(session('alert'))
+            <div class="alert alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                {{ session('alert')}}
+            </div>
+        @endif
         <table class="table table-bordered my-3">
             <thead>
                 <tr>
@@ -35,7 +41,7 @@
                     <th scope="row">{{$number}}</th>
                     <td>{{$job->name}}</td>
                     <td>
-                        <a href="/Hapus/Data/Bidang/{{$job->id}}"><button class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fa fa-trash"></i></button></a>
+                        <a href="/Hapus/Data/Bidang/{{$job->id}}"><button class="btn btn-danger my-2 my-sm-0" type="submit" onclick="return confirm('Apakah anda yakin?');"><i class="fa fa-trash"></i></button></a>
                     </td>
                 </tr>
                 <?php $number++ ?>
