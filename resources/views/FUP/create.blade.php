@@ -39,12 +39,19 @@
                 <tbody>
                     <tr>
                         <td>
-                            <select class="form-control" id="inputGroupSelect01" name="produk">
+                            <select class="form-control @error('title') is-invalid @enderror" name="produk">
                                 <option value="">Pilih...</option>
                                 @foreach($product as $pro)
-                                    <option value="{{$pro->id}}">{{$pro->name}}</option>
+                                <option value="{{$pro->id}}">{{$pro->name}}</option>
                                 @endforeach
                             </select>
+                            <label 
+                                @error('produk') 
+                                class="text-danger"
+                                @enderror>@error('produk')
+                                *{{ $message }}
+                                @enderror
+                            </label>
                         </td>
                     </tr>
                 </tbody>
@@ -57,6 +64,14 @@
                     <tr>
                         <td>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ket_ketentuan"></textarea>
+                            
+                            <label 
+                                @error('ket_ketentuan') 
+                                class="text-danger"
+                                @enderror>@error('ket_ketentuan')
+                                *{{ $message }}
+                                @enderror
+                            </label>
                         </td>
                     </tr>
                 </tbody>
@@ -70,6 +85,13 @@
                 <tr>
                     <td>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ket_usulan"></textarea>
+                        <label 
+                            @error('ket_usulan') 
+                            class="text-danger"
+                            @enderror>@error('ket_usulan')
+                            *{{ $message }}
+                            @enderror
+                        </label>
                     </td>
                 </tr>
                 </tbody>
@@ -82,6 +104,13 @@
                     <tr>
                         <td>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ket_alasan"></textarea>
+                            <label 
+                                @error('ket_alasan') 
+                                class="text-danger"
+                                @enderror>@error('ket_alasan')
+                                *{{ $message }}
+                                @enderror
+                            </label>                    
                         </td>
                     </tr>
                 </tbody>
@@ -99,6 +128,14 @@
                                 <input class="form-check-input" type="radio" name="ch_sifat" id="tetap" value="tetap">
                                 <label class="form-check-label" for="tetap">Tetap</label>
                             </div>
+                            <br>
+                            <label 
+                                @error('ch_sifat') 
+                                class="text-danger"
+                                @enderror>@error('ch_sifat')
+                                *{{ $message }}
+                                @enderror
+                            </label>
                         </td>
                     </tr>
                 </tbody>
@@ -122,15 +159,29 @@
                     <tr>
                         <td>
                             <input class="form-control" type="text" name="pic_asman">
+                            <label 
+                                @error('pic_asman') 
+                                class="text-danger"
+                                @enderror>@error('pic_asman')
+                                *{{ $message }}
+                                @enderror
+                            </label>
                         </td>
                         <td>
                             <input class="form-control" type="text" name="pic_nama">
+                            <label 
+                                @error('pic_nama') 
+                                class="text-danger"
+                                @enderror>@error('pic_nama')
+                                *{{ $message }}
+                                @enderror
+                            </label>                        
                         </td>
                         <td>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                         </td>
                         <td>
-                            <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="example-date-input" name="pic_date">
+                            <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="example-date-input" name="pic_date">                    
                         </td>
                     </tr>
                 </tbody>
@@ -146,9 +197,23 @@
                     <tr>
                         <td>
                             <input class="form-control" type="text" name="cip_manager">
+                            <label 
+                                @error('cip_manager') 
+                                class="text-danger"
+                                @enderror>@error('cip_manager')
+                                *{{ $message }}
+                                @enderror
+                            </label>                           
                         </td>
                         <td>
                             <input class="form-control" type="text" name="cip_nama">
+                            <label 
+                                @error('cip_nama') 
+                                class="text-danger"
+                                @enderror>@error('cip_nama')
+                                *{{ $message }}
+                                @enderror
+                            </label>                           
                         </td>
                         <td>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
@@ -176,9 +241,23 @@
                     <tr>
                         <td>
                             <input class="form-control" type="text" name="qa_asman">
+                            <label 
+                                @error('qa_asman') 
+                                class="text-danger"
+                                @enderror>@error('qa_asman')
+                                *{{ $message }}
+                                @enderror
+                            </label>                         
                         </td>
                         <td>
                             <input class="form-control" type="text" name="qa_nama">
+                            <label 
+                                @error('qa_nama') 
+                                class="text-danger"
+                                @enderror>@error('qa_nama')
+                                *{{ $message }}
+                                @enderror
+                            </label>                         
                         </td>
                         <td>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
@@ -204,6 +283,14 @@
                                 <input class="form-check form-check-inline" type="radio" name="tanggapan" id="perlu" value="perlu" onclick="document.getElementById('tanggapan2').style.display = 'block'">
                                 <label class="form-check-label" for="perlu">Perlu, dari Bidang :</label>
                             </div>
+                            <br><br>
+                            <label 
+                                @error('tanggapan') 
+                                class="text-danger"
+                                @enderror>@error('tanggapan')
+                                *{{ $message }}
+                                @enderror
+                            </label>                             
                         </td>
                         <td id="tanggapan2">
                             <x-input name="R&D" value="R&D"/>

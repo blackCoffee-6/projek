@@ -6,7 +6,7 @@ use App\User;
 use App\Bidang;
 use Exception;
 use Illuminate\Http\Request;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 
 class userController extends Controller
 {

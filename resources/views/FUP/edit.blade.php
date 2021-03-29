@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', 'Edit FUP')
+
 @section('content')
 <div class="main">
     <h1 class="display-5 mx-5 text-center">
@@ -40,7 +42,7 @@
                     <tr>
                         <td>
                             <select class="form-control" id="inputGroupSelect01" name="produk">
-                                <option>{{$fup->Product->name}}</option>
+                                <option value="{{$fup->Product->id}}">{{$fup->Product->name}}</option>
                                 @foreach($product as $pro)
                                     <option value="{{$pro->id}}">{{$pro->name}}</option>
                                 @endforeach
@@ -91,6 +93,7 @@
                 <tbody>
                     <tr>
                         <td>
+                            <input type="hidden" value="{{$fup->ch_sifat}}" id="sifat">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="ch_sifat" id="sementara" value="sementara">
                                 <label class="form-check-label" for="sementara">Sementara</label>
@@ -196,6 +199,7 @@
                 <tbody>
                     <tr>
                         <td>
+                            <input type="hidden" value="{{$fup->tanggapan}}" id="tanggapan">
                             <div class="form-check form-check-inline">
                                 <input class="form-check form-check-inline" type="radio" name="tanggapan" id="tidak" value="tidak" onclick="document.getElementById('tanggapan2').style.display = 'none'">
                                 <label class="form-check-label" for="tidak">Tidak</label>
@@ -206,6 +210,7 @@
                             </div>
                         </td>
                         <td id="tanggapan2">
+                            <input type="hidden" value="{{$fup->tanggapan2}}" id="hasil_tanggapan2">
                             <x-input name="R&D" value="R&D"/>
                             <x-input name="Produksi" value="Produksi"/>
                             <x-input name="Pemasaran" value="Pemasaran"/>
@@ -241,10 +246,26 @@
 
             <button type="submit" class="btn btn-success my-2">Update</button>
     </form>
-            <a href="/home" type="button" class="btn btn-danger my-2 mx-2">Cancel</a>
+            <a href="/home" id="test" type="button" class="btn btn-danger my-2 mx-2">Cancel</a>
         </div>
 
 <script>
+
+    var value = $('#sifat').val()
+    if(value === 'tetap'){
+        $("#tetap").attr('checked', 'checked');
+    }
+    else{
+        $("#sementara").attr('checked', 'checked');
+    }
+
+    var value = $('#tanggapan').val()
+    if(value === 'tidak'){
+        $("#tidak").attr('checked', 'checked');
+    }
+    else{
+        $("#perlu").attr('checked', 'checked');
+    }
 
 </script>
 
