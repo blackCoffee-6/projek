@@ -91,6 +91,13 @@ class FUPController extends Controller
 
     public function update(Request $request, $id)
     {
+        $validator = Validator::make($request->all(),[
+            'tanggapan2'=>'required'
+        ]);
+            
+        if ($validator->fails()) {
+            return back()->withErrors($validator->errors());
+        }
         $user = Auth::user();
 
         if ($request->hasFile('file')){ 
@@ -129,13 +136,13 @@ class FUPController extends Controller
             'status' => "Pending"
         ]);
 
-        return redirect('/FUP')->with('Success', "Usulan Updated Successfully!");
+        return redirect('/FUP')->with('alert', "Usulan Updated Successfully!");
     }
 
     public function destroy($id)
     {
         FUP::find($id)->delete(); 
 
-        return redirect('/FUP')->with('Success', "Usulan Deleted Successfully!");
+        return redirect('/FUP')->with('failed', "Usulan Deleted Successfully!");
     }
 }

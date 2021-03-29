@@ -1,16 +1,17 @@
 @extends('layouts.main')
 
+@section('title', 'List FUP')
+
 @section('content')
     <div class="main">
         <h1 class="display-5 mx-5">
             List Data Masuk Usulan Perubahan
         </h1>
         <div class="container my-4">
-            <div class="input-group">
+            <div class="input-group mb-4">
                 <a href="javascript:history.back()" class="btn btn-primary mx-1"><i class="fa fa-reply"></i></a>
                 <a href="/FUP/create"><button class="btn btn-success"><i class="fa fa-plus-square"></i>   Buat Ulasan Perubahan</button></a> 
             </div>
-            
             @if(session('alert'))
             <div class="alert alert-success" role="alert">
                 <button type="button" class="close" data-dismiss="alert">x</button>
