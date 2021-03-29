@@ -1,24 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.main')
+
+@section('title', 'Approve List')
 
 @section('content')
-    <div class="sidebar">
-        <nav class="mt-2">
-            <a href="#dashboard"><i class="fa fa-fw fa-home"></i>Dashboard</a>
-            <a href="#masterData">Master Data</a>
-            <a href="#services">Transaksi</a>
-            <a href="#clients">Report</a>
-        </nav>
-    </div>
     <div class="main">
         <h1 class="display-5 mx-5">
             List Data Entry Untuk Di Setujui
         </h1>
-        <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a>
+        <!-- <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a> -->
         <div class="container my-4">
             <div class="input-group">
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <a href="#"><button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i>  Cari</button></a>
+                    <a href="/FUP/"><button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i>  Cari</button></a>
                 </form>
                 <a href="#"><button class="btn btn-danger mx-3">Reset</button></a>    
             </div>
@@ -48,7 +42,9 @@
                     <td>
                         <a href="/lihat-data/{{$fup->id}}"><button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</button></a>
                     </td>
-                    <td>Pending</td>
+                    <td>
+                        <span class="badge rounded-pill bg-warning text-dark">{{$fup->status}}</span>
+                    </td> 
                 </tr>
                 @endforeach
                 </tbody>

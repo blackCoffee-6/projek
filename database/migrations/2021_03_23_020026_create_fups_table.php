@@ -44,7 +44,9 @@ class CreateFupsTable extends Migration
             $table->string('qa_nama');
             $table->date('qa_date');
             $table->string('tanggapan');
+            $table->string('tanggapan2')->nullable();
             $table->string('file')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

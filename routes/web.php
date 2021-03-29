@@ -24,29 +24,8 @@ Route::get('/login', function () {
     return view('/login');
 });
 
-//Route untuk menampilkan list data user
-Route::get('/List/Data/User', 'userController@getListUser');
-//Route untuk menghapus user
-Route::get('/Hapus/Data/User{id}', 'userController@deleteUser');
-//Route untuk menuju ke edit profil user
-Route::get('/Edit/User/{id}', 'userController@connectDataUser');
-//Route untuk mengupdate profil user
-Route::post('/Update/User/{id}', 'userController@updateUser');
-//-------------------------------------//
-
-//----- Route Bidang ------//
-//Route untuk menampilkan list Bidang
-Route::get('/List/Data/Bidang', 'BidangController@getBidang');
-//Route untuk menghapus bidang
-Route::get('/Hapus/Data/Bidang/{id}', 'BidangController@destroy');
-//-------------------------------------//
-
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('/create', function () {
-    return view('create');
 });
 
 Route::get('/review', function () {
@@ -56,7 +35,6 @@ Route::get('/review', function () {
 Route::get('/control', function () {
     return view('control');
 });
-
 
 Route::get('/tanggapan', function () {
     return view('tanggapan');
@@ -74,21 +52,29 @@ Route::get('/list-up', function () {
     return view('list-usulan');
 });
 
-
+// TEMPLATE BARU
+Route::get('/main', function () {
+    return view('layouts.main');
+});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 //-----Route Form Usulan Perubahan-----//
-//untuk mengambil dan menyimpan form usulan perubahan
-Route::get('/usulan', 'FUPController@show');
-Route::post('/usulan/store', 'FUPController@store');
+//untuk CRUD Usulan Perubahan
+Route::resource('FUP', 'FUPController');
 
 //untuk mengambil dan melihat data form usulan perubahan
 Route::get('/approve', 'ApproveController@index');
 Route::get('/lihat-data/{id}', 'ApproveController@show');
 
-//untuk mengambil dan melihat data form usulan perubahan pada list-usulan.blade
-Route::get('/List/Usulan Perubahan', 'ApproveController@indexListFUP');
-//-------------------------------------//
+//-----Route USER-----//
+//untuk CRUD User
+Route::resource('/user', 'userController');
+
+//----- Route Bidang ------//
+//Route untuk menampilkan list Bidang
+Route::get('/List/Data/Bidang', 'BidangController@index');
+//Route untuk menghapus bidang
+Route::get('/Hapus/Data/Bidang/{id}', 'BidangController@destroy');

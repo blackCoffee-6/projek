@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class BidangController extends Controller
 {
     //untuk melihat list bidang
-    public function getBidang(){
+    public function index(){
         $bidang = Bidang::all();
         return view('/listBidang', compact('bidang'));
     }
@@ -20,6 +20,6 @@ class BidangController extends Controller
         if($bidang != null){
             $bidang->delete();
         }
-        return redirect()->back()->with('alert', "Berhasil menghapus bidang!");
+        return redirect()->back()->with('failed', "Bidang berhasil di hapus!");
     }
 }

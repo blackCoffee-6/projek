@@ -1,20 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
-<div class="sidebar">
-    <nav class="mt-2">
-        <a href="/home"><i class="fa fa-fw fa-home"></i>Dashboard</a>
-        <a href="/usulan">Master Data</a>
-        <a href="#services">Transaksi</a>
-        <a href="/kajian">Report</a>
-    </nav>
-</div>
-
 <div class="main">
     <h1 class="display-5 mx-5 text-center">
     Usulan Perubahan
     </h1>
-    <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a>
+    <!-- <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a> -->
     <div class="container my-4">
         <table class="table table-bordered my-3">
             <thead>
@@ -195,44 +186,8 @@
                     @if($fup->tanggapan != "tidak")
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1">R&D</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">Produksi</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">Pemasaran</label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1">QC</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">Teknik</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1">SCM</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">Pengadaan</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="{{$fup->tanggapan2}}" checked disabled>
+                            <label class="form-check-label" for="inlineCheckbox1">{{$fup->tanggapan2}}</label>
                         </div>
                     </td>
                     @endif

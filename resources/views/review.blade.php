@@ -1,19 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
-    <div class="sidebar">
-        <nav class="mt-2">
-            <a href="#dashboard"><i class="fa fa-fw fa-home"></i>Dashboard</a>
-            <a href="#masterData">Master Data</a>
-            <a href="#services">Transaksi</a>
-            <a href="#clients">Report</a>
-        </nav>
-    </div>
     <div class="main">
         <h1 class="display-5 mx-5">
             List Kajian
         </h1>
-        <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a>
+        <!-- <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a> -->
         <div class="container my-4">
             <div class="input-group">
                 <form class="form-inline">

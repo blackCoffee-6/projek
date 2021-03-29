@@ -6,7 +6,7 @@ use App\User;
 use App\Bidang;
 use Exception;
 use Illuminate\Http\Request;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 
 class userController extends Controller
 {
@@ -30,18 +30,12 @@ class userController extends Controller
         ]);
         return $validated;
     }
-
-    //untuk melihat list user
-    public function getListUser(){
-        $listUser = User::all();
-        return view('/listUser', compact('listUser'));
-    }
-
+    
     //untuk memasukan form registrasi user kedalam database
     public function Register(Request $request){
         $validated = $this->validateRequest($request);
         if($validated->fails()) return redirect()->back()->withInput($request->all())->withErrors($validated->errors());
-
+        
         try{
             $user = new User;
             $user->username = $request->name;
@@ -59,38 +53,41 @@ class userController extends Controller
             return redirect('/registerview')->with('failed', "Terjadi Error saat melakukan Registrasi");
         }
     }
-
+    
     //untuk menampilkan bidang yang ada pada register.blade
     public function getBidang(){
         $bidang = Bidang::all();
-        return view('auth.register', ['bidang'=>$bidang]);
+        return view('auth.register', compact('bidang'));
+    }
+    
+    //untuk melihat list user
+    public function index(){
+        $listUser = User::all();
+        return view('user.index', compact('listUser'));
     }
 
-    //untuk menghapus user
-    public function deleteUser($id){
-        $user = User::where('id', $id)->first();
-        $user->delete();
-
-        return redirect()->back()->with('failed', "User profil berhasil di hapus!");
+    //untuk menyalurkan controller ke blade edit user
+    public function edit($id){
+        $user = User::find($id);
+        return view('user.edit', compact('user'));
     }
 
     //untuk mengupdate data user
-    public function updateUser(Request $request, $id){
-        $user = User::all();
+    public function update(Request $request, $id){
         $user = User::find($id);
 
-        $user->username = $request->name;
+        $user->username = $request->username;
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->save();
 
-        return redirect('/List/Data/User')->with('alert', "Berhasil memperbarui profil user!");
+        return redirect('/user')->with('alert', "Berhasil memperbarui profil user!");
     }
+    
+    //untuk menghapus user
+    public function destroy($id){
+        User::find($id)->delete(); 
 
-    //untuk menyalurkan controller ke blade edit user
-    public function connectDataUser($id){
-        $user = User::find($id);
-        return view('editUser', compact('user'));
+        return redirect()->back()->with('failed', "User profil berhasil di hapus!");
     }
-
 }
