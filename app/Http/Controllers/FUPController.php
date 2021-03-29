@@ -91,13 +91,6 @@ class FUPController extends Controller
 
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(),[
-            'tanggapan2'=>'required'
-        ]);
-            
-        if ($validator->fails()) {
-            return back()->withErrors($validator->errors());
-        }
         $user = Auth::user();
 
         if ($request->hasFile('file')){ 
