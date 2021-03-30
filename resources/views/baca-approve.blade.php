@@ -210,6 +210,7 @@
                 </tr>
             </tbody>
         </table>
+        @if($role == "approval")
         <table class="table table-bordered">
             <thead>
                 <tr>

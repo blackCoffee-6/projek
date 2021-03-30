@@ -29,5 +29,14 @@ class UserSeeder extends Seeder
             'email' => 'user@user.com',
             'password' => bcrypt('users')
         ]);
+
+        DB::table('users')->insert([
+            'username' => 'Approval',
+            'role' => 'approval',
+            'bidang_id' => '9',
+            'phone' => '0812345678',
+            'email' => 'approval@approval',
+            'password' => bcrypt('aprrovals')
+        ]);
     }
 }
