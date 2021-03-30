@@ -9,7 +9,6 @@
         </h1>
         <div class="container my-4">
             <div class="input-group mb-4">
-                <a href="javascript:history.back()" class="btn btn-primary mx-1"><i class="fa fa-reply"></i></a>
                 <a href="/FUP/create"><button class="btn btn-success"><i class="fa fa-plus-square"></i>   Buat Ulasan Perubahan</button></a> 
             </div>
             @if(session('alert'))
@@ -38,7 +37,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach ($fup as $fup)
+                    @foreach ($fups as $fup)
                     <tr>
                         <th scope="row">{{$loop->iteration}}</th>
                         <td>{{$fup->Bidang->name}}</td>
@@ -48,7 +47,7 @@
                             {{$fup->ket_usulan}}
                         </td>
                         <td>12/05/2021</td>
-                        <td>Pending</td>
+                        <td><span class="badge rounded-pill bg-warning text-dark">{{$fup->status}}</span></td>
                         <td>
                             <form action="/FUP/{{$fup->id}}" method="POST">
                             @csrf
@@ -61,25 +60,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+              {{ $fups->links() }}
         </div>
     </div>
 @endsection

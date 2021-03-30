@@ -24,9 +24,9 @@
                 </a>
             </div>
             <h4 class="mb-0">
-                <span class="count">10468</span>
+                <span class="count">{{$fup}}</span>
             </h4>
-            <p class="text-light">Menunggu Kajian</p>
+            <p class="text-light">Menunggu Disetujui</p>
             <div class="chart-wrapper px-0" style="height:70px;" height="70">
                 <canvas id="widgetChart1"></canvas>
             </div>
@@ -37,7 +37,7 @@
     <div class="card text-white bg-flat-color-5">
         <div class="card-body pb-0">
             <div class="dropdown float-right">
-                <a href="/tanggapan" class="btn bg-transparent theme-toggle text-light">
+                <a href="/List/Tanggapan" class="btn bg-transparent theme-toggle text-light">
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
@@ -112,7 +112,7 @@
                 </a>
             </div>
             <h4 class="mb-0">
-                <span class="count">10468</span>
+                <span class="count">{{$fup}}</span>
             </h4>
             <p class="text-light">Usulan Perubahan</p>
         </div>
@@ -129,7 +129,7 @@
             <h4 class="mb-0">
                 <span class="count">10468</span>
             </h4>
-            <p class="text-light">Kajian Perubahan</p>
+            <p class="text-light">Kajian</p>
         </div>
     </div>
 </div>

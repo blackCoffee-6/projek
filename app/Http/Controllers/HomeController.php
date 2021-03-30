@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\FUP;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $fup = FUP::all()->count();
+        // $tanggapan = ::all()->count();
+        // $kajian = ::all()->count();
+        // $perubahan = ::all()->count();
+        // $perubahan = ::all()->count();
+
+        return view('home', compact('fup'));
     }
 }

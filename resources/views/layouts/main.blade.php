@@ -47,8 +47,12 @@
                         <a href="/home"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <h3 class="menu-title">Menu</h3><!-- /.menu-title -->
-                    <li class="active">
-                        <a href="/FUP/create"> <i class="menu-icon fa fa-plus-square"></i>Master Data </a>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-plus-square"></i>Master Data</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-laptop"></i><a href="/List/Data/Bidang">Data Bidang </a></li>
+                            <li><i class="fa fa-group (alias)"></i><a href="/user">Badges</a></li>
+                        </ul>
                     </li>
                     <li class="active">
                         <a href="/tanggapan"> <i class="menu-icon fa fa-shopping-cart"></i>Transaksi </a>
@@ -58,12 +62,6 @@
                     </li>
                     <li class="active">
                         <a href="/kontrol"> <i class="menu-icon fa fa-gears (alias)"></i>Kontrol </a>
-                    </li>
-                    <li class="active">
-                        <a href="/List/Data/Bidang"> <i class="menu-icon fa fa-laptop"></i>Data Bidang </a>
-                    </li>
-                    <li class="active">
-                        <a href="/user"> <i class="menu-icon fa fa-group (alias)"></i>Data User </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -84,6 +82,7 @@
                 <div class="col-sm-7">
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                     <div class="header-left">
+                        <a href="javascript:history.back()" class="btn"><i class="fa fa-reply"></i></a>
                         <a href="/home">Home</a>
                     </div>
                 </div>

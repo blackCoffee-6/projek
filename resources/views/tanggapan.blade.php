@@ -1,3 +1,5 @@
+
+
 @extends('layouts.main')
 
 @section('content')
@@ -5,7 +7,6 @@
     <h1 class="display-5 mx-5 text-center">
         Tanggapan Bidang Atas Usulan Perubahan
     </h1>
-    <!-- <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a> -->
     <div class="container my-4">
         <table class="table table-bordered my-3">
             <thead>
