@@ -15,7 +15,11 @@ class CreateTanggapanTable extends Migration
     {
         Schema::create('tanggapan', function (Blueprint $table) {
             $table->id();
-            $table->string('fup_id');
+
+            $table->foreignId('fup_id')->constrained('fups')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
             $table->string('ch_regulasi');
             $table->string('ch_registrasi');
             $table->string('dok_perlukan');

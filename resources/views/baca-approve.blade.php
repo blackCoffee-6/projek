@@ -194,6 +194,7 @@
                 </tr>
             </tbody>
         </table>
+        @if($role == "approval")
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -220,6 +221,7 @@
                 </tr>
             </tbody>
         </table>
+        @endif
             <button type="button" class="btn btn-success my-2">Submit</button>
         </form>
         <a href="/home" type="button" class="btn btn-danger my-2 mx-2">Cancel</a>

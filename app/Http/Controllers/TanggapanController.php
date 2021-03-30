@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\FUP;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\FUP;
 
-class ApproveController extends Controller
+class TanggapanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -48,14 +47,7 @@ class ApproveController extends Controller
      */
     public function show($id)
     {
-        $auth = Auth::check();
-        $fup = FUP::find($id);
-        $role = 'Staff';
-
-        if($auth){
-            $role = Auth::user()->role;
-        }
-        return view('baca-approve', compact('fup', 'role'));
+        //
     }
 
     /**
