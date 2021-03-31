@@ -78,7 +78,13 @@ class ApproveController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = Auth::user();
+
+        if ($request->hasFile('file')){ 
+            $file = $request->file->getClientOriginalName() . '-' . time() . '.' . $request->file->extension();
+            $request->file->move(public_path('file'), $file);
+        }
+
     }
 
     /**

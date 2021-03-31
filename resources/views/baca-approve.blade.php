@@ -206,15 +206,15 @@
                 <tr>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <input class="form-check-input" type="radio" name="approve" id="Disetujui" value="option1">
                             <label class="form-check-label" for="inlineRadio1">Disetujui</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <input class="form-check-input" type="radio" name="approve" id="Ditolak" value="option2">
                             <label class="form-check-label" for="inlineRadio2">Tidak Setuju</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <input class="form-check-input" type="radio" name="approve" id="Revisi" value="option2">
                             <label class="form-check-label" for="inlineRadio2">Perlu Di Revisi</label>
                         </div>
                     </td>

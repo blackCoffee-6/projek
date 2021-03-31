@@ -3,6 +3,29 @@
 @section('content')
 <div class="main">
     <h1 class="display-5 mx-5 text-center">
+        Usulan Perubahan
+    </h1>
+    <div class="container my-4">
+        <table class="table table-bordered my-3">
+            <thead>
+                <tr>
+                    <th scope="col">A. Bidang yang Mengajukan :</th>
+                    <th scope="col">No</th>
+                    <th scope="col">Tanggal (Bulan/Tanggal/Tahun)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        {{$fup->Bidang->name}}
+                    </td>
+                    <td>04/USL/IV/2020</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h1 class="display-5 mx-5 text-center">
         Tanggapan Bidang Atas Usulan Perubahan
     </h1>
     <!-- <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a> -->

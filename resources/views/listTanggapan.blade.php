@@ -3,7 +3,7 @@
 @section('content')
     <div class="main">
         <h1 class="display-5 mx-5">
-            List Kajian
+            List Data Untuk Ditanggapi
         </h1>
         <!-- <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a> -->
         <div class="container my-4">
@@ -21,26 +21,28 @@
                     <th scope="col">No.</th>
                     <th scope="col">Nomor Usul</th>
                     <th scope="col">Bidang Usul</th>
-                    <th scope="col">Tanggal Pengkajian</th>
+                    <th scope="col">Tanggal Usulan</th>
                     <th scope="col">Usulan Perubahan</th>
                     <th scope="col">Aksi</th>
                     <th scope="col">Status</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>04/USL/IV/2020</td>
-                    <td>Produksi</td>
-                    <td>07/04/2020</td>
-                    <td>
-                        Mesin Cetak
-                    </td>
-                    <td>
-                        <a href="#"><button class="btn btn-info my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Baca</button></a>
-                    </td>
-                    <td>Waiting Review</td>
-                </tr>
+                  @foreach ($fup as $fup)
+                    <tr>
+                      <th scope="row">{{$loop->iteration}}</th>
+                      <td>04/USL/IV/2020</td>
+                      <td>{{$fup->Bidang->name}}</td>
+                      <td>{{$fup->date}}</td>
+                      <td>
+                          {{$fup->ket_usulan}}
+                      </td>
+                      <td>
+                          <a href="/Detail/Tanggapan/{{$fup->id}}"><button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-plus-square"></i>  Tanggapi</button></a>
+                      </td>
+                      <td>Menunggu Untuk di Tanggapi</td>
+                    </tr>
+                  @endforeach
                 </tbody>
             </table>
             <nav aria-label="Page navigation example">

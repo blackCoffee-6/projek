@@ -37,7 +37,7 @@
     <div class="card text-white bg-flat-color-5">
         <div class="card-body pb-0">
             <div class="dropdown float-right">
-                <a href="/tanggapan" class="btn bg-transparent theme-toggle text-light">
+                <a href="/List/Tanggapan" class="btn bg-transparent theme-toggle text-light">
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
