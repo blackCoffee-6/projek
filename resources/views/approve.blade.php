@@ -30,7 +30,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($fup as $fup)
+                @foreach($fups as $fup)
                 <tr>
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$fup->Bidang->name}}</td>
@@ -49,7 +49,7 @@
                 @endforeach
                 </tbody>
             </table>
-            <!-- seharusnya pake pagination aja -->
+            {{$fups->links()}}
         </div>
     </div>
 @endsection

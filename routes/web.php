@@ -32,6 +32,10 @@ Route::get('/review', function () {
     return view('review');
 });
 
+Route::get('/List/Tanggapan', function () {
+    return view('list-tanggapan');
+});
+
 Route::get('/control', function () {
     return view('control');
 });
@@ -68,6 +72,7 @@ Route::resource('FUP', 'FUPController');
 //untuk mengambil dan melihat data form usulan perubahan
 Route::get('/approve', 'ApproveController@index');
 Route::get('/lihat-data/{id}', 'ApproveController@show');
+Route::post('/approve/store', 'ApproveController@update');
 
 //-----Route USER-----//
 //untuk CRUD User

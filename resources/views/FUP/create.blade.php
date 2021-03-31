@@ -40,7 +40,7 @@
                     <tr>
                         <td>
                             <select class="form-control @error('title') is-invalid @enderror" name="produk">
-                                <option value="">Pilih...</option>
+                                <option>Pilih...</option>
                                 @foreach($product as $pro)
                                 <option value="{{$pro->id}}">{{$pro->name}}</option>
                                 @endforeach
@@ -63,7 +63,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ket_ketentuan"></textarea>
+                            <textarea class="form-control" rows="3" name="ket_ketentuan"></textarea>
                             
                             <label 
                                 @error('ket_ketentuan') 

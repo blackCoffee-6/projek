@@ -83,7 +83,15 @@
             <tbody>
                 <tr>
                     <td>
-                        {{$fup->ch_sifat}}
+                        <input type="hidden" value="{{$fup->ch_sifat}}" id="sifat">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="ch_sifat" id="sementara" value="sementara" disabled>
+                            <label class="form-check-label" for="sementara">Sementara</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="ch_sifat" id="tetap" value="tetap" disabled>
+                            <label class="form-check-label" for="tetap">Tetap</label>
+                        </div>
                     </td>
                 </tr>
             </tbody>
@@ -181,7 +189,15 @@
             <tbody>
                 <tr>
                     <td>
-                        {{$fup->tanggapan}}
+                        <input type="hidden" value="{{$fup->tanggapan}}" id="tanggapan">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check form-check-inline" type="radio" disabled name="tanggapan" id="tidak" value="tidak" onclick="document.getElementById('tanggapan2').style.display = 'none'">
+                            <label class="form-check-label" for="tidak">Tidak</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check form-check-inline" type="radio" disabled name="tanggapan" id="perlu" value="perlu" onclick="document.getElementById('tanggapan2').style.display = 'block'">
+                            <label class="form-check-label" for="perlu">Perlu, dari Bidang :</label>
+                        </div>
                     </td>
                     @if($fup->tanggapan != "tidak")
                     <td>
@@ -202,7 +218,9 @@
                 </tr>
             </thead>
             <tbody>
-            <form action="#" method="POST">
+            <form action="/approve/store" method="POST">
+                @csrf
+
                 <tr>
                     <td>
                         <div class="form-check form-check-inline">
@@ -221,10 +239,28 @@
                 </tr>
             </tbody>
         </table>
-        @endif
-            <button type="button" class="btn btn-success my-2">Submit</button>
+            <button type="submit" class="btn btn-success my-2">Submit</button>
         </form>
-        <a href="/home" type="button" class="btn btn-danger my-2 mx-2">Cancel</a>
+        <a href="/home" class="btn btn-danger my-2 mx-2">Cancel</a>
     </div>
+
+<script>
+    var value = $('#sifat').val()
+    if(value === 'tetap'){
+        $("#tetap").attr('checked', 'checked');
+    }
+    else{
+        $("#sementara").attr('checked', 'checked');
+    }
+
+    var value = $('#tanggapan').val()
+    if(value === 'tidak'){
+        $("#tidak").attr('checked', 'checked');
+    }
+    else{
+        $("#perlu").attr('checked', 'checked');
+    }
+
+</script>
 </div>
 @endsection

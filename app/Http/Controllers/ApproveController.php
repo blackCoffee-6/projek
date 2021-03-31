@@ -15,8 +15,8 @@ class ApproveController extends Controller
      */
     public function index()
     {
-        $fup = FUP::all();
-        return view('approve', compact('fup'));
+        $fups = FUP::paginate(5);
+        return view('approve', compact('fups'));
     }
 
     /**
@@ -76,7 +76,7 @@ class ApproveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $user = Auth::user();
 

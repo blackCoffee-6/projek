@@ -19,7 +19,7 @@ class CreateTanggapanTable extends Migration
             $table->foreignId('fup_id')->constrained('fups')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-
+            
             $table->string('ch_regulasi');
             $table->string('ch_registrasi');
             $table->string('dok_perlukan');

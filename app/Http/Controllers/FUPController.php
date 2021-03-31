@@ -78,8 +78,8 @@ class FUPController extends Controller
     //untuk menampilkan list-usulan.blade.php
     public function index()
     {
-        $fup = FUP::all();
-        return view('FUP.index', compact('fup'));
+        $fups = FUP::paginate(5);
+        return view('FUP.index', compact('fups'));
     }
 
     public function edit($id)
