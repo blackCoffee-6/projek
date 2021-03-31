@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\FUP;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class TanggapanController extends Controller
@@ -15,8 +16,10 @@ class TanggapanController extends Controller
      */
     public function index()
     {
-        $fup = FUP::all();
-        return view('listTanggapan', compact('fup'));
+        $user = Auth::user();
+        $fups = FUP::where('tanggapan', 'like', 'perlu')->get();
+
+        return view('list-tanggapan', compact('fups'));
     }
 
     /**

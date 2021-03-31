@@ -3,6 +3,7 @@
 @extends('layouts.main')
 
 @section('content')
+
 <div class="main">
     <h1 class="display-5 mx-5 text-center">
         Usulan Perubahan
@@ -11,18 +12,15 @@
         <table class="table table-bordered my-3">
             <thead>
                 <tr>
-                    <th scope="col">A. Bidang yang Mengajukan :</th>
-                    <th scope="col">No</th>
-                    <th scope="col">Tanggal (Bulan/Tanggal/Tahun)</th>
+                    <th scope="col">Usulan Perubahan</th>
+                    <th scope="col" hidden>04/USL/IV/2020</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>
-                        {{$fup->Bidang->name}}
+                        {{$fup->ket_usulan}}
                     </td>
-                    <td>04/USL/IV/2020</td>
-                    
                 </tr>
             </tbody>
         </table>

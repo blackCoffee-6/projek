@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\FUP;
+use App\Tanggapan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $fup = FUP::all()->count();
-        // $tanggapan = ::all()->count();
+        // $tanggapan = Tanggapan::all()->count();
         // $kajian = ::all()->count();
         // $perubahan = ::all()->count();
         // $perubahan = ::all()->count();
