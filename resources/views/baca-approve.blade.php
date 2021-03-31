@@ -220,7 +220,7 @@
                             
                             <x-input name="QC" value="QC"/>
                             <x-input name="Teknik" value="Teknik"/>
-
+                            
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
                                 <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">

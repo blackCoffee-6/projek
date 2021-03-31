@@ -40,9 +40,9 @@ Route::get('/control', function () {
     return view('control');
 });
 
-Route::get('/tanggapan', function () {
-    return view('tanggapan');
-});
+//-----Route Tanggapan-----//
+Route::get('/List/Tanggapan', 'TanggapanController@index');
+Route::get('/Detail/Tanggapan/{id}', 'TanggapanController@show');
 
 Route::get('/kajian', function () {
     return view('kajian');
