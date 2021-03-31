@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bidang;
 use App\FUP;
 use App\Product;
 use App\User;
@@ -17,12 +18,14 @@ class FUPController extends Controller
     {
         $user = User::all();
         $product = Product::all();
-        return view('FUP.create', compact('user','product'));
+        $bidang = Bidang::all();
+        return view('FUP.create', compact('user','product', 'bidang'));
     }
 
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
+            'bidang'=>'required',
             'produk'=>'required',
             'ket_ketentuan'=>'required',
             'ket_usulan'=>'required',

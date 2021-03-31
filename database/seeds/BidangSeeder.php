@@ -33,11 +33,5 @@ class BidangSeeder extends Seeder
         DB::table('bidangs')->insert([
             'name' => 'Pengadaan'
         ]);
-        DB::table('bidangs')->insert([
-            'name' => 'Admin'
-        ]);
-        DB::table('bidangs')->insert([
-            'name' => 'Approval'
-        ]);
     }
 }
