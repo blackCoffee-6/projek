@@ -28,6 +28,7 @@
                     <th scope="col">E-mail</th>
                     <th scope="col">Nomor Telepon</th>
                     <th scope="col">Bidang</th>
+                    <th scope="col">Level</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
@@ -39,6 +40,7 @@
                     <td>{{$user->email}}</td>
                     <td>{{$user->phone}}</td>
                     <td>{{$user->Bidang->name}}</td>
+                    <td>{{$user->role}}</td>
                     <td>
                         <form action="/user/{{$user->id}}" method="POST">
                         @csrf

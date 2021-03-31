@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'username' => 'admin',
             'role' => 'admin',
-            'bidang_id' => '8',
+            'bidang_id' => NULL,
             'phone' => '0812345678',
             'email' => 'admin@admin.com',
             'password' => bcrypt('admins')
@@ -32,11 +32,11 @@ class UserSeeder extends Seeder
 
         DB::table('users')->insert([
             'username' => 'Approval',
+            'bidang_id' => NULL,
             'role' => 'approval',
-            'bidang_id' => '9',
             'phone' => '0812345678',
             'email' => 'approval@approval.com',
-            'password' => bcrypt('aprrovals')
+            'password' => bcrypt('approval')
         ]);
     }
 }

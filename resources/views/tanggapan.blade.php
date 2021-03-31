@@ -6,14 +6,14 @@
 
 <div class="main">
     <h1 class="display-5 mx-5 text-center">
-        Usulan Perubahan
+        Tanggapan Bidang Atas Usulan Perubahan
     </h1>
     <div class="container my-4">
         <table class="table table-bordered my-3">
             <thead>
                 <tr>
                     <th scope="col">Usulan Perubahan</th>
-                    <th scope="col" hidden>04/USL/IV/2020</th>
+                    <th scope="col">No. Usulan</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,13 +21,11 @@
                     <td>
                         {{$fup->ket_usulan}}
                     </td>
+                    <td>04/USL/IV/2020</td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <h1 class="display-5 mx-5 text-center">
-        Tanggapan Bidang Atas Usulan Perubahan
-    </h1>
     <div class="container my-4">
         <table class="table table-bordered my-3">
             <thead>
