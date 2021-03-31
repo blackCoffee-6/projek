@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Approval;
 use App\FUP;
 use App\Product;
 use App\User;
@@ -79,7 +80,8 @@ class FUPController extends Controller
     public function index()
     {
         $fups = FUP::paginate(5);
-        return view('FUP.index', compact('fups'));
+        $app = Approval::all();
+        return view('FUP.index', compact('fups','app'));
     }
 
     public function edit($id)
@@ -97,12 +99,15 @@ class FUPController extends Controller
             $file = $request->file->getClientOriginalName() . '-' . time() . '.' . $request->file->extension();
             $request->file->move(public_path('file'), $file);
         }
+        // dd($request->tanggapan2);
         
         if($request->tanggapan != "tidak"){
+            if($request->tanggapan2 != null)
+
             $tanggapan2 = implode(',', $request->tanggapan2);
             $request->request->add(['tanggapan2' => $tanggapan2]);
         }
-        // dd($request->all()); 
+         
 
         FUP::findOrFail($id)->update([
             'user_id' => Auth::user()->id,  

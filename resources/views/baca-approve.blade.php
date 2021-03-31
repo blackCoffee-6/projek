@@ -8,7 +8,6 @@
     Usulan Perubahan
     </h1>
     <!-- <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a> -->
-    <form action="/FUP/{{$fup->id}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="container my-4">
@@ -228,9 +227,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                <form action="/approve/update/{{$fup->id}}" method="POST">
+                <form action="/store/{{$fup->id}}" method="post">
                     @csrf
-                    @method('PUT')
                     <tr>
                         <td>
                             <div class="form-check form-check-inline">
@@ -251,8 +249,8 @@
             </table>
             <button type="submit" class="btn btn-success my-2">Submit</button>
             <a href="/home" id="test" type="button" class="btn btn-danger my-2 mx-2">Cancel</a>
+            </form>
             @endif
-    </form>
         </div>
 
 <script>

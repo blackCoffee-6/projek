@@ -47,7 +47,13 @@
                             {{$fup->ket_usulan}}
                         </td>
                         <td>12/05/2021</td>
-                        <td><span class="badge rounded-pill bg-warning text-dark">{{$fup->status}}</span></td>
+                        <td>
+                        @foreach($app as $app)
+                        @if($app->decision == "setuju")
+                            <span class="badge rounded-pill {{($app->decision == "setuju") ? 'bg-success text-light' : 'bg-warning text-dark'}}">{{($app->decision == "setuju") ? 'Approved' : 'Not Approved'}}</span>
+                        @endif
+                        @endforeach
+                        </td>
                         <td>
                             <form action="/FUP/{{$fup->id}}" method="POST">
                             @csrf
