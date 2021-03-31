@@ -19,8 +19,8 @@ class ApproveController extends Controller
     public function index()
     {
         $fups = FUP::paginate(5);
-        $app = Approval::all();
-        return view('approve', compact('fups', 'app'));
+        $apps = Approval::all();
+        return view('approve', compact('fups', 'apps'));
     }
 
     /**

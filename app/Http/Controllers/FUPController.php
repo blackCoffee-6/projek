@@ -80,8 +80,8 @@ class FUPController extends Controller
     public function index()
     {
         $fups = FUP::paginate(5);
-        $app = Approval::all();
-        return view('FUP.index', compact('fups','app'));
+        $apps = Approval::all();
+        return view('FUP.index', compact('fups','apps'));
     }
 
     public function edit($id)

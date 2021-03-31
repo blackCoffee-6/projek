@@ -48,7 +48,7 @@
                         </td>
                         <td>12/05/2021</td>
                         <td>
-                        @foreach($app as $app)
+                        @foreach($apps as $app)
                         @if($app->decision == "setuju")
                             <span class="badge rounded-pill {{($app->decision == "setuju") ? 'bg-success text-light' : 'bg-warning text-dark'}}">{{($app->decision == "setuju") ? 'Approved' : 'Not Approved'}}</span>
                         @endif
