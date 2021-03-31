@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Approval;
 use App\FUP;
 use App\Product;
 use Illuminate\Http\Request;
@@ -18,7 +19,8 @@ class ApproveController extends Controller
     public function index()
     {
         $fups = FUP::paginate(5);
-        return view('approve', compact('fups'));
+        $app = Approval::all();
+        return view('approve', compact('fups', 'app'));
     }
 
     /**
@@ -37,9 +39,16 @@ class ApproveController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        // dd($request->decision);
+
+        $request->request->add(['fup_id' => $id]);
+
+        Approval::create($request->all());
+
+        Alert::success('Success', "Status Updated Successfully!");
+        return redirect('/home');
     }
 
     /**

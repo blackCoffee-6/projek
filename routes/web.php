@@ -72,6 +72,7 @@ Route::resource('FUP', 'FUPController');
 //untuk mengambil dan melihat data form usulan perubahan
 Route::get('/approve', 'ApproveController@index');
 Route::get('/lihat-data/{id}', 'ApproveController@edit');
+Route::post('/store/{id}', 'ApproveController@store');
 
 //-----Route USER-----//
 //untuk CRUD User

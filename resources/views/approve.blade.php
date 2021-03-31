@@ -25,8 +25,8 @@
                     <th scope="col">Nomor</th>
                     <th scope="col">Tanggal Usulan</th>
                     <th scope="col">Usulan Perubahan</th>
-                    <th scope="col">Aksi</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -40,13 +40,23 @@
                         {{$fup->ket_usulan}}
                     </td>
                     <td>
-                        <a href="/lihat-data/{{$fup->id}}"><button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</button></a>
-                    </td>
-                    <td>
-                        <span class="badge rounded-pill bg-warning text-dark">{{$fup->status}}</span>
+                        @foreach($app as $app)
+                        @if($app->decision == "setuju")
+                        <span class="badge rounded-pill {{($app->decision == "setuju") ? 'bg-success text-light' : 'bg-warning text-dark'}}">{{($app->decision == "setuju") ? 'Approved' : 'Not Approved'}}</span>
+                        @else
+                        none
+                        @endif
                     </td> 
+                    <td>
+                        @if($app->decision == "setuju")
+                        none
+                        @else
+                        <a href="/lihat-data/{{$fup->id}}"><button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</button></a>
+                        @endif
+                        @endforeach
+                    </td>
                 </tr>
-                @endforeach
+                    @endforeach
                 </tbody>
             </table>
             {{$fups->links()}}

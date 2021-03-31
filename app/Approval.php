@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Approval extends Model
 {
     protected $table = 'approvals';
-
+    protected $guarded = ['id'];
+    
     public function FUP(){
         return $this->hasMany(FUP::class);
     }
