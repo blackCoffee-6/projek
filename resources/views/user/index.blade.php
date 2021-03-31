@@ -40,8 +40,12 @@
                     <td>{{$user->phone}}</td>
                     <td>{{$user->Bidang->name}}</td>
                     <td>
-                        <a href="/user/{{$user->id}}/edit" class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fa fa-edit"></i></a>
-                        <a href="/user/{{$user->id}}" class="btn btn-danger my-2 my-sm-0" type="submit" onclick="return confirm('Apakah anda yakin?');"><i class="fa fa-trash"></i></a>
+                        <form action="/user/{{$user->id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                            <a href="/user/{{$user->id}}/edit" class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fa fa-edit"></i></a>
+                            <button class="btn btn-danger my-2 my-sm-0" type="submit" onclick="return confirm('Apakah anda yakin?');"><i class="fa fa-trash"></i></button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach

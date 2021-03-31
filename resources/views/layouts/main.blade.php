@@ -51,7 +51,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-plus-square"></i>Master Data</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-laptop"></i><a href="/List/Data/Bidang">Data Bidang </a></li>
-                            <li><i class="fa fa-group (alias)"></i><a href="/user">Badges</a></li>
+                            <li><i class="fa fa-group (alias)"></i><a href="/user">Data User </a></li>
                         </ul>
                     </li>
                     <li class="active">
@@ -90,7 +90,12 @@
                 <div class="col-sm-5">
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="/style/images/admin.jpg" alt="User Avatar">
+                            @php
+                                $user = Auth::user();
+                                $avatar_url = "https://ui-avatars.com/api/?background=random&name=" . $user->username;
+                            @endphp
+
+                            <img src="{{$avatar_url}}" alt="Foto Profile {{Auth::user()->username }}" class="user-avatar rounded-circle">
                         </a>
 
                         <div class="user-menu dropdown-menu">

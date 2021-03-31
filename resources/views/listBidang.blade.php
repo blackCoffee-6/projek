@@ -38,11 +38,7 @@
                     <th>{{$loop->iteration}}</th>
                     <td>{{$job->name}}</td>
                     <td>
-<<<<<<< HEAD
                         <a href="/Hapus/Data/Bidang/{{$job->id}}"><button class="btn btn-danger my-2 my-sm-0" type="submit" onclick="return confirm('Apakah anda yakin?');"><i class="fa fa-trash"></i></button></a>
-=======
-                        <a href="/Hapus/Data/Bidang/{{$job->id}}" class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fa fa-trash"></i></a>
->>>>>>> b56c09353bab313866bc34d1e12e8c5c9323a085
                     </td>
                 </tr>
                 @endforeach

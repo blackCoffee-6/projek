@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\FUP;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -29,7 +30,12 @@ class HomeController extends Controller
         // $kajian = ::all()->count();
         // $perubahan = ::all()->count();
         // $perubahan = ::all()->count();
+        $auth = Auth::check();
+        $role = 'Staff';
 
-        return view('home', compact('fup'));
+        if($auth){
+            $role = Auth::user()->role;
+        }
+        return view('home', compact('fup', 'role'));
     }
 }

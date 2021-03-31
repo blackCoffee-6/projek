@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
             'role' => 'approval',
             'bidang_id' => '9',
             'phone' => '0812345678',
-            'email' => 'approval@approval',
+            'email' => 'approval@approval.com',
             'password' => bcrypt('aprrovals')
         ]);
     }

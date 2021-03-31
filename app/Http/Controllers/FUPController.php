@@ -97,7 +97,7 @@ class FUPController extends Controller
             $file = $request->file->getClientOriginalName() . '-' . time() . '.' . $request->file->extension();
             $request->file->move(public_path('file'), $file);
         }
-
+        
         if($request->tanggapan != "tidak"){
             $tanggapan2 = implode(',', $request->tanggapan2);
             $request->request->add(['tanggapan2' => $tanggapan2]);

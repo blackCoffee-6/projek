@@ -57,23 +57,8 @@
                                 </button>
                             </div>
                         </div>
-<<<<<<< HEAD:resources/views/editUser.blade.php
                         </form>
                     </div>
-=======
-                    </form>
-                    @if (session('failed'))
-                    <div class="alert alert-danger" role="alert">
-                        <button type="button" class="close" data-dismiss="alert">x</button>
-                        {{ session('failed')}}
-                    </div>
-                    @elseif (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        <button type="button" class="close" data-dismiss="alert">x</button>
-                        {{ session('status')}}
-                    </div>
-                    @endif
->>>>>>> b56c09353bab313866bc34d1e12e8c5c9323a085:resources/views/user/edit.blade.php
                 </div>
             </div>
         </div>

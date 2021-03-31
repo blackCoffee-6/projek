@@ -71,12 +71,11 @@ Route::resource('FUP', 'FUPController');
 
 //untuk mengambil dan melihat data form usulan perubahan
 Route::get('/approve', 'ApproveController@index');
-Route::get('/lihat-data/{id}', 'ApproveController@show');
-Route::post('/approve/store', 'ApproveController@update');
+Route::get('/lihat-data/{id}', 'ApproveController@edit');
 
 //-----Route USER-----//
 //untuk CRUD User
-Route::resource('/user', 'userController');
+Route::resource('user', 'userController');
 
 //----- Route Bidang ------//
 //Route untuk menampilkan list Bidang

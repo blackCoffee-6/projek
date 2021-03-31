@@ -88,6 +88,6 @@ class userController extends Controller
     public function destroy($id){
         User::find($id)->delete(); 
 
-        return redirect()->back()->with('failed', "User profil berhasil di hapus!");
+        return redirect('/user')->with('failed', "User profil berhasil di hapus!");
     }
 }
