@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $fup = FUP::all()->count();
-        // $tanggapan = Tanggapan::all()->count();
+        $tanggapan = FUP::where('tanggapan2', 'like', 'perlu')->get()->count();
         // $kajian = ::all()->count();
         // $perubahan = ::all()->count();
         // $perubahan = ::all()->count();
@@ -37,6 +37,6 @@ class HomeController extends Controller
         if($auth){
             $role = Auth::user()->role;
         }
-        return view('home', compact('fup', 'role'));
+        return view('home', compact('fup', 'role', 'tanggapan'));
     }
 }

@@ -51,7 +51,9 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-plus-square"></i>Master Data</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-laptop"></i><a href="/List/Data/Bidang">Data Bidang </a></li>
+                            @if(Auth::user()->role == 'admin' | Auth::user()->role == 'approval')
                             <li><i class="fa fa-group (alias)"></i><a href="/user">Data User </a></li>
+                            @endif
                         </ul>
                     </li>
                     <li class="active">
@@ -102,7 +104,8 @@
                                 <a class="nav-link" href="#"><i class="fa fa- user"></i>{{Auth::user()->username}}</a>
 
                                 <hr>
-
+                                
+                                <a class="nav-link" href="/user/{{Auth::user()->id}}/edit"><i class="fa fa- user"></i>Update Profile</a>
                                 <a class="nav-link" href="{{ route('logout') }}" 
                                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">

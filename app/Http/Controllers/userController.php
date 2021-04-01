@@ -7,6 +7,7 @@ use App\Bidang;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
 class userController extends Controller
@@ -82,7 +83,8 @@ class userController extends Controller
         $user->phone = $request->phone;
         $user->save();
 
-        return redirect('/user')->with('alert', "Berhasil memperbarui profil user!");
+        Alert::success('Success', "Profile Updated Successfully!");
+        return redirect('/home');
     }
     
     //untuk menghapus user

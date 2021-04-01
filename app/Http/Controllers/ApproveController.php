@@ -20,7 +20,15 @@ class ApproveController extends Controller
     {
         $fups = FUP::paginate(5);
         $apps = Approval::all();
-        return view('approve', compact('fups', 'apps'));
+        $auth = Auth::check();
+        $product = Product::all();
+        $role = 'Staff';
+
+        if($auth){
+            $role = Auth::user()->role;
+        }
+        // dd($apps);
+        return view('approve', compact('fups', 'apps', 'role'));
     }
 
     /**
@@ -48,7 +56,7 @@ class ApproveController extends Controller
         Approval::create($request->all());
 
         Alert::success('Success', "Status Updated Successfully!");
-        return redirect('/home');
+        return redirect('/approve');
     }
 
     /**
@@ -70,8 +78,8 @@ class ApproveController extends Controller
      */
     public function edit($id)
     {
-        $auth = Auth::check();
         $fup = FUP::find($id);
+        $auth = Auth::check();
         $product = Product::all();
         $role = 'Staff';
 

@@ -17,9 +17,9 @@ class TanggapanController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $fups = FUP::where('tanggapan', 'like', 'perlu')->get();
+        $fups = FUP::where('tanggapan', 'like', 'perlu')->paginate(5);
 
-        return view('list-tanggapan', compact('fups'));
+        return view('list-tanggapan', compact('fups','user'));
     }
 
     /**

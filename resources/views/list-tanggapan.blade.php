@@ -26,9 +26,9 @@
           <th scope="col">Status</th>
         </tr>
       </thead>
-      @if(Auth::user()->bidang_id == 4)
-                <tbody>
-                  @foreach($fups as $fup)
+      <tbody>
+        @foreach($fups as $fup)
+        @if($user->bidang_id == $fup->bidang_id)
                 <tr>
                     <th>{{$loop->iteration}}</th>
                     <td>04/USL/IV/2020</td>
@@ -42,29 +42,12 @@
                     </td>
                     <td>Menunggu untuk di Tanggapi</td>
                 </tr>
+                @endif
                 @endforeach
                 </tbody>
             </table>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+            <!-- ADD PAGINATION -->
+            {{ $fups->links() }}
         </div>
     </div>
-    @endif
 @endsection

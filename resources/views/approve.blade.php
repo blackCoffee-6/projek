@@ -32,6 +32,7 @@
                 <tbody>
                 @foreach($fups as $fup)
                 <tr>
+                    @if(Auth::user()->id == $fup->user_id || Auth::user()->role == 'admin' || Auth::user()->role == 'approval')
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$fup->Bidang->name}}</td>
                     <td>04/USL/IV/2020</td>
@@ -40,23 +41,19 @@
                         {{$fup->ket_usulan}}
                     </td>
                     <td>
+                    <!-- logic masih salah, kalo belom di approve seharusnya status nya "pending", tapi ini malah ketiban sama status nya yg lain -->
                         @foreach($apps as $app)
-                            @if($app->decision != null)
-                                @if($app->decision == "setuju")
-                                <span class="badge rounded-pill {{($app->decision == "setuju") ? 'bg-success text-light' : 'bg-warning text-dark'}}">{{($app->decision == "setuju") ? 'Approved' : 'Not Approved'}}</span>
-                                @else
-                                none
-                                @endif
-                    </td> 
-                    <td>
-                                @if($app->decision != "setuju")
-                                <a href="/lihat-data/{{$fup->id}}"><button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</button></a>
-                                @else
-                                none
-                                @endif
+                            @if($app->fup_id == $fup->id)
+                                <span class="badge rounded-pill {{($app->decision == "setuju") ? 'bg-success text-light' : 'bg-warning text-dark'}}">{{($app->decision == "setuju") ? 'Approved' : 'Pending' }}</span>
+                            @else
+                            pending
                             @endif
                         @endforeach
+                    </td> 
+                    <td>
+                            <a href="/lihat-data/{{$fup->id}}" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
                     </td>
+                @endif
                 </tr>
                     @endforeach
                 </tbody>

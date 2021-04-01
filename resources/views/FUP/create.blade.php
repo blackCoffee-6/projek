@@ -22,11 +22,21 @@
                 <tr>
                     <td>
                         <select class="form-control @error('title') is-invalid @enderror" name="bidang">
-                            <option value="{{Auth::user()->Bidang->name}}">{{Auth::user()->Bidang->name}}</option>
-                            @foreach($bidang as $bidang)
-                            <option value="{{$bidang->id}}">{{$bidang->name}}</option>
-                            @endforeach
+                            @if(Auth::user()->bidang_id != null)
+                                <option value="{{Auth::user()->Bidang->id}}">{{Auth::user()->Bidang->name}}</option>
+                            @else
+                                @foreach($bidang as $bidang)
+                                <option value="{{$bidang->id}}">{{$bidang->name}}</option>
+                                @endforeach
+                            @endif
                         </select>
+                        <label 
+                            @error('bidang') 
+                            class="text-danger"
+                            @enderror>@error('bidang')
+                            *{{ $message }}
+                            @enderror
+                        </label>
                     </td>
                     <td>04/USL/IV/2020</td>
                     <td>

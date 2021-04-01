@@ -22,7 +22,7 @@
                 <tbody>
                 <tr>
                     <td>
-                        {{Auth::user()->Bidang->name}}
+                        {{$fup->Bidang->name}}
                     </td>
                     <td>04/USL/IV/2020</td>
                     <td>
