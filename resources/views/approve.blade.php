@@ -41,17 +41,23 @@
                         {{$fup->ket_usulan}}
                     </td>
                     <td>
-                    <!-- logic masih salah, kalo belom di approve seharusnya status nya "pending", tapi ini malah ketiban sama status nya yg lain -->
                         @foreach($apps as $app)
-                            @if($app->fup_id == $fup->id)
-                                <span class="badge rounded-pill {{($app->decision == "setuju") ? 'bg-success text-light' : 'bg-warning text-dark'}}">{{($app->decision == "setuju") ? 'Approved' : 'Pending' }}</span>
-                            @else
-                            pending
+                            @if($app->fup_id == $fup->id AND $app->decision == "setuju")
+                                    <span class="badge rounded-pill bg-success text-light">Approved</span>
+
+                                @elseif($app->fup_id == $fup->id AND $app->decision == "tidak")
+                                    <span class="badge rounded-pill bg-danger text-dark">Not Approved</span>
+                                    
+                                @elseif($app->fup_id == $fup->id AND $app->decision == "revisi")
+                                    <span class="badge rounded-pill bg-warning text-dark">Revisi</span>
                             @endif
                         @endforeach
                     </td> 
                     <td>
-                            <a href="/lihat-data/{{$fup->id}}" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
+                    <!-- logic masih salah, button belom mau tampil kalo status nya revisi, dan gamau hide kalo status nya tidak/setuju -->
+                    @foreach($apps as $app)
+                        <a href="/lihat-data/{{$fup->id}}" class="btn btn-success my-2 my-sm-0" type="submit" {{($app->decision == "setuju") ? 'hidden' : 'active'}}><i class="fa fa-folder"></i>  Lihat</a>
+                    @endforeach
                     </td>
                 @endif
                 </tr>

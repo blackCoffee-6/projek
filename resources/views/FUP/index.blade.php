@@ -49,10 +49,17 @@
                         </td>
                         <td>12/05/2021</td>
                         <td>
+                        <!-- logic masih salah, kalo belom di approve seharusnya status nya "pending", tapi ini malah ketiban sama status nya yg lain -->
                         @foreach($apps as $app)
-                        @if($app->decision == "setuju")
-                            <span class="badge rounded-pill {{($app->decision == "setuju") ? 'bg-success text-light' : 'bg-warning text-dark'}}">{{($app->decision == "setuju") ? 'Approved' : 'Not Approved'}}</span>
-                        @endif
+                            @if($app->fup_id == $fup->id AND $app->decision == "setuju")
+                                    <span class="badge rounded-pill bg-success text-light">Approved</span>
+
+                                @elseif($app->fup_id == $fup->id AND $app->decision == "tidak")
+                                    <span class="badge rounded-pill bg-danger text-dark">Not Approved</span>
+                                    
+                                @elseif($app->fup_id == $fup->id AND $app->decision == "revisi")
+                                    <span class="badge rounded-pill bg-warning text-dark">Revisi</span>
+                            @endif
                         @endforeach
                         </td>
                         <td>

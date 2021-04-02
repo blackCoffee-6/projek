@@ -50,9 +50,7 @@ class ApproveController extends Controller
     public function store(Request $request, $id)
     {
         // dd($request->decision);
-
         $request->request->add(['fup_id' => $id]);
-
         Approval::create($request->all());
 
         Alert::success('Success', "Status Updated Successfully!");
