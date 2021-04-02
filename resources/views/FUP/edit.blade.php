@@ -23,7 +23,12 @@
                 <tbody>
                 <tr>
                     <td>
-                        {{Auth::user()->Bidang->name}}
+                        <select class="form-control @error('title') is-invalid @enderror" name="bidang">
+                            <option value="{{Auth::user()->Bidang->name}}">{{Auth::user()->Bidang->name}}</option>
+                            @foreach($bidang as $bidang)
+                            <option value="{{$bidang->id}}">{{$bidang->name}}</option>
+                            @endforeach
+                        </select>
                     </td>
                     <td>04/USL/IV/2020</td>
                     <td>

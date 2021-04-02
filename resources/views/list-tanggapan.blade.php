@@ -26,7 +26,6 @@
           <th scope="col">Status</th>
         </tr>
       </thead>
-      @if(Auth::user()->bidang_id == 4)
                 <tbody>
                   @foreach($fups as $fup)
                 <tr>
@@ -66,5 +65,4 @@
               </nav>
         </div>
     </div>
-    @endif
 @endsection

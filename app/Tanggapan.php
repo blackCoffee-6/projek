@@ -11,6 +11,6 @@ class Tanggapan extends Model
     protected $guarded = ['id'];
 
     public function FUP(){
-        return $this->hasOne(FUP::class);
+        return $this->hasMany(FUP::class);
     }
 }

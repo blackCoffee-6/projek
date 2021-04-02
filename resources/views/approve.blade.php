@@ -41,7 +41,7 @@
                     </td>
                     <td>
                         @foreach($apps as $app)
-                            @if($app->decision != null)
+                            @if($app->fup_id == $fup->id)
                                 @if($app->decision == "setuju")
                                 <span class="badge rounded-pill {{($app->decision == "setuju") ? 'bg-success text-light' : 'bg-warning text-dark'}}">{{($app->decision == "setuju") ? 'Approved' : 'Not Approved'}}</span>
                                 @else
@@ -49,7 +49,7 @@
                                 @endif
                     </td> 
                     <td>
-                                @if($app->decision != "setuju")
+                                @if($app->decision == "setuju")
                                 <a href="/lihat-data/{{$fup->id}}"><button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</button></a>
                                 @else
                                 none

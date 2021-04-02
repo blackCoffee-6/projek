@@ -18,6 +18,7 @@ class TanggapanController extends Controller
     {
         $user = Auth::user();
         $fups = FUP::where('tanggapan', 'like', 'perlu')->get();
+        $fups = FUP::all();
 
         return view('list-tanggapan', compact('fups'));
     }
