@@ -28,7 +28,13 @@
       </thead>
       <tbody>
         @foreach($fups as $fup)
-        @if($user->bidang_id == $fup->bidang_id)
+        <!-- 
+        $user->bidang_id == $fup->tanggapan2 = user yang perlu tanggapan dari bidang lain, dan cuma bidang yg dipilih yang bisa liat
+        jadi tanggapan 2 cuma ambil id paling depan aja, kali 1,5 = berarti dia cuma ambil id 1 doang
+        jadi di list tanggapan buat bidang 5/teknik ga ketampil, karena tanggapan 2 cuma 
+        ambil id 1 doang.
+         -->
+        @if($user->bidang_id == $fup->tanggapan2 || Auth::user()->role == 'admin')
                 <tr>
                     <th>{{$loop->iteration}}</th>
                     <td>04/USL/IV/2020</td>

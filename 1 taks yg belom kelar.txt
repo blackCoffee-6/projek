@@ -3,20 +3,30 @@
 2. cara nampilin fups berdasarkan tanggapan 2, jadi kalo ada perlu tanggapan bidang
 	nanti bakal tampil di masing2 bidang [DONE]
 
-3. belom bisa sembunyiin button lihat, delete sama update, di index, sama approve blde.php
+3. add pagination di list-tanggapan [DONE]
 
-4. kalo bidang lain mau create form, tapi masih bisa milih bidang, berarti bidang lain bisa
-pura2 jadi bidang lain dong?
+4. belom benerin status di usulan perubahan [DONE]
 
-5. add pagination di list-tanggapan [DONE]
+5. sistem count untuk tanggapan
 
-6. belom benerin status di usulan perubahan
-
-7. sistem count untuk tanggapan
-
-8. nampilin menunggu di setujui : [DONE]
+6. nampilin menunggu di setujui : [DONE]
 	-user cuma bisa liat list menunggu di setujui berdasarkan sesama bidang
 	-admin dan approval bisa liat semua fup dari segala bidang
 
-9. kalo approval udah approved, status sebelumnya yang NONE
-itu ketimpa sama yang status yang udah approved
+7. list-tanggapan.blade :         
+	bidang sendiri mau usul bisa, atau dari bidang lain perlu tanggapan dari bidang ini bisa
+        berarti kalo mau nampilin fup yang perlu tanggapan dari bidang lain, isi checkbox nya itu id dari bidang masing2
+        tanyain ke jung, untuk menunggu tanggapan itu gimana?
+        @if($user->bidang_id == $fup->tanggapan2) [DONE]
+
+8. belom bisa sembunyiin button lihat, delete sama update, di index, sama approve blade.php
+
+9. kalo bidang lain mau create form, tapi masih bisa milih bidang, berarti bidang lain bisa
+pura2 jadi bidang lain dong? [DONE]
+
+10. create & store form tanggapan [DONE]
+- masih kendala di dokumen
+
+11. jadi tanggapan 2 cuma ambil id paling depan aja, kali 1,5 = berarti dia cuma ambil id 1 doang
+	jadi di list tanggapan buat bidang 5/teknik ga ketampil, karena tanggapan 2 cuma 
+	ambil id 1 doang.

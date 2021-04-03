@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\FUP;
-use App\User;
+use App\Tanggapan;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class TanggapanController extends Controller
 {
@@ -38,9 +39,14 @@ class TanggapanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $request->request->add(['fup_id' => $id]);
+        // dd($request->all());
+        Tanggapan::create($request->all());
+
+        Alert::success('Success', "Tanggapan Created Successfully!");
+        return redirect('/List/Tanggapan');
     }
 
     /**
@@ -58,6 +64,7 @@ class TanggapanController extends Controller
         if($auth){
             $role = Auth::user()->role;
         }
+
         return view('tanggapan', compact('fup', 'role'));
     }
 }

@@ -20,7 +20,8 @@ class FUPController extends Controller
         $user = User::all();
         $product = Product::all();
         $bidang = Bidang::all();
-        return view('FUP.create', compact('user','product', 'bidang'));
+        $bidang2 = Bidang::all();
+        return view('FUP.create', compact('user','product', 'bidang' , 'bidang2'));
     }
 
     public function store(Request $request)

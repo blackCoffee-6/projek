@@ -32,7 +32,7 @@
                 <tbody>
                 @foreach($fups as $fup)
                 <tr>
-                    @if(Auth::user()->id == $fup->user_id || Auth::user()->role == 'admin' || Auth::user()->role == 'approval')
+                    @if(Auth::user()->id == $fup->user_id || Auth::user()->bidang_id == $fup->bidang_id || Auth::user()->role == 'admin' || Auth::user()->role == 'approval')
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$fup->Bidang->name}}</td>
                     <td>04/USL/IV/2020</td>
@@ -55,9 +55,7 @@
                     </td> 
                     <td>
                     <!-- logic masih salah, button belom mau tampil kalo status nya revisi, dan gamau hide kalo status nya tidak/setuju -->
-                    @foreach($apps as $app)
-                        <a href="/lihat-data/{{$fup->id}}" class="btn btn-success my-2 my-sm-0" type="submit" {{($app->decision == "setuju") ? 'hidden' : 'active'}}><i class="fa fa-folder"></i>  Lihat</a>
-                    @endforeach
+                        <a href="/lihat-data/{{$fup->id}}" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
                     </td>
                 @endif
                 </tr>

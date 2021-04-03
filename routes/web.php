@@ -40,10 +40,6 @@ Route::get('/control', function () {
     return view('control');
 });
 
-//-----Route Tanggapan-----//
-Route::get('/List/Tanggapan', 'TanggapanController@index');
-Route::get('/Detail/Tanggapan/{id}', 'TanggapanController@show');
-
 Route::get('/kajian', function () {
     return view('kajian');
 });
@@ -83,3 +79,8 @@ Route::resource('user', 'userController');
 Route::get('/List/Data/Bidang', 'BidangController@index');
 //Route untuk menghapus bidang
 Route::get('/Hapus/Data/Bidang/{id}', 'BidangController@destroy');
+
+//-----Route Tanggapan-----//
+Route::get('/List/Tanggapan', 'TanggapanController@index');
+Route::get('/Detail/Tanggapan/{id}', 'TanggapanController@show');
+Route::post('/Store/Tanggapan/{id}', 'TanggapanController@store');
