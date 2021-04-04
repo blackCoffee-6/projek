@@ -10,6 +10,6 @@ class Approval extends Model
     protected $guarded = ['id'];
     
     public function FUP(){
-        return $this->hasMany(FUP::class);
+        return $this->hasOne(FUP::class);
     }
 }

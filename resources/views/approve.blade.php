@@ -32,6 +32,7 @@
                 <tbody>
                 @foreach($fups as $fup)
                 <tr>
+                    @if(Auth::user()->id == $fup->user_id || Auth::user()->role == 'admin' || Auth::user()->role == 'approval')
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$fup->Bidang->name}}</td>
                     <td>04/USL/IV/2020</td>
@@ -40,6 +41,7 @@
                         {{$fup->ket_usulan}}
                     </td>
                     <td>
+                    <!-- logic masih salah, kalo belom di approve seharusnya status nya "pending", tapi ini malah ketiban sama status nya yg lain -->
                         @foreach($apps as $app)
                             @if($app->fup_id == $fup->id)
                                 @if($app->decision == "setuju")
@@ -56,7 +58,11 @@
                                 @endif
                             @endif
                         @endforeach
+                    </td> 
+                    <td>
+                            <a href="/lihat-data/{{$fup->id}}" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
                     </td>
+                @endif
                 </tr>
                     @endforeach
                 </tbody>

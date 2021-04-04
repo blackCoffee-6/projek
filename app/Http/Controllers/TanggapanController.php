@@ -20,7 +20,7 @@ class TanggapanController extends Controller
         $fups = FUP::where('tanggapan', 'like', 'perlu')->get();
         $fups = FUP::all();
 
-        return view('list-tanggapan', compact('fups'));
+        return view('list-tanggapan', compact('fups','user'));
     }
 
     /**

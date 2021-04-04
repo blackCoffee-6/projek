@@ -1,0 +1,22 @@
+1.kalo belom dikasih approve gimana nampilin nya? [DONE]
+
+2. cara nampilin fups berdasarkan tanggapan 2, jadi kalo ada perlu tanggapan bidang
+	nanti bakal tampil di masing2 bidang [DONE]
+
+3. belom bisa sembunyiin button lihat, delete sama update, di index, sama approve blde.php
+
+4. kalo bidang lain mau create form, tapi masih bisa milih bidang, berarti bidang lain bisa
+pura2 jadi bidang lain dong?
+
+5. add pagination di list-tanggapan [DONE]
+
+6. belom benerin status di usulan perubahan
+
+7. sistem count untuk tanggapan
+
+8. nampilin menunggu di setujui : [DONE]
+	-user cuma bisa liat list menunggu di setujui berdasarkan sesama bidang
+	-admin dan approval bisa liat semua fup dari segala bidang
+
+9. kalo approval udah approved, status sebelumnya yang NONE
+itu ketimpa sama yang status yang udah approved

@@ -39,7 +39,13 @@
                     <td>{{$user->username}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->phone}}</td>
-                    <td>{{$user->Bidang->name}}</td>
+                    @if($user->bidang_id == null)
+                        <td>none</td>
+                    
+                    @else
+                        <td>{{$user->Bidang->name}}</td>
+                    
+                    @endif
                     <td>{{$user->role}}</td>
                     <td>
                         <form action="/user/{{$user->id}}" method="POST">

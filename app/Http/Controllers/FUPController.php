@@ -54,7 +54,7 @@ class FUPController extends Controller
 
         $request->request->add(['user_id' => $user->id]);
         $request->request->add(['product_id' => $request->produk]);
-        $request->request->add(['bidang_id' => $user->Bidang->id]);
+        $request->request->add(['bidang_id' => $request->bidang]);
         $request->request->add(['status' => "Pending"]);
         // dd($request->hasFile('image_uploded'));
 
@@ -84,7 +84,9 @@ class FUPController extends Controller
     {
         $fups = FUP::paginate(5);
         $apps = Approval::all();
-        return view('FUP.index', compact('fups','apps'));
+        $user = Auth::user();
+
+        return view('FUP.index', compact('fups','apps','user'));
     }
 
     public function edit($id)

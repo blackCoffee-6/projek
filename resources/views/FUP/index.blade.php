@@ -39,6 +39,7 @@
                 <tbody>
                     @foreach ($fups as $fup)
                     <tr>
+                        @if($user->id == $fup->user_id)
                         <th scope="row">{{$loop->iteration}}</th>
                         <td>{{$fup->Bidang->name}}</td>
                         <td>04/USL/IV/2020</td>
@@ -62,6 +63,7 @@
                                 <button class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fa fa-trash"></i></button>
                             </form>
                         </td>
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>
