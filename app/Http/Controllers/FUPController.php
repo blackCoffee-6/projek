@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Approval;
 use App\Bidang;
+use App\FUB;
 use App\FUP;
 use App\Product;
 use App\User;
@@ -20,7 +21,8 @@ class FUPController extends Controller
         $user = User::all();
         $product = Product::all();
         $bidang = Bidang::all();
-        return view('FUP.create', compact('user','product', 'bidang'));
+        $bidang2 = Bidang::all();
+        return view('FUP.create', compact('user','product', 'bidang' , 'bidang2'));
     }
 
     public function store(Request $request)
@@ -73,7 +75,25 @@ class FUPController extends Controller
             $request->request->add(['file' => ""]);            
         }
 
-        FUP::create($request->all());
+        $fup_id = FUP::create($request->all())->id;
+
+        if($request->tanggapan != "tidak"){
+            $arrTanggapan = explode(",",$tanggapan2);
+            if(count($arrTanggapan) > 1){
+                foreach($arrTanggapan as $tanggapan){
+                    FUB::create([
+                        'fup_id'=>$fup_id,
+                        'bidang_id'=>$tanggapan
+                    ]);
+                }
+            }
+            else{
+                FUB::create([
+                    'fup_id'=>$fup_id,
+                    'bidang_id'=>$request->tanggapan2
+                ]);
+            }
+        }
         
         Alert::success('Success', "Usulan Created Successfully!");
         return redirect('/home');
@@ -82,7 +102,7 @@ class FUPController extends Controller
     //untuk menampilkan list-usulan.blade.php
     public function index()
     {
-        $fups = FUP::paginate(5);
+        $fups = FUP::paginate(10);
         $apps = Approval::all();
         $user = Auth::user();
 

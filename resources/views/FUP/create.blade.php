@@ -22,8 +22,13 @@
                 <tr>
                     <td>
                         <select class="form-control @error('title') is-invalid @enderror" name="bidang">
+                        misal dari bidang R&D mau create fups, tapi dia pura2 jadi bidang Teknik bisa dong?
+                        <!-- seharusnya tampilin aja bidang dari user yg login, jadi ketauan siapa yang bikin dan dari bidang mana? -->
                             @if(Auth::user()->bidang_id != null)
                                 <option value="{{Auth::user()->Bidang->id}}">{{Auth::user()->Bidang->name}}</option>
+                                @foreach($bidang as $bidang)
+                                <option value="{{$bidang->id}}">{{$bidang->name}}</option>
+                                @endforeach
                             @else
                                 @foreach($bidang as $bidang)
                                 <option value="{{$bidang->id}}">{{$bidang->name}}</option>
@@ -308,29 +313,16 @@
                             </label>                             
                         </td>
                         <td id="tanggapan2">
-                            <x-input name="R&D" value="R&D"/>
-                            <x-input name="Produksi" value="Produksi"/>
-                            <x-input name="Pemasaran" value="Pemasaran"/>
-                            
-                            <hr>
-                            
-                            <x-input name="QC" value="QC"/>
-                            <x-input name="Teknik" value="Teknik"/>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            
-                            <hr>
-                            
-                            <x-input name="SCM" value="SCM"/>
-                            <x-input name="Pengadaan" value="Pengadaan"/>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
+                        <!-- seharusnya checkbox di looping, bidang name sama value nya bidang id
+                        jadi, kalo mau nampilin list yang memerlukan tanggapan gampang
+                        logic : jika user->bidang_id == tanggapan2, maka tampilkan list, jadinya misal bidang R&D mau kasih 
+                        tanggapan dia bakal liat fup yang memerlukan tanggapan R&D aja. -->
+                            @foreach($bidang2 as $bidang2)
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cb" name="tanggapan2[]" value="{{$bidang2->id}}">
+                                    <label class="form-check-label" for="inlineCheckbox1">{{$bidang2->name}}</label>
+                                </div>
+                            @endforeach
                         </td>
                     </tr>
                 </tbody>

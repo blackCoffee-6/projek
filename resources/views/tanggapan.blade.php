@@ -1,5 +1,3 @@
-
-
 @extends('layouts.main')
 
 @section('content')
@@ -26,6 +24,8 @@
             </tbody>
         </table>
     </div>
+    <form action="/Store/Tanggapan/{{$fup->id}}" method="POST">
+    @csrf
     <div class="container my-4">
         <table class="table table-bordered my-3">
             <thead>
@@ -36,7 +36,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="kondisi"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tg_rnd"></textarea>
                     </td>
                 </tr>
             </tbody>
@@ -51,15 +51,15 @@
                 <tr>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <input class="form-check-input" type="radio" name="ch_regulasi" value="1">
                             <label class="form-check-label" for="inlineRadio1">Perubahan dapat langsung dilaksanakan tanpa menunggu izin dari BPOM</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <input class="form-check-input" type="radio" name="ch_regulasi" value="2">
                             <label class="form-check-label" for="inlineRadio2">Perubahan perlu izin BPOM terlebih dahulu</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <input class="form-check-input" type="radio" name="ch_regulasi" value="3">
                             <label class="form-check-label" for="inlineRadio1">Perubahan telah disetujui BPOM</label>
                         </div>
                     </td>
@@ -74,15 +74,15 @@
                 <tr>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <input class="form-check-input" type="radio" name="ch_registrasi" value="major">
                             <label class="form-check-label" for="inlineRadio1">Major</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <input class="form-check-input" type="radio" name="ch_registrasi" value="minor">
                             <label class="form-check-label" for="inlineRadio2">Minor</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <input class="form-check-input" type="radio" name="ch_registrasi" value="notifikasi">
                             <label class="form-check-label" for="inlineRadio1">Notifikasi</label>
                         </div>
                     </td>
@@ -99,41 +99,41 @@
                         <td>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                  <span class="input-group-text" id="inputGroup-sizing-default">1</span>
+                                  <span class="input-group-text">1</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <input name="dok_perlukan" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                  <span class="input-group-text" id="inputGroup-sizing-default">2</span>
+                                  <span class="input-group-text">2</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <input name="dok_perlukan" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                  <span class="input-group-text" id="inputGroup-sizing-default">3</span>
+                                  <span class="input-group-text">3</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <input name="dok_perlukan" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                             </div>
                         </td>
                         <td>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                  <span class="input-group-text" id="inputGroup-sizing-default">4</span>
+                                  <span class="input-group-text">4</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <input name="dok_perlukan" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                  <span class="input-group-text" id="inputGroup-sizing-default">5</span>
+                                  <span class="input-group-text">5</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <input name="dok_perlukan" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                  <span class="input-group-text" id="inputGroup-sizing-default">6</span>
+                                  <span class="input-group-text">6</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <input name="dok_perlukan" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                             </div>
                         </td>
                     </tr>
@@ -150,13 +150,13 @@
             <tbody>
                 <tr>
                     <td>
-                        <input class="form-control" type="text" name="asman">
+                        <input class="form-control" type="text" name="tg_nama">
                     </td>
                     <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
+                        <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="example-date-input" name="tanggal">
+                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="tg_date">
                     </td>
                 </tr>
             </tbody>
@@ -170,7 +170,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="kondisi"></textarea>
+                        <textarea class="form-control" rows="3" name="gt_bidang"></textarea>
                     </td>
                 </tr>
             </tbody>
@@ -186,13 +186,13 @@
             <tbody>
                 <tr>
                     <td>
-                        <input class="form-control" type="text" name="asman">
+                        <input class="form-control" type="text" name="gt_nama">
                     </td>
                     <td>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="example-date-input" name="tanggal">
+                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="gt_date">
                     </td>
                 </tr>
             </tbody>
@@ -206,7 +206,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="kondisi"></textarea>
+                        <textarea class="form-control" rows="3" name="bidang_tg"></textarea>
                     </td>
                 </tr>
             </tbody>
@@ -222,19 +222,20 @@
             <tbody>
                 <tr>
                     <td>
-                        <input class="form-control" type="text" name="asman">
+                        <input class="form-control" type="text" name="nama_tg">
                     </td>
                     <td>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="example-date-input" name="tanggal">
+                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="date_tg">
                     </td>
                 </tr>
             </tbody>
         </table>
-        <button type="button" class="btn btn-success my-2">Submit</button>
-        <a href="/home"><button type="button" class="btn btn-danger my-2 mx-2">Cancel</button></a>
+        <button class="btn btn-success my-2">Submit</button>
+        <a href="/home" class="btn btn-danger my-2 mx-2">Cancel</a>
+        </form>
     </div>
 </div>
 @endsection

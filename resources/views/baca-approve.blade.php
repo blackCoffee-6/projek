@@ -212,7 +212,7 @@
                         <td>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" checked="checked" disabled>
-                                <label class="form-check-label" for="inlineCheckbox1">{{$fup->tanggapan2}}</label>
+                                <label class="form-check-label" for="inlineCheckbox1">{{$fup->Bidang->name}}</label>
                             </div>
                         </td>
                         @endif

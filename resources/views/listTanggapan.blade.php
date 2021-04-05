@@ -38,32 +38,15 @@
                           {{$fup->ket_usulan}}
                       </td>
                       <td>
-                          <a href="/Detail/Tanggapan/{{$fup->id}}"><button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-plus-square"></i>  Tanggapi</button></a>
+                          <a href="/Detail/Tanggapan/{{$fup->id}}"class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-plus-square"></i>  Tanggapi</a>
                       </td>
                       <td>Menunggu Untuk di Tanggapi</td>
                     </tr>
                   @endforeach
                 </tbody>
             </table>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+            <!-- ADD PAGINATION -->
         </div>
     </div>
+@include('sweetalert::alert')
 @endsection

@@ -111,7 +111,7 @@
                 </a>
             </div>
             <h4 class="mb-0">
-                <span class="count">{{$fup}}</span>
+                <span class="count">{{$usul}}</span>
             </h4>
             <p class="text-light">Usulan Perubahan</p>
         </div>

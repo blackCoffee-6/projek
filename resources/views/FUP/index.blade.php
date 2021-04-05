@@ -37,10 +37,11 @@
                 </tr>
                 </thead>
                 <tbody>
+                    <?php $number = 1; ?>
                     @foreach ($fups as $fup)
                     <tr>
                         @if($user->id == $fup->user_id)
-                        <th scope="row">{{$loop->iteration}}</th>
+                        <th scope="row">{{$number++}}</th>
                         <td>{{$fup->Bidang->name}}</td>
                         <td>04/USL/IV/2020</td>
                         <td>{{$fup->date}}</td>
@@ -49,19 +50,37 @@
                         </td>
                         <td>12/05/2021</td>
                         <td>
+                        <?php $flag = 0; $revisi = 0; ?>
+                        <!-- logic masih salah, kalo belom di approve seharusnya status nya "pending", tapi ini malah ketiban sama status nya yg lain -->
                         @foreach($apps as $app)
-                        @if($app->decision == "setuju")
-                            <span class="badge rounded-pill {{($app->decision == "setuju") ? 'bg-success text-light' : 'bg-warning text-dark'}}">{{($app->decision == "setuju") ? 'Approved' : 'Not Approved'}}</span>
+                        @if($app->fup_id == $fup->id)
+                        <?php $flag = 1; ?>
                         @endif
+                            @if($app->fup_id == $fup->id AND $app->decision == "setuju")
+                                    <span class="badge rounded-pill bg-success text-light">Approved</span>
+
+                                @elseif($app->fup_id == $fup->id AND $app->decision == "tidak")
+                                    <span class="badge rounded-pill bg-danger text-dark">Not Approved</span>
+                                    
+                                @elseif($app->fup_id == $fup->id AND $app->decision == "revisi")
+                                <?php $revisi = 1; ?>
+                                    <span class="badge rounded-pill bg-warning text-dark">Revisi</span>
+                            @endif
                         @endforeach
+                        @if($flag == 0)
+                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                         </td>
                         <td>
+                            @if($flag == 0 || ($flag > 0 && $revisi > 0 ))
+                           
                             <form action="/FUP/{{$fup->id}}" method="POST">
                             @csrf
                             @method('DELETE')
                                 <a href="/FUP/{{$fup->id}}/edit" class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fa fa-edit"></i></a>
                                 <button class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fa fa-trash"></i></button>
                             </form>
+                            @endif
                         </td>
                         @endif
                     </tr>

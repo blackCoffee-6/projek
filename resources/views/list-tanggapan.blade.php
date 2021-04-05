@@ -41,7 +41,6 @@
                     </td>
                     <td>Menunggu untuk di Tanggapi</td>
                 </tr>
-                @endif
                 @endforeach
                 </tbody>
             </table>

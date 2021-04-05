@@ -20,6 +20,7 @@ class CreateTanggapanTable extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
             
+            $table->string('tg_rnd');
             $table->string('ch_regulasi');
             $table->string('ch_registrasi');
             $table->string('dok_perlukan');
