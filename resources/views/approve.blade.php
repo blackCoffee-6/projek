@@ -65,7 +65,6 @@
                     </td>
                     @if($count < 1)
                     <td>
-                    <!-- logic masih salah, button belom mau tampil kalo status nya revisi, dan gamau hide kalo status nya tidak/setuju -->
                         <a href="/lihat-data/{{$fup->id}}" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
                     </td>
                     @endif

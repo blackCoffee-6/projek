@@ -210,6 +210,10 @@
                         </td>
                         @if($fup->tanggapan != "tidak")
                         <td>
+                        <!-- 
+                        di baca-approve, misal si user butuh bidang 1,5 
+                        yg tampil cuma bidang 1/R&D aja bidang 5/teknik nya ga ketampil 
+                        -->
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" checked="checked" disabled>
                                 <label class="form-check-label" for="inlineCheckbox1">{{$fup->Bidang->name}}</label>

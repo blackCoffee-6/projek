@@ -51,7 +51,6 @@
                         <td>12/05/2021</td>
                         <td>
                         <?php $flag = 0; $revisi = 0; ?>
-                        <!-- logic masih salah, kalo belom di approve seharusnya status nya "pending", tapi ini malah ketiban sama status nya yg lain -->
                         @foreach($apps as $app)
                         @if($app->fup_id == $fup->id)
                         <?php $flag = 1; ?>

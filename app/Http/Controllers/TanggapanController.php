@@ -19,7 +19,6 @@ class TanggapanController extends Controller
     public function index()
     {
         $user = Auth::user();
-        // $fups = FUP::where('tanggapan', 'like', 'perlu')->paginate(10);
         
         if(strcasecmp($user->role,'staff') == 0){
             $fubs = FUB::where('bidang_id',$user->bidang_id)->get();
@@ -34,7 +33,6 @@ class TanggapanController extends Controller
         else{
             $fups = FUP::where('tanggapan', 'like', 'perlu')->paginate(10);
         }
-        // $fups = FUP::all();
 
         return view('list-tanggapan', compact('fups','user'));
     }
@@ -57,10 +55,26 @@ class TanggapanController extends Controller
      */
     public function store(Request $request, $id)
     {
-        $request->request->add(['fup_id' => $id]);
         // dd($request->all());
-        Tanggapan::create($request->all());
+        // Tanggapan::create($request->all());
 
+        foreach($request->input('dok_perlukan') as $key => $value) {
+            Tanggapan::create([
+                'tg_rnd' => $request->tg_rnd,
+                'fup_id' => $id,
+                'ch_regulasi' => $request->ch_regulasi,
+                'ch_registrasi' => $request->ch_registrasi,
+                'dok_perlukan' => $request->dok_perlukan [$key],
+                'tg_nama' => $request->tg_nama,
+                'tg_date' => $request->tg_date,
+                'gt_bidang' => $request->gt_bidang,
+                'gt_nama' => $request->gt_nama,
+                'gt_date' => $request->gt_date,
+                'bidang_tg' => $request->bidang_tg,
+                'nama_tg' => $request->nama_tg,
+                'date_tg' => $request->date_tg
+            ]);
+        }
         Alert::success('Success', "Tanggapan Created Successfully!");
         return redirect('/List/Tanggapan');
     }

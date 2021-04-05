@@ -31,4 +31,6 @@ pura2 jadi bidang lain dong? [DONE]
 	jadi di list tanggapan buat bidang 5/teknik ga ketampil, karena tanggapan 2 cuma 
 	ambil id 1 doang. [DONE]
 
-12. 8. belom bisa sembunyiin button lihat, delete sama update, di index, sama FUP.blade.php [DONE]
+12. belom bisa sembunyiin button lihat, delete sama update, di index, sama FUP.blade.php [DONE]
+
+13. di baca-approve, misal si user butuh bidang 1,5 yg tampil cuma bidang 1/R&D aja bidang 5/teknik nya ga ketampil

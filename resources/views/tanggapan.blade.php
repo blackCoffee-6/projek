@@ -96,44 +96,14 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>
-                            <div class="input-group mb-3">
+                        <td id="dynamic_field_append">
+                            <div class="input-group mb-3 dynamic_field_div">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text">1</span>
                                 </div>
-                                <input name="dok_perlukan" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">2</span>
-                                </div>
-                                <input name="dok_perlukan" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">3</span>
-                                </div>
-                                <input name="dok_perlukan" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                        </td>
-                        <td>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">4</span>
-                                </div>
-                                <input name="dok_perlukan" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">5</span>
-                                </div>
-                                <input name="dok_perlukan" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">6</span>
-                                </div>
-                                <input name="dok_perlukan" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <input name="dok_perlukan[]" type="text" class="form-control dynamic_field_focus" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <a id="dynamic_field_add" href="#"><i class="fa fa-plus fa-fw text-success"></i></a>
+                                <a href="#" class="dynamic_field_remove"><i class="fa fa-close fa-fw text-danger"></i></a>
                             </div>
                         </td>
                     </tr>
@@ -237,5 +207,21 @@
         <a href="/home" class="btn btn-danger my-2 mx-2">Cancel</a>
         </form>
     </div>
+
+<script>
+    $(function() {
+        var count=0;
+      $("#dynamic_field_add").click(function (e) {
+        e.preventDefault();
+        $("#dynamic_field_append").append('<div class="input-group mb-3 dynamic_field_div"><div class="input-group-prepend"><span class="input-group-text">1</span></div><input name="dok_perlukan[]" type="text" class="form-control dynamic_field_focus" aria-label="Default" aria-describedby="inputGroup-sizing-default"><a id="dynamic_field_add" href="#"><i class="fa fa-plus fa-fw text-success"></i></a><a href="#" class="dynamic_field_remove"><i class="fa fa-close fa-fw text-danger"></i></a></div>');
+        $(".dynamic_field_focus").last().focus();
+      });
+
+      $("body").on("click", ".dynamic_field_remove", function (e) {
+        e.preventDefault();
+        $(this).closest('.dynamic_field_div').remove();
+      });
+    });
+  </script>
 </div>
 @endsection

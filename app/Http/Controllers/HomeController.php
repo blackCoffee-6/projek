@@ -51,9 +51,6 @@ class HomeController extends Controller
             $fup = $fup->count();
         }
         $usul = FUP::where('user_id',Auth::user()->id)->count();
-        // $kajian = ::all()->count();
-        // $perubahan = ::all()->count();
-        // $perubahan = ::all()->count();
         $auth = Auth::check();
         $role = 'Staff';
 
