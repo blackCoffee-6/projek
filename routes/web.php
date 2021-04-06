@@ -84,3 +84,4 @@ Route::get('/Hapus/Data/Bidang/{id}', 'BidangController@destroy');
 Route::get('/List/Tanggapan', 'TanggapanController@index');
 Route::get('/Detail/Tanggapan/{id}', 'TanggapanController@show');
 Route::post('/Store/Tanggapan/{id}', 'TanggapanController@store');
+Route::get('/Lihat/Tanggapan/{id}', 'TanggapanController@edit');

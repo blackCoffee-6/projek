@@ -97,4 +97,23 @@ class TanggapanController extends Controller
 
         return view('tanggapan', compact('fup', 'role'));
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $fup = FUP::find($id);
+        $tanggapan = Tanggapan::find($id);
+        $auth = Auth::check();
+        $role = 'Staff';
+
+        if($auth){
+            $role = Auth::user()->role;
+        }
+        return view('baca-tanggapan', compact('fup', 'tanggapan', 'role'));
+    }
 }

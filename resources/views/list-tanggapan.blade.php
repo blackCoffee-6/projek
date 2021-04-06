@@ -24,6 +24,7 @@
           <th scope="col">Usulan Perubahan</th>
           <th scope="col">Aksi</th>
           <th scope="col">Status</th>
+          <th scope="col">Aksi</th>
         </tr>
       </thead>
                 <tbody>
@@ -37,9 +38,12 @@
                         {{$fup->ket_usulan}}
                     </td>
                     <td>
-                        <a href="/Detail/Tanggapan/{{$fup->id}}"><button class="btn btn-info my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Menanggapi</button></a>
+                      <a href="/Detail/Tanggapan/{{$fup->id}}"><button class="btn btn-info my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Menanggapi</button></a>
                     </td>
                     <td>Menunggu untuk di Tanggapi</td>
+                    <td>
+                      <a href="/Lihat/Tanggapan/{{$fup->id}}" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
+                    </td>
                 </tr>
                 @endforeach
                 </tbody>
