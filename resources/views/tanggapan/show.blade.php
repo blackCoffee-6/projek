@@ -3,7 +3,6 @@
 @section('title', 'Tanggapan Bidang')
 
 @section('content')
-
 <div class="main">
     <h1 class="display-5 mx-5 text-center">
         Tanggapan Bidang Atas Usulan Perubahan
@@ -210,8 +209,14 @@
                                 <div class="input-group-prepend">
                                   <span class="input-group-text">1</span>
                                 </div>
+<<<<<<< HEAD:resources/views/tanggapan/show.blade.php
                                 <input disabled name="dok_perlukan[]" type="text" class="form-control dynamic_field_focus" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                                 <a id="dynamic_field_add" href="#"><i class="fa fa-plus fa-fw text-success" hidden></i></a>
+=======
+                                <input name="dok_perlukan[]" type="text" class="form-control dynamic_field_focus" aria-label="Default" aria-describedby="inputGroup-sizing-default" value="{{$tanggapan->dok_perlukan}}" disabled>
+                                <a id="dynamic_field_add" href="#"><i class="fa fa-plus fa-fw text-success"></i></a>
+                                <a href="#" class="dynamic_field_remove"><i class="fa fa-close fa-fw text-danger"></i></a>
+>>>>>>> 8a0687ce4cb9a8ce3d087303f4f6bd932b580cb7:resources/views/baca-tanggapan.blade.php
                             </div>
                         </td>
                     </tr>

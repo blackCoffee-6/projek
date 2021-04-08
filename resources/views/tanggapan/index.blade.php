@@ -50,7 +50,7 @@
                     </td>
                     <td>
                       @if($count < 1)
-                        <span class="badge rounded-pill bg-warning text-dark">Menunggu di tanggapi</span>
+                        <span class="badge rounded-pill badge-secondary">Menunggu di tanggapi</span>
                       @else
                         <span class="badge rounded-pill bg-success text-light">Sudah di tanggapi</span>
                       @endif
