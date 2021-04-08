@@ -3,9 +3,6 @@
 @section('title', 'Lihat Tanggapan')
 
 @section('content')
-{{-- @if(is_null($tanggapan))
-    <h1>Test</h1>
-@else  --}}
 <div class="main">
     <h1 class="display-5 mx-5 text-center">
         Tanggapan Bidang Atas Usulan Perubahan
@@ -107,7 +104,7 @@
                                 <div class="input-group-prepend">
                                   <span class="input-group-text">1</span>
                                 </div>
-                                <input name="dok_perlukan[]" type="text" class="form-control dynamic_field_focus" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <input name="dok_perlukan[]" type="text" class="form-control dynamic_field_focus" aria-label="Default" aria-describedby="inputGroup-sizing-default" value="{{$tanggapan->dok_perlukan}}" disabled>
                                 <a id="dynamic_field_add" href="#"><i class="fa fa-plus fa-fw text-success"></i></a>
                                 <a href="#" class="dynamic_field_remove"><i class="fa fa-close fa-fw text-danger"></i></a>
                             </div>

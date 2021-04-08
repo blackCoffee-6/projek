@@ -44,6 +44,8 @@ Route::get('/kajian', function () {
     return view('kajian');
 });
 
+Route::get('/List/Kajian', 'KajianController@index');
+
 Route::get('/kontrol', function () {
     return view('perubahan');
 });

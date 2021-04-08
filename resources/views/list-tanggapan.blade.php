@@ -40,7 +40,9 @@
                     <td>
                       <a href="/Detail/Tanggapan/{{$fup->id}}"><button class="btn btn-info my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Menanggapi</button></a>
                     </td>
-                    <td>Menunggu untuk di Tanggapi</td>
+                    <td>
+                      <span class="badge rounded-pill badge-secondary">Menunggu Ditanggapi</span>
+                    </td>
                     <td>
                       <a href="/Lihat/Tanggapan/{{$fup->id}}" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
                     </td>
