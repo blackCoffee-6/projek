@@ -20,12 +20,12 @@ class CreateTanggapanTable extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
             
-            $table->string('tg_rnd');
-            $table->string('ch_regulasi');
-            $table->string('ch_registrasi');
-            $table->string('dok_perlukan');
-            $table->string('tg_nama');
-            $table->date('tg_date');
+            $table->string('tg_rnd')->nullable();
+            $table->string('ch_regulasi')->nullable();
+            $table->string('ch_registrasi')->nullable();
+            $table->string('dok_perlukan')->nullable();
+            $table->string('tg_nama')->nullable();
+            $table->date('tg_date')->nullable();
             $table->string('gt_bidang');
             $table->string('gt_nama');
             $table->date('gt_date');

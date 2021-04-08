@@ -215,30 +215,12 @@
                             </div>
                         </td>
                         <td id="tanggapan2">
-                            <input type="hidden" value="{{$fup->tanggapan2}}" id="hasil_tanggapan2">
-                            <x-input name="R&D" value="R&D"/>
-                            <x-input name="Produksi" value="Produksi"/>
-                            <x-input name="Pemasaran" value="Pemasaran"/>
-                            
-                            <hr>
-                            
-                            <x-input name="QC" value="QC"/>
-                            <x-input name="Teknik" value="Teknik"/>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            
-                            <hr>
-                            
-                            <x-input name="SCM" value="SCM"/>
-                            <x-input name="Pengadaan" value="Pengadaan"/>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
+                            @foreach($bidang2 as $bidang2)
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cb" name="tanggapan2[]" value="{{$bidang2->id}}">
+                                    <label class="form-check-label" for="inlineCheckbox1">{{$bidang2->name}}</label>
+                                </div>
+                            @endforeach
                         </td>
                     </tr>
                 </tbody>

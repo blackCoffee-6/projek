@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', 'List Tanggapan Bidang')
+
 @section('content')
 <div class="main">
   <h1 class="display-5 mx-5">
@@ -26,7 +28,7 @@
           <th scope="col">Status</th>
           <th scope="col">Aksi</th>
         </tr>
-      </thead>
+      </the ad>
                 <tbody>
                   @foreach($fups as $fup)
                 <tr>
@@ -38,11 +40,25 @@
                         {{$fup->ket_usulan}}
                     </td>
                     <td>
-                      <a href="/Detail/Tanggapan/{{$fup->id}}"><button class="btn btn-info my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Menanggapi</button></a>
+                      <?php  $count = 0; ?>
+                      @foreach($tanggapans as $tanggapan)
+                        @if($tanggapan->fup_id == $fup->id)
+                        <?php $count++?>
+                          <a href="/Tanggapan/{{$fup->id}}/edit" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
+                        @endif
+                      @endforeach
                     </td>
-                    <td>Menunggu untuk di Tanggapi</td>
                     <td>
-                      <a href="/Lihat/Tanggapan/{{$fup->id}}" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
+                      @if($count < 1)
+                        <span class="badge rounded-pill bg-warning text-dark">Menunggu di tanggapi</span>
+                      @else
+                        <span class="badge rounded-pill bg-success text-light">Sudah di tanggapi</span>
+                      @endif
+                    </td>
+                    <td>
+                    @if($count < 1)
+                      <a href="/Tanggapan/{{$fup->id}}"><button class="btn btn-info my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Menanggapi</button></a>
+                    @endif
                     </td>
                 </tr>
                 @endforeach
