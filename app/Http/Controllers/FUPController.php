@@ -98,24 +98,25 @@ class FUPController extends Controller
         Alert::success('Success', "Usulan Created Successfully!");
         return redirect('/home');
     }
-
+    
     //untuk menampilkan list-usulan.blade.php
     public function index()
     {
         $fups = FUP::paginate(10);
         $apps = Approval::all();
         $user = Auth::user();
-
+        
         return view('FUP.index', compact('fups','apps','user'));
     }
-
+    
     public function edit($id)
     {
         $fup = FUP::find($id);
         $user = User::all();
         $product = Product::all();
         $bidang = Bidang::all();
-        return view('FUP.edit', compact('fup', 'user', 'product', 'bidang'));
+        $bidang2 = Bidang::all();
+        return view('FUP.edit', compact('fup', 'user', 'product', 'bidang','bidang2'));
     }
 
     public function update(Request $request, $id)
@@ -126,16 +127,14 @@ class FUPController extends Controller
             $file = $request->file->getClientOriginalName() . '-' . time() . '.' . $request->file->extension();
             $request->file->move(public_path('file'), $file);
         }
-        // dd($request->tanggapan2);
         
         if($request->tanggapan != "tidak"){
             if($request->tanggapan2 != null)
-
+            
             $tanggapan2 = implode(',', $request->tanggapan2);
             $request->request->add(['tanggapan2' => $tanggapan2]);
         }
-         
-
+        
         FUP::findOrFail($id)->update([
             'user_id' => Auth::user()->id,  
             'product_id' => $request->produk, 
@@ -160,6 +159,45 @@ class FUPController extends Controller
             'file' => $request-> file, 
             'status' => "Pending"
         ]);
+            
+        // dd($request->tanggapan2);
+        
+        if($request->tanggapan != "tidak"){
+            FUB::where('fup_id', $id)->delete();
+            $arrTanggapan = explode(",",$tanggapan2);
+            if(count($arrTanggapan) > 1){
+                foreach($arrTanggapan as $tanggapan){
+                    FUB::create([
+                        'fup_id'=>$id,
+                        'bidang_id'=>$tanggapan
+                    ]);
+                }
+            }
+            else{
+                FUB::create([
+                    'fup_id'=>$id,
+                    'bidang_id'=>$request->tanggapan2
+                ]);
+            }
+        }
+
+        // if($request->tanggapan != "tidak"){
+        //     $arrTanggapan = explode(",",$tanggapan2);
+        //     if(count($arrTanggapan) > 1){
+        //         foreach($arrTanggapan as $tanggapan){
+        //             FUB::create([
+        //                 'fup_id'=>$id,
+        //                 'bidang_id'=>$tanggapan
+        //             ]);
+        //         }
+        //     }
+        //     else{
+        //         FUB::create([
+        //             'fup_id'=>$id,
+        //             'bidang_id'=>$request->tanggapan2
+        //         ]);
+        //     }
+        // }
 
         return redirect('/FUP')->with('alert', "Usulan Updated Successfully!");
     }

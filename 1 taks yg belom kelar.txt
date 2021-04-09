@@ -33,4 +33,6 @@ pura2 jadi bidang lain dong? [DONE]
 
 12. belom bisa sembunyiin button lihat, delete sama update, di index, sama FUP.blade.php [DONE]
 
-13. di baca-approve, misal si user butuh bidang 1,5 yg tampil cuma bidang 1/R&D aja bidang 5/teknik nya ga ketampil
+13. di baca-approve, misal si user butuh bidang 1,5 yg tampil cuma bidang 1/R&D aja bidang 5/teknik nya ga ketampil [DONE]
+
+14. gabisa hidden button lihat kalo si R&D udah ngisi tanggapan [DONE]
