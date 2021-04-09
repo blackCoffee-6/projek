@@ -256,21 +256,6 @@
 
     var cb = $('.cb_input').val();
     console.log(cb);
-
-    // var selected = [];
-    // var count = 0;
-
-    // $('#tanggapan2 input:checked').each(function() {
-    //     // selected.push($(this).attr('name'));
-    //     count++;
-    //     alert('test');
-    // });
-
-    // $('#tanggapan2').delegate('input:checkbox', 'change', function(){ 
-    //     alert('test');
-    // });
-
-
 </script>
 
 </div>

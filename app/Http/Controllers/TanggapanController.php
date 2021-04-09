@@ -56,44 +56,21 @@ class TanggapanController extends Controller
     public function store(Request $request, $id)
     {
         // dd($request->all());
-
-        if($request->dok_perlukan)
-        {
-            foreach($request->input('dok_perlukan') as $key => $value) {
-                Tanggapan::create([
-                    'tg_rnd' => $request->tg_rnd,
-                    'fup_id' => $id,
-                    'ch_regulasi' => $request->ch_regulasi,
-                    'ch_registrasi' => $request->ch_registrasi,
-                    'dok_perlukan' => $request->dok_perlukan [$key],
-                    'tg_nama' => $request->tg_nama,
-                    'tg_date' => $request->tg_date,
-                    'gt_bidang' => $request->gt_bidang,
-                    'gt_nama' => $request->gt_nama,
-                    'gt_date' => $request->gt_date,
-                    'bidang_tg' => $request->bidang_tg,
-                    'nama_tg' => $request->nama_tg,
-                    'date_tg' => $request->date_tg
-                ]);
-            }
-        }
-        else{
-            Tanggapan::create([
-                'tg_rnd' => $request->tg_rnd,
-                'fup_id' => $id,
-                'ch_regulasi' => $request->ch_regulasi,
-                'ch_registrasi' => $request->ch_registrasi,
-                'dok_perlukan' => "",
-                'tg_nama' => $request->tg_nama,
-                'tg_date' => $request->tg_date,
-                'gt_bidang' => $request->gt_bidang,
-                'gt_nama' => $request->gt_nama,
-                'gt_date' => $request->gt_date,
-                'bidang_tg' => $request->bidang_tg,
-                'nama_tg' => $request->nama_tg,
-                'date_tg' => $request->date_tg
-            ]);
-        }
+        Tanggapan::create([
+            'tg_rnd' => $request->tg_rnd,
+            'fup_id' => $id,
+            'ch_regulasi' => $request->ch_regulasi,
+            'ch_registrasi' => $request->ch_registrasi,
+            'dok_perlukan' => $request->dok_perlukan,
+            'tg_nama' => $request->tg_nama,
+            'tg_date' => $request->tg_date,
+            'gt_bidang' => $request->gt_bidang,
+            'gt_nama' => $request->gt_nama,
+            'gt_date' => $request->gt_date,
+            'bidang_tg' => $request->bidang_tg,
+            'nama_tg' => $request->nama_tg,
+            'date_tg' => $request->date_tg
+        ]);
 
         Alert::success('Success', "Tanggapan Created Successfully!");
         return redirect('/Tanggapan');
@@ -138,45 +115,23 @@ class TanggapanController extends Controller
         return view('tanggapan.edit', compact('fup', 'tanggapan', 'role'));
     }
 
-    public function update(Request $request, $fup_id, $tanggapan_id)
+    public function update(Request $request, $tanggapan_id)
     {
         // dd($request->all());
-
-        if($request->dok_perlukan){
-            foreach($request->input('dok_perlukan') as $key => $value) {
-                Tanggapan::findOrFail($tanggapan_id)->update([
-                    'fup_id' => $fup_id, 
-                    'tg_rnd' => $request->tg_rnd, 
-                    'ch_regulasi' => $request->ch_regulasi, 
-                    'ch_registrasi' => $request->ch_registrasi, 
-                    'dok_perlukan' => $request->dok_perlukan [$key], 
-                    'tg_nama' => $request->tg_nama, 
-                    'tg_date' => $request->tg_date, 
-                    'gt_bidang' => $request->gt_bidang,
-                    'gt_nama' => $request->gt_nama,
-                    'gt_date' => $request->gt_date,
-                    'bidang_tg' => $request->bidang_tg,
-                    'nama_tg' => $request->nama_tg,
-                    'date_tg' => $request->date_tg
-                ]);
-            }
-        }else{
-            Tanggapan::findOrFail($tanggapan_id)->update([
-                'fup_id' => $request->tg_rnd, 
-                'tg_rnd' => $request->tg_rnd, 
-                'ch_regulasi' => $request->ch_regulasi, 
-                'ch_registrasi' => $request->ch_registrasi, 
-                'dok_perlukan' => "", 
-                'tg_nama' => $request->tg_nama, 
-                'tg_date' => $request->tg_date, 
-                'gt_bidang' => $request->gt_bidang,
-                'gt_nama' => $request->gt_nama,
-                'gt_date' => $request->gt_date,
-                'bidang_tg' => $request->bidang_tg,
-                'nama_tg' => $request->nama_tg,
-                'date_tg' => $request->date_tg
-            ]);
-        }
+        Tanggapan::findOrFail($tanggapan_id)->update([
+            'tg_rnd' => $request->tg_rnd, 
+            'ch_regulasi' => $request->ch_regulasi, 
+            'ch_registrasi' => $request->ch_registrasi, 
+            'dok_perlukan' => $request->dok_perlukan, 
+            'tg_nama' => $request->tg_nama, 
+            'tg_date' => $request->tg_date, 
+            'gt_bidang' => $request->gt_bidang,
+            'gt_nama' => $request->gt_nama,
+            'gt_date' => $request->gt_date,
+            'bidang_tg' => $request->bidang_tg,
+            'nama_tg' => $request->nama_tg,
+            'date_tg' => $request->date_tg
+        ]);
 
         return redirect('/Tanggapan');
     }

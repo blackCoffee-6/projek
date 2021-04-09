@@ -44,7 +44,8 @@
                       @foreach($tanggapans as $tanggapan)
                         @if($tanggapan->fup_id == $fup->id)
                         <?php $count++?>
-                          <a href="/Tanggapan/{{$fup->id}}/edit" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
+                        <!-- kalo yg login R&D abis dia isi button lihat nya harusnya ilang -->
+                          <a href="/Tanggapan/{{$fup->id}}/edit" class="btn btn-success my-2 my-sm-0" type="submit" ><i class="fa fa-folder"></i>  Lihat</a>
                         @endif
                       @endforeach
                     </td>
