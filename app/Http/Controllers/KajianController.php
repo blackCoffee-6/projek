@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Approval;
 use App\FUP;
+use App\Kajian;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -42,7 +44,51 @@ class KajianController extends Controller
      */
     public function store(Request $request, $id)
     {
-        
+        dd($request->all());
+
+        $validator = Validator::make($request->all(),[
+            'ket_up'=>'required',
+            'ru_a'=>'required',
+            'ru_b'=>'required',
+            'ri_a'=>'required',
+            'ri_b'=>'required',
+            'st_a'=>'required',
+            'st_b'=>'required',
+            'me_a'=>'required',
+            'val_a'=>'required',
+            'val_b'=>'required',
+            'tr_a'=>'required',
+            'tr_b'=>'required',
+            'pr_a'=>'required',
+            'dok_a'=>'required',
+            'si_a'=>'required',
+            'severity'=>'required',
+            'detec'=>'required',
+            'occur'=>'required',
+            'getsev'=>'required',
+            'getdet'=>'required',
+            'getocc'=>'required',
+            'dxo'=>'required',
+            'ch_kategori'=>'required',
+            'ch_status'=>'required',
+            'qa_nama'=>'required',
+            'qa_date'=>'required',
+            'asman_nama'=>'required',
+            'asman_date'=>'required',
+            'aq_nama'=>'required',
+            'aq_date'=>'required',
+            'ch_dis'=>'required',
+        ]);
+
+        if($validator->fails()){
+            return back()->withErrors($validator->errors());
+        }
+
+        $user = Auth::user();
+
+        Kajian::create([
+            'ket_up' => $request->ket_up,
+        ]);
     }
 
     /**
@@ -53,7 +99,14 @@ class KajianController extends Controller
      */
     public function show($id)
     {
-        //
+        $fup = FUP::find($id);
+        $role = 'Staff';
+        $auth = Auth::check();
+
+        if($auth){
+            $role = Auth::user()->role;
+        }
+        return view('kajian', compact('fup','role'));
     }
 
     /**

@@ -38,7 +38,7 @@
                     </td>
                     <td>20/05/2021</td>
                     <td>
-                        <a href="#"><button class="btn btn-dark my-2 my-sm-0" type="submit"><i class="fa fa-database"></i>  Kaji</button></a>
+                        <a href="/Detail/Kajian/{id}"><button class="btn btn-dark my-2 my-sm-0" type="submit"><i class="fa fa-database"></i>  Kaji</button></a>
                     </td>
                 </tr>
             @endforeach

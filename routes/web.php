@@ -39,12 +39,13 @@ Route::get('/List/Tanggapan', function () {
 Route::get('/control', function () {
     return view('control');
 });
-
-Route::get('/kajian', function () {
-    return view('kajian');
-});
-
+//--------Route Kajian----------//
+// Route::get('/kajian', function () {
+//     return view('kajian');
+// });
+Route::get('/Detail/Kajian/{id}', 'KajianController@show');
 Route::get('/List/Kajian', 'KajianController@index');
+Route::post('/Store/Kajian/', 'KajianController@store');
 
 Route::get('/kontrol', function () {
     return view('perubahan');

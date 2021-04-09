@@ -5,7 +5,8 @@
     <h1 class="display-5 mx-5 text-center">
         Kajian Perubahan
     </h1>
-    <!-- <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a> -->
+    <form action="/Store/Kajian/" method="POST">
+        @csrf
     <div class="container my-4">
         <table class="table table-bordered my-3">
             <thead>
@@ -843,7 +844,7 @@
                     <td>Diperiksa oleh</td>
                     <td>Asman Prod. Eval.</td>
                     <td>
-                        <input type="text" class="form-control" placeholder="Sertakan Nama" id="asman_nama" name="asman_date">
+                        <input type="text" class="form-control" placeholder="Sertakan Nama" id="asman_nama" name="asman_nama">
                     </td>
                     <td>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
@@ -916,7 +917,8 @@
                 </tr>
             </tbody>
         </table>
-        <button type="button" class="btn btn-success my-4">Submit</button>
+        <button type="submit" class="btn btn-success my-4">Submit</button>
+    </form>
         <a href="/home"><button type="button" class="btn btn-danger my-2 mx-2">Cancel</button></a>
     </div>
 </div>
