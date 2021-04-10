@@ -28,7 +28,6 @@
     <form action="/Store/Tanggapan/{{$fup->id}}" method="POST">
     @csrf
     <div class="container my-4">
-        @if(Auth::user()->bidang_id == 1)
         <table class="table table-bordered my-3">
             <thead>
                 <tr>
@@ -136,7 +135,6 @@
                 </tr>
             </tbody>
         </table>
-        <p class="text-danger ml-2">*Bidang lain belum menanggapi</p>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -146,7 +144,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" rows="3" name="gt_bidang" disabled></textarea>
+                        <textarea class="form-control" rows="3" name="gt_bidang" ></textarea>
                     </td>
                 </tr>
             </tbody>
@@ -162,13 +160,13 @@
             <tbody>
                 <tr>
                     <td>
-                        <input class="form-control" type="text" name="gt_nama" disabled>
+                        <input class="form-control" type="text" name="gt_nama" >
                     </td>
                     <td>
-                        <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
+                        <textarea class="form-control" rows="3" name="ttd" ></textarea>
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="gt_date" disabled>
+                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="gt_date" >
                     </td>
                 </tr>
             </tbody>
@@ -182,7 +180,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" rows="3" name="bidang_tg" disabled></textarea>
+                        <textarea class="form-control" rows="3" name="bidang_tg" ></textarea>
                     </td>
                 </tr>
             </tbody>
@@ -198,92 +196,17 @@
             <tbody>
                 <tr>
                     <td>
-                        <input class="form-control" type="text" name="nama_tg" disabled>
+                        <input class="form-control" type="text" name="nama_tg" >
                     </td>
                     <td>
-                        <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
+                        <textarea class="form-control" rows="3" name="ttd" ></textarea>
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="date_tg" disabled>
+                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="date_tg" >
                     </td>
                 </tr>
             </tbody>
         </table>
-        @else
-        <p class="text-danger ml-2">*R&D belum menanggapi</p>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>B. Tanggapan dari Bidang :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <textarea class="form-control" rows="3" name="gt_bidang"></textarea>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Nama :</th>
-                    <th scope="col">Tanda Tangan :</th>
-                    <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input class="form-control" type="text" name="gt_nama">
-                    </td>
-                    <td>
-                        <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
-                    </td>
-                    <td>
-                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="gt_date">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>C. Tanggapan dari Bidang :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <textarea class="form-control" rows="3" name="bidang_tg"></textarea>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Nama :</th>
-                    <th scope="col">Tanda Tangan :</th>
-                    <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input class="form-control" type="text" name="nama_tg">
-                    </td>
-                    <td>
-                        <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
-                    </td>
-                    <td>
-                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="date_tg">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        @endif
         <button class="btn btn-success my-2">Submit</button>
         <a href="/home" class="btn btn-danger my-2 mx-2">Cancel</a>
         </form>
