@@ -25,12 +25,15 @@
             </tbody>
         </table>
     </div>
+<<<<<<< HEAD
     <!-- ini kalo si R&D terakhir ngisi -->
     <form action="/Store/Tanggapan/{{$fup->id}}" method="post">
     @csrf
     @method('post')
     @if(Auth::user()->bidang_id == 1 AND $tanggapan->tg_rnd == null)
     <!-- kalo rnd belom ngisi -->
+=======
+>>>>>>> b8cdbf8da98798aae294565bd115e6af24c18c5d
     <div class="container my-4">
         <table class="table table-bordered my-3">
             <thead>
@@ -41,7 +44,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" rows="3" name="tg_rnd">{{$tanggapan->tg_rnd}}</textarea>
+                        <textarea class="form-control" rows="3" name="tg_rnd" disabled>{{$tanggapan->tg_rnd}}</textarea>
                     </td>
                 </tr>
             </tbody>
@@ -57,15 +60,15 @@
                     <td>
                         <input type="hidden" value="{{$tanggapan->ch_regulasi}}" id="ch_regulasi">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ch_regulasi" value="1" id="langsung" >
+                            <input class="form-check-input" type="radio" name="ch_regulasi" value="1" disabled id="langsung" >
                             <label class="form-check-label" for="inlineRadio1">Perubahan dapat langsung dilaksanakan tanpa menunggu izin dari BPOM</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ch_regulasi" value="2" id="izin">
+                            <input class="form-check-input" type="radio" name="ch_regulasi" value="2" disabled id="izin">
                             <label class="form-check-label" for="inlineRadio2">Perubahan perlu izin BPOM terlebih dahulu</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ch_regulasi" value="3" id="disetujui">
+                            <input class="form-check-input" type="radio" name="ch_regulasi" value="3" disabled id="disetujui">
                             <label class="form-check-label" for="inlineRadio1">Perubahan telah disetujui BPOM</label>
                         </div>
                     </td>
@@ -81,15 +84,15 @@
                     <td>
                         <input type="hidden" value="{{$tanggapan->ch_registrasi}}" id="ch_registrasi">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ch_registrasi" value="major" id="major">
+                            <input class="form-check-input" type="radio" name="ch_registrasi" value="major" disabled id="major">
                             <label class="form-check-label" for="inlineRadio1">Major</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ch_registrasi" value="minor" id="minor">
+                            <input class="form-check-input" type="radio" name="ch_registrasi" value="minor" disabled id="minor">
                             <label class="form-check-label" for="inlineRadio2">Minor</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ch_registrasi" value="notifikasi" id="notifikasi">
+                            <input class="form-check-input" type="radio" name="ch_registrasi" value="notifikasi" disabled id="notifikasi">
                             <label class="form-check-label" for="inlineRadio1">Notifikasi</label>
                         </div>
                     </td>
@@ -110,116 +113,6 @@
                                 </div>
                                 <input  value="{{$tanggapan->dok_perlukan}}" placeholder="{{$tanggapan->dok_perlukan}}" name="dok_perlukan[]" type="text" class="form-control dynamic_field_focus" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                                 <a id="dynamic_field_add" href="#"><i class="fa fa-plus fa-fw text-success"></i></a>
-                            </div> -->
-                            <div class="form-floating">
-                                <textarea class="form-control" style="height: 100px" name="dok_perlukan"></textarea>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Nama :</th>
-                    <th scope="col">Tanda Tangan :</th>
-                    <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input class="form-control" type="text" name="tg_nama">
-                    </td>
-                    <td>
-                        <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
-                    </td>
-                    <td>
-                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="tg_date">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        @elseif($tanggapan->tg_rnd != null)
-        <!-- kalo R&D udah ngisi tampilin, kalo belom gausah-->
-        <div class="container my-4">
-        <table class="table table-bordered my-3">
-            <thead>
-                <tr>
-                    <th>A. Tanggapan dari Bidang R&D</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                    <textarea class="form-control" rows="3" name="tg_rnd" disabled>{{$tanggapan->tg_rnd}}</textarea>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <td>Tinjauan terhadap Regulasi :</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input type="hidden" value="{{$tanggapan->ch_regulasi}}" id="ch_regulasi">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ch_regulasi" value="1" id="langsung" disabled>
-                            <label class="form-check-label" for="inlineRadio1">Perubahan dapat langsung dilaksanakan tanpa menunggu izin dari BPOM</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ch_regulasi" value="2" id="izin" disabled>
-                            <label class="form-check-label" for="inlineRadio2">Perubahan perlu izin BPOM terlebih dahulu</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ch_regulasi" value="3" id="disetujui" disabled>
-                            <label class="form-check-label" for="inlineRadio1">Perubahan telah disetujui BPOM</label>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
-                    <td>Jenis Registrasi :</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input type="hidden" value="{{$tanggapan->ch_registrasi}}" id="ch_registrasi">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ch_registrasi" value="major" id="major" disabled>
-                            <label class="form-check-label" for="inlineRadio1">Major</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ch_registrasi" value="minor" id="minor" disabled>
-                            <label class="form-check-label" for="inlineRadio2">Minor</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ch_registrasi" value="notifikasi" id="notifikasi" disabled>
-                            <label class="form-check-label" for="inlineRadio1">Notifikasi</label>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <td>Dokumen yang Diperlukan :</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="dynamic_field_append">
-                            <!-- <div class="input-group mb-3 dynamic_field_div">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">1</span>
-                                </div>
-                                <input  value="{{$tanggapan->dok_perlukan}}" placeholder="{{$tanggapan->dok_perlukan}}" name="dok_perlukan[]" type="text" class="form-control dynamic_field_focus" aria-label="Default" aria-describedby="inputGroup-sizing-default" disabled>
                             </div> -->
                             <div class="form-floating">
                                 <textarea class="form-control" style="height: 100px" name="dok_perlukan" disabled>{{$tanggapan->dok_perlukan}}</textarea>
@@ -245,17 +138,20 @@
                         <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="{{$tanggapan->tg_date}}" name="tg_date" disabled>
+                        <input class="form-control" type="date" value="{{ $tanggapan->tg_date }}" disabled name="tg_date">
                     </td>
                 </tr>
             </tbody>
         </table>
+<<<<<<< HEAD
         @else
         {{-- <p class="text-danger ml-3">*R&D belum menanggapi</p> --}}
         @endif
         
         @if($tanggapan->gt_bidang != null)
         <!-- kalo bidang udah ngisi tampilin -->
+=======
+>>>>>>> b8cdbf8da98798aae294565bd115e6af24c18c5d
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -266,7 +162,6 @@
                 <tr>
                     <td>
                         <textarea class="form-control" rows="3" disabled>{{$tanggapan->gt_bidang}}</textarea>
-                        <input type="hidden" value="{{$tanggapan->gt_bidang}}" name="gt_bidang">
                     </td>
                 </tr>
             </tbody>
@@ -283,14 +178,12 @@
                 <tr>
                     <td>
                         <input class="form-control" type="text" value="{{$tanggapan->gt_nama}}" disabled>
-                        <input type="hidden" value="{{$tanggapan->gt_nama}}" name="gt_nama">
                     </td>
                     <td>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
                         <input class="form-control" type="date" value="{{$tanggapan->gt_date}}" disabled>
-                        <input type="hidden" value="{{$tanggapan->gt_date}}" name="gt_date">
                     </td>
                 </tr>
             </tbody>
@@ -305,7 +198,6 @@
                 <tr>
                     <td>
                         <textarea class="form-control" rows="3" disabled>{{$tanggapan->bidang_tg}}</textarea>
-                        <input type="hidden" value="{{$tanggapan->bidang_tg}}" name="bidang_tg">
                     </td>
                 </tr>
             </tbody>
@@ -322,13 +214,13 @@
                 <tr>
                     <td>
                         <input class="form-control" type="text" value="{{$tanggapan->nama_tg}}" disabled>
-                        <input type="hidden" value="{{$tanggapan->nama_tg}}" name="nama_tg" >
                     </td>
                     <td>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
                         <input class="form-control" type="date" value="{{$tanggapan->date_tg}}" disabled>
+<<<<<<< HEAD
                         <input type="hidden" value="{{$tanggapan->date_tg}}" name="date_tg" >
                     </td>
                 </tr>
@@ -346,10 +238,13 @@
                 <tr>
                     <td>
                         <textarea class="form-control" rows="3" name="gt_bidang" disabled></textarea>
+=======
+>>>>>>> b8cdbf8da98798aae294565bd115e6af24c18c5d
                     </td>
                 </tr>
             </tbody>
         </table>
+<<<<<<< HEAD
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -430,8 +325,10 @@
     @elseif($tanggapan->tg_rnd == null AND $tanggapan->gt_bidang == null)
     <!-- kalo r&d udah ngisi dan bidang belom ngisi tampilin both -->
         {{-- <button class="btn btn-success my-2">Submit</button> --}}
+=======
+    </div>
+>>>>>>> b8cdbf8da98798aae294565bd115e6af24c18c5d
         <a href="/home" class="btn btn-danger my-2 mx-2">Cancel</a>
-    @endif
     </form>
 <script>
     $(function() {
