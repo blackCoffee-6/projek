@@ -30,11 +30,13 @@ class TanggapanController extends Controller
             }
             $arrFupId = explode(",",$fup_id);
             $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
+            $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->where('bidang_id',Auth::user()->bidang_id)->count();
         }
         else{
             $fups = FUP::where('tanggapan', 'like', 'perlu')->paginate(10);
         }
-        return view('tanggapan.index', compact('fups','user','tanggapans'));
+        
+        return view('tanggapan.index', compact('fups','user','tanggapans', 'tanggapanFlag'));
     }
 
     /**
@@ -69,7 +71,8 @@ class TanggapanController extends Controller
             'gt_date' => $request->gt_date,
             'bidang_tg' => $request->bidang_tg,
             'nama_tg' => $request->nama_tg,
-            'date_tg' => $request->date_tg
+            'date_tg' => $request->date_tg,
+            'bidang_id' => Auth::user()->bidang_id
         ]);
 
         Alert::success('Success', "Tanggapan Created Successfully!");
@@ -103,8 +106,9 @@ class TanggapanController extends Controller
      */
     public function edit($id)
     {
-        $fup = FUP::find($id);
-        $tanggapan = Tanggapan::where('fup_id', $id)->first();
+        // $fup = FUP::find($id);
+        $tanggapan = Tanggapan::where('id', $id)->first();
+        $fup = FUP::find($tanggapan->FUP->id);
         $auth = Auth::check();
         $role = 'Staff';
 
@@ -134,5 +138,11 @@ class TanggapanController extends Controller
         ]);
 
         return redirect('/Tanggapan');
+    }
+
+    public function showDetail($id){
+        $fups = FUP::where('id',$id)->first();
+        $tanggapans = Tanggapan::where('fup_id',$id)->paginate(10);
+        return view('tanggapan.detail', compact('fups','tanggapans'));
     }
 }

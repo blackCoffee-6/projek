@@ -26,9 +26,9 @@
         </table>
     </div>
     <!-- ini kalo si R&D terakhir ngisi -->
-    <form action="/Tanggapan/{{$tanggapan->id}}" method="post">
+    <form action="/Store/Tanggapan/{{$fup->id}}" method="post">
     @csrf
-    @method('put')
+    @method('post')
     @if(Auth::user()->bidang_id == 1 AND $tanggapan->tg_rnd == null)
     <!-- kalo rnd belom ngisi -->
     <div class="container my-4">
@@ -251,7 +251,7 @@
             </tbody>
         </table>
         @else
-        <p class="text-danger ml-3">*R&D belum menanggapi</p>
+        {{-- <p class="text-danger ml-3">*R&D belum menanggapi</p> --}}
         @endif
         
         @if($tanggapan->gt_bidang != null)
@@ -345,7 +345,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" rows="3" name="gt_bidang"></textarea>
+                        <textarea class="form-control" rows="3" name="gt_bidang" disabled></textarea>
                     </td>
                 </tr>
             </tbody>
@@ -361,13 +361,13 @@
             <tbody>
                 <tr>
                     <td>
-                        <input class="form-control" type="text" name="gt_nama">
+                        <input class="form-control" type="text" name="gt_nama" disabled>
                     </td>
                     <td>
                         <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="gt_date">
+                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="gt_date" disabled>
                     </td>
                 </tr>
             </tbody>
@@ -381,7 +381,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" rows="3" name="bidang_tg"></textarea>
+                        <textarea class="form-control" rows="3" name="bidang_tg" disabled></textarea>
                     </td>
                 </tr>
             </tbody>
@@ -397,13 +397,13 @@
             <tbody>
                 <tr>
                     <td>
-                        <input class="form-control" type="text" name="nama_tg" >
+                        <input class="form-control" type="text" name="nama_tg"disabled >
                     </td>
                     <td>
                         <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="date_tg">
+                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="date_tg" disabled>
                     </td>
                 </tr>
             </tbody>
@@ -418,18 +418,18 @@
         <a href="/home" class="btn btn-danger my-2 mx-2">Cancel</a>
     @elseif($tanggapan->tg_rnd == null AND $tanggapan->gt_bidang != null AND Auth::user()->bidang_id == 1)
     <!-- kalo r&d belom ngisi dan bidang lain udah ngisi dan dia R&D maka tampilin both-->
-        <button class="btn btn-success my-2">Submit</button>
+        {{-- <button class="btn btn-success my-2">Submit</button> --}}
         <a href="/home" class="btn btn-danger my-2 mx-2">Cancel</a>
     @elseif($tanggapan->tg_rnd != null AND $tanggapan->gt_bidang == null AND Auth::user()->bidang_id == 1)
     <!-- kalo r&d udah ngisi dan bidang belom ngisi dan user rnd maka tampilin cancel -->
         <a href="/home" class="btn btn-danger my-2 mx-2">Cancel</a>
     @elseif($tanggapan->tg_rnd != null AND $tanggapan->gt_bidang == null)
     <!-- kalo r&d udah ngisi dan bidang belom ngisi tampilin both -->
-        <button class="btn btn-success my-2">Submit</button>
+        {{-- <button class="btn btn-success my-2">Submit</button> --}}
         <a href="/home" class="btn btn-danger my-2 mx-2">Cancel</a>
     @elseif($tanggapan->tg_rnd == null AND $tanggapan->gt_bidang == null)
     <!-- kalo r&d udah ngisi dan bidang belom ngisi tampilin both -->
-        <button class="btn btn-success my-2">Submit</button>
+        {{-- <button class="btn btn-success my-2">Submit</button> --}}
         <a href="/home" class="btn btn-danger my-2 mx-2">Cancel</a>
     @endif
     </form>

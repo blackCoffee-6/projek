@@ -19,9 +19,15 @@ class KajianController extends Controller
      */
     public function index()
     {
-        $fups = FUP::paginate(10);
+        // $fups = FUP::paginate(10);
         $user = Auth::user();
-        $apps = Approval::where('decision', 'like', 'setuju')->get();
+        $apps = Approval::where('decision', 'like', 'setuju')->get(); //{1 setuju}, {3 setuju}
+        $fup_id = '';
+        foreach($apps as $app){
+            $fup_id .= $app->fup_id.','; //1,3,
+        }
+        $arrFupId = explode(',',$fup_id);//{1, 3}
+        $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
     
        return view('listKajian', compact('fups', 'user', 'apps'));
     }
@@ -42,7 +48,7 @@ class KajianController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
         dd($request->all());
 
@@ -84,11 +90,10 @@ class KajianController extends Controller
             return back()->withErrors($validator->errors());
         }
 
-        $user = Auth::user();
-
-        Kajian::create([
-            'ket_up' => $request->ket_up,
-        ]);
+        // Kajian::create([
+        //     'ket_up' => $request->ket_up,
+        // ]);
+        return redirect('/Detail/Kajian/');
     }
 
     /**
@@ -97,16 +102,15 @@ class KajianController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        $fup = FUP::find($id);
-        $role = 'Staff';
         $auth = Auth::check();
+        $role = 'Staff';
 
         if($auth){
             $role = Auth::user()->role;
         }
-        return view('kajian', compact('fup','role'));
+        return view('kajian', compact('role'));
     }
 
     /**

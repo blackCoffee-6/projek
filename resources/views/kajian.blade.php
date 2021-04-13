@@ -105,6 +105,13 @@
                             <input class="form-check-input" type="radio" name="ru_a" id="ru_a" value="na">
                             <label class="form-check-label" for="inlineRadio2">NA</label>
                         </div>
+                        <label
+                            @error('ru_a')
+                            class="text-danger"
+                            @enderror>@error('ru_a')
+                            *{{ $message }}
+                            @enderror
+                        </label>
                         <h6 class="my-2">b. Jika ya, laporan ditujukan ke</h6>
                         <div class="d-inline">
                             <div class="form-check">
@@ -124,6 +131,13 @@
                                 <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                             </div>
                         </div>
+                        <label 
+                            @error('ru_b')
+                            class="text-danger"
+                            @enderror>@error('ru_b')
+                            *{{ $message }}
+                            @enderror
+                        </label>
                     </td>
                     <td>
                         <textarea class="form-control" id="ru_ket" rows="3" name="ru_ket"></textarea>
@@ -148,6 +162,13 @@
                             <input class="form-check-input" type="radio" name="ri_a" id="ri_a" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
+                        <label 
+                        @error('ri_a')
+                        class="text-danger"
+                        @enderror>@error('ri_a')
+                        *{{ $message }}
+                        @enderror
+                        </label>
                         <h6 class="my-2">b. Jika ya, perubahan</h6>
                         <div class="d-inline">
                             <div class="form-check">
@@ -163,6 +184,13 @@
                                 <label class="form-check-label">Telah memperoleh persetujuan BPOM</label>
                             </div>
                         </div>
+                        <label 
+                        @error('ri_b')
+                        class="text-danger"
+                        @enderror>@error('ri_b')
+                        *{{ $message }}
+                        @enderror
+                        </label>
                     </td>
                     <td>
                         <textarea class="form-control" id="ri_ket" rows="3" name="ri_ket"></textarea>
@@ -187,6 +215,13 @@
                             <input class="form-check-input" type="radio" name="st_a" id="st_a" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
+                        <label 
+                        @error('st_a')
+                        class="text-danger"
+                        @enderror>@error('st_a')
+                        *{{ $message }}
+                        @enderror
+                        </label>
                         <h6 class="my-2">b. Jika ya, perlu dilakukan uji stabilitas</h6>
                         <div class="d-inline">
                             <div class="form-check">
@@ -198,6 +233,13 @@
                                 <label class="form-check-label">Jangka Panjang</label>
                             </div>
                         </div>
+                        <label 
+                        @error('st_b')
+                        class="text-danger"
+                        @enderror>@error('st_b')
+                        *{{ $message }}
+                        @enderror
+                        </label>
                     </td>
                     <td>
                         <textarea class="form-control" id="st_ket" rows="3" name="st_ket"></textarea>
@@ -222,6 +264,13 @@
                             <input class="form-check-input" type="radio" name="me_a" id="me_a" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
+                        <label 
+                        @error('me_a')
+                        class="text-danger"
+                        @enderror>@error('me_a')
+                        *{{ $message }}
+                        @enderror
+                        </label>
                     </td>
                     <td>
                         <textarea class="form-control" id="me_ket" rows="3" name="me_ket"></textarea>
@@ -246,6 +295,13 @@
                             <input class="form-check-input" type="radio" name="val_a" id="val_a" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
+                        <label 
+                        @error('val_a')
+                        class="text-danger"
+                        @enderror>@error('val_a')
+                        *{{ $message }}
+                        @enderror
+                        </label>
                         <h6 class="my-2">b. Jika ya, jenis validasi / kualifikasi</h6>
                         <div class="d-inline">
                             <div class="form-check">
@@ -277,6 +333,13 @@
                                 <label class="form-check-label">Kualifikasi Operasional</label>
                             </div>
                         </div>
+                        <label
+                        @error('val_b')
+                        class="text-danger"
+                        @enderror>@error('val_b')
+                        *{{ $message }}
+                        @enderror
+                        </label>
                     </td>
                     <td>
                         <textarea class="form-control" id="val_ket" rows="3" name="val_ket"></textarea>
@@ -301,6 +364,13 @@
                             <input class="form-check-input" type="radio" name="tr_a" id="tr_a" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
+                        <label 
+                        @error('tr_a')
+                        class="text-danger"
+                        @enderror>@error('tr_a')
+                        *{{ $message }}
+                        @enderror
+                        </label>
                         <h6 class="my-2">b. Jika ya, dilakukan trial skala</h6>
                         <div class="d-inline">
                             <div class="form-check">
@@ -316,6 +386,12 @@
                                 <label class="form-check-label">Komersial</label>
                             </div>
                         </div>
+                        <label 
+                        @error('tr_b')
+                        class="text-danger"
+                        @enderror>@error('tr_b')
+                        *{{ $message }}
+                        </label>
                     </td>
                     <td>
                         <textarea class="form-control" id="tr_ket" rows="3" name="tr_ket"></textarea>
@@ -340,6 +416,13 @@
                             <input class="form-check-input" type="radio" name="pr_a" id="pr_a" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
+                        <label 
+                        @error('pr_a')
+                        class="text-danger"
+                        @enderror>@error('pr_a')
+                        *{{ $message }}
+                        @enderror
+                        </label>
                         <h6 class="my-2">b. Jika ya, sebutkan pemeriksaan tambahan yang diperlukan</h6>
                         <div class="d-inline">
                             <div class="form-check">
@@ -379,6 +462,13 @@
                             <input class="form-check-input" type="radio" name="dok_a" id="dok_a" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
+                        <label 
+                        @error('dok_a')
+                        class="text-danger"
+                        @enderror>@error('dok_a')
+                        *{{ $message }}
+                        @enderror
+                        </label>
                         <h6 class="my-2">b. Jika ya, sebutkan dokumen yang dibuat / diubah</h6>
                         <div class="d-inline">
                             <div class="form-check">
@@ -418,6 +508,13 @@
                             <input class="form-check-input" type="radio" name="si_a" id="si_a" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
+                        <label 
+                        @error('si_a')
+                        class="text-danger"
+                        @enderror>@error('si_a')
+                        *{{ $message }}
+                        @enderror
+                        </label>
                     </td>
                     <td>
                         <textarea class="form-control" id="si_ket" rows="3" name="si_ket"></textarea>
@@ -791,6 +888,13 @@
                             <input class="form-check-input" type="radio" name="ch_kategori" value="minor">
                             <label class="form-check-label" for="inlineRadio2">Minor</label>
                         </div>
+                        <label 
+                        @error('ch_kategori')
+                        class="text-danger"
+                        @enderror>@error('ch_kategori')
+                        *{{ $message }}
+                        @enderror
+                        </label>
                     </td>
                 </tr>
             </tbody>
@@ -812,6 +916,13 @@
                             <input class="form-check-input" type="radio" name="ch_status" value="ditolak">
                             <label class="form-check-label" for="inlineRadio2">Ditolak</label>
                         </div>
+                        <label 
+                        @error('ch_status')
+                        class="text-danger"
+                        @enderror>@error('ch_status')
+                        *{{ $message }}
+                        @enderror
+                        </label>
                     </td>
                 </tr>
             </tbody>
@@ -832,6 +943,13 @@
                     <td>QA Specialist</td>
                     <td>
                         <input type="text" class="form-control" placeholder="Sertakan Nama" id="qa_nama" name="qa_nama">
+                        <label 
+                        @error('qa_nama')
+                        class="text-danger"
+                        @enderror>@error('qa_nama')
+                        *{{ $message}}
+                        @enderror
+                        </label>
                     </td>
                     <td>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
@@ -845,6 +963,13 @@
                     <td>Asman Prod. Eval.</td>
                     <td>
                         <input type="text" class="form-control" placeholder="Sertakan Nama" id="asman_nama" name="asman_nama">
+                        <label
+                        @error('asman_nama')
+                        class="text-danger"
+                        @enderror>@error('asman_nama')
+                        *{{ $message }}
+                        @enderror
+                        </label>
                     </td>
                     <td>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
@@ -858,6 +983,13 @@
                     <td>QA Specialist</td>
                     <td>
                         <input type="text" class="form-control" placeholder="Sertakan Nama" id="aq_nama" name="aq_nama">
+                        <label 
+                        @error('aq_nama')
+                        class="text-danger"
+                        @enderror>@error('aq_nama')
+                        *{{ $message }}
+                        @enderror
+                        </label>
                     </td>
                     <td>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
@@ -914,6 +1046,13 @@
                             <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                         </div>
                     </td>
+                    <label
+                    @error('ch_dis')
+                    class="text-danger"
+                    @enderror>@error('ch_dis')
+                    *{{ $message }}
+                    @enderror
+                    </label>
                 </tr>
             </tbody>
         </table>

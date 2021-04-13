@@ -28,7 +28,7 @@
           <th scope="col">Status</th>
           <th scope="col">Aksi</th>
         </tr>
-      </the ad>
+      </thead>
                 <tbody>
                   @foreach($fups as $fup)
                 <tr>
@@ -45,19 +45,21 @@
                         @if($tanggapan->fup_id == $fup->id)
                         <?php $count++?>
                         <!-- kalo yg login R&D abis dia isi button lihat nya harusnya ilang -->
-                          <a href="/Tanggapan/{{$fup->id}}/edit" class="btn btn-success my-2 my-sm-0" type="submit" ><i class="fa fa-folder"></i>  Lihat</a>
+                          <a href="List/Menanggapi/{{$fup->id}}" class="btn btn-success my-2 my-sm-0" type="submit" ><i class="fa fa-folder"></i>  Lihat</a>
+                          <?php break; ?>
                         @endif
                       @endforeach
+                      
                     </td>
                     <td>
-                      @if($count < 1)
+                      @if($tanggapanFlag < 1)
                         <span class="badge rounded-pill badge-secondary">Menunggu di tanggapi</span>
                       @else
                         <span class="badge rounded-pill bg-success text-light">Sudah di tanggapi</span>
                       @endif
                     </td>
                     <td>
-                    @if($count < 1)
+                    @if($tanggapanFlag < 1)
                       <a href="/Tanggapan/{{$fup->id}}"><button class="btn btn-info my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Menanggapi</button></a>
                     @endif
                     </td>
@@ -68,5 +70,4 @@
             <!-- ADD PAGINATION -->
             {{ $fups->links() }}
         </div>
-    </div>
 @endsection

@@ -43,7 +43,7 @@ Route::get('/control', function () {
 // Route::get('/kajian', function () {
 //     return view('kajian');
 // });
-Route::get('/Detail/Kajian/{id}', 'KajianController@show');
+Route::get('/Detail/Kajian/', 'KajianController@show');
 Route::get('/List/Kajian', 'KajianController@index');
 Route::post('/Store/Kajian/', 'KajianController@store');
 
@@ -86,3 +86,4 @@ Route::get('/Hapus/Data/Bidang/{id}', 'BidangController@destroy');
 //-----Route Tanggapan-----//
 Route::post('/Store/Tanggapan/{id}', 'TanggapanController@store');
 Route::resource('Tanggapan', 'TanggapanController');
+Route::get('List/Menanggapi/{id}','TanggapanController@showDetail');

@@ -27,18 +27,18 @@
         </thead>
         <tbody>
             <?php $count = 0; ?>
-            @foreach($apps as $app)
+            @foreach($fups as $fup)
                 <tr>
                     <th>{{$loop->iteration}}</th>
-                    <td>Test</td>
+                    <td>{{$fup->Bidang->name}}</td>
                     <td>04/USL/IV/2020</td>
-                    <td>Test</td>
+                    <td>{{$fup->date}}</td>
                     <td>
-                        Test
+                        {{$fup->ket_usulan}}
                     </td>
                     <td>20/05/2021</td>
                     <td>
-                        <a href="/Detail/Kajian/{id}"><button class="btn btn-dark my-2 my-sm-0" type="submit"><i class="fa fa-database"></i>  Kaji</button></a>
+                        <a href="/Detail/Kajian/"><button class="btn btn-dark my-2 my-sm-0" type="submit"><i class="fa fa-database"></i>  Kaji</button></a>
                     </td>
                 </tr>
             @endforeach
