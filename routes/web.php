@@ -39,13 +39,6 @@ Route::get('/List/Tanggapan', function () {
 Route::get('/control', function () {
     return view('control');
 });
-//--------Route Kajian----------//
-// Route::get('/kajian', function () {
-//     return view('kajian');
-// });
-Route::get('/Detail/Kajian/', 'KajianController@show');
-Route::get('/List/Kajian', 'KajianController@index');
-Route::post('/Store/Kajian/', 'KajianController@store');
 
 Route::get('/kontrol', function () {
     return view('perubahan');
@@ -55,17 +48,11 @@ Route::get('/list-up', function () {
     return view('list-usulan');
 });
 
-// TEMPLATE BARU
-Route::get('/main', function () {
-    return view('layouts.main');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 //-----Route Form Usulan Perubahan-----//
-//untuk CRUD Usulan Perubahan
 Route::resource('FUP', 'FUPController');
 
 //untuk mengambil dan melihat data form usulan perubahan
@@ -74,16 +61,19 @@ Route::get('/lihat-data/{id}', 'ApproveController@edit');
 Route::post('/store/{id}', 'ApproveController@store');
 
 //-----Route USER-----//
-//untuk CRUD User
 Route::resource('user', 'userController');
 
 //----- Route Bidang ------//
-//Route untuk menampilkan list Bidang
 Route::get('/List/Data/Bidang', 'BidangController@index');
-//Route untuk menghapus bidang
 Route::get('/Hapus/Data/Bidang/{id}', 'BidangController@destroy');
 
 //-----Route Tanggapan-----//
 Route::post('/Store/Tanggapan/{id}', 'TanggapanController@store');
 Route::resource('Tanggapan', 'TanggapanController');
 Route::get('List/Menanggapi/{id}','TanggapanController@showDetail');
+
+//--------Route Kajian----------//
+Route::get('/Detail/Kajian/{fup_id}', 'KajianController@show');
+Route::get('/List/Kajian', 'KajianController@index');
+Route::post('/Store/Kajian/{fup_id}', 'KajianController@store');
+// Route::resource('Kajian', 'KajianController');

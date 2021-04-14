@@ -16,6 +16,18 @@
       </form>
       <a href="#"><button class="btn btn-danger mx-3">Reset</button></a>    
     </div>
+    <br>
+    @if(session('alert'))
+            <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                {{ session('alert')}}
+            </div>
+            @elseif(session('failed'))
+            <div class="alert alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                {{ session('failed')}}
+            </div>
+            @endif
     <table class="table table-bordered my-3">
       <thead>
         <tr>

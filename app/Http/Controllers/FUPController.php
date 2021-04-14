@@ -180,25 +180,6 @@ class FUPController extends Controller
                 ]);
             }
         }
-
-        // if($request->tanggapan != "tidak"){
-        //     $arrTanggapan = explode(",",$tanggapan2);
-        //     if(count($arrTanggapan) > 1){
-        //         foreach($arrTanggapan as $tanggapan){
-        //             FUB::create([
-        //                 'fup_id'=>$id,
-        //                 'bidang_id'=>$tanggapan
-        //             ]);
-        //         }
-        //     }
-        //     else{
-        //         FUB::create([
-        //             'fup_id'=>$id,
-        //             'bidang_id'=>$request->tanggapan2
-        //         ]);
-        //     }
-        // }
-
         return redirect('/FUP')->with('alert', "Usulan Updated Successfully!");
     }
 

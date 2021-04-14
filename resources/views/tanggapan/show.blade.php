@@ -38,6 +38,13 @@
                 <tr>
                     <td>
                         <textarea class="form-control" rows="3" name="tg_rnd"></textarea>
+                        <label 
+                            @error('tg_rnd') 
+                            class="text-danger"
+                            @enderror>@error('tg_rnd')
+                            *Tanggapan R&D harus diisi
+                            @enderror
+                        </label>   
                     </td>
                 </tr>
             </tbody>
@@ -63,6 +70,13 @@
                             <input class="form-check-input" type="radio" name="ch_regulasi" value="3">
                             <label class="form-check-label" for="inlineRadio1">Perubahan telah disetujui BPOM</label>
                         </div>
+                        <label 
+                            @error('ch_regulasi') 
+                            class="text-danger"
+                            @enderror>@error('ch_regulasi')
+                            *Tinjauan terhadap Regulasi harus diisi
+                            @enderror
+                        </label>   
                     </td>
                 </tr>
             </tbody>
@@ -86,6 +100,14 @@
                             <input class="form-check-input" type="radio" name="ch_registrasi" value="notifikasi">
                             <label class="form-check-label" for="inlineRadio1">Notifikasi</label>
                         </div>
+                        <br>
+                        <label 
+                            @error('ch_registrasi') 
+                            class="text-danger"
+                            @enderror>@error('ch_registrasi')
+                            *Jenis Registrasi harus diisi
+                            @enderror
+                        </label>   
                     </td>
                 </tr>
             </tbody>
@@ -97,18 +119,11 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td id="dynamic_field_append">
-                            <!-- <div class="input-group mb-3 dynamic_field_div">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">1</span>
-                                </div>
-                                <input name="dok_perlukan[]" type="text" class="form-control dynamic_field_focus" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                                <a id="dynamic_field_add" href="#"><i class="fa fa-plus fa-fw text-success"></i></a>
-                            </div> -->
-                            <!-- <input name="dok_perlukan" type="text" class="form-control dynamic_field_focus" aria-label="Default" aria-describedby="inputGroup-sizing-default"> -->
+                        <td>
                             <div class="form-floating">
                                 <textarea class="form-control" style="height: 100px" name="dok_perlukan"></textarea>
                             </div>
+
                         </td>
                     </tr>
                 </tbody>
@@ -125,6 +140,13 @@
                 <tr>
                     <td>
                         <input class="form-control" type="text" name="tg_nama">
+                        <label 
+                            @error('tg_nama') 
+                            class="text-danger"
+                            @enderror>@error('tg_nama')
+                            *Nama harus diisi
+                            @enderror
+                        </label>   
                     </td>
                     <td>
                         <textarea class="form-control" rows="3" name="ttd" disabled></textarea>

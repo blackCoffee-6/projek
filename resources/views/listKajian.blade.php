@@ -38,11 +38,12 @@
                     </td>
                     <td>20/05/2021</td>
                     <td>
-                        <a href="/Detail/Kajian/"><button class="btn btn-dark my-2 my-sm-0" type="submit"><i class="fa fa-database"></i>  Kaji</button></a>
+                        <a href="/Detail/Kajian/{{$fup->id}}"><button class="btn btn-dark my-2 my-sm-0" type="submit"><i class="fa fa-database"></i>  Kaji</button></a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+    {{$fups->links()}}
 </div>
 @endsection

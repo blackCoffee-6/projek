@@ -19,7 +19,6 @@ class KajianController extends Controller
      */
     public function index()
     {
-        // $fups = FUP::paginate(10);
         $user = Auth::user();
         $apps = Approval::where('decision', 'like', 'setuju')->get(); //{1 setuju}, {3 setuju}
         $fup_id = '';
@@ -48,85 +47,43 @@ class KajianController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $fup_id)
     {
-        // dd($request->all());
+        // dd($request->all()); 
+        
+        // $validator = Validator::make($request->all(),[
+        //     // 'ket_up'=>'required', --Gabisa ngambil id si ket_up karena nama checboxnya beda2--
+        //     'ru_a'=>'required',
+        //     'ri_a'=>'required',
+        //     'st_a'=>'required',
+        //     'me_a'=>'required',
+        //     'val_a'=>'required',
+        //     'tr_a'=>'required',
+        //     'pr_a'=>'required',
+        //     'dok_a'=>'required',
+        //     'si_a'=>'required',
+        //     // 'severity'=>'required',
+        //     // 'detec'=>'required',
+        //     // 'occur'=>'required',
+        //     'ch_kategori'=>'required',
+        //     'ch_status'=>'required',
+        //     'qa_nama'=>'required',
+        //     'asman_nama'=>'required',
+        //     'aq_nama'=>'required',
+        //     // 'ch_dis'=>'required',
+        // ]);
 
-        $validator = Validator::make($request->all(),[
-            // 'ket_up'=>'required', --Gabisa ngambil id si ket_up karena nama checboxnya beda2--
-            'ru_a'=>'required',
-            'ri_a'=>'required',
-            'st_a'=>'required',
-            'me_a'=>'required',
-            'val_a'=>'required',
-            'tr_a'=>'required',
-            'pr_a'=>'required',
-            'dok_a'=>'required',
-            'si_a'=>'required',
-            // 'severity'=>'required',
-            // 'detec'=>'required',
-            // 'occur'=>'required',
-            'ch_kategori'=>'required',
-            'ch_status'=>'required',
-            'qa_nama'=>'required',
-            'asman_nama'=>'required',
-            'aq_nama'=>'required',
-            // 'ch_dis'=>'required',
-        ]);
+        // if($validator->fails()){
+        //     return back()->withErrors($validator->errors());
+        // }
+        
+        $request->request->add(['fup_id' => $fup_id]);
+        $request->request->add(['ket_up' => implode(',', $request->ket_up)]);
+        
 
-        if($validator->fails()){
-            return back()->withErrors($validator->errors());
-        }
-
-        Kajian::create([
-            // 'fup_id' => $id,
-            'ket_up' => $request->ket_up,
-            'ru_a' => $request->ru_a,
-            'ru_b' => $request->ru_b,
-            'ru_ket' => $request->ru_ket,
-            'ri_a' => $request->ri_a,
-            'ri_b' => $request->ri_b,
-            'ri_ket' => $request->ri_ket,
-            'st_a' => $request->st_a,
-            'st_b' => $request->st_b,
-            'st_ket' => $request->st_ket,
-            'me_a' => $request->me_a,
-            'me_ket' => $request->me_ket,
-            'val_a' => $request->val_a,
-            'val_b' => $request->val_b,
-            'val_ket' => $request->val_ket,
-            'tr_a' => $request->tr_a,
-            'tr_b' => $request->tr_b,
-            'tr_ket' => $request->tr_ket,
-            'pr_a' => $request->pr_a,
-            'pr_dok' => $request->pr_dok,
-            'pr_ket' => $request->pr_ket,
-            'dok_a' => $request->dok_a,
-            'dok_b' => $request->dok_b,
-            'dok_ket' => $request->dok_ket,
-            'si_a' => $request->si_a,
-            'si_ket' => $request->si_ket,
-            'kj_tambahan' => $request->kj_tambahan,
-            'severity1' => $request->severity1,
-            'detec1' => $request->detec1,
-            'occur1' => $request->occur1,
-            'getsev' => $request->getsev,
-            'getdet' => $request->getdet,
-            'getocc' => $request->getocc,
-            'dxo' => $request->result_dxo,
-            'ch_kategori' => $request->ch_kategori,
-            'ch_status' => $request->ch_status,
-            'qa_nama' => $request->qa_nama,
-            'qa_date' => $request->qa_date,
-            'asman_nama' => $request->asman_nama,
-            'asman_date' => $request->asman_date,
-            'aq_nama' => $request->aq_nama,
-            'aq_date' => $request->aq_date,
-            'ch_dis' => $request->ch_dis
-        ]);
-
-        Alert::success('Success', "Kajian Berhasil Dibuat!");
-        return redirect('/List/Kajian/');
+        Kajian::create($request->all());
+        return "berhasil";
+        // return redirect('/Detail/Kajian/');
     }
 
     /**
@@ -135,15 +92,17 @@ class KajianController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($fup_id)
     {
+        $fup = FUP::find($fup_id);
         $auth = Auth::check();
         $role = 'Staff';
 
         if($auth){
             $role = Auth::user()->role;
         }
-        return view('kajian', compact('role'));
+        
+        return view('kajian', compact('role','fup'));
     }
 
     /**

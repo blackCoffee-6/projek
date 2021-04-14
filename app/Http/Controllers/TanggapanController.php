@@ -8,12 +8,13 @@ use App\FUB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Validator;
 
 class TanggapanController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * 
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -30,6 +31,7 @@ class TanggapanController extends Controller
             }
             $arrFupId = explode(",",$fup_id);
             $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
+
             $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->where('bidang_id',Auth::user()->bidang_id)->get();
         }
         else{
@@ -41,8 +43,15 @@ class TanggapanController extends Controller
             $arrFupId = explode(",",$fup_id);
             $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->get();
         }
+
+        if(Auth::user()->bidang_id == null){
+            abort(404);
+        }
+        else{
+            return view('tanggapan.index', compact('fups','user','tanggapans', 'tanggapanFlag'))
+            ->with('alert', "Tanggapan Created Successfully!");
+        }
         
-        return view('tanggapan.index', compact('fups','user','tanggapans', 'tanggapanFlag'));
     }
 
     /**
@@ -66,6 +75,16 @@ class TanggapanController extends Controller
         $bidang_id = Auth::user()->bidang_id == null ? "0" : Auth::user()->bidang_id;
         // dd($request->all());
         // tambahin validasi, biar si user ga submit form yg kosong
+        $validator = Validator::make($request->all(),[
+            'tg_rnd' => 'required',
+            'ch_regulasi' => 'required',
+            'ch_registrasi' => 'required',
+            'tg_nama' => 'required'
+        ]);
+            
+        if ($validator->fails()) {
+            return back()->withErrors($validator->errors());
+        }
         Tanggapan::create([
             'tg_rnd' => $request->tg_rnd,
             'fup_id' => $id,
