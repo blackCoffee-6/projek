@@ -44,13 +44,9 @@
                       @foreach($tanggapans as $tanggapan)
                         @if($tanggapan->fup_id == $fup->id)
                         <?php $count++?>
-<<<<<<< HEAD
                         <!-- kalo yg login R&D abis dia isi button lihat nya harusnya ilang -->
                           <a href="List/Menanggapi/{{$fup->id}}" class="btn btn-success my-2 my-sm-0" type="submit" ><i class="fa fa-folder"></i>  Lihat</a>
                           <?php break; ?>
-=======
-                          <a href="/Tanggapan/{{$fup->id}}/edit" class="btn btn-success my-2 my-sm-0" type="submit" ><i class="fa fa-folder"></i>  Lihat</a>
->>>>>>> b8cdbf8da98798aae294565bd115e6af24c18c5d
                         @endif
                       @endforeach
                       

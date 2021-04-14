@@ -46,3 +46,7 @@ tanggapan ini si Admin bisa ngeliat dan menanggapi form FUP_ID dari semua bidang
 --> FUP [AMAN DONE]
 
 18. Status Tanggapan [DONE]
+
+19. Kajian sama Kontrol perubahan itu hanya bisa diisi oleh Admin yaitu
+Bidang QA. Blade di menunggu kajian itu blade yang berisi kajian" FUP yang bisa di pantau sma user
+sedangkan yg di entry kajian itu isinya FUP" yang mau dikaji oleh si Admin
