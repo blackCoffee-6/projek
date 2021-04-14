@@ -50,50 +50,52 @@ class KajianController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
 
-        $validator = Validator::make($request->all(),[
-            'ket_up'=>'required',
-            'ru_a'=>'required',
-            'ru_b'=>'required',
-            'ri_a'=>'required',
-            'ri_b'=>'required',
-            'st_a'=>'required',
-            'st_b'=>'required',
-            'me_a'=>'required',
-            'val_a'=>'required',
-            'val_b'=>'required',
-            'tr_a'=>'required',
-            'tr_b'=>'required',
-            'pr_a'=>'required',
-            'dok_a'=>'required',
-            'si_a'=>'required',
-            'severity'=>'required',
-            'detec'=>'required',
-            'occur'=>'required',
-            'getsev'=>'required',
-            'getdet'=>'required',
-            'getocc'=>'required',
-            'dxo'=>'required',
-            'ch_kategori'=>'required',
-            'ch_status'=>'required',
-            'qa_nama'=>'required',
-            'qa_date'=>'required',
-            'asman_nama'=>'required',
-            'asman_date'=>'required',
-            'aq_nama'=>'required',
-            'aq_date'=>'required',
-            'ch_dis'=>'required',
-        ]);
-
-        if($validator->fails()){
-            return back()->withErrors($validator->errors());
-        }
-
-        // Kajian::create([
-        //     'ket_up' => $request->ket_up,
+        // $validator = Validator::make($request->all(),[
+        //     'ket_up'=>'required',
+        //     'ru_a'=>'required',
+        //     'ru_b'=>'required',
+        //     'ri_a'=>'required',
+        //     'ri_b'=>'required',
+        //     'st_a'=>'required',
+        //     'st_b'=>'required',
+        //     'me_a'=>'required',
+        //     'val_a'=>'required',
+        //     'val_b'=>'required',
+        //     'tr_a'=>'required',
+        //     'tr_b'=>'required',
+        //     'pr_a'=>'required',
+        //     'dok_a'=>'required',
+        //     'si_a'=>'required',
+        //     'severity'=>'required',
+        //     'detec'=>'required',
+        //     'occur'=>'required',
+        //     'getsev'=>'required',
+        //     'getdet'=>'required',
+        //     'getocc'=>'required',
+        //     'dxo'=>'required',
+        //     'ch_kategori'=>'required',
+        //     'ch_status'=>'required',
+        //     'qa_nama'=>'required',
+        //     'qa_date'=>'required',
+        //     'asman_nama'=>'required',
+        //     'asman_date'=>'required',
+        //     'aq_nama'=>'required',
+        //     'aq_date'=>'required',
+        //     'ch_dis'=>'required',
         // ]);
-        return redirect('/Detail/Kajian/');
+
+        // if($validator->fails()){
+        //     return back()->withErrors($validator->errors());
+        // }
+
+        $request->request->add(['fup_id' => 1]);
+
+        Kajian::create($request->all());
+
+        return "berhasil";
+        // return redirect('/Detail/Kajian/');
     }
 
     /**

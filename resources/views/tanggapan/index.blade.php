@@ -16,6 +16,18 @@
       </form>
       <a href="#"><button class="btn btn-danger mx-3">Reset</button></a>    
     </div>
+    <br>
+    @if(session('alert'))
+            <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                {{ session('alert')}}
+            </div>
+            @elseif(session('failed'))
+            <div class="alert alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                {{ session('failed')}}
+            </div>
+            @endif
     <table class="table table-bordered my-3">
       <thead>
         <tr>
@@ -44,13 +56,9 @@
                       @foreach($tanggapans as $tanggapan)
                         @if($tanggapan->fup_id == $fup->id)
                         <?php $count++?>
-<<<<<<< HEAD
                         <!-- kalo yg login R&D abis dia isi button lihat nya harusnya ilang -->
                           <a href="List/Menanggapi/{{$fup->id}}" class="btn btn-success my-2 my-sm-0" type="submit" ><i class="fa fa-folder"></i>  Lihat</a>
                           <?php break; ?>
-=======
-                          <a href="/Tanggapan/{{$fup->id}}/edit" class="btn btn-success my-2 my-sm-0" type="submit" ><i class="fa fa-folder"></i>  Lihat</a>
->>>>>>> b8cdbf8da98798aae294565bd115e6af24c18c5d
                         @endif
                       @endforeach
                       
