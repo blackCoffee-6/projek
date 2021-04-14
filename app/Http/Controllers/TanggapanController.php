@@ -31,11 +31,17 @@ class TanggapanController extends Controller
             }
             $arrFupId = explode(",",$fup_id);
             $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
-            
-            $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->where('bidang_id',Auth::user()->bidang_id)->count();
+
+            $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->where('bidang_id',Auth::user()->bidang_id)->get();
         }
         else{
             $fups = FUP::where('tanggapan', 'like', 'perlu')->paginate(10);
+            $fup_id = "";
+            foreach($fups as $fub){
+                $fup_id .= $fub->id.","; 
+            }
+            $arrFupId = explode(",",$fup_id);
+            $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->get();
         }
 
         if(Auth::user()->bidang_id == null){
@@ -65,6 +71,7 @@ class TanggapanController extends Controller
      */
     public function store(Request $request, $id)
     {
+        $bidang_id = Auth::user()->bidang_id == null ? "0" : Auth::user()->bidang_id;
         // dd($request->all());
         // tambahin validasi, biar si user ga submit form yg kosong
         $validator = Validator::make($request->all(),[
@@ -91,11 +98,11 @@ class TanggapanController extends Controller
             'bidang_tg' => $request->bidang_tg,
             'nama_tg' => $request->nama_tg,
             'date_tg' => $request->date_tg,
-            'bidang_id' => Auth::user()->bidang_id
+            'bidang_id' => $bidang_id,
         ]);
 
-        Alert::success('Success', "Tanggapan Created Successfully!");
-        return redirect('/Tanggapan')->with('alert', "Usulan Updated Successfully!");
+        Alert::success('Success', "Tanggapan Berhasil Dibuat!");
+        return redirect('/Tanggapan');
     }
 
     /**

@@ -36,3 +36,13 @@ pura2 jadi bidang lain dong? [DONE]
 13. di baca-approve, misal si user butuh bidang 1,5 yg tampil cuma bidang 1/R&D aja bidang 5/teknik nya ga ketampil [DONE]
 
 14. gabisa hidden button lihat kalo si R&D udah ngisi tanggapan [DONE]
+
+15. Jika login si Admin sma Approval ga bisa tampilin index.blade tanggapan karna bidang_id nya NULL [untuk Approval DONE untuk Admin BELOM]
+
+16. Jika user pertama kali register maka harus di acc dulu sma si admin jdi biar webnya gak sembarangan diakses sma orang lain [Tingkat kesulitan: INSANE!!!!]
+
+17. Kan Admin bisa CRUD ke semuanya, di index.blade 
+tanggapan ini si Admin bisa ngeliat dan menanggapi form FUP_ID dari semua bidang yang memerlukan tanggapan
+--> FUP [AMAN DONE]
+
+18. Status Tanggapan [DONE]

@@ -105,13 +105,6 @@
                             <input class="form-check-input" type="radio" name="ru_a" id="ru_a" value="na">
                             <label class="form-check-label" for="inlineRadio2">NA</label>
                         </div>
-                        <label
-                            @error('ru_a')
-                            class="text-danger"
-                            @enderror>@error('ru_a')
-                            *{{ $message }}
-                            @enderror
-                        </label>
                         <h6 class="my-2">b. Jika ya, laporan ditujukan ke</h6>
                         <div class="d-inline">
                             <div class="form-check">
@@ -131,11 +124,11 @@
                                 <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                             </div>
                         </div>
-                        <label 
-                            @error('ru_b')
+                        <label
+                            @error('ru_a')
                             class="text-danger"
-                            @enderror>@error('ru_b')
-                            *{{ $message }}
+                            @enderror>@error('ru_a')
+                            *Regulasi bagian A harus diisi
                             @enderror
                         </label>
                     </td>
@@ -162,13 +155,6 @@
                             <input class="form-check-input" type="radio" name="ri_a" id="ri_a" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <label 
-                        @error('ri_a')
-                        class="text-danger"
-                        @enderror>@error('ri_a')
-                        *{{ $message }}
-                        @enderror
-                        </label>
                         <h6 class="my-2">b. Jika ya, perubahan</h6>
                         <div class="d-inline">
                             <div class="form-check">
@@ -185,10 +171,10 @@
                             </div>
                         </div>
                         <label 
-                        @error('ri_b')
+                        @error('ri_a')
                         class="text-danger"
-                        @enderror>@error('ri_b')
-                        *{{ $message }}
+                        @enderror>@error('ri_a')
+                        *Registrasi bagian A harus diisi
                         @enderror
                         </label>
                     </td>
@@ -215,13 +201,6 @@
                             <input class="form-check-input" type="radio" name="st_a" id="st_a" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <label 
-                        @error('st_a')
-                        class="text-danger"
-                        @enderror>@error('st_a')
-                        *{{ $message }}
-                        @enderror
-                        </label>
                         <h6 class="my-2">b. Jika ya, perlu dilakukan uji stabilitas</h6>
                         <div class="d-inline">
                             <div class="form-check">
@@ -234,10 +213,10 @@
                             </div>
                         </div>
                         <label 
-                        @error('st_b')
+                        @error('st_a')
                         class="text-danger"
-                        @enderror>@error('st_b')
-                        *{{ $message }}
+                        @enderror>@error('st_a')
+                        *Stabilitas bagian A harus diisi
                         @enderror
                         </label>
                     </td>
@@ -268,7 +247,7 @@
                         @error('me_a')
                         class="text-danger"
                         @enderror>@error('me_a')
-                        *{{ $message }}
+                        *Masa Edar bagian A harus diisi
                         @enderror
                         </label>
                     </td>
@@ -295,13 +274,6 @@
                             <input class="form-check-input" type="radio" name="val_a" id="val_a" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <label 
-                        @error('val_a')
-                        class="text-danger"
-                        @enderror>@error('val_a')
-                        *{{ $message }}
-                        @enderror
-                        </label>
                         <h6 class="my-2">b. Jika ya, jenis validasi / kualifikasi</h6>
                         <div class="d-inline">
                             <div class="form-check">
@@ -333,11 +305,11 @@
                                 <label class="form-check-label">Kualifikasi Operasional</label>
                             </div>
                         </div>
-                        <label
-                        @error('val_b')
+                        <label 
+                        @error('val_a')
                         class="text-danger"
-                        @enderror>@error('val_b')
-                        *{{ $message }}
+                        @enderror>@error('val_a')
+                        *Validasi bagian A harus diisi
                         @enderror
                         </label>
                     </td>
@@ -364,13 +336,6 @@
                             <input class="form-check-input" type="radio" name="tr_a" id="tr_a" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <label 
-                        @error('tr_a')
-                        class="text-danger"
-                        @enderror>@error('tr_a')
-                        *{{ $message }}
-                        @enderror
-                        </label>
                         <h6 class="my-2">b. Jika ya, dilakukan trial skala</h6>
                         <div class="d-inline">
                             <div class="form-check">
@@ -387,10 +352,10 @@
                             </div>
                         </div>
                         <label 
-                        @error('tr_b')
+                        @error('tr_a')
                         class="text-danger"
-                        @enderror>@error('tr_b')
-                        *{{ $message }}
+                        @enderror>@error('tr_a')
+                        *Trial bagian A harus diisi
                         @enderror
                         </label>
                     </td>
@@ -417,13 +382,6 @@
                             <input class="form-check-input" type="radio" name="pr_a" id="pr_a" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <label 
-                        @error('pr_a')
-                        class="text-danger"
-                        @enderror>@error('pr_a')
-                        *{{ $message }}
-                        @enderror
-                        </label>
                         <h6 class="my-2">b. Jika ya, sebutkan pemeriksaan tambahan yang diperlukan</h6>
                         <div class="d-inline">
                             <div class="form-check">
@@ -439,6 +397,13 @@
                                 <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                             </div>
                         </div>
+                        <label 
+                        @error('pr_a')
+                        class="text-danger"
+                        @enderror>@error('pr_a')
+                        *Produksi bagian A harus diisi
+                        @enderror
+                        </label>
                     </td>
                     <td>
                         <textarea class="form-control" id="pr_ket" rows="3" name="pr_ket"></textarea>
@@ -463,13 +428,6 @@
                             <input class="form-check-input" type="radio" name="dok_a" id="dok_a" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <label 
-                        @error('dok_a')
-                        class="text-danger"
-                        @enderror>@error('dok_a')
-                        *{{ $message }}
-                        @enderror
-                        </label>
                         <h6 class="my-2">b. Jika ya, sebutkan dokumen yang dibuat / diubah</h6>
                         <div class="d-inline">
                             <div class="form-check">
@@ -485,6 +443,13 @@
                                 <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                             </div>
                         </div>
+                        <label 
+                        @error('dok_a')
+                        class="text-danger"
+                        @enderror>@error('dok_a')
+                        *Dokumen bagian A harus diisi
+                        @enderror
+                        </label>
                     </td>
                     <td>
                         <textarea class="form-control" id="dok_ket" rows="3" name="dok_ket"></textarea>
@@ -513,12 +478,12 @@
                         @error('si_a')
                         class="text-danger"
                         @enderror>@error('si_a')
-                        *{{ $message }}
+                        *Sistem ERP bagian A harus diisi
                         @enderror
-                        </label>
                     </td>
                     <td>
                         <textarea class="form-control" id="si_ket" rows="3" name="si_ket"></textarea>
+                    </label>
                     </td>
                 </tr>
             </tbody>
@@ -893,7 +858,7 @@
                         @error('ch_kategori')
                         class="text-danger"
                         @enderror>@error('ch_kategori')
-                        *{{ $message }}
+                        *Kategori Usulan Perubahan harus diisi
                         @enderror
                         </label>
                     </td>
@@ -921,7 +886,7 @@
                         @error('ch_status')
                         class="text-danger"
                         @enderror>@error('ch_status')
-                        *{{ $message }}
+                        *Status Usulan Perubahan harus diisi
                         @enderror
                         </label>
                     </td>
@@ -948,7 +913,7 @@
                         @error('qa_nama')
                         class="text-danger"
                         @enderror>@error('qa_nama')
-                        *{{ $message}}
+                        *Nama QA Specialist harus diisi
                         @enderror
                         </label>
                     </td>
@@ -968,7 +933,7 @@
                         @error('asman_nama')
                         class="text-danger"
                         @enderror>@error('asman_nama')
-                        *{{ $message }}
+                        *Nama Asman Prod. Eval. harus diisi
                         @enderror
                         </label>
                     </td>
@@ -988,7 +953,7 @@
                         @error('aq_nama')
                         class="text-danger"
                         @enderror>@error('aq_nama')
-                        *{{ $message }}
+                        *Nama QA Specialist harus diisi
                         @enderror
                         </label>
                     </td>
@@ -1051,7 +1016,7 @@
                     @error('ch_dis')
                     class="text-danger"
                     @enderror>@error('ch_dis')
-                    *{{ $message }}
+                    *Distribusi Persetujuan Perubahan harus diisi
                     @enderror
                     </label>
                 </tr>

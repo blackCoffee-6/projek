@@ -23,34 +23,34 @@ class CreateKajiansTable extends Migration
             $table->string('ket_up');
             
             $table->string('ru_a');
-            $table->string('ru_b');
+            $table->string('ru_b')->nullable();
             $table->string('ru_ket')->nullable();
 
             $table->string('ri_a');
-            $table->string('ri_b');
+            $table->string('ri_b')->nullable();
             $table->string('ri_ket')->nullable();
 
             $table->string('st_a');
-            $table->string('st_b');
+            $table->string('st_b')->nullable();
             $table->string('st_ket')->nullable();
 
             $table->string('me_a');
             $table->string('me_ket')->nullable();
 
             $table->string('val_a');
-            $table->string('val_b');
+            $table->string('val_b')->nullable();
             $table->string('val_ket')->nullable();
 
             $table->string('tr_a');
-            $table->string('tr_b');
+            $table->string('tr_b')->nullable();
             $table->string('tr_ket')->nullable();
 
             $table->string('pr_a');
-            $table->string('pr_dok');
+            $table->string('pr_dok')->nullable();
             $table->string('pr_ket')->nullable();
 
             $table->string('dok_a');
-            $table->string('dok_b');
+            $table->string('dok_b')->nullable();
             $table->string('dok_ket')->nullable();
 
             $table->string('si_a');

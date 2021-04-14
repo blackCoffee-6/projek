@@ -30,7 +30,11 @@
                   @foreach($tanggapans as $tanggapan)
                 <tr>
                     <th>{{$loop->iteration}}</th>
+                    @if($tanggapan->bidang_id != "0")
                     <td>{{$tanggapan->Bidang->name}}</td>
+                    @else
+                    <td>QC <span class="text-danger">*</span></td>
+                    @endif
                     <td>{{$fups->date}}</td>
                     <td>
                         {{$fups->ket_usulan}}
