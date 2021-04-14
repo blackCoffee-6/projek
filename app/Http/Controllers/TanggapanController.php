@@ -65,6 +65,7 @@ class TanggapanController extends Controller
     {
         $bidang_id = Auth::user()->bidang_id == null ? "0" : Auth::user()->bidang_id;
         // dd($request->all());
+        // tambahin validasi, biar si user ga submit form yg kosong
         Tanggapan::create([
             'tg_rnd' => $request->tg_rnd,
             'fup_id' => $id,
@@ -126,25 +127,9 @@ class TanggapanController extends Controller
         return view('tanggapan.edit', compact('fup', 'tanggapan', 'role'));
     }
 
-    public function update(Request $request, $tanggapan_id)
+    public function update(Request $request, $id)
     {
-        // dd($request->all());
-        Tanggapan::findOrFail($tanggapan_id)->update([
-            'tg_rnd' => $request->tg_rnd, 
-            'ch_regulasi' => $request->ch_regulasi, 
-            'ch_registrasi' => $request->ch_registrasi, 
-            'dok_perlukan' => $request->dok_perlukan, 
-            'tg_nama' => $request->tg_nama, 
-            'tg_date' => $request->tg_date, 
-            'gt_bidang' => $request->gt_bidang,
-            'gt_nama' => $request->gt_nama,
-            'gt_date' => $request->gt_date,
-            'bidang_tg' => $request->bidang_tg,
-            'nama_tg' => $request->nama_tg,
-            'date_tg' => $request->date_tg
-        ]);
-
-        return redirect('/Tanggapan');
+        //
     }
 
     public function showDetail($id){
