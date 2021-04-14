@@ -52,15 +52,38 @@
                       
                     </td>
                     <td>
-                      @if($tanggapanFlag < 1)
-                        <span class="badge rounded-pill badge-secondary">Menunggu di tanggapi</span>
+                      <?php $buttonFlag = 0; $admindFlag = 0; ?>
+                      @foreach($tanggapanFlag as $flag)
+                      @if($flag->fup_id == $fup->id)
+                      <?php $buttonFlag++ ?>
+                        @if($flag->bidang_id == "0")
+                        <?php $admindFlag++ ?>
+                        @endif
+                      @endif
+                      @endforeach
+                      @if(strcasecmp(Auth::user()->role,'staff') == 0)
+                        @if($buttonFlag < 1)
+                          <span class="badge rounded-pill badge-secondary">Menunggu di tanggapi</span>
+                        @else
+                          <span class="badge rounded-pill bg-success text-light">Sudah di tanggapi</span>
+                        @endif
                       @else
+                        @if($admindFlag < 1)
+                        <span class="badge rounded-pill badge-secondary">Menunggu di tanggapi</span>
+                        @else
                         <span class="badge rounded-pill bg-success text-light">Sudah di tanggapi</span>
+                        @endif
                       @endif
                     </td>
                     <td>
-                    @if($tanggapanFlag < 1)
+                    @if(strcasecmp($user->role,'staff') == 0)
+                      @if($buttonFlag < 1)
+                        <a href="/Tanggapan/{{$fup->id}}"><button class="btn btn-info my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Menanggapi</button></a>
+                      @endif
+                    @else
+                      @if($admindFlag < 1)
                       <a href="/Tanggapan/{{$fup->id}}"><button class="btn btn-info my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Menanggapi</button></a>
+                      @endif
                     @endif
                     </td>
                 </tr>

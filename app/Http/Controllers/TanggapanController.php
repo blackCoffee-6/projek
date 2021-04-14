@@ -30,10 +30,16 @@ class TanggapanController extends Controller
             }
             $arrFupId = explode(",",$fup_id);
             $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
-            $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->where('bidang_id',Auth::user()->bidang_id)->count();
+            $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->where('bidang_id',Auth::user()->bidang_id)->get();
         }
         else{
             $fups = FUP::where('tanggapan', 'like', 'perlu')->paginate(10);
+            $fup_id = "";
+            foreach($fups as $fub){
+                $fup_id .= $fub->id.","; 
+            }
+            $arrFupId = explode(",",$fup_id);
+            $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->get();
         }
         
         return view('tanggapan.index', compact('fups','user','tanggapans', 'tanggapanFlag'));
@@ -57,6 +63,7 @@ class TanggapanController extends Controller
      */
     public function store(Request $request, $id)
     {
+        $bidang_id = Auth::user()->bidang_id == null ? "0" : Auth::user()->bidang_id;
         // dd($request->all());
         Tanggapan::create([
             'tg_rnd' => $request->tg_rnd,
@@ -72,10 +79,10 @@ class TanggapanController extends Controller
             'bidang_tg' => $request->bidang_tg,
             'nama_tg' => $request->nama_tg,
             'date_tg' => $request->date_tg,
-            'bidang_id' => Auth::user()->bidang_id
+            'bidang_id' => $bidang_id,
         ]);
 
-        Alert::success('Success', "Tanggapan Created Successfully!");
+        Alert::success('Success', "Tanggapan Berhasil Dibuat!");
         return redirect('/Tanggapan');
     }
 
