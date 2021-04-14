@@ -14,7 +14,7 @@ class TanggapanController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * 
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -48,7 +48,8 @@ class TanggapanController extends Controller
             abort(404);
         }
         else{
-            return view('tanggapan.index', compact('fups','user','tanggapans', 'tanggapanFlag'));
+            return view('tanggapan.index', compact('fups','user','tanggapans', 'tanggapanFlag'))
+            ->with('alert', "Tanggapan Created Successfully!");
         }
         
     }

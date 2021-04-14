@@ -5,8 +5,8 @@
     <h1 class="display-5 mx-5 text-center">
         Kajian Perubahan
     </h1>
-    <form action="/Store/Kajian/" method="POST">
-        @csrf
+    <form action="/Store/Kajian/{{$fup->id}}" method="POST">
+    @csrf
     <div class="container my-4">
         <table class="table table-bordered my-3">
             <thead>
@@ -18,55 +18,55 @@
                 <tr>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up" value="1" id="bahan">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="1" id="bahan">
                             <label class="form-check-label" for="inlineCheckbox1">Spesifikasi Bahan / Produk</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up" value="2" id="baku">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="2" id="baku">
                             <label class="form-check-label" for="inlineCheckbox1">Bahan Baku</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up" value="3" id="proses">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="3" id="proses">
                             <label class="form-check-label" for="inlineCheckbox1">Formula / Proses</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up" value="4" id="mesin">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="4" id="mesin">
                             <label class="form-check-label" for="inlineCheckbox1">Mesin dan Peralatan</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ket_up" value="4" name="metode">
+                            <input class="form-check-input" type="checkbox" id="ket_up[]" value="4" name="metode">
                             <label class="form-check-label" for="inlineCheckbox1">Metode Analisis</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ket_up" value="5" name="site">
+                            <input class="form-check-input" type="checkbox" id="ket_up[]" value="5" name="site">
                             <label class="form-check-label" for="inlineCheckbox1">Site Produksi</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ket_up" value="6" name="bangunan">
+                            <input class="form-check-input" type="checkbox" id="ket_up[]" value="6" name="bangunan">
                             <label class="form-check-label" for="inlineCheckbox1">Bangunan dan Fasilitas</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ket_up" value="7" name="dokumen">
+                            <input class="form-check-input" type="checkbox" id="ket_up[]" value="7" name="dokumen">
                             <label class="form-check-label" for="inlineCheckbox1">Dokumentasi</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ket_up" value="8" name="lingkungan">
+                            <input class="form-check-input" type="checkbox" id="ket_up[]" value="8" name="lingkungan">
                             <label class="form-check-label" for="inlineCheckbox1">Lingkungan</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ket_up" value="9" name="pie">
+                            <input class="form-check-input" type="checkbox" id="ket_up[]" value="9" name="pie">
                             <label class="form-check-label" for="inlineCheckbox1">PIE</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ket_up" value="10" name="peraturan">
+                            <input class="form-check-input" type="checkbox" id="ket_up[]" value="10" name="peraturan">
                             <label class="form-check-label" for="inlineCheckbox1">Peraturan Perundangan</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ket_up" value="11" name="else">
+                            <input class="form-check-input" type="checkbox" id="ket_up[]" value="11" name="else">
                             <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                         </div>
                     </td>

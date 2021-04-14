@@ -73,7 +73,7 @@ Route::resource('Tanggapan', 'TanggapanController');
 Route::get('List/Menanggapi/{id}','TanggapanController@showDetail');
 
 //--------Route Kajian----------//
-Route::get('/Detail/Kajian/', 'KajianController@show');
+Route::get('/Detail/Kajian/{fup_id}', 'KajianController@show');
 Route::get('/List/Kajian', 'KajianController@index');
-Route::post('/Store/Kajian/', 'KajianController@store');
+Route::post('/Store/Kajian/{fup_id}', 'KajianController@store');
 // Route::resource('Kajian', 'KajianController');
