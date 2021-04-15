@@ -81,47 +81,48 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th scope="col">No.</th>
-                    <th scope="col">Kategori</th>
-                    <th scope="col">Uraian</th>
-                    <th scope="col">Keterangan</th>
+                    <th scope="col"><center> No.</center></th>
+                    <th scope="col"><center> Kategori</center></th>
+                    <th scope="col"><center> Uraian</center></th>
+                    <th scope="col"><center> Keterangan</center></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>1</td>
-                    <td>Regulasi</td>
+                    <td align="center">1</td>
+                    <td align="center">Regulasi</td>
+                    {{-- code id javascript pada regulasi briya, briyat, briyan  --}}
                     <td>
                         <h6>a. Perlu pelaporan ke pemerintah</h6>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ru_a" id="ru_a" value="ya">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
+                            <input class="form-check-input" type="radio" name="ru_a" id="briya" value="ya" required>
+                            <label class="form-check-label">Ya</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ru_a" id="ru_a" value="tidak">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
+                            <input class="form-check-input" type="radio" name="ru_a" id="briyat" value="tidak">
+                            <label class="form-check-label">Tidak</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ru_a" id="ru_a" value="na">
-                            <label class="form-check-label" for="inlineRadio2">NA</label>
+                            <input class="form-check-input" type="radio" name="ru_a" id="briyan" value="na">
+                            <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, laporan ditujukan ke</h6>
+                        <h6 class="my-2" id="laporanregulasi">b. Jika ya, laporan ditujukan ke</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" id="ru_b" value="badan">
-                                <label class="form-check-label">Badan POM</label>
+                                <input class="form-check-input" type="radio" name="ru_b" id="regul" value="Badan POM">
+                                <label class="form-check-label" id="regult">Badan POM</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" id="ru_b" value="kementrian">
-                                <label class="form-check-label">Kementrian Kesehatan</label>
+                                <input class="form-check-input" type="radio" name="ru_b" id="regul1" value="Kementrian Kesehatan">
+                                <label class="form-check-label" id="regult1">Kementrian Kesehatan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" id="ru_b" value="balai">
-                                <label class="form-check-label">Balai POM</label>
+                                <input class="form-check-input" type="radio" name="ru_b" id="regul2" value="Balai POM">
+                                <label class="form-check-label" id="regult2">Balai POM</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" id="ru_b" value="else">
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <input class="form-check-input" type="radio" name="ru_b" id="regul3" value="regulasielse">
+                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="regult3">
                             </div>
                         </div>
                         <label
@@ -139,35 +140,36 @@
             </tbody>
             <tbody>
                 <tr>
-                    <td>2</td>
-                    <td>Registrasi</td>
+                    {{-- code id javascript pada regulasi brgya, brgyat, brgyan  --}}
+                    <td><center> 2</center></td>
+                    <td><center> Registrasi</center></td>
                     <td>
                         <h6>a. Mempengaruhi status ijin edar</h6>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ri_a" id="ri_a" value="ya">
+                            <input class="form-check-input" type="radio" name="ri_a" id="brgya" value="ya">
                             <label class="form-check-label">Ya</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ri_a" id="ri_a" value="tidak">
+                            <input class="form-check-input" type="radio" name="ri_a" id="brgyat" value="tidak">
                             <label class="form-check-label">Tidak</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ri_a" id="ri_a" value="na">
+                            <input class="form-check-input" type="radio" name="ri_a" id="brgyan" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, perubahan</h6>
+                        <h6 class="my-2" id="laporanregistrasi">b. Jika ya, perubahan</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ri_b" id="ri_b" value="perlu">
-                                <label class="form-check-label">Perlu memperoleh persetujuan BPOM terlebih dahulu</label>
+                                <input class="form-check-input" type="radio" name="ri_b" id="regis" value="Perlu Persetujuan">
+                                <label class="form-check-label" id="regist">Perlu memperoleh persetujuan BPOM terlebih dahulu</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ri_b" id="ri_b" value="ijin">
-                                <label class="form-check-label">Ijin BPOM dapat disubmit setelah perubahan terjadi</label>
+                                <input class="form-check-input" type="radio" name="ri_b" id="regis1" value="Setelah Perubahan">
+                                <label class="form-check-label" id="regist1">Ijin BPOM dapat disubmit setelah perubahan terjadi</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ri_b" id="ri_b" value="telah">
-                                <label class="form-check-label">Telah memperoleh persetujuan BPOM</label>
+                                <input class="form-check-input" type="radio" name="ri_b" id="regis2" value="Telah Persetujuan">
+                                <label class="form-check-label" id="regist2">Telah memperoleh persetujuan BPOM</label>
                             </div>
                         </div>
                         <label 
@@ -185,31 +187,32 @@
             </tbody>
             <tbody>
                 <tr>
-                    <td>3</td>
-                    <td>Stabilitas</td>
+                    {{-- code id javascript pada regulasi stya, styat, styan  --}}
+                    <td><center> 3</center></td>
+                    <td><center> Stabilitas</center></td>
                     <td>
                         <h6>a. Mempengaruhi stabilitas</h6>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="st_a" id="st_a" value="ya">
+                            <input class="form-check-input" type="radio" name="st_a" id="stya" value="ya">
                             <label class="form-check-label">Ya</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="st_a" id="st_a" value="tidak">
+                            <input class="form-check-input" type="radio" name="st_a" id="styat" value="tidak">
                             <label class="form-check-label">Tidak</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="st_a" id="st_a" value="na">
+                            <input class="form-check-input" type="radio" name="st_a" id="styan" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, perlu dilakukan uji stabilitas</h6>
+                        <h6 class="my-2" id="laporanst">b. Jika ya, perlu dilakukan uji stabilitas</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="st_b" id="st_b" value="dipercepat">
-                                <label class="form-check-label">Dipercepat</label>
+                                <input class="form-check-input" type="radio" name="st_b" id="stabil" value="Dipercepat">
+                                <label class="form-check-label" id="stabilt">Dipercepat</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="st_b" id="st_b" value="jangka">
-                                <label class="form-check-label">Jangka Panjang</label>
+                                <input class="form-check-input" type="radio" name="st_b" id="stabil1" value="Jangka Panjang">
+                                <label class="form-check-label" id="stabilt1">Jangka Panjang</label>
                             </div>
                         </div>
                         <label 
@@ -227,8 +230,8 @@
             </tbody>
             <tbody>
                 <tr>
-                    <td>4</td>
-                    <td>Masa Edar</td>
+                    <td><center> 4</center></td>
+                    <td><center> Masa Edar</center></td>
                     <td>
                         <h6>a. Mempengaruhi masa edar / daluwarsa</h6>
                         <div class="form-check form-check-inline">
@@ -258,51 +261,52 @@
             </tbody>
             <tbody>
                 <tr>
-                    <td>5</td>
-                    <td>Validasi / Kualifikasi</td>
+                    {{-- code id javascript pada regulasi valya, valyat, valyan  --}}
+                    <td><center> 5</center></td>
+                    <td><center> Validasi / Kualifikasi</center></td>
                     <td>
                         <h6>a. Mempengaruhi status validasi / kualifikasi</h6>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="val_a" id="val_a" value="ya">
+                            <input class="form-check-input" type="radio" name="val_a" id="valya" value="ya">
                             <label class="form-check-label">Ya</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="val_a" id="val_a" value="tidak">
+                            <input class="form-check-input" type="radio" name="val_a" id="valyat" value="tidak">
                             <label class="form-check-label">Tidak</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="val_a" id="val_a" value="na">
+                            <input class="form-check-input" type="radio" name="val_a" id="valyan" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, jenis validasi / kualifikasi</h6>
+                        <h6 class="my-2" id="laporanval">b. Jika ya, jenis validasi / kualifikasi</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="val_b" value="pengolahan">
-                                <label class="form-check-label">Validasi Pengolahan</label>
+                                <input class="form-check-input" type="radio" name="val_b" id="valda" value="pengolahan">
+                                <label class="form-check-label" id="valdat">Validasi Pengolahan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="val_b" value="pembersihan">
-                                <label class="form-check-label">Validasi Pembersihan</label>
+                                <input class="form-check-input" type="radio" name="val_b" id="valda1" value="pembersihan">
+                                <label class="form-check-label" id="valdat1">Validasi Pembersihan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="val_b" value="instalasi">
-                                <label class="form-check-label">Kualifikasi Instalasi</label>
+                                <input class="form-check-input" type="radio" name="val_b" id="valda2" value="instalasi">
+                                <label class="form-check-label" id="valdat2">Kualifikasi Instalasi</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="val_b" value="kinerja">
-                                <label class="form-check-label">Kualifikasi Kinerja</label>
+                                <input class="form-check-input" type="radio" name="val_b" id="valda3" value="kinerja">
+                                <label class="form-check-label" id="valdat3">Kualifikasi Kinerja</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="val_b" value="pengemasan">
-                                <label class="form-check-label">Validasi Pengemasan</label>
+                                <input class="form-check-input" type="radio" name="val_b" id="valda4" value="pengemasan">
+                                <label class="form-check-label" id="valdat4">Validasi Pengemasan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="val_b" value="analisa">
-                                <label class="form-check-label">Validasi Metode Analisa</label>
+                                <input class="form-check-input" type="radio" name="val_b" id="valda5" value="analisa">
+                                <label class="form-check-label" id="valdat5">Validasi Metode Analisa</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="val_b" value="operasional">
-                                <label class="form-check-label">Kualifikasi Operasional</label>
+                                <input class="form-check-input" type="radio" name="val_b" id="valda6" value="operasional">
+                                <label class="form-check-label" id="valdat6">Kualifikasi Operasional</label>
                             </div>
                         </div>
                         <label 
@@ -320,35 +324,36 @@
             </tbody>
             <tbody>
                 <tr>
-                    <td>6</td>
-                    <td>Trial</td>
+                    {{-- code id javascript pada regulasi triya, triyat, triyan  --}}
+                    <td><center> 6</center></td>
+                    <td><center> Trial</center></td>
                     <td>
                         <h6>a. Perlu dilakukan trial</h6>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="tr_a" id="tr_a" value="ya">
+                            <input class="form-check-input" type="radio" name="tr_a" id="triya" value="ya">
                             <label class="form-check-label">Ya</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="tr_a" id="tr_a" value="tidak">
+                            <input class="form-check-input" type="radio" name="tr_a" id="triyat" value="tidak">
                             <label class="form-check-label">Tidak</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="tr_a" id="tr_a" value="na">
+                            <input class="form-check-input" type="radio" name="tr_a" id="triyan" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, dilakukan trial skala</h6>
+                        <h6 class="my-2" id="laporantrial">b. Jika ya, dilakukan trial skala</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tr_b" id="tr_b" value="lab">
-                                <label class="form-check-label">Laboratorium</label>
+                                <input class="form-check-input" type="radio" name="tr_b" id="tri" value="lab">
+                                <label class="form-check-label" id="trit">Laboratorium</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tr_b" id="tr_b" value="pilot">
-                                <label class="form-check-label">Pilot</label>
+                                <input class="form-check-input" type="radio" name="tr_b" id="tri1" value="pilot">
+                                <label class="form-check-label" id="trit1">Pilot</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tr_b" id="tr_b" value="komersial">
-                                <label class="form-check-label">Komersial</label>
+                                <input class="form-check-input" type="radio" name="tr_b" id="tri2" value="komersial">
+                                <label class="form-check-label" id="trit2">Komersial</label>
                             </div>
                         </div>
                         <label 
@@ -366,35 +371,28 @@
             </tbody>
             <tbody>
                 <tr>
-                    <td>7</td>
-                    <td>Produksi</td>
+                    <td><center> 7</center></td>
+                    <td><center> Produksi</center></td>
                     <td>
+                         {{-- code id javascript pada regulasi proya, proyat, proyan  --}}
                         <h6>a. Perlu pemeriksaan tambahan</h6>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="pr_a" id="pr_a" value="ya">
+                            <input class="form-check-input" type="radio" name="pr_a" id="proya" value="ya">
                             <label class="form-check-label">Ya</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="pr_a" id="pr_a" value="tidak">
+                            <input class="form-check-input" type="radio" name="pr_a" id="proyat" value="tidak">
                             <label class="form-check-label">Tidak</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="pr_a" id="pr_a" value="na">
+                            <input class="form-check-input" type="radio" name="pr_a" id="proyan" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, sebutkan pemeriksaan tambahan yang diperlukan</h6>
+                        <h6 class="my-2" id="laporanpro">b. Jika ya, sebutkan pemeriksaan tambahan yang diperlukan</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pr_dok" id="pr_dok" value="dok1">
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="form-check my-2">
-                                <input class="form-check-input" type="radio" name="pr_dok" id="pr_dok" value="dok2">
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pr_dok" id="pr_dok" value="dok3">
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <input class="form-check-input" type="radio" name="pr_dok" id="pro" value="dok1" checked>
+                                <input type="text" class="form-control" id="prot">
                             </div>
                         </div>
                         <label 
@@ -412,35 +410,28 @@
             </tbody>
             <tbody>
                 <tr>
-                    <td>8</td>
-                    <td>Dokumen</td>
+                    <td><center> 8</center></td>
+                    <td><center> Dokumen</center></td>
                     <td>
+                        {{-- code id javascript dokumen dokya, dokyat, dokyan --}}
                         <h6>a. Perlu pembuatan / perubahan dokumen</h6>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="dok_a" id="dok_a" value="ya">
+                            <input class="form-check-input" type="radio" name="dok_a" id="dokya" value="ya">
                             <label class="form-check-label">Ya</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="dok_a" id="dok_a" value="tidak">
+                            <input class="form-check-input" type="radio" name="dok_a" id="dokyat" value="tidak">
                             <label class="form-check-label">Tidak</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="dok_a" id="dok_a" value="na">
+                            <input class="form-check-input" type="radio" name="dok_a" id="dokyan" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, sebutkan dokumen yang dibuat / diubah</h6>
+                        <h6 class="my-2" id="laporandok">b. Jika ya, sebutkan dokumen yang dibuat / diubah</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="dok_b" id="dok_b" value="dok1">
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="form-check my-2">
-                                <input class="form-check-input" type="radio" name="dok_b" id="dok_b" value="dok2">
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="dok_b" id="dok_b" value="dok3">
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <input class="form-check-input" type="radio" name="dok_b" id="dok" value="dok1" checked>
+                                <input type="text" class="form-control" id="dokt">
                             </div>
                         </div>
                         <label 
@@ -458,8 +449,8 @@
             </tbody>
             <tbody>
                 <tr>
-                    <td>9</td>
-                    <td>Sistem ERP</td>
+                    <td><center> 9</center></td>
+                    <td><center> Sistem ERP</center></td>
                     <td>
                         <h6>a. Mempengaruhi sistem ERP</h6>
                         <div class="form-check form-check-inline">
@@ -1027,7 +1018,280 @@
         <a href="/home"><button type="button" class="btn btn-danger my-2 mx-2">Cancel</button></a>
     </div>
 </div>
-<script>
+<script type="text/javascript">
+    //Hide Regulasi jika user centang Ya
+    $('#laporanregulasi').css('display', 'none');
+    $('#regul').css('display', 'none');
+    $('#regul1').css('display', 'none');
+    $('#regul2').css('display', 'none');
+    $('#regul3').css('display', 'none');
+    $('#regult').css('display', 'none');
+    $('#regult1').css('display', 'none');
+    $('#regult2').css('display', 'none');
+    $('#regult3').css('display', 'none');
+
+    $(document).on('change', '#briya', function(){
+        $('#laporanregulasi').css('display', 'block');
+        $('#regul').css('display', 'block');
+        $('#regul1').css('display', 'block');
+        $('#regul2').css('display', 'block');
+        $('#regul3').css('display', 'block');
+        $('#regult').css('display', 'block');
+        $('#regult1').css('display', 'block');
+        $('#regult2').css('display', 'block');
+        $('#regult3').css('display', 'block');
+    });
+
+    $(document).on('change', '#briyat', function(){
+        $('#laporanregulasi').css('display', 'none');
+        $('#regul').css('display', 'none');
+        $('#regul1').css('display', 'none');
+        $('#regul2').css('display', 'none');
+        $('#regul3').css('display', 'none');
+        $('#regult').css('display', 'none');
+        $('#regult1').css('display', 'none');
+        $('#regult2').css('display', 'none');
+        $('#regult3').css('display', 'none');
+    });
+
+    $(document).on('change', '#briyan', function(){
+        $('#laporanregulasi').css('display', 'none');
+        $('#regul').css('display', 'none');
+        $('#regul1').css('display', 'none');
+        $('#regul2').css('display', 'none');
+        $('#regul3').css('display', 'none');
+        $('#regult').css('display', 'none');
+        $('#regult1').css('display', 'none');
+        $('#regult2').css('display', 'none');
+        $('#regult3').css('display', 'none');
+    });
+
+    //Hide laporan pada Registrasi
+    $('#laporanregistrasi').css('display', 'none');
+    $('#regis').css('display', 'none');
+    $('#regis1').css('display', 'none');
+    $('#regis2').css('display', 'none');
+    $('#regist').css('display', 'none');
+    $('#regist1').css('display', 'none');
+    $('#regist2').css('display', 'none');
+
+    $(document).on('change', '#brgya', function(){
+        $('#laporanregistrasi').css('display', 'block');
+        $('#regis').css('display', 'block');
+        $('#regis1').css('display', 'block');
+        $('#regis2').css('display', 'block');
+        $('#regist').css('display', 'block');
+        $('#regist1').css('display', 'block');
+        $('#regist2').css('display', 'block');
+    });
+
+    $(document).on('change', '#brgyat', function(){
+        $('#laporanregistrasi').css('display', 'none');
+        $('#regis').css('display', 'none');
+        $('#regis1').css('display', 'none');
+        $('#regis2').css('display', 'none');
+        $('#regist').css('display', 'none');
+        $('#regist1').css('display', 'none');
+        $('#regist2').css('display', 'none');
+    });
+
+    $(document).on('change', '#brgyan', function(){
+        $('#laporanregistrasi').css('display', 'none');
+        $('#regis').css('display', 'none');
+        $('#regis1').css('display', 'none');
+        $('#regis2').css('display', 'none');
+        $('#regist').css('display', 'none');
+        $('#regist1').css('display', 'none');
+        $('#regist2').css('display', 'none');
+    });
+
+    //Hide laporan pada stabilitas
+    $('#laporanst').css('display', 'none');
+    $('#stabil').css('display', 'none');
+    $('#stabil1').css('display', 'none');
+    $('#stabilt').css('display', 'none');
+    $('#stabilt1').css('display', 'none');
+
+    $(document).on('change', '#stya', function(){
+        $('#laporanst').css('display', 'block');
+        $('#stabil').css('display', 'block');
+        $('#stabil1').css('display', 'block');
+        $('#stabilt').css('display', 'block');
+        $('#stabilt1').css('display', 'block');
+    });
+
+    $(document).on('change', '#styat', function(){
+        $('#laporanst').css('display', 'none');
+        $('#stabil').css('display', 'none');
+        $('#stabil1').css('display', 'none');
+        $('#stabilt').css('display', 'none');
+        $('#stabilt1').css('display', 'none');
+    });
+
+    $(document).on('change', '#styan', function(){
+        $('#laporanst').css('display', 'none');
+        $('#stabil').css('display', 'none');
+        $('#stabil1').css('display', 'none');
+        $('#stabilt').css('display', 'none');
+        $('#stabilt1').css('display', 'none');
+    });
+
+    //Hide laporan pada Validasi / Kualifikasi
+    $('#laporanval').css('display', 'none');
+    $('#valda').css('display', 'none');
+    $('#valda1').css('display', 'none');
+    $('#valda2').css('display', 'none');
+    $('#valda3').css('display', 'none');
+    $('#valda4').css('display', 'none');
+    $('#valda5').css('display', 'none');
+    $('#valda6').css('display', 'none');
+    $('#valdat').css('display', 'none');
+    $('#valdat1').css('display', 'none');
+    $('#valdat2').css('display', 'none');
+    $('#valdat3').css('display', 'none');
+    $('#valdat4').css('display', 'none');
+    $('#valdat5').css('display', 'none');
+    $('#valdat6').css('display', 'none');
+
+    $(document).on('change', '#valya', function(){
+        $('#laporanval').css('display', 'block');
+        $('#valda').css('display', 'block');
+        $('#valda1').css('display', 'block');
+        $('#valda2').css('display', 'block');
+        $('#valda3').css('display', 'block');
+        $('#valda4').css('display', 'block');
+        $('#valda5').css('display', 'block');
+        $('#valda6').css('display', 'block');
+        $('#valdat').css('display', 'block');
+        $('#valdat1').css('display', 'block');
+        $('#valdat2').css('display', 'block');
+        $('#valdat3').css('display', 'block');
+        $('#valdat4').css('display', 'block');
+        $('#valdat5').css('display', 'block');
+        $('#valdat6').css('display', 'block');
+    });
+
+    $(document).on('change', '#valyat', function(){
+        $('#laporanval').css('display', 'none');
+        $('#valda').css('display', 'none');
+        $('#valda1').css('display', 'none');
+        $('#valda2').css('display', 'none');
+        $('#valda3').css('display', 'none');
+        $('#valda4').css('display', 'none');
+        $('#valda5').css('display', 'none');
+        $('#valda6').css('display', 'none');
+        $('#valdat').css('display', 'none');
+        $('#valdat1').css('display', 'none');
+        $('#valdat2').css('display', 'none');
+        $('#valdat3').css('display', 'none');
+        $('#valdat4').css('display', 'none');
+        $('#valdat5').css('display', 'none');
+        $('#valdat6').css('display', 'none');
+    });
+
+    $(document).on('change', '#valyan', function(){
+        $('#laporanval').css('display', 'none');
+        $('#valda').css('display', 'none');
+        $('#valda1').css('display', 'none');
+        $('#valda2').css('display', 'none');
+        $('#valda3').css('display', 'none');
+        $('#valda4').css('display', 'none');
+        $('#valda5').css('display', 'none');
+        $('#valda6').css('display', 'none');
+        $('#valdat').css('display', 'none');
+        $('#valdat1').css('display', 'none');
+        $('#valdat2').css('display', 'none');
+        $('#valdat3').css('display', 'none');
+        $('#valdat4').css('display', 'none');
+        $('#valdat5').css('display', 'none');
+        $('#valdat6').css('display', 'none');
+    });
+
+    //Hide untuk laporan pada Trial
+    $('#laporantrial').css('display', 'none');
+    $('#tri').css('display', 'none');
+    $('#tri1').css('display', 'none');
+    $('#tri2').css('display', 'none');
+    $('#trit').css('display', 'none');
+    $('#trit1').css('display', 'none');
+    $('#trit2').css('display', 'none');
+
+    $(document).on('change', '#triya', function(){
+        $('#laporantrial').css('display', 'block');
+        $('#tri').css('display', 'block');
+        $('#tri1').css('display', 'block');
+        $('#tri2').css('display', 'block');
+        $('#trit').css('display', 'block');
+        $('#trit1').css('display', 'block');
+        $('#trit2').css('display', 'block');
+    });
+
+    $(document).on('change', '#triyat', function(){
+        $('#laporantrial').css('display', 'none');
+        $('#tri').css('display', 'none');
+        $('#tri1').css('display', 'none');
+        $('#tri2').css('display', 'none');
+        $('#trit').css('display', 'none');
+        $('#trit1').css('display', 'none');
+        $('#trit2').css('display', 'none');
+    });
+
+    $(document).on('change', '#triyan', function(){
+        $('#laporantrial').css('display', 'none');
+        $('#tri').css('display', 'none');
+        $('#tri1').css('display', 'none');
+        $('#tri2').css('display', 'none');
+        $('#trit').css('display', 'none');
+        $('#trit1').css('display', 'none');
+        $('#trit2').css('display', 'none');
+    });
+
+    //Hide laporan pada Produksi
+    $('#laporanpro').css('display', 'none');
+    $('#pro').css('display', 'none');
+    $('#prot').css('display', 'none');
+
+    $(document).on('change', '#proya', function(){
+        $('#laporanpro').css('display', 'block');
+        $('#pro').css('display', 'block');
+        $('#prot').css('display', 'block');
+    });
+
+    $(document).on('change', '#proyat', function(){
+        $('#laporanpro').css('display', 'none');
+        $('#pro').css('display', 'none');
+        $('#prot').css('display', 'none');
+    });
+
+    $(document).on('change', '#proyan', function(){
+        $('#laporanpro').css('display', 'none');
+        $('#pro').css('display', 'none');
+        $('#prot').css('display', 'none');
+    });
+
+    //Hide laporan pada Dokumen
+    $('#laporandok').css('display', 'none');
+    $('#dok').css('display', 'none');
+    $('#dokt').css('display', 'none');
+
+    $(document).on('change', '#dokya', function(){
+        $('#laporandok').css('display', 'block');
+        $('#dok').css('display', 'block');
+        $('#dokt').css('display', 'block');
+    });
+
+    $(document).on('change', '#dokyat', function(){
+        $('#laporandok').css('display', 'none');
+        $('#dok').css('display', 'none');
+        $('#dokt').css('display', 'none');
+    });
+
+    $(document).on('change', '#dokyan', function(){
+        $('#laporandok').css('display', 'none');
+        $('#dok').css('display', 'none');
+        $('#dokt').css('display', 'none');
+    });
+
     function displayResult(severity1){
         document.getElementById("getsev").value=severity1;
     }
