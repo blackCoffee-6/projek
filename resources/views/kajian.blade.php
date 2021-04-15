@@ -718,7 +718,7 @@
                         <td><input type="text" name="getsev" id="getsev" class="form-control" readonly></td>
                         <td><input type="text" name="getdet" id="getdet" class="form-control" readonly></td>
                         <td><input type="text" name="getocc" id="getocc" class="form-control" readonly></td>
-                        <td><input type="text" name="dxo" id="dxo" class="form-control" readonly></td>
+                        <td><input type="text" name="result_dxo" id="dxo" class="form-control" readonly></td>
                     </tr>
                 </tbody>
             </table>

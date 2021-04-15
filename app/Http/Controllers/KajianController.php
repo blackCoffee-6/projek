@@ -51,39 +51,36 @@ class KajianController extends Controller
     {
         // dd($request->all()); 
         
-        // $validator = Validator::make($request->all(),[
-        //     // 'ket_up'=>'required', --Gabisa ngambil id si ket_up karena nama checboxnya beda2--
-        //     'ru_a'=>'required',
-        //     'ri_a'=>'required',
-        //     'st_a'=>'required',
-        //     'me_a'=>'required',
-        //     'val_a'=>'required',
-        //     'tr_a'=>'required',
-        //     'pr_a'=>'required',
-        //     'dok_a'=>'required',
-        //     'si_a'=>'required',
-        //     // 'severity'=>'required',
-        //     // 'detec'=>'required',
-        //     // 'occur'=>'required',
-        //     'ch_kategori'=>'required',
-        //     'ch_status'=>'required',
-        //     'qa_nama'=>'required',
-        //     'asman_nama'=>'required',
-        //     'aq_nama'=>'required',
-        //     // 'ch_dis'=>'required',
-        // ]);
+        $validator = Validator::make($request->all(),[
+            'ket_up' =>'required',
+            'ru_a' =>'required',
+            'ri_a'=>'required',
+            'st_a'=>'required',
+            'me_a'=>'required',
+            'val_a'=>'required',
+            'tr_a'=>'required',
+            'pr_a'=>'required',
+            'dok_a'=>'required',
+            'si_a'=>'required',
+            'ch_kategori'=>'required',
+            'ch_status'=>'required',
+            'qa_nama'=>'required',
+            'asman_nama'=>'required',
+            'aq_nama'=>'required',
+            'ch_dis'=>'required'
+        ]);
 
-        // if($validator->fails()){
-        //     return back()->withErrors($validator->errors());
-        // }
+        if($validator->fails()){
+            return back()->withErrors($validator->errors());
+        }
         
         $request->request->add(['fup_id' => $fup_id]);
         $request->request->add(['ket_up' => implode(',', $request->ket_up)]);
         
 
         Kajian::create($request->all());
-        return "berhasil";
-        // return redirect('/Detail/Kajian/');
+        Alert::success('Success', "Kajian Berhasil Dibuat!");
+        return redirect('/home');
     }
 
     /**
