@@ -76,4 +76,7 @@ Route::get('List/Menanggapi/{id}','TanggapanController@showDetail');
 Route::get('/Detail/Kajian/{fup_id}', 'KajianController@show');
 Route::get('/List/Kajian', 'KajianController@index');
 Route::post('/Store/Kajian/{fup_id}', 'KajianController@store');
+Route::get('/List/Menunggu/Kajian', function () {
+    return view('showKajian');
+});
 // Route::resource('Kajian', 'KajianController');

@@ -44,9 +44,13 @@ pura2 jadi bidang lain dong? [DONE]
 17. Kan Admin bisa CRUD ke semuanya, di index.blade 
 tanggapan ini si Admin bisa ngeliat dan menanggapi form FUP_ID dari semua bidang yang memerlukan tanggapan
 --> FUP [AMAN DONE]
+--> Tanggapan [AMAN DONE]
 
 18. Status Tanggapan [DONE]
 
 19. Kajian sama Kontrol perubahan itu hanya bisa diisi oleh Admin yaitu
 Bidang QA. Blade di menunggu kajian itu blade yang berisi kajian" FUP yang bisa di pantau sma user
 sedangkan yg di entry kajian itu isinya FUP" yang mau dikaji oleh si Admin
+
+20. Blade menunggu kajian sama kayak menunggu disetujui sedangkan blade entry kajian sama kayak blade entry usulan perubahan.
+Ada status sudah dikaji atau belum dikaji namun gabisa di edit atau di delete FUP tersebut.

@@ -89,4 +89,9 @@
               {{ $fups->links() }}
         </div>
     </div>
+    {{-- <script>
+        $('#datepicker').datetimepicker({
+		format: 'DD-MM-YYYY'
+	});
+    </script> --}}
 @endsection
