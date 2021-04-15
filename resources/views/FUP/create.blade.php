@@ -199,7 +199,7 @@
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                         </td>
                         <td>
-                            <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="example-date-input" name="pic_date">                    
+                            <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="datepicker" name="pic_date">                 
                         </td>
                     </tr>
                 </tbody>
@@ -237,7 +237,7 @@
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                         </td>
                         <td>
-                            <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="example-date-input" name="cip_date">
+                            <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="datepicker" name="cip_date">
                         </td>
                     </tr>
                 </tbody>
@@ -281,7 +281,7 @@
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                         </td>
                         <td>
-                            <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="example-date-input" name="qa_date">
+                            <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="datepicker" name="qa_date">
                         </td>
                     </tr>
                 </tbody>
@@ -332,4 +332,9 @@
             <a href="/home" type="button" class="btn btn-danger my-2 mx-2">Cancel</a>
         </div>
 </div>
+<script>
+    $('#datepicker').datetimepicker({
+		format: 'DD/MM/YYYY'
+	});
+</script>
 @endsection

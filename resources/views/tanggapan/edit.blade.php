@@ -25,15 +25,12 @@
             </tbody>
         </table>
     </div>
-<<<<<<< HEAD
     <!-- ini kalo si R&D terakhir ngisi -->
     <form action="/Store/Tanggapan/{{$fup->id}}" method="post">
     @csrf
     @method('post')
     @if(Auth::user()->bidang_id == 1 AND $tanggapan->tg_rnd == null)
     <!-- kalo rnd belom ngisi -->
-=======
->>>>>>> b8cdbf8da98798aae294565bd115e6af24c18c5d
     <div class="container my-4">
         <table class="table table-bordered my-3">
             <thead>

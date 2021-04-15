@@ -554,7 +554,7 @@
                     <td>
                         <center>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="severity1" id="severity1" value="1" onclick="displayResult(this.value)" required>
+                                <input class="form-check-input" type="radio" name="severity" id="severity1" value="1" onclick="displayResult(this.value)" required>
                                 <label class="form-check-label">1</label>
                             </div>
                         </center>
@@ -566,7 +566,7 @@
                     <td>
                         <center>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="detec1" id="detec1" value="1" onclick="displayResult1(this.value)" onchange="kali();" required>
+                                <input class="form-check-input" type="radio" name="detec" id="detec1" value="1" onclick="displayResult1(this.value)" onchange="kali();" required>
                                 <label class="form-check-label">1</label>
                             </div>
                         </center>
@@ -578,7 +578,7 @@
                     <td>
                         <center>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="occur1" value="2" id="occur1" onclick="displayResult2(this.value)" onchange="kali();" required>
+                                <input class="form-check-input" type="radio" name="occur" value="2" id="occur1" onclick="displayResult2(this.value)" onchange="kali();" required>
                                 <label class="form-check-label">2</label>
                             </div>
                         </center>

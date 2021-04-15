@@ -3,7 +3,7 @@
 @section('content')
 <div class="main">
     <h1 class="display-5 mx-5">
-        List Kajian
+        List Entry Data Kajian
     </h1>
     <div class="container my-4">
         <div class="input-group">
@@ -22,7 +22,13 @@
                 <th scope="col">Tanggal Usulan</th>
                 <th scope="col">Usulan Perubahan</th>
                 <th scope="col">Tanggal Pemberlakuan</th>
-                <th scope="col">Aksi</th>
+                <th scope="col">
+                    @if(Auth::user()->bidang_id == NULL)
+                    Aksi
+                    @else
+                    Status
+                    @endif
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -38,7 +44,11 @@
                     </td>
                     <td>20/05/2021</td>
                     <td>
+                        @if(Auth::user()->bidang_id == NULL)
                         <a href="/Detail/Kajian/{{$fup->id}}"><button class="btn btn-dark my-2 my-sm-0" type="submit"><i class="fa fa-database"></i>  Kaji</button></a>
+                        @else
+                        <span class="badge rounded-pill bg-secondary text-light">Menunggu Dikaji</span>
+                        @endif
                     </td>
                 </tr>
             @endforeach
