@@ -28,21 +28,23 @@
                     </tr>
                 </thead>
                 <tbody>
+                @foreach($kajians as $kajian)
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Produksi</td>
+                        <th>{{$loop->iteration}}</th>
+                        <td>{{$kajian->FUP->bidang_id}}</td>
                         <td>04/USL/IV/2020</td>
                         <td>14/1/2021</td>
                         <td>
-                            New Ac
+                            New CAR
                         </td>
                         <td>
                             <span class="badge rounded-pill bg-secondary text-light">Menunggu Dikaji</span>
                         </td>
                         <td>
-                            <a href="#" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
+                            <a href="/Baca-kajian" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
                         </td>
                     </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

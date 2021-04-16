@@ -124,4 +124,16 @@ class KajianController extends Controller
     {
         //
     }
+    
+    public function listKajian()
+    {
+        $kajians = Kajian::all();
+        
+        return view('showKajian', compact('kajians'));
+    }
+
+    public function bacaKajian()
+    {
+        return view('baca-kajian');
+    }
 }
