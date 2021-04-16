@@ -37,7 +37,7 @@
                             @error('bidang') 
                             class="text-danger"
                             @enderror>@error('bidang')
-                            *{{ $message }}
+                            *Bidang yang mengajukan harus diisi!
                             @enderror
                         </label>
                     </td>
@@ -58,7 +58,7 @@
                     <tr>
                         <td>
                             <select class="form-control @error('title') is-invalid @enderror" name="produk">
-                                <option>Pilih...</option>
+                                <option id="pilih" name="pilih">Pilih...</option>
                                 @foreach($product as $pro)
                                 <option value="{{$pro->id}}">{{$pro->name}}</option>
                                 @endforeach
@@ -67,7 +67,7 @@
                                 @error('produk') 
                                 class="text-danger"
                                 @enderror>@error('produk')
-                                *{{ $message }}
+                                *Produk Harus diisi!
                                 @enderror
                             </label>
                         </td>
@@ -87,7 +87,7 @@
                                 @error('ket_ketentuan') 
                                 class="text-danger"
                                 @enderror>@error('ket_ketentuan')
-                                *{{ $message }}
+                                *Ketentuan / Kondisi yang Berlaku harus diisi!
                                 @enderror
                             </label>
                         </td>
@@ -107,7 +107,7 @@
                             @error('ket_usulan') 
                             class="text-danger"
                             @enderror>@error('ket_usulan')
-                            *{{ $message }}
+                            *Usulan Perubahan harus diisi!
                             @enderror
                         </label>
                     </td>
@@ -126,7 +126,7 @@
                                 @error('ket_alasan') 
                                 class="text-danger"
                                 @enderror>@error('ket_alasan')
-                                *{{ $message }}
+                                *Alasan Perubahan harus diisi!
                                 @enderror
                             </label>                    
                         </td>
@@ -151,7 +151,7 @@
                                 @error('ch_sifat') 
                                 class="text-danger"
                                 @enderror>@error('ch_sifat')
-                                *{{ $message }}
+                                *Sifat Perubahan harus diisi!
                                 @enderror
                             </label>
                         </td>
@@ -181,7 +181,7 @@
                                 @error('pic_asman') 
                                 class="text-danger"
                                 @enderror>@error('pic_asman')
-                                *{{ $message }}
+                                *Asman harus diisi!
                                 @enderror
                             </label>
                         </td>
@@ -191,7 +191,7 @@
                                 @error('pic_nama') 
                                 class="text-danger"
                                 @enderror>@error('pic_nama')
-                                *{{ $message }}
+                                *Nama harus diisi!
                                 @enderror
                             </label>                        
                         </td>
@@ -219,7 +219,7 @@
                                 @error('cip_manager') 
                                 class="text-danger"
                                 @enderror>@error('cip_manager')
-                                *{{ $message }}
+                                *Manager harus diisi!
                                 @enderror
                             </label>                           
                         </td>
@@ -229,7 +229,7 @@
                                 @error('cip_nama') 
                                 class="text-danger"
                                 @enderror>@error('cip_nama')
-                                *{{ $message }}
+                                *Nama harus diisi!
                                 @enderror
                             </label>                           
                         </td>
@@ -263,7 +263,7 @@
                                 @error('qa_asman') 
                                 class="text-danger"
                                 @enderror>@error('qa_asman')
-                                *{{ $message }}
+                                *Asman Harus diisi!
                                 @enderror
                             </label>                         
                         </td>
@@ -273,7 +273,7 @@
                                 @error('qa_nama') 
                                 class="text-danger"
                                 @enderror>@error('qa_nama')
-                                *{{ $message }}
+                                *Nama harus diisi!
                                 @enderror
                             </label>                         
                         </td>
@@ -306,7 +306,7 @@
                                 @error('tanggapan') 
                                 class="text-danger"
                                 @enderror>@error('tanggapan')
-                                *{{ $message }}
+                                *Perlu Tanggapan Bidang Lain harus dipilih!
                                 @enderror
                             </label>                             
                         </td>
