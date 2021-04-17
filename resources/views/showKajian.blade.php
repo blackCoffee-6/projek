@@ -31,7 +31,7 @@
                 @foreach($kajians as $kajian)
                     <tr>
                         <th>{{$loop->iteration}}</th>
-                        <td>{{$kajian->FUP->bidang_id}}</td>
+                        <td>belom bisa</td>
                         <td>04/USL/IV/2020</td>
                         <td>14/1/2021</td>
                         <td>

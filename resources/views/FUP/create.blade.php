@@ -57,7 +57,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <select class="form-control @error('title') is-invalid @enderror" name="produk">
+                            <select class="form-control" name="produk">
                                 <option id="pilih" name="pilih">Pilih...</option>
                                 @foreach($product as $pro)
                                 <option value="{{$pro->id}}">{{$pro->name}}</option>
@@ -81,15 +81,13 @@
                 <tbody>
                     <tr>
                         <td>
-                            <textarea class="form-control" rows="3" name="ket_ketentuan"></textarea>
+                            <textarea class="form-control @error('ket_ketentuan') is-invalid @enderror" rows="3" name="ket_ketentuan">{{ old('ket_ketentuan') }}</textarea>
                             
-                            <label 
-                                @error('ket_ketentuan') 
-                                class="text-danger"
-                                @enderror>@error('ket_ketentuan')
-                                *Ketentuan / Kondisi yang Berlaku harus diisi!
-                                @enderror
-                            </label>
+                            @error('ket_ketentuan')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>*Ketentuan / Kondisi yang Berlaku harus diisi!</strong>
+                                </span>
+                            @enderror
                         </td>
                     </tr>
                 </tbody>
@@ -102,14 +100,13 @@
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ket_usulan"></textarea>
-                        <label 
-                            @error('ket_usulan') 
-                            class="text-danger"
-                            @enderror>@error('ket_usulan')
-                            *Usulan Perubahan harus diisi!
-                            @enderror
-                        </label>
+                        <textarea class="form-control @error('ket_usulan') is-invalid @enderror" rows="3" name="ket_usulan">{{ old('ket_usulan') }}</textarea>
+
+                        @error('ket_usulan')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>*Usulan Perubahan harus diisi!</strong>
+                            </span>
+                        @enderror
                     </td>
                 </tr>
                 </tbody>
@@ -121,14 +118,13 @@
                 <tbody>
                     <tr>
                         <td>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ket_alasan"></textarea>
-                            <label 
-                                @error('ket_alasan') 
-                                class="text-danger"
-                                @enderror>@error('ket_alasan')
-                                *Alasan Perubahan harus diisi!
-                                @enderror
-                            </label>                    
+                            <textarea class="form-control @error('ket_alasan') is-invalid @enderror"  rows="3" name="ket_alasan">{{ old('ket_alasan') }}</textarea>
+
+                            @error('ket_alasan')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>*Alasan Perubahan harus diisi!</strong>
+                                </span>
+                            @enderror    
                         </td>
                     </tr>
                 </tbody>
@@ -139,11 +135,11 @@
                     <tr>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ch_sifat" id="sementara" value="sementara">
+                                <input class="form-check-input" type="radio" name="ch_sifat" id="sementara" value="sementara" {{ (old('ch_sifat') == 'sementara') ? 'checked' : ''}}>
                                 <label class="form-check-label" for="sementara">Sementara</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ch_sifat" id="tetap" value="tetap">
+                                <input class="form-check-input" type="radio" name="ch_sifat" id="tetap" value="tetap" {{ (old('ch_sifat') == 'tetap') ? 'checked' : ''}}>
                                 <label class="form-check-label" for="tetap">Tetap</label>
                             </div>
                             <br>
@@ -176,24 +172,20 @@
                 <tbody>
                     <tr>
                         <td>
-                            <input class="form-control" type="text" name="pic_asman">
-                            <label 
-                                @error('pic_asman') 
-                                class="text-danger"
-                                @enderror>@error('pic_asman')
-                                *Asman harus diisi!
-                                @enderror
-                            </label>
+                            <input class="form-control @error('pic_asman') is-invalid @enderror" type="text" name="pic_asman">
+                            @error('pic_asman')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>*Asman harus diisi!</strong>
+                                </span>
+                            @enderror 
                         </td>
                         <td>
-                            <input class="form-control" type="text" name="pic_nama">
-                            <label 
-                                @error('pic_nama') 
-                                class="text-danger"
-                                @enderror>@error('pic_nama')
-                                *Nama harus diisi!
-                                @enderror
-                            </label>                        
+                            <input class="form-control @error('pic_nama') is-invalid @enderror" type="text" name="pic_nama">  
+                            @error('pic_nama')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>*Nama harus diisi!</strong>
+                                </span>
+                            @enderror               
                         </td>
                         <td>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
@@ -214,24 +206,20 @@
                 <tbody>
                     <tr>
                         <td>
-                            <input class="form-control" type="text" name="cip_manager">
-                            <label 
-                                @error('cip_manager') 
-                                class="text-danger"
-                                @enderror>@error('cip_manager')
-                                *Manager harus diisi!
-                                @enderror
-                            </label>                           
+                            <input class="form-control @error('cip_manager') is-invalid @enderror" type="text" name="cip_manager">        
+                            @error('cip_manager')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>*Manager harus diisi!</strong>
+                                </span>
+                            @enderror                 
                         </td>
                         <td>
-                            <input class="form-control" type="text" name="cip_nama">
-                            <label 
-                                @error('cip_nama') 
-                                class="text-danger"
-                                @enderror>@error('cip_nama')
-                                *Nama harus diisi!
-                                @enderror
-                            </label>                           
+                            <input class="form-control @error('cip_nama') is-invalid @enderror" type="text" name="cip_nama">     
+                            @error('cip_nama')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>*Nama harus diisi!</strong>
+                                </span>
+                            @enderror                   
                         </td>
                         <td>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
@@ -258,24 +246,20 @@
                 <tbody>
                     <tr>
                         <td>
-                            <input class="form-control" type="text" name="qa_asman">
-                            <label 
-                                @error('qa_asman') 
-                                class="text-danger"
-                                @enderror>@error('qa_asman')
-                                *Asman Harus diisi!
-                                @enderror
-                            </label>                         
+                            <input class="form-control @error('qa_asman') is-invalid @enderror" type="text" name="qa_asman" value="{{ old('qa_asman') }}">
+                            @error('qa_asman')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>*Asman Harus diisi!</strong>
+                                </span>
+                            @enderror                        
                         </td>
                         <td>
-                            <input class="form-control" type="text" name="qa_nama">
-                            <label 
-                                @error('qa_nama') 
-                                class="text-danger"
-                                @enderror>@error('qa_nama')
-                                *Nama harus diisi!
-                                @enderror
-                            </label>                         
+                            <input class="form-control @error('qa_nama') is-invalid @enderror" type="text" name="qa_nama">
+                            @error('qa_nama')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>*Nama harus diisi!</strong>
+                                </span>
+                            @enderror                       
                         </td>
                         <td>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
@@ -294,11 +278,13 @@
                     <tr>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input class="form-check form-check-inline" type="radio" name="tanggapan" id="tidak" value="tidak" onclick="document.getElementById('tanggapan2').style.display = 'none'">
+                                <input class="form-check form-check-inline" type="radio" name="tanggapan" id="tidak" value="tidak" onclick="document.getElementById('tanggapan2').style.display = 'none'"
+                                {{ (old('tanggapan') == 'tidak') ? 'checked' : ''}}>
                                 <label class="form-check-label" for="tidak">Tidak</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check form-check-inline" type="radio" name="tanggapan" id="perlu" value="perlu" onclick="document.getElementById('tanggapan2').style.display = 'block'">
+                                <input class="form-check form-check-inline" type="radio" name="tanggapan" id="perlu" value="perlu" onclick="document.getElementById('tanggapan2').style.display = 'block'"
+                                {{ (old('tanggapan') == 'perlu') ? 'checked' : ''}}>
                                 <label class="form-check-label" for="perlu">Perlu, dari Bidang :</label>
                             </div>
                             <br><br>
@@ -306,14 +292,14 @@
                                 @error('tanggapan') 
                                 class="text-danger"
                                 @enderror>@error('tanggapan')
-                                *Perlu Tanggapan Bidang Lain harus dipilih!
+                                *Tanggapan Bidang Lain harus dipilih!
                                 @enderror
                             </label>                             
                         </td>
                         <td id="tanggapan2">
                             @foreach($bidang2 as $bidang2)
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="cb" name="tanggapan2[]" value="{{$bidang2->id}}">
+                                    <input class="form-check-input" type="checkbox" id="cb" name="tanggapan2[]" value="{{$bidang2->id}}" {{ (is_array(old('tanggapan2')) && in_array($bidang2->id, old('tanggapan2'))) ? ' checked' : '' }}>
                                     <label class="form-check-label" for="inlineCheckbox1">{{$bidang2->name}}</label>
                                 </div>
                             @endforeach

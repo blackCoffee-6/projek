@@ -27,7 +27,7 @@ class FUPController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),[
+        $request->validate([
             'bidang'=>'required',
             'produk'=>'required',
             'ket_ketentuan'=>'required',
@@ -41,11 +41,7 @@ class FUPController extends Controller
             'qa_asman'=>'required',
             'qa_nama'=>'required',
             'tanggapan'=>'required'
-            ]);
-            
-        if ($validator->fails()) {
-            return back()->withErrors($validator->errors());
-        }
+        ]);
             
         $user = Auth::user();
 

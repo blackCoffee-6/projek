@@ -18,61 +18,68 @@
                 <tr>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="1" id="bahan">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="1" id="bahan" {{ (is_array(old('ket_up')) && in_array(1, old('ket_up'))) ? ' checked' : '' }}>
                             <label class="form-check-label" for="inlineCheckbox1">Spesifikasi Bahan / Produk</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="2" id="baku">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="2" id="baku" {{ (is_array(old('ket_up')) && in_array(2, old('ket_up'))) ? ' checked' : '' }}>
                             <label class="form-check-label" for="inlineCheckbox1">Bahan Baku</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="3" id="proses">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="3" id="proses" {{ (is_array(old('ket_up')) && in_array(3, old('ket_up'))) ? ' checked' : '' }}>
                             <label class="form-check-label" for="inlineCheckbox1">Formula / Proses</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="4" id="mesin">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="4" id="mesin" {{ (is_array(old('ket_up')) && in_array(4, old('ket_up'))) ? ' checked' : '' }}>
                             <label class="form-check-label" for="inlineCheckbox1">Mesin dan Peralatan</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ket_up[]" value="4" name="metode">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="5" id="metode" {{ (is_array(old('ket_up')) && in_array(5, old('ket_up'))) ? ' checked' : '' }}>
                             <label class="form-check-label" for="inlineCheckbox1">Metode Analisis</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ket_up[]" value="5" name="site">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="6" id="site" {{ (is_array(old('ket_up')) && in_array(6, old('ket_up'))) ? ' checked' : '' }}
                             <label class="form-check-label" for="inlineCheckbox1">Site Produksi</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ket_up[]" value="6" name="bangunan">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="7" id="bangunan" {{ (is_array(old('ket_up')) && in_array(7, old('ket_up'))) ? ' checked' : '' }}>
                             <label class="form-check-label" for="inlineCheckbox1">Bangunan dan Fasilitas</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ket_up[]" value="7" name="dokumen">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="8" id="dokumen" {{ (is_array(old('ket_up')) && in_array(8, old('ket_up'))) ? ' checked' : '' }}>
                             <label class="form-check-label" for="inlineCheckbox1">Dokumentasi</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ket_up[]" value="8" name="lingkungan">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="9" id="lingkungan" {{ (is_array(old('ket_up')) && in_array(9, old('ket_up'))) ? ' checked' : '' }}>
                             <label class="form-check-label" for="inlineCheckbox1">Lingkungan</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ket_up[]" value="9" name="pie">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="10" id="pie" {{ (is_array(old('ket_up')) && in_array(10, old('ket_up'))) ? ' checked' : '' }}>
                             <label class="form-check-label" for="inlineCheckbox1">PIE</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ket_up[]" value="10" name="peraturan">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="11" id="peraturan" {{ (is_array(old('ket_up')) && in_array(11, old('ket_up'))) ? ' checked' : '' }}>
                             <label class="form-check-label" for="inlineCheckbox1">Peraturan Perundangan</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ket_up[]" value="11" name="else">
-                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="12" id="else">
+                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" {{ (is_array(old('ket_up')) && in_array(12, old('ket_up'))) ? ' checked' : '' }}>
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
+            <label
+                @error('ket_up')
+                class="text-danger"
+                @enderror>@error('ket_up')
+                *Kategori Usulan Perubahan harus diisi
+                @enderror
+            </label>
         <table class="table table-bordered">
             <tr>
                 <th>B. Dampak Usulan Perubahan</th>
@@ -95,33 +102,33 @@
                     <td>
                         <h6>a. Perlu pelaporan ke pemerintah</h6>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ru_a" id="briya" value="ya" required>
+                            <input class="form-check-input" type="radio" name="ru_a" id="briya" value="ya" required {{ (old('ru_a') == 'ya') ? 'checked' : ''}}>
                             <label class="form-check-label">Ya</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ru_a" id="briyat" value="tidak">
+                            <input class="form-check-input" type="radio" name="ru_a" id="briyat" value="tidak" {{ (old('ru_a') == 'tidak') ? 'checked' : ''}}>
                             <label class="form-check-label">Tidak</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ru_a" id="briyan" value="na">
+                            <input class="form-check-input" type="radio" name="ru_a" id="briyan" value="na" {{ (old('ru_a') == 'na') ? 'checked' : ''}}>
                             <label class="form-check-label">NA</label>
                         </div>
                         <h6 class="my-2" id="laporanregulasi">b. Jika ya, laporan ditujukan ke</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" id="regul" value="Badan POM">
+                                <input class="form-check-input" type="radio" name="ru_b" id="regul" value="Badan POM" {{ (old('ru_b') == 'Badan POM') ? 'checked' : ''}}>
                                 <label class="form-check-label" id="regult">Badan POM</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" id="regul1" value="Kementrian Kesehatan">
+                                <input class="form-check-input" type="radio" name="ru_b" id="regul1" value="Kementrian Kesehatan" {{ (old('ru_b') == 'Kementrian Kesehatan') ? 'checked' : ''}}>
                                 <label class="form-check-label" id="regult1">Kementrian Kesehatan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" id="regul2" value="Balai POM">
+                                <input class="form-check-input" type="radio" name="ru_b" id="regul2" value="Balai POM" {{ (old('ru_b') == 'Balai POM') ? 'checked' : ''}}>
                                 <label class="form-check-label" id="regult2">Balai POM</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" id="regul3" value="regulasielse">
+                                <input class="form-check-input" type="radio" name="ru_b" id="regul3" value="regulasielse" {{ (old('ru_b') == 'regulasielse') ? 'checked' : ''}}>
                                 <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="regult3">
                             </div>
                         </div>
@@ -146,29 +153,29 @@
                     <td>
                         <h6>a. Mempengaruhi status ijin edar</h6>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ri_a" id="brgya" value="ya">
+                            <input class="form-check-input" type="radio" name="ri_a" id="brgya" value="ya" {{ (old('ri_a') == 'ya') ? 'checked' : ''}}>
                             <label class="form-check-label">Ya</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ri_a" id="brgyat" value="tidak">
+                            <input class="form-check-input" type="radio" name="ri_a" id="brgyat" value="tidak" {{ (old('ri_a') == 'tidak') ? 'checked' : ''}}>
                             <label class="form-check-label">Tidak</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ri_a" id="brgyan" value="na">
+                            <input class="form-check-input" type="radio" name="ri_a" id="brgyan" value="na" {{ (old('ri_a') == 'na') ? 'checked' : ''}}>
                             <label class="form-check-label">NA</label>
                         </div>
                         <h6 class="my-2" id="laporanregistrasi">b. Jika ya, perubahan</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ri_b" id="regis" value="Perlu Persetujuan">
+                                <input class="form-check-input" type="radio" name="ri_b" id="regis" value="Perlu Persetujuan" {{ (old('ri_b') == 'Perlu Persetujuan') ? 'checked' : ''}}>
                                 <label class="form-check-label" id="regist">Perlu memperoleh persetujuan BPOM terlebih dahulu</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ri_b" id="regis1" value="Setelah Perubahan">
+                                <input class="form-check-input" type="radio" name="ri_b" id="regis1" value="Setelah Perubahan" {{ (old('ri_b') == 'Setelah Perubahan') ? 'checked' : ''}}>
                                 <label class="form-check-label" id="regist1">Ijin BPOM dapat disubmit setelah perubahan terjadi</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ri_b" id="regis2" value="Telah Persetujuan">
+                                <input class="form-check-input" type="radio" name="ri_b" id="regis2" value="Telah Persetujuan" {{ (old('ri_b') == 'Telah Persetujuan') ? 'checked' : ''}}>
                                 <label class="form-check-label" id="regist2">Telah memperoleh persetujuan BPOM</label>
                             </div>
                         </div>
@@ -193,25 +200,25 @@
                     <td>
                         <h6>a. Mempengaruhi stabilitas</h6>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="st_a" id="stya" value="ya">
+                            <input class="form-check-input" type="radio" name="st_a" id="stya" value="ya" {{ (old('st_a') == 'ya') ? 'checked' : ''}}>
                             <label class="form-check-label">Ya</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="st_a" id="styat" value="tidak">
+                            <input class="form-check-input" type="radio" name="st_a" id="styat" value="tidak" {{ (old('st_a') == 'tidak') ? 'checked' : ''}}>
                             <label class="form-check-label">Tidak</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="st_a" id="styan" value="na">
+                            <input class="form-check-input" type="radio" name="st_a" id="styan" value="na" {{ (old('st_a') == 'na') ? 'checked' : ''}}>
                             <label class="form-check-label">NA</label>
                         </div>
                         <h6 class="my-2" id="laporanst">b. Jika ya, perlu dilakukan uji stabilitas</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="st_b" id="stabil" value="Dipercepat">
+                                <input class="form-check-input" type="radio" name="st_b" id="stabil" value="Dipercepat" {{ (old('st_b') == 'Dipercepat') ? 'checked' : ''}}>
                                 <label class="form-check-label" id="stabilt">Dipercepat</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="st_b" id="stabil1" value="Jangka Panjang">
+                                <input class="form-check-input" type="radio" name="st_b" id="stabil1" value="Jangka Panjang" {{ (old('st_b') == 'Jangka Panjang') ? 'checked' : ''}}>
                                 <label class="form-check-label" id="stabilt1">Jangka Panjang</label>
                             </div>
                         </div>
@@ -235,22 +242,22 @@
                     <td>
                         <h6>a. Mempengaruhi masa edar / daluwarsa</h6>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="me_a" id="me_a" value="ya">
+                            <input class="form-check-input" type="radio" name="me_a" id="me_a" value="ya" {{ (old('me_a') == 'ya') ? 'checked' : ''}}>
                             <label class="form-check-label">Ya</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="me_a" id="me_a" value="tidak">
+                            <input class="form-check-input" type="radio" name="me_a" id="me_a" value="tidak" {{ (old('me_a') == 'tidak') ? 'checked' : ''}}>
                             <label class="form-check-label">Tidak</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="me_a" id="me_a" value="na">
+                            <input class="form-check-input" type="radio" name="me_a" id="me_a" value="na" {{ (old('me_a') == 'na') ? 'checked' : ''}}>
                             <label class="form-check-label">NA</label>
                         </div>
                         <label 
                         @error('me_a')
                         class="text-danger"
                         @enderror>@error('me_a')
-                        *Masa Edar bagian A harus diisi
+                        *Masa Edar harus diisi
                         @enderror
                         </label>
                     </td>
@@ -267,45 +274,45 @@
                     <td>
                         <h6>a. Mempengaruhi status validasi / kualifikasi</h6>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="val_a" id="valya" value="ya">
+                            <input class="form-check-input" type="radio" name="val_a" id="valya" value="ya" {{ (old('val_a') == 'ya') ? 'checked' : ''}}>
                             <label class="form-check-label">Ya</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="val_a" id="valyat" value="tidak">
+                            <input class="form-check-input" type="radio" name="val_a" id="valyat" value="tidak" {{ (old('val_a') == 'tidak') ? 'checked' : ''}}>
                             <label class="form-check-label">Tidak</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="val_a" id="valyan" value="na">
+                            <input class="form-check-input" type="radio" name="val_a" id="valyan" value="na" {{ (old('val_a') == 'na') ? 'checked' : ''}}>
                             <label class="form-check-label">NA</label>
                         </div>
                         <h6 class="my-2" id="laporanval">b. Jika ya, jenis validasi / kualifikasi</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valda" value="pengolahan">
+                                <input class="form-check-input" type="radio" name="val_b" id="valda" value="pengolahan" {{ (old('val_b') == 'pengolahan') ? 'checked' : ''}}>
                                 <label class="form-check-label" id="valdat">Validasi Pengolahan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valda1" value="pembersihan">
+                                <input class="form-check-input" type="radio" name="val_b" id="valda1" value="pembersihan" {{ (old('val_b') == 'pembersihan') ? 'checked' : ''}}>
                                 <label class="form-check-label" id="valdat1">Validasi Pembersihan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valda2" value="instalasi">
+                                <input class="form-check-input" type="radio" name="val_b" id="valda2" value="instalasi" {{ (old('val_b') == 'instalasi') ? 'checked' : ''}}>
                                 <label class="form-check-label" id="valdat2">Kualifikasi Instalasi</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valda3" value="kinerja">
+                                <input class="form-check-input" type="radio" name="val_b" id="valda3" value="kinerja" {{ (old('val_b') == 'kinerja') ? 'checked' : ''}}>
                                 <label class="form-check-label" id="valdat3">Kualifikasi Kinerja</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valda4" value="pengemasan">
+                                <input class="form-check-input" type="radio" name="val_b" id="valda4" value="pengemasan" {{ (old('val_b') == 'pengemasan') ? 'checked' : ''}}>
                                 <label class="form-check-label" id="valdat4">Validasi Pengemasan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valda5" value="analisa">
+                                <input class="form-check-input" type="radio" name="val_b" id="valda5" value="analisa" {{ (old('val_b') == 'analisa') ? 'checked' : ''}}>
                                 <label class="form-check-label" id="valdat5">Validasi Metode Analisa</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valda6" value="operasional">
+                                <input class="form-check-input" type="radio" name="val_b" id="valda6" value="operasional" {{ (old('val_b') == 'operasional') ? 'checked' : ''}}>
                                 <label class="form-check-label" id="valdat6">Kualifikasi Operasional</label>
                             </div>
                         </div>
@@ -330,29 +337,29 @@
                     <td>
                         <h6>a. Perlu dilakukan trial</h6>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="tr_a" id="triya" value="ya">
+                            <input class="form-check-input" type="radio" name="tr_a" id="triya" value="ya" {{ (old('tr_a') == 'ya') ? 'checked' : ''}}>
                             <label class="form-check-label">Ya</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="tr_a" id="triyat" value="tidak">
+                            <input class="form-check-input" type="radio" name="tr_a" id="triyat" value="tidak" {{ (old('tr_a') == 'tidak') ? 'checked' : ''}}>
                             <label class="form-check-label">Tidak</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="tr_a" id="triyan" value="na">
+                            <input class="form-check-input" type="radio" name="tr_a" id="triyan" value="na" {{ (old('tr_a') == 'na') ? 'checked' : ''}}>
                             <label class="form-check-label">NA</label>
                         </div>
                         <h6 class="my-2" id="laporantrial">b. Jika ya, dilakukan trial skala</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tr_b" id="tri" value="lab">
+                                <input class="form-check-input" type="radio" name="tr_b" id="tri" value="lab" {{ (old('tr_b') == 'lab') ? 'checked' : ''}}>
                                 <label class="form-check-label" id="trit">Laboratorium</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tr_b" id="tri1" value="pilot">
+                                <input class="form-check-input" type="radio" name="tr_b" id="tri1" value="pilot" {{ (old('tr_b') == 'pilot') ? 'checked' : ''}}>
                                 <label class="form-check-label" id="trit1">Pilot</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tr_b" id="tri2" value="komersial">
+                                <input class="form-check-input" type="radio" name="tr_b" id="tri2" value="komersial" {{ (old('tr_b') == 'komersial') ? 'checked' : ''}}>
                                 <label class="form-check-label" id="trit2">Komersial</label>
                             </div>
                         </div>
@@ -377,15 +384,15 @@
                          {{-- code id javascript pada regulasi proya, proyat, proyan  --}}
                         <h6>a. Perlu pemeriksaan tambahan</h6>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="pr_a" id="proya" value="ya">
+                            <input class="form-check-input" type="radio" name="pr_a" id="proya" value="ya" {{ (old('pr_a') == 'ya') ? 'checked' : ''}}>
                             <label class="form-check-label">Ya</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="pr_a" id="proyat" value="tidak">
+                            <input class="form-check-input" type="radio" name="pr_a" id="proyat" value="tidak" {{ (old('pr_a') == 'tidak') ? 'checked' : ''}}>
                             <label class="form-check-label">Tidak</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="pr_a" id="proyan" value="na">
+                            <input class="form-check-input" type="radio" name="pr_a" id="proyan" value="na" {{ (old('pr_a') == 'na') ? 'checked' : ''}}>
                             <label class="form-check-label">NA</label>
                         </div>
                         <h6 class="my-2" id="laporanpro">b. Jika ya, sebutkan pemeriksaan tambahan yang diperlukan</h6>
@@ -416,15 +423,15 @@
                         {{-- code id javascript dokumen dokya, dokyat, dokyan --}}
                         <h6>a. Perlu pembuatan / perubahan dokumen</h6>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="dok_a" id="dokya" value="ya">
+                            <input class="form-check-input" type="radio" name="dok_a" id="dokya" value="ya" {{ (old('dok_a') == 'ya') ? 'checked' : ''}}>
                             <label class="form-check-label">Ya</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="dok_a" id="dokyat" value="tidak">
+                            <input class="form-check-input" type="radio" name="dok_a" id="dokyat" value="tidak" {{ (old('dok_a') == 'tidak') ? 'checked' : ''}}>
                             <label class="form-check-label">Tidak</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="dok_a" id="dokyan" value="na">
+                            <input class="form-check-input" type="radio" name="dok_a" id="dokyan" value="na" {{ (old('dok_a') == 'na') ? 'checked' : ''}}>
                             <label class="form-check-label">NA</label>
                         </div>
                         <h6 class="my-2" id="laporandok">b. Jika ya, sebutkan dokumen yang dibuat / diubah</h6>
@@ -454,22 +461,22 @@
                     <td>
                         <h6>a. Mempengaruhi sistem ERP</h6>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="si_a" id="si_a" value="ya">
+                            <input class="form-check-input" type="radio" name="si_a" id="si_a" value="ya" {{ (old('si_a') == 'ya') ? 'checked' : ''}}>
                             <label class="form-check-label">Ya</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="si_a" id="si_a" value="tidak">
+                            <input class="form-check-input" type="radio" name="si_a" id="si_a" value="tidak" {{ (old('si_a') == 'tidak') ? 'checked' : ''}}>
                             <label class="form-check-label">Tidak</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="si_a" id="si_a" value="na">
+                            <input class="form-check-input" type="radio" name="si_a" id="si_a" value="na" {{ (old('si_a') == 'na') ? 'checked' : ''}}>
                             <label class="form-check-label">NA</label>
                         </div>
                         <label 
                         @error('si_a')
                         class="text-danger"
                         @enderror>@error('si_a')
-                        *Sistem ERP bagian A harus diisi
+                        *Sistem ERP harus diisi
                         @enderror
                     </td>
                     <td>
@@ -488,7 +495,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" id="kj_tambahan" rows="3" name="kj_tambahan"></textarea>
+                        <textarea class="form-control" id="kj_tambahan" rows="3" name="kj_tambahan">{{ old('kj_tambahan') }}</textarea>
                     </td>
                 </tr>
             </tbody>
@@ -545,7 +552,7 @@
                     <td>
                         <center>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="severity" id="severity1" value="1" onclick="displayResult(this.value)" required>
+                                <input class="form-check-input" type="radio" name="severity1" id="severity1" value="1" onclick="displayResult(this.value)" required {{ (old('severity1') == '1') ? 'checked' : ''}}>
                                 <label class="form-check-label">1</label>
                             </div>
                         </center>
@@ -557,7 +564,7 @@
                     <td>
                         <center>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="detec" id="detec1" value="1" onclick="displayResult1(this.value)" onchange="kali();" required>
+                                <input class="form-check-input" type="radio" name="detec1" id="detec1" value="1" onclick="displayResult1(this.value)" onchange="kali();" required {{ (old('detec1') == '1') ? 'checked' : ''}}>
                                 <label class="form-check-label">1</label>
                             </div>
                         </center>
@@ -569,7 +576,7 @@
                     <td>
                         <center>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="occur" value="2" id="occur1" onclick="displayResult2(this.value)" onchange="kali();" required>
+                                <input class="form-check-input" type="radio" name="occur1" value="2" id="occur1" onclick="displayResult2(this.value)" onchange="kali();" required {{ (old('occur1') == '1') ? 'checked' : ''}}>
                                 <label class="form-check-label">2</label>
                             </div>
                         </center>
@@ -582,7 +589,7 @@
                     <td>
                         <center>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="severity" id="severity1" value="3" onclick="displayResult(this.value)" required>
+                                <input class="form-check-input" type="radio" name="severity1" id="severity1" value="3" onclick="displayResult(this.value)" required {{ (old('severity1') == '3') ? 'checked' : ''}}>
                                 <label class="form-check-label">3</label>
                             </div>
                         </center>
@@ -595,7 +602,7 @@
                     <td>
                         <center>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="detec" id="detec1" value="2" onclick="displayResult1(this.value)" onchange="kali();" required>
+                                <input class="form-check-input" type="radio" name="detec1" id="detec1" value="2" onclick="displayResult1(this.value)" onchange="kali();" required {{ (old('detec1') == '2') ? 'checked' : ''}}>
                                 <label class="form-check-label">2</label>
                             </div>
                         </center>
@@ -606,7 +613,7 @@
                     <td>
                         <center>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="occur" id="occur1" value="4" onclick="displayResult2(this.value)" onchange="kali();" required>
+                                <input class="form-check-input" type="radio" name="occur1" id="occur1" value="4" onclick="displayResult2(this.value)" onchange="kali();" required {{ (old('occur1') == '4') ? 'checked' : ''}}>
                                 <label class="form-check-label">4</label>
                             </div>
                         </center>
@@ -620,7 +627,7 @@
                         <td>
                             <center>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="severity" id="severity1" value="5" onclick="displayResult(this.value)" required>
+                                    <input class="form-check-input" type="radio" name="severity1" id="severity1" value="5" onclick="displayResult(this.value)" required {{ (old('severity1') == '5') ? 'checked' : ''}}>
                                     <label class="form-check-label">5</label>
                                 </div>
                             </center>
@@ -633,7 +640,7 @@
                         <td>
                             <center>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="detec" id="detec1" value="3" onclick="displayResult1(this.value)" onchange="kali();" required>
+                                    <input class="form-check-input" type="radio" name="detec1" id="detec1" value="3" onclick="displayResult1(this.value)" onchange="kali();" required {{ (old('detec1') == '3') ? 'checked' : ''}}>
                                     <label class="form-check-label">3</label>
                                 </div>
                             </center>
@@ -645,7 +652,7 @@
                         <td>
                             <center>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="occur" id="occur1" value="6" onclick="displayResult2(this.value)" onchange="kali();" required>
+                                    <input class="form-check-input" type="radio" name="occur1" id="occur1" value="6" onclick="displayResult2(this.value)" onchange="kali();" required {{ (old('occur1') == '6') ? 'checked' : ''}}>
                                     <label class="form-check-label">6</label>
                                 </div>
                             </center>
@@ -659,7 +666,7 @@
                         <td>
                             <center>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="severity" id="severity1" value="7" onclick="displayResult(this.value)" onchange="kali();" required>
+                                    <input class="form-check-input" type="radio" name="severity1" id="severity1" value="7" onclick="displayResult(this.value)" onchange="kali();" required {{ (old('severity1') == '7') ? 'checked' : ''}}>
                                     <label class="form-check-label">7</label>
                                 </div>
                             </center>
@@ -671,7 +678,7 @@
                         <td>
                             <center>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="detec" id="detec1" value="5" onclick="displayResult1(this.value)" onchange="kali();" required>
+                                    <input class="form-check-input" type="radio" name="detec1" id="detec1" value="5" onclick="displayResult1(this.value)" onchange="kali();" required {{ (old('detec1') == '5') ? 'checked' : ''}}>
                                     <label class="form-check-label">5</label>
                                 </div>
                             </center>
@@ -682,7 +689,7 @@
                         <td>
                             <center>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="occur" id="occur1" value="8" onclick="displayResult2(this.value)" onchange="kali();" required>
+                                    <input class="form-check-input" type="radio" name="occur1" id="occur1" value="8" onclick="displayResult2(this.value)" onchange="kali();" required {{ (old('occur1') == '8') ? 'checked' : ''}}>
                                     <label class="form-check-label">8</label>
                                 </div>
                             </center>
@@ -834,15 +841,15 @@
                 <tr>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ch_kategori" value="kritikal">
+                            <input class="form-check-input" type="radio" name="ch_kategori" value="kritikal" {{ (old('ch_kategori') == 'kritikal') ? 'checked' : ''}}>
                             <label class="form-check-label" for="inlineRadio1">Kritikal</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ch_kategori" value="major">
+                            <input class="form-check-input" type="radio" name="ch_kategori" value="major" {{ (old('ch_kategori') == 'major') ? 'checked' : ''}}>
                             <label class="form-check-label" for="inlineRadio2">Major</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ch_kategori" value="minor">
+                            <input class="form-check-input" type="radio" name="ch_kategori" value="minor" {{ (old('ch_kategori') == 'minor') ? 'checked' : ''}}>
                             <label class="form-check-label" for="inlineRadio2">Minor</label>
                         </div>
                         <label 
@@ -866,11 +873,11 @@
                 <tr>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ch_status" value="disetujui">
+                            <input class="form-check-input" type="radio" name="ch_status" value="disetujui" {{ (old('ch_status') == 'disetujui') ? 'checked' : ''}}>
                             <label class="form-check-label" for="inlineRadio1">Disetujui</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ch_status" value="ditolak">
+                            <input class="form-check-input" type="radio" name="ch_status" value="ditolak" {{ (old('ch_status') == 'ditolak') ? 'checked' : ''}}>
                             <label class="form-check-label" for="inlineRadio2">Ditolak</label>
                         </div>
                         <label 
@@ -899,7 +906,7 @@
                     <td>Dikaji oleh</td>
                     <td>QA Specialist</td>
                     <td>
-                        <input type="text" class="form-control" placeholder="Sertakan Nama" id="qa_nama" name="qa_nama">
+                        <input type="text" name="qa_nama" value="{{old('qa_nama')}}" placeholder="Sertakan Nama" class="form-control">
                         <label 
                         @error('qa_nama')
                         class="text-danger"
@@ -919,7 +926,7 @@
                     <td>Diperiksa oleh</td>
                     <td>Asman Prod. Eval.</td>
                     <td>
-                        <input type="text" class="form-control" placeholder="Sertakan Nama" id="asman_nama" name="asman_nama">
+                        <input type="text" class="form-control" placeholder="Sertakan Nama" id="asman_nama" name="asman_nama" value="{{ old('asman_nama') }}">
                         <label
                         @error('asman_nama')
                         class="text-danger"
@@ -939,7 +946,7 @@
                     <td>Dikaji oleh</td>
                     <td>QA Specialist</td>
                     <td>
-                        <input type="text" class="form-control" placeholder="Sertakan Nama" id="aq_nama" name="aq_nama">
+                        <input type="text" class="form-control" placeholder="Sertakan Nama" id="aq_nama" name="aq_nama" value="{{ old('aq_nama') }}">
                         <label 
                         @error('aq_nama')
                         class="text-danger"
@@ -967,39 +974,39 @@
                 <tr>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis" value="1">
+                            <input class="form-check-input" type="checkbox" name="ch_dis[]" value="1" {{ (is_array(old('ch_dis')) && in_array(1, old('ch_dis'))) ? ' checked' : '' }}>
                             <label class="form-check-label">Produksi</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis" value="2">
+                            <input class="form-check-input" type="checkbox" name="ch_dis[]" value="2" {{ (is_array(old('ch_dis')) && in_array(2, old('ch_dis'))) ? ' checked' : '' }}>
                             <label class="form-check-label">R&D</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis" value="3">
+                            <input class="form-check-input" type="checkbox" name="ch_dis[]" value="3" {{ (is_array(old('ch_dis')) && in_array(3, old('ch_dis'))) ? ' checked' : '' }}>
                             <label class="form-check-label">Pemasaran</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis" value="4">
+                            <input class="form-check-input" type="checkbox" name="ch_dis[]" value="4" {{ (is_array(old('ch_dis')) && in_array(4, old('ch_dis'))) ? ' checked' : '' }}>
                             <label class="form-check-label">Pengawasan Mutu</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis" value="5">
+                            <input class="form-check-input" type="checkbox" name="ch_dis[]" value="5" {{ (is_array(old('ch_dis')) && in_array(5, old('ch_dis'))) ? ' checked' : '' }}>
                             <label class="form-check-label">Teknik & Pemeliharaan</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis" value="6">
+                            <input class="form-check-input" type="checkbox" name="ch_dis[]" value="6" {{ (is_array(old('ch_dis')) && in_array(6, old('ch_dis'))) ? ' checked' : '' }}>
                             <label class="form-check-label">SCM</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check mx-3">
-                            <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis" value="7">
+                            <input class="form-check-input" type="checkbox" name="ch_dis[]" value="7" {{ (is_array(old('ch_dis')) && in_array(7, old('ch_dis'))) ? ' checked' : '' }}>
                             <label class="form-check-label" for="inlineCheckbox1">Pengadaan</label>
                         </div>
                         <div class="form-check mx-3">
-                            <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis" value="8">
+                            <input class="form-check-input" type="checkbox" name="ch_dis[]" value="8" {{ (is_array(old('ch_dis')) && in_array(8, old('ch_dis'))) ? ' checked' : '' }}>
                             <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                         </div>
                     </td>

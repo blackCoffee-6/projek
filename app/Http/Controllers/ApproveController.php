@@ -91,6 +91,7 @@ class ApproveController extends Controller
         if($auth){
             $role = Auth::user()->role;
         }
+        // dd($fup);
         return view('baca-approve', compact('fup', 'role', 'product'));
     }
 

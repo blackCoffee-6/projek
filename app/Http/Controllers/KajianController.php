@@ -51,7 +51,7 @@ class KajianController extends Controller
     {
         // dd($request->all()); 
         
-        $validator = Validator::make($request->all(),[
+        $request->validate([
             'ket_up' =>'required',
             'ru_a' =>'required',
             'ri_a'=>'required',
@@ -69,15 +69,11 @@ class KajianController extends Controller
             'aq_nama'=>'required',
             'ch_dis'=>'required'
         ]);
-
-        if($validator->fails()){
-            return back()->withErrors($validator->errors());
-        }
         
         $request->request->add(['fup_id' => $fup_id]);
         $request->request->add(['ket_up' => implode(',', $request->ket_up)]);
-        
-
+        $request->request->add(['ch_dis' => implode(',', $request->ch_dis)]);
+        dd($request->all());
         Kajian::create($request->all());
         Alert::success('Success', "Kajian Berhasil Dibuat!");
         return redirect('/home');
@@ -128,6 +124,7 @@ class KajianController extends Controller
     public function listKajian()
     {
         $kajians = Kajian::all();
+        // dd($kajians);
         
         return view('showKajian', compact('kajians'));
     }

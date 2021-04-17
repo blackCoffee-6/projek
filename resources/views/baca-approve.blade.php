@@ -7,7 +7,6 @@
     <h1 class="display-5 mx-5 text-center">
     Usulan Perubahan
     </h1>
-    <!-- <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a> -->
         @csrf
         @method('PUT')
         <div class="container my-4">
