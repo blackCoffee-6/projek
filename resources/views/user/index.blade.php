@@ -40,7 +40,7 @@
                     <td>{{$user->email}}</td>
                     <td>{{$user->phone}}</td>
                     @if($user->bidang_id == null)
-                        <td>none</td>
+                        <td></td>
                     
                     @else
                         <td>{{$user->Bidang->name}}</td>
@@ -78,6 +78,47 @@
               </li>
             </ul>
         </nav>
+
+        <h1 class="display-5 my-5">
+            List Data Masuk User
+        </h1>
+        <table class="table table-bordered my-5">
+            <thead>
+                <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Nomor Telepon</th>
+                    <th scope="col">Bidang</th>
+                    <th scope="col">Level</th>
+                    <th scope="col">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Siapa</td>
+                    <td>Email</td>
+                    <td>Nomor</td>
+                    @if($user->bidang_id == null)
+                        <td></td>
+                    
+                    @else
+                        <td>Bidang</td>
+                    
+                    @endif
+                    <td>Role</td>
+                    <td>
+                        <form action="/user/{{$user->id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                            <a href="/user/{{$user->id}}/edit" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-check-circle-o"></i></a>
+                            <button class="btn btn-danger my-2 my-sm-0" type="submit" onclick="return confirm('Apakah anda yakin?');"><i class="fa fa-window-close-o"></i></button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 @endsection

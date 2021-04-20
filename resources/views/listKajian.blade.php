@@ -44,10 +44,37 @@
                     </td>
                     <td>20/05/2021</td>
                     <td>
+                        
                         @if(Auth::user()->bidang_id == NULL)
-                        <a href="/Detail/Kajian/{{$fup->id}}"><button class="btn btn-dark my-2 my-sm-0" type="submit"><i class="fa fa-database"></i>  Kaji</button></a>
+                        <?php $flag = 0; ?>
+                        @foreach($kajians as $kajian)
+                        @if($fup->id == $kajian->fup_id)
+                            <?php $flag++; ?>
+                        @endif
+                        @endforeach
+                        @if($flag < 1) 
+                            <a href="/Detail/Kajian/{{$fup->id}}"><button class="btn btn-dark my-2 my-sm-0" type="submit"><i class="fa fa-database"></i>  Kaji</button></a>
                         @else
-                        <span class="badge rounded-pill bg-secondary text-light">Menunggu Dikaji</span>
+                        <a href="#" class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fa fa-edit"></i></a>
+                        @endif
+                        @else
+                        <?php $flag = 0; $stats = ''; ?>
+                        @foreach($kajians as $kajian)
+                        @if($fup->id == $kajian->fup_id)
+                            <?php $flag++;
+                                $stats = $kajian->ch_status;
+                            ?>
+                            @endif
+                            @endforeach
+                            {{-- <span class="badge rounded-pill bg-secondary text-light">Menunggu Dikaji</span> --}}
+                            @if($flag < 1) <span class="badge rounded-pill bg-secondary text-light">Menunggu Dikaji</span>
+                            @else 
+                                @if(strcasecmp($stats,'disetujui') == 0)    
+                                <span class="badge rounded-pill bg-success text-light">Disetujui</span>
+                                @elseif(strcasecmp($stats,'ditolak') == 0)
+                                <span class="badge rounded-pill bg-danger text-light">Ditolak</span>
+                                @endif
+                            @endif
                         @endif
                     </td>
                 </tr>

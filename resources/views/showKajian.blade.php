@@ -28,20 +28,37 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($kajians as $kajian)
+                @foreach($fups as $fup)
                     <tr>
                         <th>{{$loop->iteration}}</th>
-                        <td>belom bisa</td>
+                        <td>{{$fup->Bidang->name}}</td>
                         <td>04/USL/IV/2020</td>
-                        <td>14/1/2021</td>
+                        <td>{{$fup->date}}</td>
                         <td>
-                            New CAR
+                            {{$fup->ket_usulan}}
                         </td>
                         <td>
-                            <span class="badge rounded-pill bg-secondary text-light">Menunggu Dikaji</span>
+                            <?php $flag = 0; $stats = ''; ?>
+                        @foreach($kajians as $kajian)
+                        @if($fup->id == $kajian->fup_id)
+                            <?php $flag++;
+                                $stats = $kajian->ch_status;
+                            ?>
+                            @endif
+                            @endforeach
+                            @if($flag < 1) <span class="badge rounded-pill bg-secondary text-light">Menunggu Dikaji</span>
+                            @else 
+                                @if(strcasecmp($stats,'disetujui') == 0)    
+                                <span class="badge rounded-pill bg-success text-light">Disetujui</span>
+                                @elseif(strcasecmp($stats,'ditolak') == 0)
+                                <span class="badge rounded-pill bg-danger text-light">Ditolak</span>
+                                @endif
+                            @endif
                         </td>
                         <td>
+                            @if($flag > 0) 
                             <a href="/Baca-kajian" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

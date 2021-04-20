@@ -27,8 +27,9 @@ class KajianController extends Controller
         }
         $arrFupId = explode(',',$fup_id);//{1, 3}
         $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
+        $kajians = Kajian::all();
     
-       return view('listKajian', compact('fups', 'user', 'apps'));
+       return view('listKajian', compact('fups', 'user', 'apps', 'kajians'));
     }
 
     /**
@@ -73,8 +74,74 @@ class KajianController extends Controller
         $request->request->add(['fup_id' => $fup_id]);
         $request->request->add(['ket_up' => implode(',', $request->ket_up)]);
         $request->request->add(['ch_dis' => implode(',', $request->ch_dis)]);
-        dd($request->all());
-        Kajian::create($request->all());
+        
+        $rub = $request->ru_b == null ? '-' : $request->ru_b;
+        $ruk = $request->ru_ket == null ? '-' : $request->ru_ket;
+        $rib = $request->ri_b == null ? '-' : $request->ri_b;
+        $rik = $request->ri_ket == null ? '-' : $request->ri_ket;
+        $stb = $request->st_b == null ? '-' : $request->st_b;
+        $stk = $request->st_ket == null ? '-' : $request->st_ket;
+        $met = $request->me_ket == null ? '-' : $request->me_ket;
+        $vab = $request->val_b == null ? '-' : $request->val_b;
+        $vat = $request->val_ket == null ? '-' : $request->val_ket;
+        $trb = $request->tr_b == null ? '-' : $request->tr_b;
+        $trk = $request->tr_ket == null ? '-' : $request->tr_ket;
+        $prd = $request->pr_dok == null ? '-' : $request->pr_dok;
+        $prk = $request->pr_ket == null ? '-' : $request->pr_ket;
+        $dob = $request->dok_b == null ? '-' : $request->dok_b;
+        $dok = $request->dok_ket == null ? '-' : $request->dok_ket;
+        $sik = $request->si_ket == null ? '-' : $request->si_ket;
+        $kjtam = $request->kj_tambahan == null ? '-' : $request->kj_tambahan;
+
+
+        // dd($request->all());
+        // Kajian::create($request->all());
+        Kajian::create([
+            'fup_id'=>$request->fup_id,
+            'ket_up'=>$request->ket_up,
+            'ru_a'=>$request->ru_a,
+            'ru_b'=>$rub,
+            'ru_ket'=>$ruk,
+            'ri_a'=>$request->ri_a,
+            'ri_b'=>$rib,
+            'ri_ket'=>$rik,
+            'st_a'=>$request->st_a,
+            'st_b'=>$stb,
+            'st_ket'=>$stk,
+            'me_a' => $request->me_a,
+            'me_ket' => $met,
+            'val_a' =>$request->val_a,
+            'val_b' =>$vab,
+            'val_ket' =>$vat,
+            'tr_a' =>$request->tr_a,
+            'tr_b' =>$trb,
+            'tr_ket' =>$trk,
+            'pr_a' =>$request->pr_a,
+            'pr_dok' =>$prd,
+            'pr_ket' =>$prk,
+            'dok_a' =>$request->dok_a,
+            'dok_b' =>$dob,
+            'dok_ket' => $dok,
+            'si_a' =>$request->si_a,
+            'si_ket' =>$sik,
+            'kj_tambahan' =>$kjtam,
+            'severity1' =>$request->severity1,
+            'detec1' =>$request->detec1,
+            'occur1' =>$request->occur1,
+            'getsev' =>$request->getsev,
+            'getdet' =>$request->getdet,
+            'getocc' =>$request->getocc,
+            'result_dxo' =>$request->result_dxo,
+            'ch_kategori' =>$request->ch_kategori,
+            'ch_status' =>$request->ch_status,
+            'qa_nama' =>$request->qa_nama,
+            'qa_date' =>$request->qa_date,
+            'asman_nama' =>$request->asman_nama,
+            'asman_date' =>$request->asman_date,
+            'aq_nama' =>$request->aq_nama,
+            'aq_date' =>$request->aq_date,
+            'ch_dis' =>$request->ch_dis
+        ]);
         Alert::success('Success', "Kajian Berhasil Dibuat!");
         return redirect('/home');
     }
@@ -123,10 +190,17 @@ class KajianController extends Controller
     
     public function listKajian()
     {
+        // $apps = Approval::where('decision', 'like', 'setuju')->get();
         $kajians = Kajian::all();
+        $fup_id = '';
+        foreach($kajians as $kajian){
+            $fup_id .= $kajian->fup_id.','; //1,3,
+        }
+        $arrFupId = explode(',',$fup_id);//{1, 3}
+        $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
         // dd($kajians);
         
-        return view('showKajian', compact('kajians'));
+        return view('showKajian', compact('kajians','fups'));
     }
 
     public function bacaKajian()
