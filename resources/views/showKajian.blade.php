@@ -57,7 +57,7 @@
                         </td>
                         <td>
                             @if($flag > 0) 
-                            <a href="/Baca-kajian" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
+                            <a href="/Baca-kajian/{{$kajian->id}}" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
                             @endif
                         </td>
                     </tr>
