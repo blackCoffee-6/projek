@@ -3,6 +3,20 @@
 @section('title', 'Approve List')
 
 @section('content')
+<style>
+    table.table-bordered{
+        border:1px solid black;
+        margin-top:20px;
+      }
+    table.table-bordered > thead > tr > th{
+        border:1px solid black;
+    }
+    table.table-bordered > tbody > tr > td{
+        border:1px solid black;
+    
+    }
+</style>
+
     <div class="main">
         <h1 class="display-5 mx-5">
             List Data Entry Untuk Di Setujui
@@ -18,8 +32,8 @@
             </div>
         
             <table class="table table-bordered my-3">
-                <thead>
-                <tr>
+                <thead class="thead-dark">
+                <tr class="text-center">
                     <th scope="col">No.</th>
                     <th scope="col">Bidang</th>
                     <th scope="col">Nomor</th>
@@ -33,14 +47,14 @@
                 @foreach($fups as $fup)
                 <tr>
                     @if(Auth::user()->id == $fup->user_id || Auth::user()->bidang_id == $fup->bidang_id || Auth::user()->role == 'admin' || Auth::user()->role == 'approval')
-                    <th scope="row">{{$loop->iteration}}</th>
+                    <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
                     <td>{{$fup->Bidang->name}}</td>
                     <td>04/USL/IV/2020</td>
                     <td>{{$fup->date}}</td>
                     <td>
                         {{$fup->ket_usulan}}
                     </td>
-                    <td>
+                    <td class="text-center">
                         <?php  $count = 0; ?>
                         @foreach($apps as $app)
                             @if($app->fup_id == $fup->id)
@@ -64,7 +78,7 @@
                         @endif
                     </td>
                     @if($count < 1)
-                    <td>
+                    <td class="text-center">
                         <a href="/lihat-data/{{$fup->id}}" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
                     </td>
                     @endif

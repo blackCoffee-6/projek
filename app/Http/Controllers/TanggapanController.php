@@ -44,9 +44,10 @@ class TanggapanController extends Controller
             $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->get();
         }
 
-        if(Auth::user()->bidang_id == null){
+        if(strcasecmp($user->role, 'Approval') == 0){
             abort(404);
         }
+        
         else{
             return view('tanggapan.index', compact('fups','user','tanggapans', 'tanggapanFlag'))
             ->with('alert', "Tanggapan Created Successfully!");

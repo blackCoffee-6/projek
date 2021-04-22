@@ -13,30 +13,23 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'username' => 'admin',
-            'role' => 'admin',
+            'username' => 'Admin',
+            'role' => 'Admin',
             'bidang_id' => NULL,
             'phone' => '0812345678',
             'email' => 'admin@admin.com',
-            'password' => bcrypt('admins')
-        ]);
-
-        DB::table('users')->insert([
-            'username' => 'user',
-            'role' => 'staff',
-            'bidang_id' => '5',
-            'phone' => '0898765432',
-            'email' => 'user@user.com',
-            'password' => bcrypt('users')
+            'password' => bcrypt('admins'),
+            'status' => 'verified'
         ]);
 
         DB::table('users')->insert([
             'username' => 'Approval',
             'bidang_id' => NULL,
-            'role' => 'approval',
+            'role' => 'Approval',
             'phone' => '0812345678',
             'email' => 'approval@approval.com',
-            'password' => bcrypt('approval')
+            'password' => bcrypt('approval'),
+            'status' => 'verified'
         ]);
     }
 }

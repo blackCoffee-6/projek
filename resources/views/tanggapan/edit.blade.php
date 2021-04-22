@@ -140,15 +140,12 @@
                 </tr>
             </tbody>
         </table>
-<<<<<<< HEAD
         @else
         {{-- <p class="text-danger ml-3">*R&D belum menanggapi</p> --}}
         @endif
         
         @if($tanggapan->gt_bidang != null)
         <!-- kalo bidang udah ngisi tampilin -->
-=======
->>>>>>> b8cdbf8da98798aae294565bd115e6af24c18c5d
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -217,7 +214,6 @@
                     </td>
                     <td>
                         <input class="form-control" type="date" value="{{$tanggapan->date_tg}}" disabled>
-<<<<<<< HEAD
                         <input type="hidden" value="{{$tanggapan->date_tg}}" name="date_tg" >
                     </td>
                 </tr>
@@ -235,13 +231,10 @@
                 <tr>
                     <td>
                         <textarea class="form-control" rows="3" name="gt_bidang" disabled></textarea>
-=======
->>>>>>> b8cdbf8da98798aae294565bd115e6af24c18c5d
                     </td>
                 </tr>
             </tbody>
         </table>
-<<<<<<< HEAD
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -322,11 +315,9 @@
     @elseif($tanggapan->tg_rnd == null AND $tanggapan->gt_bidang == null)
     <!-- kalo r&d udah ngisi dan bidang belom ngisi tampilin both -->
         {{-- <button class="btn btn-success my-2">Submit</button> --}}
-=======
-    </div>
->>>>>>> b8cdbf8da98798aae294565bd115e6af24c18c5d
         <a href="/home" class="btn btn-danger my-2 mx-2">Cancel</a>
     </form>
+    
 <script>
     $(function() {
         var count=0;
@@ -363,7 +354,6 @@
     else{
         $("#notifikasi").attr('checked', 'checked');
     }
-
   </script>
 </div>
 @endsection

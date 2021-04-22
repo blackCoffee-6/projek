@@ -40,7 +40,7 @@
                             <label class="form-check-label" for="inlineCheckbox1">Metode Analisis</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="6" id="site" {{ (is_array(old('ket_up')) && in_array(6, old('ket_up'))) ? ' checked' : '' }}
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="6" id="site" {{ (is_array(old('ket_up')) && in_array(6, old('ket_up'))) ? ' checked' : '' }}>
                             <label class="form-check-label" for="inlineCheckbox1">Site Produksi</label>
                         </div>
                         <div class="form-check">
@@ -399,7 +399,7 @@
                         <div class="d-inline">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="pr_dok" id="pro" value="dok1" checked>
-                                <input type="text" class="form-control" id="prot">
+                                <textarea name="dokumen" id="prot" class="form-control"></textarea>
                             </div>
                         </div>
                         <label 
@@ -438,7 +438,7 @@
                         <div class="d-inline">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="dok_b" id="dok" value="dok1" checked>
-                                <input type="text" class="form-control" id="dokt">
+                                <textarea name="dokt" id="dokt" class="form-control"></textarea>
                             </div>
                         </div>
                         <label 
