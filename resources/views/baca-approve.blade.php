@@ -214,8 +214,32 @@
                         yg tampil cuma bidang 1/R&D aja bidang 5/teknik nya ga ketampil 
                         -->
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" checked="checked" disabled>
-                                <label class="form-check-label" for="inlineCheckbox1">{{$fup->Bidang->name}}</label>
+                                <input class="form-check-input" type="checkbox" disabled {{ in_array("1", $tanggapans2) ? "checked" : "" }}>
+                                <label class="form-check-label" for="inlineCheckbox1">R&D</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" disabled {{ in_array("2", $tanggapans2) ? "checked" : "" }}>
+                                <label class="form-check-label" for="inlineCheckbox1">Produksi</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" disabled {{ in_array("3", $tanggapans2) ? "checked" : "" }}>
+                                <label class="form-check-label" for="inlineCheckbox1">Pemasaran</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" disabled {{ in_array("4", $tanggapans2) ? "checked" : "" }}>
+                                <label class="form-check-label" for="inlineCheckbox1">QC</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" disabled {{ in_array("5", $tanggapans2) ? "checked" : "" }}>
+                                <label class="form-check-label" for="inlineCheckbox1">Teknik</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" disabled {{ in_array("6", $tanggapans2) ? "checked" : "" }}>
+                                <label class="form-check-label" for="inlineCheckbox1">SCM</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" disabled {{ in_array("7", $tanggapans2) ? "checked" : "" }}>
+                                <label class="form-check-label" for="inlineCheckbox1">Pengadaan</label>
                             </div>
                         </td>
                         @endif

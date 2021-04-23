@@ -185,7 +185,7 @@
                         <input class="form-control" type="text" name="gt_nama" >
                     </td>
                     <td>
-                        <textarea class="form-control" rows="3" name="ttd" ></textarea>
+                        <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
                         <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="gt_date" >
@@ -221,7 +221,7 @@
                         <input class="form-control" type="text" name="nama_tg" >
                     </td>
                     <td>
-                        <textarea class="form-control" rows="3" name="ttd" ></textarea>
+                        <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
                         <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="date_tg" >

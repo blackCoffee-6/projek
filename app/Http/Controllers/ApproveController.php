@@ -50,6 +50,10 @@ class ApproveController extends Controller
     public function store(Request $request, $id)
     {
         // dd($request->decision);
+        $request->validate([
+            'decision'=>'required'
+        ]);
+
         $app = Approval::where('fup_id',$id)->first();
         if($app != null){
             Approval::where('fup_id',$id)->update([
@@ -91,8 +95,12 @@ class ApproveController extends Controller
         if($auth){
             $role = Auth::user()->role;
         }
-        // dd($fup);
-        return view('baca-approve', compact('fup', 'role', 'product'));
+        
+        $tanggapan2 = $fup->tanggapan2;
+        $tanggapans2 = explode(",", $tanggapan2);
+
+        // dd($tanggapans2);
+        return view('baca-approve', compact('fup', 'role', 'product','tanggapans2'));
     }
 
     /**
