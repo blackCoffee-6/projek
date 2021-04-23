@@ -209,10 +209,11 @@ class KajianController extends Controller
         $kajians = Kajian::find($id);
         $ket_up = $kajians->ket_up;
         $ket_ups = explode("," , $ket_up);
-        // foreach(explode(',', $ket_up) as $ket_ups){
 
-        // }
+        $ch_dis = $kajians->ch_dis;
+        $ch_diss = explode("," , $ch_dis);
+
         // dd($ket_ups);
-        return view('baca-kajian', compact('kajians','ket_ups'));
+        return view('baca-kajian', compact('kajians','ket_ups','ch_diss'));
     }
 }

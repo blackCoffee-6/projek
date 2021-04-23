@@ -16,58 +16,67 @@
                 <tr>
                     <td>
                         <div class="form-check">
-                        @foreach($ket_ups as $up)
-                            <input type="hidden" value="{{$up}}" id="ketups">
-                        @endforeach
-                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="1" id="bahan">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="1" id="bahan"
+                            {{ in_array("1", $ket_ups) ? "checked" : "" }}>
                             <label class="form-check-label" for="inlineCheckbox1">Spesifikasi Bahan / Produk</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="2" id="baku">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="2" id="baku"
+                            {{ in_array("2", $ket_ups) ? "checked" : "" }}>
                             <label class="form-check-label" for="inlineCheckbox1">Bahan Baku</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="3" id="proses">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="3" id="proses"
+                            {{ in_array("3", $ket_ups) ? "checked" : "" }}>
                             <label class="form-check-label" for="inlineCheckbox1">Formula / Proses</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="4" id="mesin">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="4" id="mesin"
+                            {{ in_array("4", $ket_ups) ? "checked" : "" }}>
                             <label class="form-check-label" for="inlineCheckbox1">Mesin dan Peralatan</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="5" id="metode">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="5" id="metode"
+                            {{ in_array("5", $ket_ups) ? "checked" : "" }}>
                             <label class="form-check-label" for="inlineCheckbox1">Metode Analisis</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="6" id="site">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="6" id="site"
+                            {{ in_array("6", $ket_ups) ? "checked" : "" }}>
                             <label class="form-check-label" for="inlineCheckbox1">Site Produksi</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="7" id="bangunan">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="7" id="bangunan"
+                            {{ in_array("7", $ket_ups) ? "checked" : "" }}>
                             <label class="form-check-label" for="inlineCheckbox1">Bangunan dan Fasilitas</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="8" id="dokumen">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="8" id="dokumen"
+                            {{ in_array("8", $ket_ups) ? "checked" : "" }}>
                             <label class="form-check-label" for="inlineCheckbox1">Dokumentasi</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="9" id="lingkungan">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="9" id="lingkungan"
+                            {{ in_array("9", $ket_ups) ? "checked" : "" }}>
                             <label class="form-check-label" for="inlineCheckbox1">Lingkungan</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="10" id="pie">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="10" id="pie"
+                            {{ in_array("10", $ket_ups) ? "checked" : "" }}>
                             <label class="form-check-label" for="inlineCheckbox1">PIE</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="11" id="peraturan">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="11" id="peraturan"
+                            {{ in_array("11", $ket_ups) ? "checked" : "" }}>
                             <label class="form-check-label" for="inlineCheckbox1">Peraturan Perundangan</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="12" id="else1">
+                            <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="12" id="else1"
+                            {{ in_array("12", $ket_ups) ? "checked" : "" }}>
                             <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                         </div>
                     </td>
@@ -900,39 +909,47 @@
                 <tr>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis" value="1">
+                            <input class="form-check-input" disabled type="checkbox" id="ch_dis" name="ch_dis" value="1"
+                            {{ in_array("1", $ch_diss) ? "checked" : "" }}>
                             <label class="form-check-label">Produksi</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis" value="2">
+                            <input class="form-check-input" disabled type="checkbox" id="ch_dis" name="ch_dis" value="2"
+                            {{ in_array("2", $ch_diss) ? "checked" : "" }}>
                             <label class="form-check-label">R&D</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis" value="3">
+                            <input class="form-check-input" disabled type="checkbox" id="ch_dis" name="ch_dis" value="3"
+                            {{ in_array("3", $ch_diss) ? "checked" : "" }}>
                             <label class="form-check-label">Pemasaran</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis" value="4">
+                            <input class="form-check-input" disabled type="checkbox" id="ch_dis" name="ch_dis" value="4"
+                            {{ in_array("4", $ch_diss) ? "checked" : "" }}>
                             <label class="form-check-label">Pengawasan Mutu</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis" value="5">
+                            <input class="form-check-input" disabled type="checkbox" id="ch_dis" name="ch_dis" value="5"
+                            {{ in_array("5", $ch_diss) ? "checked" : "" }}>
                             <label class="form-check-label">Teknik & Pemeliharaan</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis" value="6">
+                            <input class="form-check-input" disabled type="checkbox" id="ch_dis" name="ch_dis" value="6"
+                            {{ in_array("6", $ch_diss) ? "checked" : "" }}>
                             <label class="form-check-label">SCM</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check mx-3">
-                            <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis" value="7">
+                            <input class="form-check-input" disabled type="checkbox" id="ch_dis" name="ch_dis" value="7"
+                            {{ in_array("7", $ch_diss) ? "checked" : "" }}>
                             <label class="form-check-label" for="inlineCheckbox1">Pengadaan</label>
                         </div>
                         <div class="form-check mx-3">
-                            <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis" value="8">
+                            <input class="form-check-input" disabled type="checkbox" id="ch_dis" name="ch_dis" value="8"
+                            {{ in_array("8", $ch_diss) ? "checked" : "" }}>
                             <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                         </div>
                     </td>
@@ -1261,42 +1278,42 @@
     }
 
     //ket_up
-    var value = $('#ketups').val()
-    if(value === '1'){
-        $("#bahan").attr('checked', 'checked');
-    }
-    else if(value === '2'){
-        $("#baku").attr('checked', 'checked');
-    }
-    else if(value === '3'){
-        $("#proses").attr('checked', 'checked');
-    }
-    else if(value === '4'){
-        $("#mesin").attr('checked', 'checked');
-    }
-    else if(value === '5'){
-        $("#metode").attr('checked', 'checked');
-    }
-    else if(value === '6'){
-        $("#site").attr('checked', 'checked');
-    }
-    else if(value === '7'){
-        $("#bangunan").attr('checked', 'checked');
-    }
-    else if(value === '8'){
-        $("#dokumen").attr('checked', 'checked');
-    }
-    else if(value === '9'){
-        $("#lingkungan").attr('checked', 'checked');
-    }
-    else if(value === '10'){
-        $("#pie").attr('checked', 'checked');
-    }
-    else if(value === '11'){
-        $("#peraturan").attr('checked', 'checked');
-    }
-    else{
-        $("#else1").attr('checked', 'checked');
-    }
+    // var value = $('#ketups').val()
+    // if(value === '1'){
+    //     $("#bahan").attr('checked', 'checked');
+    // }
+    // else if(value === '2'){
+    //     $("#baku").attr('checked', 'checked');
+    // }
+    // else if(value === '3'){
+    //     $("#proses").attr('checked', 'checked');
+    // }
+    // else if(value === '4'){
+    //     $("#mesin").attr('checked', 'checked');
+    // }
+    // else if(value === '5'){
+    //     $("#metode").attr('checked', 'checked');
+    // }
+    // else if(value === '6'){
+    //     $("#site").attr('checked', 'checked');
+    // }
+    // else if(value === '7'){
+    //     $("#bangunan").attr('checked', 'checked');
+    // }
+    // else if(value === '8'){
+    //     $("#dokumen").attr('checked', 'checked');
+    // }
+    // else if(value === '9'){
+    //     $("#lingkungan").attr('checked', 'checked');
+    // }
+    // else if(value === '10'){
+    //     $("#pie").attr('checked', 'checked');
+    // }
+    // else if(value === '11'){
+    //     $("#peraturan").attr('checked', 'checked');
+    // }
+    // else{
+    //     $("#else1").attr('checked', 'checked');
+    // }
 </script>
 @endsection
