@@ -124,7 +124,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="ru_b" disabled id="rubelse" value="else">
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <input type="text" class="form-control" aria-label="Default" disabled aria-describedby="inputGroup-sizing-default">
                             </div>
                         </div>
                     </td>
@@ -451,7 +451,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" id="kj_tambahan" rows="3" name="kj_tambahan"></textarea>
+                        <textarea class="form-control" id="kj_tambahan" rows="3" name="kj_tambahan" disabled>{{$kajians->kj_tambahan}}</textarea>
                     </td>
                 </tr>
             </tbody>
