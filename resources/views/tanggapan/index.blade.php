@@ -3,6 +3,20 @@
 @section('title', 'List Tanggapan Bidang')
 
 @section('content')
+<style>
+  table.table-bordered{
+      border:1px solid black;
+      margin-top:20px;
+    }
+  table.table-bordered > thead > tr > th{
+      border:1px solid black;
+  }
+  table.table-bordered > tbody > tr > td{
+      border:1px solid black;
+  
+  }
+</style>
+
 <div class="main">
   <h1 class="display-5 mx-5">
     List Tanggapan Bidang
@@ -29,8 +43,8 @@
             </div>
             @endif
     <table class="table table-bordered my-3">
-      <thead>
-        <tr>
+      <thead class="thead-dark">
+        <tr class="text-center">
           <th scope="col">No.</th>
           <th scope="col">Nomor Usul</th>
           <th scope="col">Bidang Usul</th>
@@ -44,14 +58,14 @@
                 <tbody>
                   @foreach($fups as $fup)
                 <tr>
-                    <th>{{$loop->iteration}}</th>
+                    <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
                     <td>04/USL/IV/2020</td>
                     <td>{{$fup->Bidang->name}}</td>
                     <td>07/04/2020</td>
                     <td>
                         {{$fup->ket_usulan}}
                     </td>
-                    <td>
+                    <td class="text-center">
                       <?php  $count = 0; ?>
                       @foreach($tanggapans as $tanggapan)
                         @if($tanggapan->fup_id == $fup->id)
@@ -61,9 +75,8 @@
                           <?php break; ?>
                         @endif
                       @endforeach
-                      
                     </td>
-                    <td>
+                    <td class="text-center">
                       <?php $buttonFlag = 0; $admindFlag = 0; ?>
                       @foreach($tanggapanFlag as $flag)
                       @if($flag->fup_id == $fup->id)
@@ -87,7 +100,7 @@
                         @endif
                       @endif
                     </td>
-                    <td>
+                    <td class="text-center">
                     @if(strcasecmp($user->role,'staff') == 0)
                       @if($buttonFlag < 1)
                         <a href="/Tanggapan/{{$fup->id}}"><button class="btn btn-info my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Menanggapi</button></a>

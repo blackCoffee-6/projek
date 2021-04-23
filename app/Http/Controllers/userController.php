@@ -45,6 +45,7 @@ class userController extends Controller
             $user->role = "Staff";
             $user->phone = $request->phone;
             $user->password = bcrypt($request->password);
+            $user->status = "Not Verified";
             $user->bidang_id = $request->bidang;
             $user->save();
             // dd($user);
@@ -64,7 +65,7 @@ class userController extends Controller
     
     //untuk melihat list user
     public function index(){
-        $listUser = User::all();
+        $listUser = User::paginate(10);
         return view('user.index', compact('listUser'));
     }
 

@@ -1,6 +1,20 @@
 @extends('layouts.main')
 
 @section('content')
+<style>
+    table.table-bordered{
+        border:1px solid black;
+        margin-top:20px;
+      }
+    table.table-bordered > thead > tr > th{
+        border:1px solid black;
+    }
+    table.table-bordered > tbody > tr > td{
+        border:1px solid black;
+    
+    }
+</style>
+
 <div class="main">
     <h1 class="display-5 mx-5">
         List Entry Data Kajian
@@ -14,8 +28,8 @@
           </div>
     </div>
     <table class="table table-bordered my-3">
-        <thead>
-            <tr>
+        <thead class="thead-dark">
+            <tr class="text-center">
                 <th scope="col">No.</th>
                 <th scope="col">Bidang</th>
                 <th scope="col">Nomor Usulan</th>
@@ -35,7 +49,7 @@
             <?php $count = 0; ?>
             @foreach($fups as $fup)
                 <tr>
-                    <th>{{$loop->iteration}}</th>
+                    <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
                     <td>{{$fup->Bidang->name}}</td>
                     <td>04/USL/IV/2020</td>
                     <td>{{$fup->date}}</td>
@@ -43,7 +57,7 @@
                         {{$fup->ket_usulan}}
                     </td>
                     <td>20/05/2021</td>
-                    <td>
+                    <td class="text-center">
                         
                         @if(Auth::user()->bidang_id == NULL)
                         <?php $flag = 0; ?>

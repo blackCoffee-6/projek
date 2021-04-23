@@ -3,9 +3,23 @@
 @section('title', 'Menunggu Kajian')
 
 @section('content')
+<style>
+    table.table-bordered{
+        border:1px solid black;
+        margin-top:20px;
+      }
+    table.table-bordered > thead > tr > th{
+        border:1px solid black;
+    }
+    table.table-bordered > tbody > tr > td{
+        border:1px solid black;
+    
+    }
+</style>
+
     <div class="main">
         <h1 class="display-5 mx-5">
-            List Menunggu Kajian
+            List Kajian
         </h1>
         <div class="container my-4">
             <div class="input-group">
@@ -16,8 +30,8 @@
             </div>
 
             <table class="table table-bordered my-3">
-                <thead>
-                    <tr>
+                <thead class="thead-dark">
+                    <tr class="text-center">
                         <th scope="col">No.</th>
                         <th scope="col">Bidang</th>
                         <th scope="col">Nomor Usulan Perubahan</th>
@@ -30,14 +44,14 @@
                 <tbody>
                 @foreach($fups as $fup)
                     <tr>
-                        <th>{{$loop->iteration}}</th>
+                        <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
                         <td>{{$fup->Bidang->name}}</td>
                         <td>04/USL/IV/2020</td>
                         <td>{{$fup->date}}</td>
                         <td>
                             {{$fup->ket_usulan}}
                         </td>
-                        <td>
+                        <td class="text-center">
                             <?php $flag = 0; $stats = ''; ?>
                         @foreach($kajians as $kajian)
                         @if($fup->id == $kajian->fup_id)
@@ -55,7 +69,7 @@
                                 @endif
                             @endif
                         </td>
-                        <td>
+                        <td class="text-center">
                             @if($flag > 0) 
                             <a href="/Baca-kajian/{{$kajian->id}}" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
                             @endif
