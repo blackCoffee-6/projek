@@ -6,6 +6,7 @@ use App\FUP;
 use App\Tanggapan;
 use App\User;
 use App\FUB;
+use App\Kajian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

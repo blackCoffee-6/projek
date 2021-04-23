@@ -222,7 +222,7 @@
                     </tr>
                 </tbody>
             </table>
-            @if($role == "approval")
+            @if($role == "Approval")
             <table class="table table-bordered">
                 <thead>
                     <tr>

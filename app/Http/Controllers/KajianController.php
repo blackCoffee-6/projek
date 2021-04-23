@@ -197,14 +197,23 @@ class KajianController extends Controller
             $fup_id .= $kajian->fup_id.','; //1,3,
         }
         $arrFupId = explode(',',$fup_id);//{1, 3}
+        // dd($arrFupId);
         $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
         // dd($kajians);
         
         return view('showKajian', compact('kajians','fups'));
     }
 
-    public function bacaKajian()
+    public function bacaKajian($id)
     {
-        return view('baca-kajian');
+        $kajians = Kajian::find($id);
+        $ket_up = $kajians->ket_up;
+        $ket_ups = explode("," , $ket_up);
+
+        $ch_dis = $kajians->ch_dis;
+        $ch_diss = explode("," , $ch_dis);
+
+        // dd($ket_ups);
+        return view('baca-kajian', compact('kajians','ket_ups','ch_diss'));
     }
 }
