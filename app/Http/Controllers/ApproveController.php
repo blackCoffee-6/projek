@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Approval;
+use App\Bidang;
 use App\FUP;
 use App\Product;
 use Illuminate\Http\Request;
@@ -90,6 +91,7 @@ class ApproveController extends Controller
         $fup = FUP::find($id);
         $auth = Auth::check();
         $product = Product::all();
+        $bidang2 = Bidang::all();
         $role = 'Staff';
 
         if($auth){

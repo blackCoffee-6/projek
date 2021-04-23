@@ -300,7 +300,7 @@
                             @foreach($bidang2 as $bidang2)
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="cb" name="tanggapan2[]" value="{{$bidang2->id}}" {{ (is_array(old('tanggapan2')) && in_array($bidang2->id, old('tanggapan2'))) ? ' checked' : '' }}>
-                                    <label class="form-check-label" for="inlineCheckbox1">{{$bidang2->name}}</label>
+                                    <label class="form-check-label">{{$bidang2->name}}</label>
                                 </div>
                             @endforeach
                         </td>
