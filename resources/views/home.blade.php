@@ -60,7 +60,7 @@
                 </a>
             </div>
             <h4 class="mb-0">
-                <span class="count">10468</span>
+                <span class="count">{{$kajian}}</span>
             </h4>
             <p class="text-light">Menunggu Kajian</p>
             <div class="chart-wrapper px-0" style="height:70px;" height="70">

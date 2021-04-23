@@ -104,7 +104,7 @@ class TanggapanController extends Controller
         ]);
 
         Alert::success('Success', "Tanggapan Berhasil Dibuat!");
-        return redirect('/Tanggapan');
+        return redirect('/Tanggapan')->with('alert', "Tanggapan Created Successfully!");
     }
 
     /**
