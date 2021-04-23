@@ -316,6 +316,7 @@
     <!-- kalo r&d udah ngisi dan bidang belom ngisi tampilin both -->
         {{-- <button class="btn btn-success my-2">Submit</button> --}}
         <a href="/home" class="btn btn-danger my-2 mx-2">Cancel</a>
+    @endif
     </form>
     
 <script>
