@@ -102,7 +102,7 @@
                     <td>
                         <h6>a. Perlu pelaporan ke pemerintah</h6>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ru_a" id="briya" value="ya" required {{ (old('ru_a') == 'ya') ? 'checked' : ''}}>
+                            <input class="form-check-input" type="radio" name="ru_a" id="briya" value="ya" {{ (old('ru_a') == 'ya') ? 'checked' : ''}}>
                             <label class="form-check-label">Ya</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -141,7 +141,7 @@
                         </label>
                     </td>
                     <td>
-                        <textarea class="form-control" id="ru_ket" rows="3" name="ru_ket"></textarea>
+                        <textarea class="form-control" id="ru_ket" rows="3" name="ru_ket">{{ old('ru_ket') }}</textarea>
                     </td>
                 </tr>
             </tbody>
@@ -188,7 +188,7 @@
                         </label>
                     </td>
                     <td>
-                        <textarea class="form-control" id="ri_ket" rows="3" name="ri_ket"></textarea>
+                        <textarea class="form-control" id="ri_ket" rows="3" name="ri_ket">{{old('ri_ket')}}</textarea>
                     </td>
                 </tr>
             </tbody>
@@ -231,7 +231,7 @@
                         </label>
                     </td>
                     <td>
-                        <textarea class="form-control" id="st_ket" rows="3" name="st_ket"></textarea>
+                        <textarea class="form-control" id="st_ket" rows="3" name="st_ket">{{ old('st_ket') }}</textarea>
                     </td>
                 </tr>
             </tbody>
@@ -262,7 +262,7 @@
                         </label>
                     </td>
                     <td>
-                        <textarea class="form-control" id="me_ket" rows="3" name="me_ket"></textarea>
+                        <textarea class="form-control" id="me_ket" rows="3" name="me_ket">{{ old('me_ket') }}</textarea>
                     </td>
                 </tr>
             </tbody>
@@ -325,7 +325,7 @@
                         </label>
                     </td>
                     <td>
-                        <textarea class="form-control" id="val_ket" rows="3" name="val_ket"></textarea>
+                        <textarea class="form-control" id="val_ket" rows="3" name="val_ket">{{ old('val_ket') }}</textarea>
                     </td>
                 </tr>
             </tbody>
@@ -372,7 +372,7 @@
                         </label>
                     </td>
                     <td>
-                        <textarea class="form-control" id="tr_ket" rows="3" name="tr_ket"></textarea>
+                        <textarea class="form-control" id="tr_ket" rows="3" name="tr_ket">{{old('tr_ket')}}</textarea>
                     </td>
                 </tr>
             </tbody>
@@ -411,7 +411,7 @@
                         </label>
                     </td>
                     <td>
-                        <textarea class="form-control" id="pr_ket" rows="3" name="pr_ket"></textarea>
+                        <textarea class="form-control" id="pr_ket" rows="3" name="pr_ket">{{old('pr_ket')}}</textarea>
                     </td>
                 </tr>
             </tbody>
@@ -450,7 +450,7 @@
                         </label>
                     </td>
                     <td>
-                        <textarea class="form-control" id="dok_ket" rows="3" name="dok_ket"></textarea>
+                        <textarea class="form-control" id="dok_ket" rows="3" name="dok_ket">{{old('dok_ket')}}</textarea>
                     </td>
                 </tr>
             </tbody>
@@ -480,7 +480,7 @@
                         @enderror
                     </td>
                     <td>
-                        <textarea class="form-control" id="si_ket" rows="3" name="si_ket"></textarea>
+                        <textarea class="form-control" id="si_ket" rows="3" name="si_ket">{{old('si_ket')}}</textarea>
                     </label>
                     </td>
                 </tr>
@@ -495,7 +495,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" id="kj_tambahan" rows="3" name="kj_tambahan">{{ old('kj_tambahan') }}</textarea>
+                        <textarea class="form-control" rows="3" name="kj_tambahan">{{old('kj_tambahan')}}</textarea>
                     </td>
                 </tr>
             </tbody>
@@ -552,7 +552,7 @@
                     <td>
                         <center>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="severity1" id="severity1" value="1" onclick="displayResult(this.value)" required {{ (old('severity1') == '1') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="radio" name="severity1" id="severity1" value="1" onclick="displayResult(this.value)" {{ (old('severity1') == '1') ? 'checked' : ''}}>
                                 <label class="form-check-label">1</label>
                             </div>
                         </center>
@@ -564,7 +564,7 @@
                     <td>
                         <center>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="detec1" id="detec1" value="1" onclick="displayResult1(this.value)" onchange="kali();" required {{ (old('detec1') == '1') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="radio" name="detec1" id="detec1" value="1" onclick="displayResult1(this.value)" onchange="kali();" {{ (old('detec1') == '1') ? 'checked' : ''}}>
                                 <label class="form-check-label">1</label>
                             </div>
                         </center>
@@ -576,7 +576,7 @@
                     <td>
                         <center>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="occur1" value="2" id="occur1" onclick="displayResult2(this.value)" onchange="kali();" required {{ (old('occur1') == '1') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="radio" name="occur1" value="2" id="occur1" onclick="displayResult2(this.value)" onchange="kali();" {{ (old('occur1') == '1') ? 'checked' : ''}}>
                                 <label class="form-check-label">2</label>
                             </div>
                         </center>
@@ -589,7 +589,7 @@
                     <td>
                         <center>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="severity1" id="severity1" value="3" onclick="displayResult(this.value)" required {{ (old('severity1') == '3') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="radio" name="severity1" id="severity1" value="3" onclick="displayResult(this.value)" {{ (old('severity1') == '3') ? 'checked' : ''}}>
                                 <label class="form-check-label">3</label>
                             </div>
                         </center>
@@ -602,7 +602,7 @@
                     <td>
                         <center>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="detec1" id="detec1" value="2" onclick="displayResult1(this.value)" onchange="kali();" required {{ (old('detec1') == '2') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="radio" name="detec1" id="detec1" value="2" onclick="displayResult1(this.value)" onchange="kali();" {{ (old('detec1') == '2') ? 'checked' : ''}}>
                                 <label class="form-check-label">2</label>
                             </div>
                         </center>
@@ -613,7 +613,7 @@
                     <td>
                         <center>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="occur1" id="occur1" value="4" onclick="displayResult2(this.value)" onchange="kali();" required {{ (old('occur1') == '4') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="radio" name="occur1" id="occur1" value="4" onclick="displayResult2(this.value)" onchange="kali();" {{ (old('occur1') == '4') ? 'checked' : ''}}>
                                 <label class="form-check-label">4</label>
                             </div>
                         </center>
@@ -627,7 +627,7 @@
                         <td>
                             <center>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="severity1" id="severity1" value="5" onclick="displayResult(this.value)" required {{ (old('severity1') == '5') ? 'checked' : ''}}>
+                                    <input class="form-check-input" type="radio" name="severity1" id="severity1" value="5" onclick="displayResult(this.value)" {{ (old('severity1') == '5') ? 'checked' : ''}}>
                                     <label class="form-check-label">5</label>
                                 </div>
                             </center>
@@ -640,7 +640,7 @@
                         <td>
                             <center>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="detec1" id="detec1" value="3" onclick="displayResult1(this.value)" onchange="kali();" required {{ (old('detec1') == '3') ? 'checked' : ''}}>
+                                    <input class="form-check-input" type="radio" name="detec1" id="detec1" value="3" onclick="displayResult1(this.value)" onchange="kali();" {{ (old('detec1') == '3') ? 'checked' : ''}}>
                                     <label class="form-check-label">3</label>
                                 </div>
                             </center>
@@ -652,7 +652,7 @@
                         <td>
                             <center>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="occur1" id="occur1" value="6" onclick="displayResult2(this.value)" onchange="kali();" required {{ (old('occur1') == '6') ? 'checked' : ''}}>
+                                    <input class="form-check-input" type="radio" name="occur1" id="occur1" value="6" onclick="displayResult2(this.value)" onchange="kali();" {{ (old('occur1') == '6') ? 'checked' : ''}}>
                                     <label class="form-check-label">6</label>
                                 </div>
                             </center>
@@ -666,7 +666,7 @@
                         <td>
                             <center>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="severity1" id="severity1" value="7" onclick="displayResult(this.value)" onchange="kali();" required {{ (old('severity1') == '7') ? 'checked' : ''}}>
+                                    <input class="form-check-input" type="radio" name="severity1" id="severity1" value="7" onclick="displayResult(this.value)" onchange="kali();" {{ (old('severity1') == '7') ? 'checked' : ''}}>
                                     <label class="form-check-label">7</label>
                                 </div>
                             </center>
@@ -678,7 +678,7 @@
                         <td>
                             <center>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="detec1" id="detec1" value="5" onclick="displayResult1(this.value)" onchange="kali();" required {{ (old('detec1') == '5') ? 'checked' : ''}}>
+                                    <input class="form-check-input" type="radio" name="detec1" id="detec1" value="5" onclick="displayResult1(this.value)" onchange="kali();" {{ (old('detec1') == '5') ? 'checked' : ''}}>
                                     <label class="form-check-label">5</label>
                                 </div>
                             </center>
@@ -689,7 +689,7 @@
                         <td>
                             <center>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="occur1" id="occur1" value="8" onclick="displayResult2(this.value)" onchange="kali();" required {{ (old('occur1') == '8') ? 'checked' : ''}}>
+                                    <input class="form-check-input" type="radio" name="occur1" id="occur1" value="8" onclick="displayResult2(this.value)" onchange="kali();" {{ (old('occur1') == '8') ? 'checked' : ''}}>
                                     <label class="form-check-label">8</label>
                                 </div>
                             </center>
@@ -713,10 +713,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="text" name="getsev" id="getsev" class="form-control" readonly></td>
-                        <td><input type="text" name="getdet" id="getdet" class="form-control" readonly></td>
-                        <td><input type="text" name="getocc" id="getocc" class="form-control" readonly></td>
-                        <td><input type="text" name="result_dxo" id="dxo" class="form-control" readonly></td>
+                        <td><input type="text" name="getsev" id="getsev" class="form-control" readonly value="{{old('getsev')}}" ></td>
+                        <td><input type="text" name="getdet" id="getdet" class="form-control" readonly value="{{old('getdet')}}"></td>
+                        <td><input type="text" name="getocc" id="getocc" class="form-control" readonly value="{{old('getocc')}}"></td>
+                        <td><input type="text" name="result_dxo" id="dxo" class="form-control" readonly value="{{old('result_dxo')}}"></td>
                     </tr>
                 </tbody>
             </table>
@@ -936,7 +936,7 @@
                         </label>
                     </td>
                     <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
+                        <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
                         <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="asman_date" name="asman_date">
