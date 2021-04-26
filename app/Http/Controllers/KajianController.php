@@ -186,8 +186,8 @@ class KajianController extends Controller
             'getocc' => $request->getocc,
             'result_dxo' => $request->result_dxo,
 
-            'ch_kategori' => $request->ch_status,
-            'ch_status' => $request->ch_kategori,
+            'ch_kategori' => $request->ch_kategori,
+            'ch_status' => $request->ch_status,
 
             'qa_nama' => $request->qa_nama,
             'qa_date' => $request->qa_date,
