@@ -29,7 +29,8 @@
     <form action="/Store/Tanggapan/{{$fup->id}}" method="post">
     @csrf
     @method('post')
-    @if(Auth::user()->bidang_id == 1 AND $tanggapan->tg_rnd == null)
+    {{-- @if(Auth::user()->bidang_id == 1 AND $tanggapan->tg_rnd == null) --}}
+    @if(Auth::user()->bidang_id == 1 OR Auth::user()->bidang_id == NULL)
     <!-- kalo rnd belom ngisi -->
     <div class="container my-4">
         <table class="table table-bordered my-3">

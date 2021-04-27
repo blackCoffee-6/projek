@@ -106,15 +106,15 @@
                         <input type="hidden" value="{{$kajians->ru_a}}" id="rua">
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="ru_a" disabled id="ruaya" value="ya">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
+                            <label class="form-check-label">Ya</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="ru_a" disabled id="ruatidak" value="tidak">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
+                            <label class="form-check-label">Tidak</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="ru_a" disabled id="ruana" value="na">
-                            <label class="form-check-label" for="inlineRadio2">NA</label>
+                            <label class="form-check-label">NA</label>
                         </div>
                         <h6 class="my-2">b. Jika ya, laporan ditujukan ke</h6>
                         <div class="d-inline">
@@ -138,7 +138,7 @@
                         </div>
                     </td>
                     <td>
-                        <textarea class="form-control" id="ru_ket" rows="3" name="ru_ket" disabled></textarea>
+                        <textarea class="form-control" id="ru_ket" rows="3" name="ru_ket" disabled>{{$kajians->ru_ket}}</textarea>
                     </td>
                 </tr>
             </tbody>
@@ -956,7 +956,7 @@
                 </tr>
             </tbody>
         </table>
-        <a href="/home"><button type="button" class="btn btn-primary my-2 mx-2">Back</button></a>
+        <a href="/home"><button type="button" class="btn btn-primary mt-4 mx-2">Kembali</button></a>
     </div>
 </div>
 <script>
