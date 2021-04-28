@@ -18,2363 +18,394 @@
                 <th>Mitigasi Dampak Usulan Perubahan</th>
             </tr>
         </table>
-        <table class="table table-bordered my-3">
-            <thead>
-            <tr>
-                <th scope="col" width="5%" align="justify">Kategori :</th>
-                <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                <th scope="col" width="7%"><center> PIC</center></th>
-                <th scope="col" width="5%">
-                    <center>
-                        <div class="row">
-                            <div class="col-md-12">
-                                No.
-                            </div>
-                            <div class="col-md-12">
-                                Dokumen
-                            </div>
-                        </div>
-                    </center>
-                </th>
-                <th scope="col" width="1%">
-                    <center>Status</center>
-                </th>
-                <th scope="col" width="5%">
-                    <center>Tanggal Selesai</center>
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            {{-- REGULASI --}}
-            <tr>
-                <td align="justify">Regulasi</td>
-                <td>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="ru_tlp[]" id="surat" value="supel" {{ (is_array(old('ru_tlp')) && in_array('supel', old('ru_tlp'))) ? 'checked' : ''}}>
-                        <label class="form-check-label">Surat pelaporan ke instansi pemerintah</label>
-                    </div>
-                </td>
-                <td><input type="text" class="form-control" name="ru_pic" id="ru_pic"></td>
-                <td><input type="text" class="form-control" name="ru_dok" id="ru_dok"></td>
-                <td class="text-center">
-                    <span class="badge rounded-pill bg-danger text-light">Closed</span>
-                </td>
-                <td class="text-center" width="3%">
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="ru_date" id="ru_date" width="3%">
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered my-1">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" name="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" name="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
+        {{-- REGULASI --}}
+        <x-kop kategori="Regulasi" 
+        tlp="ru_tlp" tlpid="ru_tlp" tlpval="supel" tlplabel="Surat pelaporan ke instansi pemerintah" 
+        pic="ru_pic" picid="ru_pic" 
+        dok="ru_dok" dokid="ru_dok" 
+        bg="bg-danger" badge="Closed"
+        date="ru_date"
+        rencana="ru_rencana" rencanaid="ru_rencana"
+        realisasi="ru_realisasi" realisasiid="ru_realisasi"
+        />
         <hr>
-        <table class="table table-bordered my-3">
-            {{-- REGISTRASI --}}
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td align="justify">Registrasi</td>
-                <td>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="object[1]" value="pie">
-                        <label class="form-check-label">PIE / Approvable Letter</label>
-                    </div>
-                </td>
-                <td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></td>
-                <td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></td>
-                <td class="text-center">
-                    <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                </td>
-                <td class="text-center" width="3%">
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup1" id="DDtext" width="3%">
-                </td>
-            </tr>
-        </tbody>
-        </table>
-        <table class="table table-bordered my-1">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
+        {{-- REGISTRASI --}}
+        <x-kop kategori="Registrasi" 
+        tlp="ri_tlp" tlpid="ri_tlp" tlpval="pie" tlplabel="PIE / Approvable Letter" 
+        pic="ri_pic" picid="ri_pic" 
+        dok="ri_dok" dokid="ri_dok" 
+        bg="bg-secondary" badge="Pending"
+        date="ri_date"
+        rencana="ri_rencana" rencanaid="ri_rencana"
+        realisasi="ri_realisasi" realisasiid="ri_realisasi"
+        />
         <hr>
-        <table class="table table-bordered my-3">
-            {{-- STABILITAS --}}
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify">Stabilitas</td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="object[2]" value="protokol">
-                            <label class="form-check-label">Protokol uji stabilitas</label>
-                        </div>
-                    </td>
-                    <td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></td>
-                    <td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup2" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered my-3">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="object[3]" value="stabilitas">
-                            <label class="form-check-label">Laporan uji stabilitas</label>
-                        </div>
-                    </td>
-                    <td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></td>
-                    <td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup3" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
+        {{-- STABILITAS  --}}
+        <x-kop kategori="Stabilitas" 
+        tlp="st_tlp" tlpid="st_tlp" tlpval="protokol" tlplabel="Protokol uji stabilitas" 
+        pic="st_pic" picid="st_pic" 
+        dok="st_dok" dokid="st_dok" 
+        bg="bg-secondary" badge="Pending"
+        date="st_date"
+        rencana="st_rencana" rencanaid="st_rencana"
+        realisasi="st_realisasi" realisasiid="st_realisasi"
+        />
         <hr>
-        <table class="table table-bordered my-3">
-            {{-- MASA EDAR --}}
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify">Masa Edar</td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="object[4]" value="daftardalu" id="daftardalu">
-                            <label class="form-check-label">Daftar daluwarsa produk</label>
-                        </div>
-                    </td>
-                    <td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></td>
-                    <td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup4" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="screenrev" type="checkbox" name="object[5]">
-                            <label class="form-check-label">Screenshoot revisi daluarsa pada ERP</label>
-                        </div>
-                    </td>
-                    <td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></td>
-                    <td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup5" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
+        {{-- MASA EDAR  --}}
+        <x-kop kategori="Masa Edar" 
+        tlp="st_tlp2" tlpid="st_tlp2" tlpval="daftardalu" tlplabel="Daftar daluwarsa produk" 
+        pic="st_pic2" picid="st_pic2" 
+        dok="st_dok2" dokid="st_dok2" 
+        bg="bg-secondary" badge="Pending"
+        date="st_date2"
+        rencana="st_rencana2" rencanaid="st_rencana2"
+        realisasi="st_realisasi2" realisasiid="st_realisasi2"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="" 
+        tlp="me_tlp" tlpid="me_tlp" tlpval="screenrev" tlplabel="Screenshoot revisi daluarsa pada ERP" 
+        pic="me_pic" picid="me_pic" 
+        dok="me_dok" dokid="me_dok" 
+        bg="bg-secondary" badge="Pending"
+        date="me_date"
+        rencana="me_rencana" rencanaid="me_rencana"
+        realisasi="me_realisasi" realisasiid="me_realisasi"
+        />
         <hr>
-        <table class="table table-bordered my-3">
-            {{-- VALIDASI / KUALIFIKASI --}}
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify">Validasi/ Kualifikasi</td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="object[6]" value="protokol2">
-                            <label class="form-check-label">Protokol validasi pengolahan</label>
-                        </div>
-                    </td>
-                    <td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></td>
-                    <td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup6" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>    
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="object[7]" value="laval">
-                            <label class="form-check-label">Laporan validasi pengolahan</label>
-                        </div>
-                    </td>
-                    <td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></td>
-                    <td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup7" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="object[8]" value="protokol3">
-                            <label class="form-check-label">Protokol validasi pengemasan</label>
-                        </div>
-                    </td>
-                    <td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></td>
-                    <td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup8" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="object[9]" value="laval2">
-                            <label class="form-check-label">Laporan validasi pengemasan</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[9]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[9]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup9" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="object[10]" value="protokol4">
-                            <label class="form-check-label">Protokol validasi pembersihan</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[10]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[10]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup10" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="laval3" type="checkbox" name="object[11]">
-                            <label class="form-check-label">Laporan validasi pembersihan</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[11]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[11]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup11" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="protokol5" type="checkbox" name="object[12]">
-                            <label class="form-check-label">Protokol validasi metode analisa</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[12]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[12]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup12" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="laval4" type="checkbox" name="object[13]">
-                            <label class="form-check-label">Laporan validasi metode analisa</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[13]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[13]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup13" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="protokol6" type="checkbox" name="object[14]">
-                            <label class="form-check-label">Protokol kualifikasi instalasi</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[14]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[14]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup14" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="laval5" type="checkbox" name="object[15]">
-                            <label class="form-check-label">Laporan kualifikasi instalasi</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[15]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[15]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup15" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="protokol7" type="checkbox" name="object[16]">
-                            <label class="form-check-label">Protokol kualifikasi operasional</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[16]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[16]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup16" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="laval6" type="checkbox" name="object[17]">
-                            <label class="form-check-label">Laporan kualifikasi operasional</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[17]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[17]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup17" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="protokol8" type="checkbox" name="object[18]">
-                            <label class="form-check-label">Protokol kualifikasi kinerja</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[18]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[18]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup18" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="laval7" type="checkbox" name="object[19]">
-                            <label class="form-check-label">Laporan kualifikasi kinerja</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[19]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[19]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup19" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
+        {{-- Validasi/ Kualifikasi  --}}
+        <x-kop kategori="Validasi/ Kualifikasi" 
+        tlp="me_tlp2" tlpid="me_tlp2" tlpval="protokol2" tlplabel="Protokol validasi pengolahan" 
+        pic="me_pic2" picid="me_pic2" 
+        dok="me_dok2" dokid="me_dok2" 
+        bg="bg-secondary" badge="Pending"
+        date="me_date2"
+        rencana="me_rencana2" rencanaid="me_rencana2"
+        realisasi="me_realisasi2" realisasiid="me_realisasi2"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="??" 
+        tlp="val_tlp" tlpid="val_tlp" tlpval="laval" tlplabel="Laporan validasi pengolahan" 
+        pic="val_pic" picid="val_pic" 
+        dok="val_dok" dokid="val_dok" 
+        bg="bg-secondary" badge="Pending"
+        date="val_date"
+        rencana="val_rencana" rencanaid="val_rencana"
+        realisasi="val_realisasi" realisasiid="val_realisasi"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="??" 
+        tlp="val_tlp2" tlpid="val_tlp2" tlpval="protokol3" tlplabel="Protokol validasi pengemasan" 
+        pic="val_pic2" picid="val_pic2" 
+        dok="val_dok2" dokid="val_dok2" 
+        bg="bg-secondary" badge="Pending"
+        date="val_date2"
+        rencana="val_rencana2" rencanaid="val_rencana2"
+        realisasi="val_realisasi2" realisasiid="val_realisasi2"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="??" 
+        tlp="val_tlp3" tlpid="val_tlp3" tlpval="laval2" tlplabel="Laporan validasi pengemasan" 
+        pic="val_pic3" picid="val_pic3" 
+        dok="val_dok3" dokid="val_dok3" 
+        bg="bg-secondary" badge="Pending"
+        date="val_date3"
+        rencana="val_rencana3" rencanaid="val_rencana3"
+        realisasi="val_realisasi3" realisasiid="val_realisasi3"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="??" 
+        tlp="val_tlp4" tlpid="val_tlp4" tlpval="protokol4" tlplabel="Protokol validasi pembersihan" 
+        pic="val_pic4" picid="val_pic4" 
+        dok="val_dok4" dokid="val_dok4" 
+        bg="bg-secondary" badge="Pending"
+        date="val_date4"
+        rencana="val_rencana4" rencanaid="val_rencana4"
+        realisasi="val_realisasi4" realisasiid="val_realisasi4"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="??" 
+        tlp="val_tlp5" tlpid="val_tlp5" tlpval="laval3" tlplabel="Laporan validasi pembersihan" 
+        pic="val_pic5" picid="val_pic5" 
+        dok="val_dok5" dokid="val_dok5" 
+        bg="bg-secondary" badge="Pending"
+        date="val_date5"
+        rencana="val_rencana5" rencanaid="val_rencana5"
+        realisasi="val_realisasi5" realisasiid="val_realisasi5"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="??" 
+        tlp="val_tlp6" tlpid="val_tlp6" tlpval="protokol6" tlplabel="Protokol validasi metode analisa" 
+        pic="val_pic6" picid="val_pic6" 
+        dok="val_dok6" dokid="val_dok6" 
+        bg="bg-secondary" badge="Pending"
+        date="val_date6"
+        rencana="val_rencana6" rencanaid="val_rencana6"
+        realisasi="val_realisasi6" realisasiid="val_realisasi6"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="??" 
+        tlp="val_tlp7" tlpid="val_tlp7" tlpval="laval4" tlplabel="Laporan validasi metode analisa" 
+        pic="val_pic7" picid="val_pic7" 
+        dok="val_dok7" dokid="val_dok7" 
+        bg="bg-secondary" badge="Pending"
+        date="val_date7"
+        rencana="val_rencana7" rencanaid="val_rencana7"
+        realisasi="val_realisasi7" realisasiid="val_realisasi7"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="??" 
+        tlp="val_tlp8" tlpid="val_tlp8" tlpval="protokol6" tlplabel="Protokol kualifikasi instalasi" 
+        pic="val_pic8" picid="val_pic8" 
+        dok="val_dok8" dokid="val_dok8" 
+        bg="bg-secondary" badge="Pending"
+        date="val_date8"
+        rencana="val_rencana8" rencanaid="val_rencana8"
+        realisasi="val_realisasi8" realisasiid="val_realisasi8"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="??" 
+        tlp="val_tlp9" tlpid="val_tlp9" tlpval="laval5" tlplabel="Laporan kualifikasi instalasi" 
+        pic="val_pic9" picid="val_pic9" 
+        dok="val_dok9" dokid="val_dok9" 
+        bg="bg-secondary" badge="Pending"
+        date="val_date9"
+        rencana="val_rencana9" rencanaid="val_rencana9"
+        realisasi="val_realisasi9" realisasiid="val_realisasi9"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="??" 
+        tlp="val_tlp10" tlpid="val_tlp10" tlpval="protokol7" tlplabel="Protokol kualifikasi operasional" 
+        pic="val_pic10" picid="val_pic10" 
+        dok="val_dok10" dokid="val_dok10" 
+        bg="bg-secondary" badge="Pending"
+        date="val_date10"
+        rencana="val_rencana10" rencanaid="val_rencana10"
+        realisasi="val_realisasi10" realisasiid="val_realisasi10"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="??" 
+        tlp="val_tlp11" tlpid="val_tlp11" tlpval="laval6" tlplabel="Laporan kualifikasi operasional" 
+        pic="val_pic11" picid="val_pic11" 
+        dok="val_dok11" dokid="val_dok11" 
+        bg="bg-secondary" badge="Pending"
+        date="val_date11"
+        rencana="val_rencana11" rencanaid="val_rencana11"
+        realisasi="val_realisasi11" realisasiid="val_realisasi11"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="??" 
+        tlp="val_tlp12" tlpid="val_tlp12" tlpval="protokol8" tlplabel="Protokol kualifikasi kinerja" 
+        pic="val_pic12" picid="val_pic12" 
+        dok="val_dok12" dokid="val_dok12" 
+        bg="bg-secondary" badge="Pending"
+        date="val_date12"
+        rencana="val_rencana12" rencanaid="val_rencana12"
+        realisasi="val_realisasi12" realisasiid="val_realisasi12"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="??" 
+        tlp="val_tlp13" tlpid="val_tlp13" tlpval="laval7" tlplabel="Laporan kualifikasi kinerja" 
+        pic="val_pic13" picid="val_pic13" 
+        dok="val_dok13" dokid="val_dok13" 
+        bg="bg-secondary" badge="Pending"
+        date="val_date13"
+        rencana="val_rencana13" rencanaid="val_rencana13"
+        realisasi="val_realisasi13" realisasiid="val_realisasi13"
+        />
         <hr>
-        <table class="table table-bordered my-3">
-            {{-- TRIAL --}}
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify">Trial</td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="LHT" type="checkbox" name="object[20]">
-                            <label class="form-check-label">LHT skala laboratorium</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[20]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[20]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup20" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="CPB" type="checkbox" name="object[21]">
-                            <label class="form-check-label">CPB skala pilot</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[21]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[21]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup21" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="LHT2" type="checkbox" name="object[22]">
-                            <label class="form-check-label">LHT skala pilot</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[22]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[22]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup22" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="CPB2" type="checkbox" name="object[23]">
-                            <label class="form-check-label">CPB Pengolahan</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[23]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[23]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup23" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="catatan" type="checkbox" name="object[24]">
-                            <label class="form-check-label">Catatan analisa produk ruahan</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[24]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[24]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup24" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="CPB3" type="checkbox" name="object[25]">
-                            <label class="form-check-label" for="inlineRadio1">CPB Pengemasan</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[25]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[25]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup25" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
+        {{-- TRIAL  --}}
+        <x-kop kategori="Trial" 
+        tlp="tr_tlp" tlpid="tr_tlp" tlpval="LHT" tlplabel="LHT skala laboratorium" 
+        pic="tr_pic" picid="tr_pic" 
+        dok="tr_dok" dokid="tr_dok" 
+        bg="bg-secondary" badge="Pending"
+        date="tr_date"
+        rencana="tr_rencana" rencanaid="tr_rencana"
+        realisasi="tr_realisasi" realisasiid="tr_realisasi"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="??" 
+        tlp="tr_tlp2" tlpid="tr_tlp2" tlpval="CPB" tlplabel="CPB skala pilot" 
+        pic="tr_pic2" picid="tr_pic2" 
+        dok="tr_dok2" dokid="tr_dok2" 
+        bg="bg-secondary" badge="Pending"
+        date="tr_date2"
+        rencana="tr_rencana2" rencanaid="tr_rencana2"
+        realisasi="tr_realisasi2" realisasiid="tr_realisasi2"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="??" 
+        tlp="tr_tlp3" tlpid="tr_tlp3" tlpval="LHT2" tlplabel="LHT skala pilot" 
+        pic="tr_pic3" picid="tr_pic3" 
+        dok="tr_dok3" dokid="tr_dok3" 
+        bg="bg-secondary" badge="Pending"
+        date="tr_date3"
+        rencana="tr_rencana3" rencanaid="tr_rencana3"
+        realisasi="tr_realisasi3" realisasiid="tr_realisasi3"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="??" 
+        tlp="tr_tlp4" tlpid="tr_tlp4" tlpval="CPB2" tlplabel="CPB Pengolahan" 
+        pic="tr_pic4" picid="tr_pic4" 
+        dok="tr_dok4" dokid="tr_dok4" 
+        bg="bg-secondary" badge="Pending"
+        date="tr_date4"
+        rencana="tr_rencana4" rencanaid="tr_rencana4"
+        realisasi="tr_realisasi4" realisasiid="tr_realisasi4"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="??" 
+        tlp="tr_tlp5" tlpid="tr_tlp5" tlpval="catatan" tlplabel="Catatan analisa produk ruahan" 
+        pic="tr_pic5" picid="tr_pic5" 
+        dok="tr_dok5" dokid="tr_dok5" 
+        bg="bg-secondary" badge="Pending"
+        date="tr_date5"
+        rencana="tr_rencana5" rencanaid="tr_rencana5"
+        realisasi="tr_realisasi5" realisasiid="tr_realisasi5"
+        />
+        {{-- ??  --}}
+        <x-kop kategori="??" 
+        tlp="tr_tlp6" tlpid="tr_tlp6" tlpval="CPB3" tlplabel="CPB Pengemasan" 
+        pic="tr_pic6" picid="tr_pic6" 
+        dok="tr_dok6" dokid="tr_dok6" 
+        bg="bg-secondary" badge="Pending"
+        date="tr_date6"
+        rencana="tr_rencana6" rencanaid="tr_rencana6"
+        realisasi="tr_realisasi6" realisasiid="tr_realisasi6"
+        />
         <hr>
-        <table class="table table-bordered my-3">
-            {{-- PRODUKSI --}}
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify">Produksi</td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" class="form-check-input" value="laha" type="checkbox" name="object[26]">
-                            <label class="form-check-label">Laporan hasil uji <input type="text" name="lahatext" class="form-control mt-1" value=""></label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[26]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[26]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup26" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="laha2" type="checkbox" name="object[27]">
-                            <label class="form-check-label">Laporan hasil uji <input type="text" name="lahatext2" class="form-control mt-1" value=""></label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[27]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[27]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup27" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="laha3" type="checkbox" name="object[28]">
-                            <label class="form-check-label">Laporan hasil uji <input type="text" name="lahatext3" class="form-control mt-1" value=""></label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[28]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[28]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup28" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
+        {{-- PRODUKSI  --}}
+        <x-kop2 kategori="Produksi" 
+        tlp="pro_tlp" tlpid="pro_tlp" tlpval="laha" tlplabel="Laporan hasil uji" inputan=""
+        pic="pro_pic" picid="pro_pic" 
+        dok="pro_dok" dokid="pro_dok" 
+        bg="bg-secondary" badge="Pending"
+        date="pro_date"
+        rencana="pro_rencana" rencanaid="pro_rencana"
+        realisasi="pro_realisasi" realisasiid="pro_realisasi"
+        />
+        {{-- ??  --}}
+        <x-kop2 kategori="??" 
+        tlp="pro_tlp2" tlpid="pro_tlp2" tlpval="laha2" tlplabel="Laporan hasil uji" 
+        pic="pro_pic2" picid="pro_pic2" 
+        dok="pro_dok2" dokid="pro_dok2" 
+        bg="bg-secondary" badge="Pending"
+        date="pro_date2"
+        rencana="pro_rencana2" rencanaid="pro_rencana2"
+        realisasi="pro_realisasi2" realisasiid="pro_realisasi2"
+        />
+        {{-- ??  --}}
+        <x-kop2 kategori="??" 
+        tlp="pro_tlp3" tlpid="pro_tlp3" tlpval="laha3" tlplabel="Laporan hasil uji" 
+        pic="pro_pic3" picid="pro_pic3" 
+        dok="pro_dok3" dokid="pro_dok3" 
+        bg="bg-secondary" badge="Pending"
+        date="pro_date3"
+        rencana="pro_rencana3" rencanaid="pro_rencana3"
+        realisasi="pro_realisasi3" realisasiid="pro_realisasi3"
+        />
         <hr>
-        <table class="table table-bordered my-3">
-            {{-- DOKUMEN --}}
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify">Dokumen</td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="manual" type="checkbox" name="object[29]">
-                            <label class="form-check-label">Manual Mutu</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[29]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[29]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup29" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="dokuin" type="checkbox" name="object[30]">
-                            <label class="form-check-label">Dokumen induk industri farmasi</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[30]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[30]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup30" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="prose" type="checkbox" name="object[31]">
-                            <label class="form-check-label">Prosedur <input type="text" class="form-control" value="" name="prosetext"></label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[31]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[31]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup31" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="ketentuan" type="checkbox" name="object[32]">
-                            <label class="form-check-label">Ketentuan umum <input type="text" class="form-control" value="" name="ketentuantext"></label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[32]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[32]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup32" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="protap" type="checkbox" name="object[33]">
-                            <label class="form-check-label">Protap <input type="text" class="form-control" value="" name="protaptext"></label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[33]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[33]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup33" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="formulir" type="checkbox" name="object[34]">
-                            <label class="form-check-label">Formulir <input type="text" class="form-control" value="" name="formulirtext"></label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[34]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[34]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup34" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="daftar" type="checkbox" name="object[35]">
-                            <label class="form-check-label">Daftar <input type="text" class="form-control" value="" name="daftartext"></label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[35]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[35]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup35" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="spek" type="checkbox" name="object[36]">
-                            <label class="form-check-label">Spesifikasi <input type="text" class="form-control" value="" name="spektext"></label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[36]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[36]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup36" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify" class="text-white">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify"></td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" value="metodean" type="checkbox" name="object[37]">
-                            <label class="form-check-label">Metode analisa <input type="text" class="form-control" value="" name="metodeantext"></label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[37]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[37]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup37" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
+        {{-- DOKUMEN  --}}
+        <x-kop2 kategori="Dokumen" 
+        tlp="dok_tlp" tlpid="dok_tlp" tlpval="manual" tlplabel="Manual Mutu" 
+        pic="dok_pic" picid="dok_pic" 
+        dok="dok_dok" dokid="dok_dok" 
+        bg="bg-secondary" badge="Pending"
+        date="dok_date"
+        rencana="dok_rencana" rencanaid="dok_rencana"
+        realisasi="dok_realisasi" realisasiid="dok_realisasi"
+        />
+        {{-- ??  --}}
+        <x-kop2 kategori="??" 
+        tlp="dok_tlp2" tlpid="dok_tlp2" tlpval="dokuin" tlplabel="Dokumen induk industri farmasi" 
+        pic="dok_pic2" picid="dok_pic2" 
+        dok="dok_dok2" dokid="dok_dok2" 
+        bg="bg-secondary" badge="Pending"
+        date="dok_date2"
+        rencana="dok_rencana2" rencanaid="dok_rencana2"
+        realisasi="dok_realisasi2" realisasiid="dok_realisasi2"
+        />
+        {{-- ??  --}}
+        <x-kop2 kategori="??" 
+        tlp="dok_tlp3" tlpid="dok_tlp3" tlpval="prose" tlplabel="Prosedur" 
+        pic="dok_pic3" picid="dok_pic3" 
+        dok="dok_dok3" dokid="dok_dok3" 
+        bg="bg-secondary" badge="Pending"
+        date="dok_date3"
+        rencana="dok_rencana3" rencanaid="dok_rencana3"
+        realisasi="dok_realisasi3" realisasiid="dok_realisasi3"
+        />
+        {{-- ??  --}}
+        <x-kop2 kategori="??" 
+        tlp="dok_tlp4" tlpid="dok_tlp4" tlpval="ketentuan" tlplabel="Ketentuan umum" 
+        pic="dok_pic4" picid="dok_pic4" 
+        dok="dok_dok4" dokid="dok_dok4" 
+        bg="bg-secondary" badge="Pending"
+        date="dok_date4"
+        rencana="dok_rencana4" rencanaid="dok_rencana4"
+        realisasi="dok_realisasi4" realisasiid="dok_realisasi4"
+        />
+        {{-- ??  --}}
+        <x-kop2 kategori="??" 
+        tlp="dok_tlp5" tlpid="dok_tlp5" tlpval="protap" tlplabel="Protap" 
+        pic="dok_pic5" picid="dok_pic5" 
+        dok="dok_dok5" dokid="dok_dok5" 
+        bg="bg-secondary" badge="Pending"
+        date="dok_date5"
+        rencana="dok_rencana5" rencanaid="dok_rencana5"
+        realisasi="dok_realisasi5" realisasiid="dok_realisasi5"
+        />
+        {{-- ??  --}}
+        <x-kop2 kategori="??" 
+        tlp="dok_tlp6" tlpid="dok_tlp6" tlpval="formulir" tlplabel="Formulir" 
+        pic="dok_pic6" picid="dok_pic6" 
+        dok="dok_dok6" dokid="dok_dok6" 
+        bg="bg-secondary" badge="Pending"
+        date="dok_date6"
+        rencana="dok_rencana6" rencanaid="dok_rencana6"
+        realisasi="dok_realisasi6" realisasiid="dok_realisasi6"
+        />
+        {{-- ??  --}}
+        <x-kop2 kategori="??" 
+        tlp="dok_tlp7" tlpid="dok_tlp7" tlpval="daftar" tlplabel="Daftar" 
+        pic="dok_pic7" picid="dok_pic7" 
+        dok="dok_dok7" dokid="dok_dok7" 
+        bg="bg-secondary" badge="Pending"
+        date="dok_date7"
+        rencana="dok_rencana7" rencanaid="dok_rencana7"
+        realisasi="dok_realisasi7" realisasiid="dok_realisasi7"
+        />
+        {{-- ??  --}}
+        <x-kop2 kategori="??" 
+        tlp="dok_tlp8" tlpid="dok_tlp8" tlpval="spek" tlplabel="Spesifikasi" 
+        pic="dok_pic8" picid="dok_pic8" 
+        dok="dok_dok8" dokid="dok_dok8" 
+        bg="bg-secondary" badge="Pending"
+        date="dok_date8"
+        rencana="dok_rencana8" rencanaid="dok_rencana8"
+        realisasi="dok_realisasi8" realisasiid="dok_realisasi8"
+        />
+        {{-- ??  --}}
+        <x-kop2 kategori="??" 
+        tlp="dok_tlp9" tlpid="dok_tlp9" tlpval="metodean" tlplabel="Metode analisa" 
+        pic="dok_pic9" picid="dok_pic9" 
+        dok="dok_dok9" dokid="dok_dok9" 
+        bg="bg-secondary" badge="Pending"
+        date="dok_date9"
+        rencana="dok_rencana9" rencanaid="dok_rencana9"
+        realisasi="dok_realisasi9" realisasiid="dok_realisasi9"
+        />
         <hr>
-        <table class="table table-bordered my-3">
-            {{-- SISTEM ERP --}}
-            <thead>
-                <tr>
-                    <th scope="col" width="5%" align="justify">Kategori :</th>
-                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
-                    <th scope="col" width="7%"><center> PIC</center></th>
-                    <th scope="col" width="5%">
-                        <center>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    No.
-                                </div>
-                                <div class="col-md-12">
-                                    Dokumen
-                                </div>
-                            </div>
-                        </center>
-                    </th>
-                    <th scope="col" width="1%">
-                        <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td align="justify">Sistem ERP</td>
-                    <td>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" value="screenperu" type="checkbox" name="object[38]">
-                            <label class="form-check-label">Screenshoot perubahan pada ERP</label>
-                        </div>
-                    </td>
-                    <td><input type="text" name="pic[38]" class="form-control" value=""></td>
-                    <td><input type="text" name="nodok[38]" class="form-control" value=""></td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                    </td>
-                    <td class="text-center" width="5%">
-                        <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup38" id="DDtext" width="3%">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <th>Rencana Penyelesaian :</th>
-                <th>Realisasi Penyelesaian :</th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
-                </td>
-            </tbody>
-        </table>
+        {{-- SISTEM ERP  --}}
+        <x-kop kategori="Sistem ERP" 
+        tlp="sis_tlp" tlpid="sis_tlp" tlpval="screenperu" tlplabel="Screenshoot perubahan pada ER" 
+        pic="sis_pic" picid="sis_pic" 
+        dok="sis_dok" dokid="sis_dok" 
+        bg="bg-secondary" badge="Pending"
+        date="sis_date"
+        rencana="sis_rencana" rencanaid="sis_rencana"
+        realisasi="sis_realisasi" realisasiid="sis_realisasi"
+        />
         <hr>
         <table class="table table-bordered">
             <thead>
@@ -2388,13 +419,13 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-check">
-                                    <input class="form-check-input" value="dilaksanakan" type="radio" name="status" id="DD" required>
-                                    <label class="form-check-label">Perubahan dapat dilaksanakan sejak/pada/sampai*) <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="statustext" id="DDtext"></label>
+                                    <input class="form-check-input" value="dilaksanakan" type="radio" name="hasil_mitigasi" id="DD" required>
+                                    <label class="form-check-label">Perubahan dapat dilaksanakan sejak/pada/sampai*) <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="hasil_mitigasi_date" id="DDtext"></label>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-check">
-                                    <input class="form-check-input" value="tidak dapat dilaksanakan" type="radio" name="status" id="TDD">
+                                    <input class="form-check-input" value="tidak dapat dilaksanakan" type="radio" name="hasil_mitigasi" id="TDD">
                                     <label class="form-check-label">Perubahan tidak dapat dilaksanakan</label>
                                 </div>
                             </div>
@@ -2457,11 +488,8 @@
         <a href="/home"><button type="button" class="btn btn-danger my-2 mx-2">Cancel</button></a>
     </div>
 </div>
-<script src="jquery/jquery-2.2.1.js"></script>
-<script src="bootstrap/js/bootstrap.js"></script>
-<script src="bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 
-<script type="text/javascript">
+<script>
 	$('#DDtext').css('display', 'none');
 
 	$(document).on('change', '#DD', function () {

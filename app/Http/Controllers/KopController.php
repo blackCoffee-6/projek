@@ -7,6 +7,7 @@ use App\Kajian;
 use App\KontrolPerubahan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KopController extends Controller
 {
@@ -58,6 +59,7 @@ class KopController extends Controller
         $request->request->add(['dis_setuju' => implode(',', $request->dis_setuju)]);
 
         KontrolPerubahan::create($request->all());
-        return "berhasil";
+        Alert::success('Success', "Kontrol Perubahan Berhasil Dibuat!");
+        return redirect('/home');
     }
 }
