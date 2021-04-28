@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title','List Kontrol Perubahan')
+
 @section('content')
 <style>
     table.table-bordered{

@@ -32,24 +32,7 @@ Route::get('/review', function () {
     return view('review');
 });
 
-<<<<<<< HEAD
-Route::get('/List/Tanggapan', function () {
-    return view('list-tanggapan');
-});
 
-//-------Route Kontrol Perubahan------//
-Route::get('/List/KP', 'KopController@index');
-Route::get('/Detail/KP/{fup_id}', 'KopController@show');
-Route::get('/List/Kontrol/Perubahan', function () {
-    return view('showKontrol');
-});
-
-Route::get('/list-up', function () {
-    return view('list-usulan');
-});
-
-=======
->>>>>>> 0b506beb59dfe69d43c636fd81fd1e216ed45c09
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -89,3 +72,11 @@ Route::get('/Baca-kajian/{id}', 'KajianController@bacaKajian');
 Route::get('/List/KP', 'KopController@index');
 Route::get('/Detail/KP/{fup_id}', 'KopController@show');
 Route::post('/Store/KP/{fup_id}', 'KopController@store');
+
+Route::get('/List/Kontrol/Perubahan', function () {
+    return view('showKontrol');
+});
+
+Route::get('/list-up', function () {
+    return view('list-usulan');
+});
