@@ -73,9 +73,9 @@ class KajianController extends Controller
             'ch_dis'=>'required'
             ]);
             
-            $request->request->add(['fup_id' => $fup_id]);
-            $request->request->add(['ket_up' => implode(',', $request->ket_up)]);
-            $request->request->add(['ch_dis' => implode(',', $request->ch_dis)]);
+        $request->request->add(['fup_id' => $fup_id]);
+        $request->request->add(['ket_up' => implode(',', $request->ket_up)]);
+        $request->request->add(['ch_dis' => implode(',', $request->ch_dis)]);
 
         // dd($request);
         // dd($request->kj_tambahan); 

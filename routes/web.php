@@ -32,18 +32,6 @@ Route::get('/review', function () {
     return view('review');
 });
 
-Route::get('/List/Tanggapan', function () {
-    return view('list-tanggapan');
-});
-
-Route::get('/List/KP', 'KopController@index');
-
-Route::get('/Detail/KP/{fup_id}', 'KopController@show');
-
-Route::get('/list-up', function () {
-    return view('list-usulan');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -78,3 +66,8 @@ Route::put('/Update/Kajian/{kajian_id}', 'KajianController@update');
 Route::get('/List/Menunggu/Kajian', 'KajianController@listKajian');
 Route::get('/Baca-kajian/{id}', 'KajianController@bacaKajian');
 // Route::resource('Kajian', 'KajianController');
+
+//--------Route Kontrol Perubahan----------//
+Route::get('/List/KP', 'KopController@index');
+Route::get('/Detail/KP/{fup_id}', 'KopController@show');
+Route::post('/Store/KP/{fup_id}', 'KopController@store');

@@ -10,11 +10,6 @@ class KontrolPerubahan extends Model
 
     protected $guarded = ['id'];
 
-    protected $fillable = [
-        //Regulasi
-        'ru_tlp', 'ru_pic', 'ru_dok', 'ru_date', 'ru_rencana', 'ru_realisasi'
-    ];
-
     public function FUP(){
         return $this->hasOne(FUP::class);
     }

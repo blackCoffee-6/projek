@@ -49,4 +49,15 @@ class KopController extends Controller
         
         return view('perubahan', compact('role','fup'));
     }
+
+    public function store(Request $request, $fup_id)
+    {
+        // dd($request->all());
+        // dd($fup_id);
+        $request->request->add(['fup_id' => $fup_id]);
+        $request->request->add(['dis_setuju' => implode(',', $request->dis_setuju)]);
+
+        KontrolPerubahan::create($request->all());
+        return "berhasil";
+    }
 }
