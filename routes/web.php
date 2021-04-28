@@ -72,6 +72,8 @@ Route::get('List/Menanggapi/{id}','TanggapanController@showDetail');
 Route::get('/Detail/Kajian/{fup_id}', 'KajianController@show');
 Route::get('/List/Kajian', 'KajianController@index');
 Route::post('/Store/Kajian/{fup_id}', 'KajianController@store');
+Route::get('/Edit/Kajian/{kajian_id}', 'KajianController@edit');
+Route::put('/Update/Kajian/{kajian_id}', 'KajianController@update');
 // ini buat list yang ada di menunggu kajian
 Route::get('/List/Menunggu/Kajian', 'KajianController@listKajian');
 Route::get('/Baca-kajian/{id}', 'KajianController@bacaKajian');

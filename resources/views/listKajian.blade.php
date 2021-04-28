@@ -27,6 +27,17 @@
             </form>  
           </div>
     </div>
+    @if(session('alert'))
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            {{ session('alert')}}
+        </div>
+        @elseif(session('failed'))
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            {{ session('failed')}}
+        </div>
+    @endif
     <table class="table table-bordered my-3">
         <thead class="thead-dark">
             <tr class="text-center">
@@ -70,7 +81,7 @@
                         @if($flag < 1) 
                             <a href="/Detail/Kajian/{{$fup->id}}"><button class="btn btn-dark my-2 my-sm-0" type="submit"><i class="fa fa-database"></i>  Kaji</button></a>
                         @else
-                        <a href="#" class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fa fa-edit"></i></a>
+                        <a href="/Edit/Kajian/{{$kajian->id}}" class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fa fa-edit"></i></a>
                         @endif
                         @else
                         <?php $flag = 0; $stats = ''; ?>
@@ -81,7 +92,7 @@
                             ?>
                             @endif
                             @endforeach
-                            {{-- <span class="badge rounded-pill bg-secondary text-light">Menunggu Dikaji</span> --}}
+                            <span class="badge rounded-pill bg-secondary text-light">Menunggu Dikaji</span>
                             @if($flag < 1) <span class="badge rounded-pill bg-secondary text-light">Menunggu Dikaji</span>
                             @else 
                                 @if(strcasecmp($stats,'disetujui') == 0)    
