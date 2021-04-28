@@ -59,6 +59,7 @@
         <tbody>
             <?php $count = 0; ?>
             @foreach($fups as $fup)
+                @if(Auth::user()->bidang_id == $fup->bidang_id OR $user->bidang_id == NULL)
                 <tr>
                     <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
                     <td>{{$fup->Bidang->name}}</td>
@@ -103,6 +104,7 @@
                         @endif
                     </td>
                 </tr>
+                @endif
             @endforeach
         </tbody>
     </table>

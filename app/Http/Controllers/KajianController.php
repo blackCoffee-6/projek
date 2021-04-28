@@ -20,14 +20,16 @@ class KajianController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $kajians = Kajian::all();
+        
         $apps = Approval::where('decision', 'like', 'setuju')->get(); //{1 setuju}, {3 setuju}
+        
         $fup_id = '';
         foreach($apps as $app){
             $fup_id .= $app->fup_id.','; //1,3,
         }
         $arrFupId = explode(',',$fup_id);//{1, 3}
         $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
-        $kajians = Kajian::all();
     
        return view('listKajian', compact('fups', 'user', 'apps', 'kajians'));
     }
@@ -78,7 +80,6 @@ class KajianController extends Controller
         // dd($request);
         // dd($request->kj_tambahan); 
         Kajian::create($request->all());
-
         Alert::success('Success', "Kajian Berhasil Dibuat!");
         return redirect('/home');
     }

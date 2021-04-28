@@ -246,7 +246,7 @@
                     </tr>
                 </tbody>
             </table>
-            @if($role == "Approval")
+            @if($role == "approval")
             <table class="table table-bordered">
                 <thead>
                     <tr>
