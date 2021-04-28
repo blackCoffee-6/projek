@@ -11,7 +11,8 @@
     <h1 class="display-5 mx-5 text-center">
         Kontrol Perubahan
     </h1>
-    <!-- <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a> -->
+    <form action="/Store/KP/{{$fup->id}}" method="POST">
+    @csrf
     <div class="container my-4">
         <table class="table table-bordered">
             <tr>
@@ -50,17 +51,17 @@
                 <td align="justify">Regulasi</td>
                 <td>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="object[0]" id="inlineRadio1" value="supel">
+                        <input class="form-check-input" type="checkbox" name="ru_tlp[]" id="surat" value="supel" {{ (is_array(old('ru_tlp')) && in_array('supel', old('ru_tlp'))) ? 'checked' : ''}}>
                         <label class="form-check-label">Surat pelaporan ke instansi pemerintah</label>
                     </div>
                 </td>
-                <td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></td>
-                <td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></td>
+                <td><input type="text" class="form-control" name="ru_pic" id="ru_pic"></td>
+                <td><input type="text" class="form-control" name="ru_dok" id="ru_dok"></td>
                 <td class="text-center">
                     <span class="badge rounded-pill bg-danger text-light">Closed</span>
                 </td>
                 <td class="text-center" width="3%">
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="closingup1" id="DDtext" width="3%">
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="ru_date" id="ru_date" width="3%">
                 </td>
             </tr>
             </tbody>
@@ -72,10 +73,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" id="ru_rencana" rows="3"></textarea>
+                    <textarea class="form-control" id="ru_rencana" name="ru_rencana" rows="3"></textarea>
                 </td>
                 <td>
-                    <textarea class="form-control" id="ru_realisasi" rows="3"></textarea>
+                    <textarea class="form-control" id="ru_realisasi" name="ru_realisasi" rows="3"></textarea>
                 </td>
             </tbody>
         </table>
@@ -2453,6 +2454,7 @@
             </tbody>
         </table>
         <button type="button" class="btn btn-success my-2">Submit</button>
+    </form>
         <a href="/home"><button type="button" class="btn btn-danger my-2 mx-2">Cancel</button></a>
     </div>
 </div>

@@ -29,4 +29,8 @@ class FUP extends Model
     public function Tanggapan(){
         return $this->belongsTo(Tanggapan::class);
     }
+
+    public function Kajian(){
+        return $this->belongsTo(Kajian::class);
+    }
 }

@@ -18,7 +18,6 @@
         <h1 class="display-5 mx-5">
             List Entry Data Kontrol Perubahan
         </h1>
-        <!-- <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a> -->
         <div class="container my-4">
             <div class="input-group">
                 <form class="form-inline">
@@ -40,22 +39,25 @@
                     <th scope="col">Aksi</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody>  
+                @foreach ($fups as $fup)
                 <tr>
-                    <td scope="row" class="font-weight-bold text-center">1</td>
+                    <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
                     <td>04/USL/IV/2020</td>
-                    <td>Produksi</td>
-                    <td>07/04/2020</td>
+                    <td>{{$fup->Bidang->name}}</td>
+                    {{-- blm bisa nampilin tanggal dri kajian yg qa_date --}}
+                    <td>28/04/2021</td>
                     <td>
-                        Mesin Cetak
+                        {{$fup->ket_usulan}}
                     </td>
                     <td class="text-center">
                       <span class="badge rounded-pill bg-secondary text-light">Pending</span>
                     </td>
                     <td class="text-center">
-                      <a href="#"><button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-plus"></i>  Kontrol</button></a>
+                      <a href="/Detail/KP/{{$fup->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-plus"></i>  Kontrol</a>
                     </td>
                 </tr>
+                @endforeach
                 </tbody>
             </table>
             {{-- ADD PAGINATION --}}

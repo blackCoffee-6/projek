@@ -36,13 +36,9 @@ Route::get('/List/Tanggapan', function () {
     return view('list-tanggapan');
 });
 
-Route::get('/control', function () {
-    return view('control');
-});
+Route::get('/List/KP', 'KopController@index');
 
-Route::get('/kontrol', function () {
-    return view('perubahan');
-});
+Route::get('/Detail/KP/{fup_id}', 'KopController@show');
 
 Route::get('/list-up', function () {
     return view('list-usulan');
