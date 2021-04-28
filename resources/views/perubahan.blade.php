@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-@section('content')
 <style>
     hr{
         border: 1px solid black;
@@ -2414,46 +2413,46 @@
                 <tr>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="1">
                             <label class="form-check-label" for="inlineCheckbox1">R&D</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                            <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="2">
                             <label class="form-check-label" for="inlineCheckbox2">Produksi</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                            <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="3">
                             <label class="form-check-label" for="inlineCheckbox2">Pemasaran</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="4">
                             <label class="form-check-label" for="inlineCheckbox1">QC</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                            <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="5">
                             <label class="form-check-label" for="inlineCheckbox2">Teknik</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                            <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="6">
                             <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="7">
                             <label class="form-check-label" for="inlineCheckbox1">SCM</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                            <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="8">
                             <label class="form-check-label" for="inlineCheckbox2">Pengadaan</label>
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <button type="button" class="btn btn-success my-2">Submit</button>
+        <button type="submit" class="btn btn-success my-2">Submit</button>
     </form>
         <a href="/home"><button type="button" class="btn btn-danger my-2 mx-2">Cancel</button></a>
     </div>
