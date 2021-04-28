@@ -40,12 +40,13 @@
                 </tr>
             </thead>
             <tbody>
+            @foreach($fups as $fup)
                 <tr>
-                    <td scope="row" class="font-weight-bold text-center">1</td>
+                    <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
                     <td>04/USL/IV/2020</td>
-                    <td>Produksi</td>
-                    <td>28/04/2021</td>
-                    <td>New AC</td>
+                    <td>{{$fup->Bidang->name}}</td>
+                    <td>{{$fup->date}}</td>
+                    <td>{{$fup->ket_usulan}}</td>
                     <td class="text-center">
                         <span class="badge rounded-pill bg-secondary text-light">Pending</span>
                     </td>
@@ -53,28 +54,11 @@
                         <a href="#" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
                     </td>
                 </tr>
+            @endforeach
             </tbody>
         </table>
         {{-- ADD PAGINATION --}}
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a href="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                </li>
-                <li class="page-item"><a href="#" class="page-link">1</a></li>
-                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                <li class="page-item"><a href="#" class="page-link">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        {{$fups->links()}}
     </div>
 </div>
 @endsection

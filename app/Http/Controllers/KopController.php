@@ -32,6 +32,21 @@ class KopController extends Controller
         return view('control', compact('fups', 'user', 'kajians'));
     }
 
+    public function listKop()
+    {
+        $kontrols = KontrolPerubahan::all();
+        $fup_id = '';
+        foreach($kontrols as $kontrol){
+            $fup_id .= $kontrol->fup_id.','; //1,3,
+        }
+        $arrFupId = explode(',',$fup_id);//{1, 3}
+        // dd($arrFupId);
+        $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
+        // dd($kajians);
+        
+        return view('showKontrol', compact('kontrols','fups'));
+    }
+
     /**
      * Display the specified resource.
      *
@@ -55,8 +70,11 @@ class KopController extends Controller
     {
         // dd($request->all());
         // dd($fup_id);
+        if($request->dis_setuju != null){
+            $request->request->add(['dis_setuju' => implode(',', $request->dis_setuju)]);
+        }
+
         $request->request->add(['fup_id' => $fup_id]);
-        $request->request->add(['dis_setuju' => implode(',', $request->dis_setuju)]);
 
         KontrolPerubahan::create($request->all());
         Alert::success('Success', "Kontrol Perubahan Berhasil Dibuat!");

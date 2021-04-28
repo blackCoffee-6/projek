@@ -78,6 +78,8 @@
                 @endforeach
                 </tbody>
             </table>
+            {{-- ADD PAGINATION --}}
+            {{$fups->links()}}
         </div>
     </div>
 @endsection

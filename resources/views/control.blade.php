@@ -28,7 +28,17 @@
                 </form>
                 <a href="#"><button class="btn btn-danger mx-3">Reset</button></a>    
             </div>
-        
+            @if(session('alert'))
+            <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                {{ session('alert')}}
+            </div>
+            @elseif(session('failed'))
+            <div class="alert alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                {{ session('failed')}}
+            </div>
+            @endif
             <table class="table table-bordered my-3">
                 <thead class="thead-dark">
                 <tr class="text-center">
@@ -43,12 +53,12 @@
                 </thead>
                 <tbody>  
                 @foreach ($fups as $fup)
+                @foreach($kajians as $kajian)
                 <tr>
                     <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
                     <td>04/USL/IV/2020</td>
                     <td>{{$fup->Bidang->name}}</td>
-                    {{-- blm bisa nampilin tanggal dri kajian yg qa_date --}}
-                    <td>28/04/2021</td>
+                    <td>{{$kajian->qa_date}}</td>
                     <td>
                         {{$fup->ket_usulan}}
                     </td>
@@ -59,6 +69,7 @@
                       <a href="/Detail/KP/{{$fup->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-plus"></i>  Kontrol</a>
                     </td>
                 </tr>
+                @endforeach
                 @endforeach
                 </tbody>
             </table>
