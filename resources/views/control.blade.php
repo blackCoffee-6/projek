@@ -31,7 +31,7 @@
                 <thead class="thead-dark">
                 <tr class="text-center">
                     <th scope="col">No.</th>
-                    <th scope="col">Nomor Usul</th>
+                    <th scope="col">Nomor Usulan Perubahan</th>
                     <th scope="col">Bidang Usul</th>
                     <th scope="col">Tanggal Disetujui</th>
                     <th scope="col">Usulan Perubahan</th>

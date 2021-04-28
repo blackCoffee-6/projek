@@ -36,9 +36,12 @@ Route::get('/List/Tanggapan', function () {
     return view('list-tanggapan');
 });
 
+//-------Route Kontrol Perubahan------//
 Route::get('/List/KP', 'KopController@index');
-
 Route::get('/Detail/KP/{fup_id}', 'KopController@show');
+Route::get('/List/Kontrol/Perubahan', function () {
+    return view('showKontrol');
+});
 
 Route::get('/list-up', function () {
     return view('list-usulan');
