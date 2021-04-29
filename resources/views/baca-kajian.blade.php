@@ -1276,44 +1276,5 @@
     else{
 
     }
-
-    //ket_up
-    // var value = $('#ketups').val()
-    // if(value === '1'){
-    //     $("#bahan").attr('checked', 'checked');
-    // }
-    // else if(value === '2'){
-    //     $("#baku").attr('checked', 'checked');
-    // }
-    // else if(value === '3'){
-    //     $("#proses").attr('checked', 'checked');
-    // }
-    // else if(value === '4'){
-    //     $("#mesin").attr('checked', 'checked');
-    // }
-    // else if(value === '5'){
-    //     $("#metode").attr('checked', 'checked');
-    // }
-    // else if(value === '6'){
-    //     $("#site").attr('checked', 'checked');
-    // }
-    // else if(value === '7'){
-    //     $("#bangunan").attr('checked', 'checked');
-    // }
-    // else if(value === '8'){
-    //     $("#dokumen").attr('checked', 'checked');
-    // }
-    // else if(value === '9'){
-    //     $("#lingkungan").attr('checked', 'checked');
-    // }
-    // else if(value === '10'){
-    //     $("#pie").attr('checked', 'checked');
-    // }
-    // else if(value === '11'){
-    //     $("#peraturan").attr('checked', 'checked');
-    // }
-    // else{
-    //     $("#else1").attr('checked', 'checked');
-    // }
 </script>
 @endsection

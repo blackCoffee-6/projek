@@ -41,6 +41,7 @@
             </thead>
             <tbody>
             @foreach($fups as $fup)
+            @foreach($kontrols as $kontrol)
                 <tr>
                     <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
                     <td>04/USL/IV/2020</td>
@@ -51,9 +52,10 @@
                         <span class="badge rounded-pill bg-secondary text-light">Pending</span>
                     </td>
                     <td class="text-center">
-                        <a href="#" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
+                        <a href="/Baca-KontrolPerubahan/{{$kontrol->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
                     </td>
                 </tr>
+            @endforeach
             @endforeach
             </tbody>
         </table>
