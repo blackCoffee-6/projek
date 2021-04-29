@@ -35,6 +35,8 @@ class KopController extends Controller
     public function listKop()
     {
         $kontrols = KontrolPerubahan::all();
+
+        $kajians = Kajian::where('ch_status', 'like', 'disetujui')->get();
         $fup_id = '';
         foreach($kontrols as $kontrol){
             $fup_id .= $kontrol->fup_id.','; //1,3,
@@ -44,7 +46,7 @@ class KopController extends Controller
         $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
         // dd($kajians);
         
-        return view('showKontrol', compact('kontrols','fups'));
+        return view('showKontrol', compact('kontrols','fups', 'kajians'));
     }
 
     /**

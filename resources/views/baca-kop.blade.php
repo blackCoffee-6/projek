@@ -29,6 +29,7 @@
         realisasi="ru_realisasi" realisasiid="ru_realisasi"
         />
         <hr>
+
         {{-- REGISTRASI --}}
         <x-kop kategori="Registrasi" 
         tlp="ri_tlp" tlpid="ri_tlp" tlpval="pie" tlplabel="PIE / Approvable Letter" 
@@ -40,6 +41,7 @@
         realisasi="ri_realisasi" realisasiid="ri_realisasi"
         />
         <hr>
+
         {{-- STABILITAS  --}}
         <x-kop kategori="Stabilitas" 
         tlp="st_tlp" tlpid="st_tlp" tlpval="prus" tlplabel="Protokol uji stabilitas" 
@@ -51,6 +53,7 @@
         realisasi="st_realisasi" realisasiid="st_realisasi"
         />
         <hr>
+
         {{-- MASA EDAR  --}}
         <x-kop kategori="Masa Edar" 
         tlp="st_tlp2" tlpid="st_tlp2" tlpval="ddp" tlplabel="Daftar daluwarsa produk" 
@@ -72,6 +75,7 @@
         realisasi="me_realisasi" realisasiid="me_realisasi"
         />
         <hr>
+
         {{-- Validasi/ Kualifikasi  --}}
         <x-kop kategori="Validasi/ Kualifikasi" 
         tlp="me_tlp2" tlpid="me_tlp2" tlpval="pvp" tlplabel="Protokol validasi pengolahan" 
@@ -213,6 +217,7 @@
         realisasi="val_realisasi13" realisasiid="val_realisasi13"
         />
         <hr>
+
         {{-- TRIAL  --}}
         <x-kop kategori="Trial" 
         tlp="tr_tlp" tlpid="tr_tlp" tlpval="lsl" tlplabel="LHT skala laboratorium" 
@@ -274,6 +279,7 @@
         realisasi="tr_realisasi6" realisasiid="tr_realisasi6"
         />
         <hr>
+
         {{-- PRODUKSI  --}}
         <x-kop2 kategori="Produksi" 
         tlp="pro_tlp" tlpid="pro_tlp" tlpval="lhu" tlplabel="Laporan hasil uji"
@@ -305,6 +311,7 @@
         realisasi="pro_realisasi3" realisasiid="pro_realisasi3"
         />
         <hr>
+
         {{-- DOKUMEN  --}}
         <x-kop2 kategori="Dokumen" 
         tlp="dok_tlp" tlpid="dok_tlp" tlpval="mm" tlplabel="Manual Mutu" 
@@ -396,6 +403,7 @@
         realisasi="dok_realisasi9" realisasiid="dok_realisasi9"
         />
         <hr>
+        
         {{-- SISTEM ERP  --}}
         <x-kop kategori="Sistem ERP" 
         tlp="sis_tlp" tlpid="sis_tlp" tlpval="sppe" tlplabel="Screenshoot perubahan pada ER" 
