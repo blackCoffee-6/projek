@@ -48,28 +48,40 @@
                     <th scope="col">Tanggal Disetujui</th>
                     <th scope="col">Usulan Perubahan</th>
                     <th scope="col">Status</th>
+                    @if(Auth::user()->bidang_id == NULL)
                     <th scope="col">Aksi</th>
+                    @else
+                    @endif
                 </tr>
                 </thead>
                 <tbody>  
                 @foreach ($fups as $fup)
-                @foreach($kajians as $kajian)
                 <tr>
                     <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
                     <td>04/USL/IV/2020</td>
                     <td>{{$fup->Bidang->name}}</td>
-                    <td>{{$kajian->qa_date}}</td>
+                    <td>
+                        <?php $flag = ''; ?>
+                        @foreach($kajians as $kajian)
+                        @if($fup->id == $kajian->fup_id)
+                        <?php $flag = $kajian->aq_date ?>
+                        @endif
+                        @endforeach
+                        {{$flag}}
+                    </td>
                     <td>
                         {{$fup->ket_usulan}}
                     </td>
                     <td class="text-center">
-                      <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
                     </td>
+                    @if(Auth::user()->bidang_id == NULL)
                     <td class="text-center">
-                      <a href="/Detail/KP/{{$fup->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-plus"></i>  Kontrol</a>
+                        <a href="/Detail/KP/{{$fup->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-plus"></i>  Kontrol</a>
                     </td>
+                    @else
+                    @endif
                 </tr>
-                @endforeach
                 @endforeach
                 </tbody>
             </table>

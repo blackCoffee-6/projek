@@ -505,6 +505,5 @@
     else{
         $("#dokatTDDidak").attr('checked', 'checked');
     }
-
 </script>
 @endsection

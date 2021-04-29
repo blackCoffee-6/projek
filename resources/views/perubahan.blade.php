@@ -61,7 +61,7 @@
         rencana="st_rencana2" rencanaid="st_rencana2"
         realisasi="st_realisasi2" realisasiid="st_realisasi2"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="me_tlp" tlpid="me_tlp" tlpval="srdpe" tlplabel="Screenshoot revisi daluarsa pada ERP" 
         pic="me_pic" picid="me_pic" 
@@ -82,7 +82,7 @@
         rencana="me_rencana2" rencanaid="me_rencana2"
         realisasi="me_realisasi2" realisasiid="me_realisasi2"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="val_tlp" tlpid="val_tlp" tlpval="lvp" tlplabel="Laporan validasi pengolahan" 
         pic="val_pic" picid="val_pic" 
@@ -92,7 +92,7 @@
         rencana="val_rencana" rencanaid="val_rencana"
         realisasi="val_realisasi" realisasiid="val_realisasi"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="val_tlp2" tlpid="val_tlp2" tlpval="pvp" tlplabel="Protokol validasi pengemasan" 
         pic="val_pic2" picid="val_pic2" 
@@ -102,7 +102,7 @@
         rencana="val_rencana2" rencanaid="val_rencana2"
         realisasi="val_realisasi2" realisasiid="val_realisasi2"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="val_tlp3" tlpid="val_tlp3" tlpval="lvpen" tlplabel="Laporan validasi pengemasan" 
         pic="val_pic3" picid="val_pic3" 
@@ -112,7 +112,7 @@
         rencana="val_rencana3" rencanaid="val_rencana3"
         realisasi="val_realisasi3" realisasiid="val_realisasi3"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="val_tlp4" tlpid="val_tlp4" tlpval="pvpem" tlplabel="Protokol validasi pembersihan" 
         pic="val_pic4" picid="val_pic4" 
@@ -122,7 +122,7 @@
         rencana="val_rencana4" rencanaid="val_rencana4"
         realisasi="val_realisasi4" realisasiid="val_realisasi4"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="val_tlp5" tlpid="val_tlp5" tlpval="lvp" tlplabel="Laporan validasi pembersihan" 
         pic="val_pic5" picid="val_pic5" 
@@ -132,7 +132,7 @@
         rencana="val_rencana5" rencanaid="val_rencana5"
         realisasi="val_realisasi5" realisasiid="val_realisasi5"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="val_tlp6" tlpid="val_tlp6" tlpval="pvma" tlplabel="Protokol validasi metode analisa" 
         pic="val_pic6" picid="val_pic6" 
@@ -142,7 +142,7 @@
         rencana="val_rencana6" rencanaid="val_rencana6"
         realisasi="val_realisasi6" realisasiid="val_realisasi6"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="val_tlp7" tlpid="val_tlp7" tlpval="lvma" tlplabel="Laporan validasi metode analisa" 
         pic="val_pic7" picid="val_pic7" 
@@ -152,7 +152,7 @@
         rencana="val_rencana7" rencanaid="val_rencana7"
         realisasi="val_realisasi7" realisasiid="val_realisasi7"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="val_tlp8" tlpid="val_tlp8" tlpval="pki" tlplabel="Protokol kualifikasi instalasi" 
         pic="val_pic8" picid="val_pic8" 
@@ -162,7 +162,7 @@
         rencana="val_rencana8" rencanaid="val_rencana8"
         realisasi="val_realisasi8" realisasiid="val_realisasi8"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="val_tlp9" tlpid="val_tlp9" tlpval="lki" tlplabel="Laporan kualifikasi instalasi" 
         pic="val_pic9" picid="val_pic9" 
@@ -172,7 +172,7 @@
         rencana="val_rencana9" rencanaid="val_rencana9"
         realisasi="val_realisasi9" realisasiid="val_realisasi9"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="val_tlp10" tlpid="val_tlp10" tlpval="pko" tlplabel="Protokol kualifikasi operasional" 
         pic="val_pic10" picid="val_pic10" 
@@ -182,7 +182,7 @@
         rencana="val_rencana10" rencanaid="val_rencana10"
         realisasi="val_realisasi10" realisasiid="val_realisasi10"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="val_tlp11" tlpid="val_tlp11" tlpval="lko" tlplabel="Laporan kualifikasi operasional" 
         pic="val_pic11" picid="val_pic11" 
@@ -192,7 +192,7 @@
         rencana="val_rencana11" rencanaid="val_rencana11"
         realisasi="val_realisasi11" realisasiid="val_realisasi11"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="val_tlp12" tlpid="val_tlp12" tlpval="pkk" tlplabel="Protokol kualifikasi kinerja" 
         pic="val_pic12" picid="val_pic12" 
@@ -202,7 +202,7 @@
         rencana="val_rencana12" rencanaid="val_rencana12"
         realisasi="val_realisasi12" realisasiid="val_realisasi12"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="val_tlp13" tlpid="val_tlp13" tlpval="lkk" tlplabel="Laporan kualifikasi kinerja" 
         pic="val_pic13" picid="val_pic13" 
@@ -223,7 +223,7 @@
         rencana="tr_rencana" rencanaid="tr_rencana"
         realisasi="tr_realisasi" realisasiid="tr_realisasi"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="tr_tlp2" tlpid="tr_tlp2" tlpval="csp" tlplabel="CPB skala pilot" 
         pic="tr_pic2" picid="tr_pic2" 
@@ -233,7 +233,7 @@
         rencana="tr_rencana2" rencanaid="tr_rencana2"
         realisasi="tr_realisasi2" realisasiid="tr_realisasi2"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="tr_tlp3" tlpid="tr_tlp3" tlpval="lsp" tlplabel="LHT skala pilot" 
         pic="tr_pic3" picid="tr_pic3" 
@@ -243,7 +243,7 @@
         rencana="tr_rencana3" rencanaid="tr_rencana3"
         realisasi="tr_realisasi3" realisasiid="tr_realisasi3"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="tr_tlp4" tlpid="tr_tlp4" tlpval="cp" tlplabel="CPB Pengolahan" 
         pic="tr_pic4" picid="tr_pic4" 
@@ -253,7 +253,7 @@
         rencana="tr_rencana4" rencanaid="tr_rencana4"
         realisasi="tr_realisasi4" realisasiid="tr_realisasi4"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="tr_tlp5" tlpid="tr_tlp5" tlpval="capr" tlplabel="Catatan analisa produk ruahan" 
         pic="tr_pic5" picid="tr_pic5" 
@@ -263,7 +263,7 @@
         rencana="tr_rencana5" rencanaid="tr_rencana5"
         realisasi="tr_realisasi5" realisasiid="tr_realisasi5"
         />
-        {{-- ??  --}}
+        
         <x-kop kategori="" 
         tlp="tr_tlp6" tlpid="tr_tlp6" tlpval="cpen" tlplabel="CPB Pengemasan" 
         pic="tr_pic6" picid="tr_pic6" 
@@ -284,7 +284,7 @@
         rencana="pro_rencana" rencanaid="pro_rencana"
         realisasi="pro_realisasi" realisasiid="pro_realisasi"
         />
-        {{-- ??  --}}
+        
         <x-kop2 kategori="" 
         tlp="pro_tlp2" tlpid="pro_tlp2" tlpval="lhu2" tlplabel="Laporan hasil uji" 
         pic="pro_pic2" picid="pro_pic2" 
@@ -294,7 +294,7 @@
         rencana="pro_rencana2" rencanaid="pro_rencana2"
         realisasi="pro_realisasi2" realisasiid="pro_realisasi2"
         />
-        {{-- ??  --}}
+        
         <x-kop2 kategori="" 
         tlp="pro_tlp3" tlpid="pro_tlp3" tlpval="lhu3" tlplabel="Laporan hasil uji" 
         pic="pro_pic3" picid="pro_pic3" 
@@ -315,7 +315,7 @@
         rencana="dok_rencana" rencanaid="dok_rencana"
         realisasi="dok_realisasi" realisasiid="dok_realisasi"
         />
-        {{-- ??  --}}
+        
         <x-kop2 kategori="" 
         tlp="dok_tlp2" tlpid="dok_tlp2" tlpval="diif" tlplabel="Dokumen induk industri farmasi" 
         pic="dok_pic2" picid="dok_pic2" 
@@ -325,7 +325,7 @@
         rencana="dok_rencana2" rencanaid="dok_rencana2"
         realisasi="dok_realisasi2" realisasiid="dok_realisasi2"
         />
-        {{-- ??  --}}
+        
         <x-kop2 kategori="" 
         tlp="dok_tlp3" tlpid="dok_tlp3" tlpval="prose" tlplabel="Prosedur" 
         pic="dok_pic3" picid="dok_pic3" 
@@ -335,7 +335,7 @@
         rencana="dok_rencana3" rencanaid="dok_rencana3"
         realisasi="dok_realisasi3" realisasiid="dok_realisasi3"
         />
-        {{-- ??  --}}
+        
         <x-kop2 kategori="" 
         tlp="dok_tlp4" tlpid="dok_tlp4" tlpval="ku" tlplabel="Ketentuan umum" 
         pic="dok_pic4" picid="dok_pic4" 
@@ -345,7 +345,7 @@
         rencana="dok_rencana4" rencanaid="dok_rencana4"
         realisasi="dok_realisasi4" realisasiid="dok_realisasi4"
         />
-        {{-- ??  --}}
+        
         <x-kop2 kategori="" 
         tlp="dok_tlp5" tlpid="dok_tlp5" tlpval="protap" tlplabel="Protap" 
         pic="dok_pic5" picid="dok_pic5" 
@@ -355,7 +355,7 @@
         rencana="dok_rencana5" rencanaid="dok_rencana5"
         realisasi="dok_realisasi5" realisasiid="dok_realisasi5"
         />
-        {{-- ??  --}}
+        
         <x-kop2 kategori="" 
         tlp="dok_tlp6" tlpid="dok_tlp6" tlpval="formulir" tlplabel="Formulir" 
         pic="dok_pic6" picid="dok_pic6" 
@@ -365,7 +365,7 @@
         rencana="dok_rencana6" rencanaid="dok_rencana6"
         realisasi="dok_realisasi6" realisasiid="dok_realisasi6"
         />
-        {{-- ??  --}}
+        
         <x-kop2 kategori="" 
         tlp="dok_tlp7" tlpid="dok_tlp7" tlpval="daftar" tlplabel="Daftar" 
         pic="dok_pic7" picid="dok_pic7" 
@@ -375,7 +375,7 @@
         rencana="dok_rencana7" rencanaid="dok_rencana7"
         realisasi="dok_realisasi7" realisasiid="dok_realisasi7"
         />
-        {{-- ??  --}}
+        
         <x-kop2 kategori="" 
         tlp="dok_tlp8" tlpid="dok_tlp8" tlpval="spek" tlplabel="Spesifikasi" 
         pic="dok_pic8" picid="dok_pic8" 
@@ -385,7 +385,7 @@
         rencana="dok_rencana8" rencanaid="dok_rencana8"
         realisasi="dok_realisasi8" realisasiid="dok_realisasi8"
         />
-        {{-- ??  --}}
+        
         <x-kop2 kategori="" 
         tlp="dok_tlp9" tlpid="dok_tlp9" tlpval="ma" tlplabel="Metode analisa" 
         pic="dok_pic9" picid="dok_pic9" 

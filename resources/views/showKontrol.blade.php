@@ -36,7 +36,10 @@
                     <th scope="col">Tanggal Disetujui</th>
                     <th scope="col">Usulan Perubahan</th>
                     <th scope="col">Status</th>
+                    @if(Auth::user()->bidang_id == NULL)
                     <th scope="col">Aksi</th>
+                    @else
+                    @endif
                 </tr>
             </thead>
             <tbody>
@@ -46,14 +49,31 @@
                     <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
                     <td>04/USL/IV/2020</td>
                     <td>{{$fup->Bidang->name}}</td>
-                    <td>{{$fup->date}}</td>
+                    <td>
+                        <?php $flag = ''; ?>
+                        @foreach($kajians as $kajian)
+                        @if($fup->id == $kajian->fup_id)
+                        <?php $flag = $kajian->aq_date ?>
+                        @endif
+                        @endforeach
+                        {{$flag}}
+                    </td>
                     <td>{{$fup->ket_usulan}}</td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        <?php $count = 0; ?>
+                        @foreach($kontrols as $kontrol)
+                        @if($fup->id == $kontrol->fup_id)
+                            <?php $count++; ?>
+                        @endif
+                        @endforeach
+                        <span class="badge rounded-pill bg-warning">Sedang di Proses</span>
                     </td>
+                    @if(Auth::user()->bidang_id == NULL)
                     <td class="text-center">
                         <a href="/Baca-KontrolPerubahan/{{$kontrol->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
                     </td>
+                    @else
+                    @endif
                 </tr>
             @endforeach
             @endforeach
