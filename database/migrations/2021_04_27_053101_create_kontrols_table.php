@@ -171,6 +171,14 @@ class CreateKontrolsTable extends Migration
             $table->date('val_date13')->nullable();
             $table->text('val_rencana13')->nullable();
             $table->text('val_realisasi13')->nullable();
+            
+            $table->text('val_tlp14')->nullable();
+            $table->text('val_pic14')->nullable();
+            $table->text('val_dok14')->nullable();
+            $table->text('val_status14')->nullable();
+            $table->date('val_date14')->nullable();
+            $table->text('val_rencana14')->nullable();
+            $table->text('val_realisasi14')->nullable();
 
             $table->text('tr_tlp')->nullable();
             $table->text('tr_pic')->nullable();
