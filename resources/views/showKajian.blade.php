@@ -54,12 +54,12 @@
                         <td class="text-center">
                             <?php $flag = 0; $stats = ''; ?>
                         @foreach($kajians as $kajian)
-                        @if($fup->id == $kajian->fup_id)
-                            <?php $flag++;
-                                $stats = $kajian->ch_status;
-                            ?>
+                            @if($fup->id == $kajian->fup_id)
+                                <?php $flag++;
+                                    $stats = $kajian->ch_status;
+                                ?>
                             @endif
-                            @endforeach
+                        @endforeach
                             @if($flag < 1) <span class="badge rounded-pill bg-secondary text-light">Menunggu Dikaji</span>
                             @else 
                                 @if(strcasecmp($stats,'disetujui') == 0)    
@@ -70,9 +70,13 @@
                             @endif
                         </td>
                         <td class="text-center">
-                            @if($flag > 0) 
-                            <a href="/Baca-kajian/{{$kajian->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
+                        <?php $flag = 0;?>
+                        @foreach($kajians as $kajian)
+                            @if($fup->id == $kajian->fup_id)
+                                <?php $flag++;?>
+                                <a href="/Baca-kajian/{{$kajian->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
                             @endif
+                        @endforeach
                         </td>
                     </tr>
                 @endforeach
