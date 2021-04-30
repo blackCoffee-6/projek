@@ -69,9 +69,7 @@ class CreateKajiansTable extends Migration
 
             $table->string('ch_kategori');
             $table->string('ch_status');
-
-            $table->string('qa_nama');
-            $table->date('qa_date');
+            $table->string('catatan')->nullable();
 
             $table->string('asman_nama');
             $table->date('asman_date');

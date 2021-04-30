@@ -459,6 +459,26 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Jabatan</th>
+                    <th scope="col">Nama :</th>
+                    <th scope="col">Tanggal :</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td>Disahkan Oleh</td>
+                <td>Manajer Pemastian Mutu</td>
+                <td>
+                    <input type="text" class="form-control" placeholder="Sertakan Nama" id="mpm_nama" name="mpm_nama" value="{{ old('mpm_nama') }}">
+                </td>
+                <td>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="mpm_date">
+                </td>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
                     <th>Distribusi persetujuan perubahan :</th>
                 </tr>
             </thead>

@@ -889,6 +889,14 @@
                         </label>
                     </td>
                 </tr>
+                <tr>
+                    <td class="font-weight-bold"> Catatan :</td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea class="form-control" rows="3" name="kj_tambahan">{{old('catatan')}}</textarea>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-bordered">
@@ -897,33 +905,13 @@
                     <th scope="col"></th>
                     <th scope="col">Jabatan</th>
                     <th scope="col">Nama</th>
-                    <th scope="col">Tanda Tangan</th>
+                    <th scope="col">Komentar</th>
                     <th scope="col">Tanggal</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Dikaji oleh</td>
-                    <td>QA Specialist</td>
-                    <td>
-                        <input type="text" name="qa_nama" value="{{old('qa_nama')}}" placeholder="Sertakan Nama" class="form-control">
-                        <label 
-                        @error('qa_nama')
-                        class="text-danger"
-                        @enderror>@error('qa_nama')
-                        *Nama QA Specialist harus diisi
-                        @enderror
-                        </label>
-                    </td>
-                    <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
-                    </td>
-                    <td>
-                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="qa_date" name="qa_date">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Diperiksa oleh</td>
+                    <td>Disusun Oleh</td>
                     <td>Asman Prod. Eval.</td>
                     <td>
                         <input type="text" class="form-control" placeholder="Sertakan Nama" id="asman_nama" name="asman_nama" value="{{ old('asman_nama') }}">
@@ -936,14 +924,14 @@
                         </label>
                     </td>
                     <td>
-                        <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
+                        <textarea class="form-control" rows="3" name="ttd"></textarea>
                     </td>
                     <td>
                         <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="asman_date" name="asman_date">
                     </td>
                 </tr>
                 <tr>
-                    <td>Dikaji oleh</td>
+                    <td>Disetujui Oleh</td>
                     <td>QA Specialist</td>
                     <td>
                         <input type="text" class="form-control" placeholder="Sertakan Nama" id="aq_nama" name="aq_nama" value="{{ old('aq_nama') }}">
@@ -956,7 +944,7 @@
                         </label>
                     </td>
                     <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd"></textarea>
                     </td>
                     <td>
                         <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="aq_date" name="aq_date">

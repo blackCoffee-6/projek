@@ -26,7 +26,7 @@
             <h4 class="mb-0">
                 <span class="count">{{$fup}}</span>
             </h4>
-            <p class="text-light">Menunggu Disetujui</p>
+            <p class="text-light">Menunggu Disetujui Usulan Perubahan</p>
             <div class="chart-wrapper px-0" style="height:70px;" height="70">
                 <canvas id="widgetChart1"></canvas>
             </div>
