@@ -44,7 +44,6 @@
             </thead>
             <tbody>
             @foreach($fups as $fup)
-            @foreach($kontrols as $kontrol)
                 <tr>
                     <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
                     <td>04/USL/IV/2020</td>
@@ -60,22 +59,29 @@
                     </td>
                     <td>{{$fup->ket_usulan}}</td>
                     <td class="text-center">
-                        <?php $count = 0; ?>
+                        <?php $count = 0; $date = '';?>
                         @foreach($kontrols as $kontrol)
-                        @if($fup->id == $kontrol->fup_id)
-                            <?php $count++; ?>
-                        @endif
+                            @if($fup->id == $kontrol->fup_id)
+                                <?php $count++; $date = $kontrol->hasil_mitigasi_date?>
+                                @if(!($date))
+                                    <span class="badge rounded-pill bg-warning">Sedang di Proses</span>
+                                @elseif($date)
+                                    <span class="badge rounded-pill bg-danger">Closed</span>
+                                @endif
+                            @endif
                         @endforeach
-                        <span class="badge rounded-pill bg-warning">Sedang di Proses</span>
                     </td>
                     @if(Auth::user()->bidang_id == NULL)
                     <td class="text-center">
-                        <a href="/Baca-KontrolPerubahan/{{$kontrol->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
+                        @if(!($date))
+                            <a href="#" class="btn btn-primary my-2 my-sm-0"><i class="fa fa-folder"></i>  Edit</a>
+                        @elseif($date)
+                            <a href="/Baca-KontrolPerubahan/{{$kontrol->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
+                        @endif
                     </td>
                     @else
                     @endif
                 </tr>
-            @endforeach
             @endforeach
             </tbody>
         </table>

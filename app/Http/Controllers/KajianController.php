@@ -222,6 +222,7 @@ class KajianController extends Controller
     public function bacaKajian($id)
     {
         $kajians = Kajian::find($id);
+
         $ket_up = $kajians->ket_up;
         $ket_ups = explode("," , $ket_up);
 

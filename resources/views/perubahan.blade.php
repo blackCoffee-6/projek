@@ -442,7 +442,7 @@
                             <div class="col-md-12">
                                 <div class="form-check">
                                     <input class="form-check-input" value="dilaksanakan" type="radio" name="hasil_mitigasi" id="DD">
-                                    <label class="form-check-label">Perubahan dapat dilaksanakan sejak/pada/sampai*) <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="hasil_mitigasi_date" id="DDtext"></label>
+                                    <label class="form-check-label">Perubahan dapat dilaksanakan sejak/pada/sampai*) <input type="date" value="" class="form-control" name="hasil_mitigasi_date" id="DDtext"></label>
                                 </div>
                             </div>
                             <div class="col-md-12">

@@ -73,11 +73,26 @@
                         {{$fup->ket_usulan}}
                     </td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        <?php $count = 0; $date = '';?>
+                        @foreach($kontrols as $kontrol)
+                            @if($kontrol->fup_id == $fup->id)
+                            <?php $count++; $date = $kontrol->hasil_mitigasi_date?>
+                                @if($count < 1) <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                                @else 
+                                    @if(!($date))
+                                        <span class="badge rounded-pill bg-warning">Sedang di Proses</span>
+                                    @elseif($date)
+                                        <span class="badge rounded-pill bg-danger">Closed</span>
+                                    @endif
+                                @endif
+                            @endif
+                        @endforeach
                     </td>
                     @if(Auth::user()->bidang_id == NULL)
                     <td class="text-center">
+                        @if($count < 1)
                         <a href="/Detail/KP/{{$fup->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-plus"></i>  Kontrol</a>
+                        @endif
                     </td>
                     @else
                     @endif
