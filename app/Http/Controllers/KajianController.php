@@ -30,7 +30,8 @@ class KajianController extends Controller
         }
         $arrFupId = explode(',',$fup_id);//{1, 3}
         $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
-    
+        
+        // dd($kajians);   
        return view('listKajian', compact('fups', 'user', 'apps', 'kajians'));
     }
 
@@ -205,14 +206,13 @@ class KajianController extends Controller
     
     public function listKajian()
     {
-        // $apps = Approval::where('decision', 'like', 'setuju')->get();
         $kajians = Kajian::all();
         $fup_id = '';
         foreach($kajians as $kajian){
             $fup_id .= $kajian->fup_id.','; //1,3,
         }
         $arrFupId = explode(',',$fup_id);//{1, 3}
-        // dd($arrFupId);
+        // dd($fup_id);
         $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
         // dd($kajians);
         
