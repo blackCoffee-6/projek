@@ -19,6 +19,7 @@ class KopController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $kontrols = KontrolPerubahan::all();
         
         $kajians = Kajian::where('ch_status', 'like', 'disetujui')->get();
 
@@ -29,7 +30,7 @@ class KopController extends Controller
         $arrFUPId = explode(',',$fup_id);
         $fups = FUP::whereIn('id', $arrFUPId)->paginate(10);
 
-        return view('control', compact('fups', 'user', 'kajians'));
+        return view('control', compact('fups', 'user', 'kajians', 'kontrols'));
     }
 
     public function listKop()
