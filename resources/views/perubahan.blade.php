@@ -50,10 +50,9 @@
         rencana="st_rencana" rencanaid="st_rencana"
         realisasi="st_realisasi" realisasiid="st_realisasi"
         />
-        <hr>
-        {{-- MASA EDAR  --}}
-        <x-kop kategori="Masa Edar" 
-        tlp="st_tlp2" tlpid="st_tlp2" tlpval="ddp" tlplabel="Daftar daluwarsa produk" 
+        {{-- ??  --}}
+        <x-kop kategori="" 
+        tlp="st_tlp2" tlpid="st_tlp2" tlpval="lus" tlplabel="Laporan uji stabilitas" 
         pic="st_pic2" picid="st_pic2" 
         dok="st_dok2" dokid="st_dok2" 
         bg="bg-secondary" badge="Pending"
@@ -61,9 +60,10 @@
         rencana="st_rencana2" rencanaid="st_rencana2"
         realisasi="st_realisasi2" realisasiid="st_realisasi2"
         />
-        
-        <x-kop kategori="" 
-        tlp="me_tlp" tlpid="me_tlp" tlpval="srdpe" tlplabel="Screenshoot revisi daluarsa pada ERP" 
+        <hr>
+        {{-- MASA EDAR  --}}
+        <x-kop kategori="Masa Edar" 
+        tlp="me_tlp" tlpid="me_tlp" tlpval="srdpe" tlplabel="Daftar daluwarsa produk" 
         pic="me_pic" picid="me_pic" 
         dok="me_dok" dokid="me_dok" 
         bg="bg-secondary" badge="Pending"
@@ -71,10 +71,8 @@
         rencana="me_rencana" rencanaid="me_rencana"
         realisasi="me_realisasi" realisasiid="me_realisasi"
         />
-        <hr>
-        {{-- Validasi/ Kualifikasi  --}}
-        <x-kop kategori="Validasi/ Kualifikasi" 
-        tlp="me_tlp2" tlpid="me_tlp2" tlpval="pvp" tlplabel="Protokol validasi pengolahan" 
+        <x-kop kategori="Masa Edar" 
+        tlp="me_tlp2" tlpid="me_tlp2" tlpval="srdpe" tlplabel="Screenshoot revisi daluarsa pada ERP" 
         pic="me_pic2" picid="me_pic2" 
         dok="me_dok2" dokid="me_dok2" 
         bg="bg-secondary" badge="Pending"
@@ -82,9 +80,11 @@
         rencana="me_rencana2" rencanaid="me_rencana2"
         realisasi="me_realisasi2" realisasiid="me_realisasi2"
         />
-        
-        <x-kop kategori="" 
-        tlp="val_tlp" tlpid="val_tlp" tlpval="lvp" tlplabel="Laporan validasi pengolahan" 
+        <hr>
+        {{-- Validasi/ Kualifikasi  --}}
+        <x-kop kategori="Validasi/ Kualifikasi" 
+        tlp="val_tlp" tlpid="val_tlp" 
+        tlpval="pvp" tlplabel="Protokol validasi pengolahan" 
         pic="val_pic" picid="val_pic" 
         dok="val_dok" dokid="val_dok" 
         bg="bg-secondary" badge="Pending"
@@ -94,7 +94,8 @@
         />
         
         <x-kop kategori="" 
-        tlp="val_tlp2" tlpid="val_tlp2" tlpval="pvp" tlplabel="Protokol validasi pengemasan" 
+        tlp="val_tlp2" tlpid="val_tlp2" 
+        tlpval="lvp" tlplabel="Laporan validasi pengolahan" 
         pic="val_pic2" picid="val_pic2" 
         dok="val_dok2" dokid="val_dok2" 
         bg="bg-secondary" badge="Pending"
@@ -104,7 +105,8 @@
         />
         
         <x-kop kategori="" 
-        tlp="val_tlp3" tlpid="val_tlp3" tlpval="lvpen" tlplabel="Laporan validasi pengemasan" 
+        tlp="val_tlp3" tlpid="val_tlp3" 
+        tlpval="pvp" tlplabel="Protokol validasi pengemasan" 
         pic="val_pic3" picid="val_pic3" 
         dok="val_dok3" dokid="val_dok3" 
         bg="bg-secondary" badge="Pending"
@@ -114,7 +116,8 @@
         />
         
         <x-kop kategori="" 
-        tlp="val_tlp4" tlpid="val_tlp4" tlpval="pvpem" tlplabel="Protokol validasi pembersihan" 
+        tlp="val_tlp4" tlpid="val_tlp4" 
+        tlpval="lvpen" tlplabel="Laporan validasi pengemasan" 
         pic="val_pic4" picid="val_pic4" 
         dok="val_dok4" dokid="val_dok4" 
         bg="bg-secondary" badge="Pending"
@@ -124,7 +127,8 @@
         />
         
         <x-kop kategori="" 
-        tlp="val_tlp5" tlpid="val_tlp5" tlpval="lvp" tlplabel="Laporan validasi pembersihan" 
+        tlp="val_tlp5" tlpid="val_tlp5" 
+        tlpval="pvpem" tlplabel="Protokol validasi pembersihan" 
         pic="val_pic5" picid="val_pic5" 
         dok="val_dok5" dokid="val_dok5" 
         bg="bg-secondary" badge="Pending"
@@ -134,7 +138,8 @@
         />
         
         <x-kop kategori="" 
-        tlp="val_tlp6" tlpid="val_tlp6" tlpval="pvma" tlplabel="Protokol validasi metode analisa" 
+        tlp="val_tlp6" tlpid="val_tlp6" 
+        tlpval="lvp" tlplabel="Laporan validasi pembersihan" 
         pic="val_pic6" picid="val_pic6" 
         dok="val_dok6" dokid="val_dok6" 
         bg="bg-secondary" badge="Pending"
@@ -144,7 +149,8 @@
         />
         
         <x-kop kategori="" 
-        tlp="val_tlp7" tlpid="val_tlp7" tlpval="lvma" tlplabel="Laporan validasi metode analisa" 
+        tlp="val_tlp7" tlpid="val_tlp7" 
+        tlpval="pvma" tlplabel="Protokol validasi metode analisa" 
         pic="val_pic7" picid="val_pic7" 
         dok="val_dok7" dokid="val_dok7" 
         bg="bg-secondary" badge="Pending"
@@ -154,7 +160,8 @@
         />
         
         <x-kop kategori="" 
-        tlp="val_tlp8" tlpid="val_tlp8" tlpval="pki" tlplabel="Protokol kualifikasi instalasi" 
+        tlp="val_tlp8" tlpid="val_tlp8"
+        tlpval="lvma" tlplabel="Laporan validasi metode analisa" 
         pic="val_pic8" picid="val_pic8" 
         dok="val_dok8" dokid="val_dok8" 
         bg="bg-secondary" badge="Pending"
@@ -164,7 +171,8 @@
         />
         
         <x-kop kategori="" 
-        tlp="val_tlp9" tlpid="val_tlp9" tlpval="lki" tlplabel="Laporan kualifikasi instalasi" 
+        tlp="val_tlp9" tlpid="val_tlp9" 
+        tlpval="pki" tlplabel="Protokol kualifikasi instalasi" 
         pic="val_pic9" picid="val_pic9" 
         dok="val_dok9" dokid="val_dok9" 
         bg="bg-secondary" badge="Pending"
@@ -174,7 +182,8 @@
         />
         
         <x-kop kategori="" 
-        tlp="val_tlp10" tlpid="val_tlp10" tlpval="pko" tlplabel="Protokol kualifikasi operasional" 
+        tlp="val_tlp10" tlpid="val_tlp10" 
+        tlpval="lki" tlplabel="Laporan kualifikasi instalasi" 
         pic="val_pic10" picid="val_pic10" 
         dok="val_dok10" dokid="val_dok10" 
         bg="bg-secondary" badge="Pending"
@@ -184,7 +193,8 @@
         />
         
         <x-kop kategori="" 
-        tlp="val_tlp11" tlpid="val_tlp11" tlpval="lko" tlplabel="Laporan kualifikasi operasional" 
+        tlp="val_tlp11" tlpid="val_tlp11" 
+        tlpval="pko" tlplabel="Protokol kualifikasi operasional" 
         pic="val_pic11" picid="val_pic11" 
         dok="val_dok11" dokid="val_dok11" 
         bg="bg-secondary" badge="Pending"
@@ -194,7 +204,8 @@
         />
         
         <x-kop kategori="" 
-        tlp="val_tlp12" tlpid="val_tlp12" tlpval="pkk" tlplabel="Protokol kualifikasi kinerja" 
+        tlp="val_tlp12" tlpid="val_tlp12" 
+        tlpval="lko" tlplabel="Laporan kualifikasi operasional" 
         pic="val_pic12" picid="val_pic12" 
         dok="val_dok12" dokid="val_dok12" 
         bg="bg-secondary" badge="Pending"
@@ -204,13 +215,24 @@
         />
         
         <x-kop kategori="" 
-        tlp="val_tlp13" tlpid="val_tlp13" tlpval="lkk" tlplabel="Laporan kualifikasi kinerja" 
+        tlp="val_tlp13" tlpid="val_tlp13" 
+        tlpval="pkk" tlplabel="Protokol kualifikasi kinerja" 
         pic="val_pic13" picid="val_pic13" 
         dok="val_dok13" dokid="val_dok13" 
         bg="bg-secondary" badge="Pending"
         date="val_date13"
         rencana="val_rencana13" rencanaid="val_rencana13"
         realisasi="val_realisasi13" realisasiid="val_realisasi13"
+        />
+        
+        <x-kop kategori="" 
+        tlp="val_tlp14" tlpid="val_tlp14" tlpval="lkk" tlplabel="Laporan kualifikasi kinerja" 
+        pic="val_pic14" picid="val_pic14" 
+        dok="val_dok14" dokid="val_dok14" 
+        bg="bg-secondary" badge="Pending"
+        date="val_date14"
+        rencana="val_rencana14" rencanaid="val_rencana14"
+        realisasi="val_realisasi14" realisasiid="val_realisasi14"
         />
         <hr>
         {{-- TRIAL  --}}

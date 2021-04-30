@@ -73,6 +73,7 @@ Route::get('/List/KP', 'KopController@index');
 Route::get('/Detail/KP/{fup_id}', 'KopController@show');
 Route::post('/Store/KP/{fup_id}', 'KopController@store');
 Route::get('/List/Kontrol/Perubahan', 'KopController@listKop');
+Route::get('/Baca-KontrolPerubahan/{kop_id}', 'KopController@bacaKop');
 
 
 Route::get('/list-up', function () {

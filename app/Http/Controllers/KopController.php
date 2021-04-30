@@ -83,4 +83,12 @@ class KopController extends Controller
         Alert::success('Success', "Kontrol Perubahan Berhasil Dibuat!");
         return redirect('/home');
     }
+
+    public function bacaKop($kop_id)
+    {
+        $kontrols = KontrolPerubahan::find($kop_id);
+        $dis_setuju = $kontrols->dis_setuju;
+        $dis_setujus = explode("," , $dis_setuju);
+        return view('baca-kop', compact('kontrols','dis_setujus'));
+    }
 }
