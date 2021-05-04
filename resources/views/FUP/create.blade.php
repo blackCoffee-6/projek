@@ -57,12 +57,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <select class="form-control" name="produk">
-                                <option id="pilih" name="pilih">Pilih...</option>
-                                @foreach($product as $pro)
-                                <option value="{{$pro->id}}">{{$pro->name}}</option>
-                                @endforeach
-                            </select>
+                            <input class="form-control @error('produk') is-invalid @enderror" type="text" name="produk">
                             <label 
                                 @error('produk') 
                                 class="text-danger"
