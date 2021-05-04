@@ -127,7 +127,7 @@ class FUPController extends Controller
         
         FUP::findOrFail($id)->update([
             'user_id' => Auth::user()->id,  
-            'product_id' => $request->produk, 
+            'produk' => $request->produk, 
             'bidang_id' => $request->bidang, 
             'no_usulan' => $request->no_usulan, 
             'date' => $request-> date, 

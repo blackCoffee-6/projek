@@ -160,7 +160,6 @@
                     <tr>
                         <th scope="col">Asman :</th>
                         <th scope="col">Nama :</th>
-                        <th scope="col">Tanda Tangan :</th>
                         <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
                     </tr>
                 </thead>
@@ -183,9 +182,6 @@
                             @enderror               
                         </td>
                         <td>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
-                        </td>
-                        <td>
                             <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="datepicker" name="pic_date">                 
                         </td>
                     </tr>
@@ -194,7 +190,6 @@
                     <tr>
                         <th scope="col">Manager :</th>
                         <th scope="col">Nama :</th>
-                        <th scope="col">Tanda Tangan :</th>
                         <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
                     </tr>
                 </thead>
@@ -215,9 +210,6 @@
                                     <strong>*Nama harus diisi!</strong>
                                 </span>
                             @enderror                   
-                        </td>
-                        <td>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                         </td>
                         <td>
                             <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="datepicker" name="cip_date">

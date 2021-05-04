@@ -31,20 +31,13 @@
         <table class="table table-bordered my-3">
             <thead>
                 <tr>
-                    <th>A. Tanggapan dari Bidang R&D</th>
+                    <th>A. Tanggapan dari Bidang</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" rows="3" name="tg_rnd"></textarea>
-                        <label 
-                            @error('tg_rnd') 
-                            class="text-danger"
-                            @enderror>@error('tg_rnd')
-                            *Tanggapan R&D harus diisi
-                            @enderror
-                        </label>   
+                        <textarea class="form-control" rows="3" name="tg_bidang"></textarea>
                     </td>
                 </tr>
             </tbody>
@@ -52,87 +45,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <td>Tinjauan terhadap Regulasi :</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ch_regulasi" value="1">
-                            <label class="form-check-label" for="inlineRadio1">Perubahan dapat langsung dilaksanakan tanpa menunggu izin dari BPOM</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ch_regulasi" value="2">
-                            <label class="form-check-label" for="inlineRadio2">Perubahan perlu izin BPOM terlebih dahulu</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ch_regulasi" value="3">
-                            <label class="form-check-label" for="inlineRadio1">Perubahan telah disetujui BPOM</label>
-                        </div>
-                        <label 
-                            @error('ch_regulasi') 
-                            class="text-danger"
-                            @enderror>@error('ch_regulasi')
-                            *Tinjauan terhadap Regulasi harus diisi
-                            @enderror
-                        </label>   
-                    </td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
-                    <td>Jenis Registrasi :</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ch_registrasi" value="major">
-                            <label class="form-check-label" for="inlineRadio1">Major</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ch_registrasi" value="minor">
-                            <label class="form-check-label" for="inlineRadio2">Minor</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ch_registrasi" value="notifikasi">
-                            <label class="form-check-label" for="inlineRadio1">Notifikasi</label>
-                        </div>
-                        <br>
-                        <label 
-                            @error('ch_registrasi') 
-                            class="text-danger"
-                            @enderror>@error('ch_registrasi')
-                            *Jenis Registrasi harus diisi
-                            @enderror
-                        </label>   
-                    </td>
-                </tr>
-            </tbody>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <td>Dokumen yang Diperlukan :</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="form-floating">
-                                <textarea class="form-control" style="height: 100px" name="dok_perlukan"></textarea>
-                            </div>
-
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-bordered">
-            <thead>
-                <tr>
                     <th scope="col">Nama :</th>
-                    <th scope="col">Tanda Tangan :</th>
                     <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
                 </tr>
             </thead>
@@ -140,16 +53,6 @@
                 <tr>
                     <td>
                         <input class="form-control" type="text" name="tg_nama">
-                        <label 
-                            @error('tg_nama') 
-                            class="text-danger"
-                            @enderror>@error('tg_nama')
-                            *Nama harus diisi
-                            @enderror
-                        </label>   
-                    </td>
-                    <td>
-                        <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
                         <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="tg_date">
@@ -166,7 +69,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" rows="3" name="gt_bidang" ></textarea>
+                        <textarea class="form-control" rows="3" name="gt_bidang"></textarea>
                     </td>
                 </tr>
             </tbody>
@@ -175,20 +78,16 @@
             <thead>
                 <tr>
                     <th scope="col">Nama :</th>
-                    <th scope="col">Tanda Tangan :</th>
                     <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>
-                        <input class="form-control" type="text" name="gt_nama" >
+                        <input class="form-control" type="text" name="gt_nama">
                     </td>
                     <td>
-                        <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
-                    </td>
-                    <td>
-                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="gt_date" >
+                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="gt_date">
                     </td>
                 </tr>
             </tbody>
@@ -202,7 +101,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" rows="3" name="bidang_tg" ></textarea>
+                        <textarea class="form-control" rows="3" name="bidang_tg"></textarea>
                     </td>
                 </tr>
             </tbody>
@@ -211,20 +110,80 @@
             <thead>
                 <tr>
                     <th scope="col">Nama :</th>
-                    <th scope="col">Tanda Tangan :</th>
                     <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>
-                        <input class="form-control" type="text" name="nama_tg" >
+                        <input class="form-control" type="text" name="nama_tg">
                     </td>
                     <td>
-                        <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
+                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="date_tg">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>D. Tanggapan dari Bidang :</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <textarea class="form-control" rows="3" name="tg_bidang2" ></textarea>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Nama :</th>
+                    <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input class="form-control" type="text" name="tg_nama2">
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="date_tg" >
+                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="tg_date2">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>E. Tanggapan dari Bidang :</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <textarea class="form-control" rows="3" name="tg_bidang3"></textarea>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Nama :</th>
+                    <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input class="form-control" type="text" name="tg_nama3">
+                    </td>
+                    <td>
+                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="tg_date3">
                     </td>
                 </tr>
             </tbody>

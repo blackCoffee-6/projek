@@ -64,7 +64,7 @@
                                 @elseif($app->decision == "tidak")
                                 <span class="badge rounded-pill bg-danger text-light">{{($app->decision == "setuju") ? 'Approved' : 'Not Approved'}}</span>
                                 @else
-                                <span class="badge rounded-pill bg-warning text-light">Need Revision</span>
+                                <span class="badge rounded-pill bg-warning">Perlu di Revisi</span>
                                 @endif
                     </td> 
                     <td>

@@ -46,7 +46,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <input class="form-control" type="text" name="produk" placeholder="{{$fup->produk}}" value="{{$fup->produk}}">
+                            <input class="form-control" type="text" name="produk" placeholder="{{$fup->produk}}" value="{{$fup->produk}}" id="produk">
                         </td>
                     </tr>
                 </tbody>
@@ -117,7 +117,6 @@
                     <tr>
                         <th scope="col">Asman :</th>
                         <th scope="col">Nama :</th>
-                        <th scope="col">Tanda Tangan :</th>
                         <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
                     </tr>
                 </thead>
@@ -130,9 +129,6 @@
                             <input class="form-control" type="text" name="pic_nama" value="{{$fup->pic_nama}}" placeholder="{{$fup->pic_nama}}">
                         </td>
                         <td>
-                            <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
-                        </td>
-                        <td>
                             <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="example-date-input" name="pic_date">
                         </td>
                     </tr>
@@ -141,7 +137,6 @@
                     <tr>
                         <th scope="col">Manager :</th>
                         <th scope="col">Nama :</th>
-                        <th scope="col">Tanda Tangan :</th>
                         <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
                     </tr>
                 </thead>
@@ -152,9 +147,6 @@
                         </td>
                         <td>
                             <input class="form-control" type="text" name="cip_nama" value="{{$fup->cip_nama}}" placeholder="{{$fup->cip_nama}}">
-                        </td>
-                        <td>
-                            <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
                         </td>
                         <td>
                             <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="example-date-input" name="cip_date">

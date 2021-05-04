@@ -76,7 +76,7 @@ table.table-bordered > tbody > tr > td{
                                     
                                 @elseif($app->fup_id == $fup->id AND $app->decision == "revisi")
                                 <?php $revisi = 1; ?>
-                                    <span class="badge rounded-pill bg-warning text-dark">Revisi</span>
+                                    <span class="badge rounded-pill bg-warning text-dark">Perlu di Revisi</span>
                             @endif
                         @endforeach
                         @if($flag == 0)
