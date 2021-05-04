@@ -46,12 +46,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <select class="form-control" id="inputGroupSelect01" name="produk">
-                                <option value="{{$fup->Product->id}}">{{$fup->Product->name}}</option>
-                                @foreach($product as $pro)
-                                    <option value="{{$pro->id}}">{{$pro->name}}</option>
-                                @endforeach
-                            </select>
+                            <input class="form-control" type="text" name="produk" placeholder="{{$fup->produk}}" value="{{$fup->produk}}">
                         </td>
                     </tr>
                 </tbody>
@@ -168,74 +163,26 @@
                 </tbody>
                 <thead>
                     <tr>
-                        <td>Usulan Diterima Oleh : *)</td>
-                    </tr>
-                    <tr>
-                        <td class="text-danger">*) Diisi oleh QA</td>
-                    </tr>
-                    <tr>
-                        <th scope="col">Asman :</th>
-                        <th scope="col">Nama :</th>
-                        <th scope="col">Tanda Tangan :</th>
-                        <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
+                        <td>
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1" class="font-weight-bold">Masukan File / Dokumen (*Jika diperlukan)</label>
+                                <input name="file" type="file" class="form-control-file" id="exampleFormControlFile1" value="{{$fup->file}}">
+                            </div>
+                        </td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
+                        <div class="btn-group" role="group" aria-label="Basic example">
                         <td>
-                            <input class="form-control" type="text" name="qa_asman" value="{{$fup->qa_asman}}" placeholder="{{$fup->qa_asman}}">
-                        </td>
-                        <td>
-                            <input class="form-control" type="text" name="qa_nama" value="{{$fup->qa_nama}}" placeholder="{{$fup->qa_nama}}">
-                        </td>
-                        <td>
-                            <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
-                        </td>
-                        <td>
-                            <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="example-date-input" name="qa_date">
-                        </td>
+                            <button type="submit" class="btn btn-success my-2">Update</button>
+                        </form>
+                            <a href="/home" id="test" type="button" class="btn btn-danger my-2 mx-2">Cancel</a>
+                        </td>    
+                        </div>
                     </tr>
-                </tbody>
-                <thead>
-                    <tr>
-                        <th>Perlu Tanggapan Bidang Lain :</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <input type="hidden" value="{{$fup->tanggapan}}" id="tanggapan">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check form-check-inline" type="radio" name="tanggapan" id="tidak" value="tidak" onclick="document.getElementById('tanggapan2').style.display = 'none'">
-                                <label class="form-check-label" for="tidak">Tidak</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check form-check-inline" type="radio" name="tanggapan" id="perlu" value="perlu" onclick="document.getElementById('tanggapan2').style.display = 'block'">
-                                <label class="form-check-label" for="perlu">Perlu, dari Bidang :</label>
-                            </div>
-                        </td>
-                        <td id="tanggapan2">
-                            @foreach($bidang2 as $bidang2)
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="cb" name="tanggapan2[]" value="{{$bidang2->id}}">
-                                    <label class="form-check-label" for="inlineCheckbox1">{{$bidang2->name}}</label>
-                                </div>
-                            @endforeach
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="form-group">
-                <label for="exampleFormControlFile1">Masukan File / Dokumen (Jika diperlukan)</label>
-                <input name="file" type="file" class="form-control-file" id="exampleFormControlFile1" value="{{$fup->file}}">
-            </div>
-
-            <button type="submit" class="btn btn-success my-2">Update</button>
-    </form>
-            <a href="/home" id="test" type="button" class="btn btn-danger my-2 mx-2">Cancel</a>
-        </div>
-
+                </tbody>                
+        </table>
 <script>
 
     var value = $('#sifat').val()

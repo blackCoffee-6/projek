@@ -22,10 +22,6 @@ class FUP extends Model
         return $this->belongsTo(Bidang::class);
     }
 
-    public function Product(){
-        return $this->belongsTo(Product::class);
-    }
-
     public function Tanggapan(){
         return $this->belongsTo(Tanggapan::class);
     }

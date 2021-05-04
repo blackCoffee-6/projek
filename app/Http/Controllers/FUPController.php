@@ -19,10 +19,9 @@ class FUPController extends Controller
     public function create()
     {
         $user = User::all();
-        $product = Product::all();
         $bidang = Bidang::all();
         $bidang2 = Bidang::all();
-        return view('FUP.create', compact('user','product', 'bidang' , 'bidang2'));
+        return view('FUP.create', compact('user', 'bidang' , 'bidang2'));
     }
 
     public function store(Request $request)
@@ -51,7 +50,6 @@ class FUPController extends Controller
         }
 
         $request->request->add(['user_id' => $user->id]);
-        $request->request->add(['product_id' => $request->produk]);
         $request->request->add(['bidang_id' => $request->bidang]);
         $request->request->add(['status' => "Pending"]);
         // dd($request->hasFile('image_uploded'));
