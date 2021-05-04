@@ -24,7 +24,7 @@
                 <tr>
                     <td>
                         <select class="form-control @error('title') is-invalid @enderror" name="bidang">
-                            <option value="{{Auth::user()->Bidang->name}}">{{Auth::user()->Bidang->name}}</option>
+                            <option value="{{$fup->bidang_id}}">{{$fup->Bidang->name}}</option>
                             @foreach($bidang as $bidang)
                             <option value="{{$bidang->id}}">{{$bidang->name}}</option>
                             @endforeach

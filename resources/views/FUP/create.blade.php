@@ -239,7 +239,7 @@
                         <div class="btn-group" role="group" aria-label="Basic example">
                         <td>
                             <button type="submit" class="btn btn-success my-2">Submit</button>
-                        </form>
+    </form>
                             <a href="/home" type="button" class="btn btn-danger my-2 mx-2">Cancel</a>
                         </td>    
                         </div>

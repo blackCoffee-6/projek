@@ -39,12 +39,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <select class="form-control" id="inputGroupSelect01" name="produk" disabled>
-                                <option value="{{$fup->Product->id}}">{{$fup->Product->name}}</option>
-                                @foreach($product as $pro)
-                                    <option value="{{$pro->id}}">{{$pro->name}}</option>
-                                @endforeach
-                            </select>
+                            {{$fup->produk}}
                         </td>
                     </tr>
                 </tbody>
@@ -228,10 +223,10 @@
                                 </label>                             
                             </td>
                             <td id="tanggapan2">
-                                @foreach($bidang2 as $bidang2)
+                                @foreach($bidang as $bidang)
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="cb" name="tanggapan2[]" value="{{$bidang2->id}}" {{ (is_array(old('tanggapan2')) && in_array($bidang2->id, old('tanggapan2'))) ? ' checked' : '' }}>
-                                        <label class="form-check-label">{{$bidang2->name}}</label>
+                                        <input class="form-check-input" type="checkbox" id="cb" name="tanggapan2[]" value="{{$bidang->id}}" {{ (is_array(old('tanggapan2')) && in_array($bidang2->id, old('tanggapan2'))) ? ' checked' : '' }}>
+                                        <label class="form-check-label">{{$bidang->name}}</label>
                                     </div>
                                 @endforeach
                             </td>

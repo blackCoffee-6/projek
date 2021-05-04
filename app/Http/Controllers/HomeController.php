@@ -44,7 +44,7 @@ class HomeController extends Controller
             $tanggapan = FUP::whereIn('id', $arrFupId)->count();
         }
         else{
-            $tanggapan = FUP::Where('tanggapan', '=', 'perlu')->count();
+            // $tanggapan = FUP::Where('tanggapan', '=', 'perlu')->count();
             $fup = FUP::all();
         }
         
@@ -58,6 +58,7 @@ class HomeController extends Controller
         if($auth){
             $role = Auth::user()->role;
         }
-        return view('home', compact('user','fup', 'tanggapan', 'role', 'usul'));
+        // return view('home', compact('user','fup', 'tanggapan', 'role', 'usul'));
+        return view('home', compact('user','fup','role', 'usul'));
     }
 }

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Approval;
 use App\Bidang;
 use App\FUP;
-use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -22,7 +21,6 @@ class ApproveController extends Controller
         $fups = FUP::paginate(5);
         $apps = Approval::all();
         $auth = Auth::check();
-        $product = Product::all();
         $role = 'Staff';
 
         if($auth){
@@ -90,8 +88,7 @@ class ApproveController extends Controller
     {
         $fup = FUP::find($id);
         $auth = Auth::check();
-        $product = Product::all();
-        $bidang2 = Bidang::all();
+        $bidang = Bidang::all();
         $role = 'Staff';
 
         if($auth){
@@ -102,7 +99,8 @@ class ApproveController extends Controller
         $tanggapans2 = explode(",", $tanggapan2);
 
         // dd($tanggapans2);
-        return view('baca-approve', compact('fup', 'role', 'product','tanggapans2'));
+        // return view('baca-approve', compact('fup', 'role', 'product','tanggapans2'));
+        return view('baca-approve', compact('fup', 'role','tanggapans2','bidang'));
     }
 
     /**
