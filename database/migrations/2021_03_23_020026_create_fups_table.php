@@ -25,6 +25,7 @@ class CreateFupsTable extends Migration
             ->onUpdate('cascade');
             
             $table->string('no_usulan')->nullable();
+            $table->string('produk');
             $table->date('date');
             $table->string('ket_ketentuan');
             $table->string('ket_usulan');

@@ -160,91 +160,83 @@
                     </tr>
                 </tbody>
                 <thead>
-                    <tr>
-                        <td>Usulan Diterima Oleh : *)</td>
-                    </tr>
-                    <tr>
-                        <td class="text-danger">*) Diisi oleh QA</td>
-                    </tr>
-                    <tr>
-                        <th scope="col">Asman :</th>
-                        <th scope="col">Nama :</th>
-                        <th scope="col">Tanda Tangan :</th>
-                        <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <input class="form-control" type="text" name="qa_asman" value="{{$fup->qa_asman}}" placeholder="{{$fup->qa_asman}}" disabled>
-                        </td>
-                        <td>
-                            <input class="form-control" type="text" name="qa_nama" value="{{$fup->qa_nama}}" placeholder="{{$fup->qa_nama}}" disabled>
-                        </td>
-                        <td>
-                            <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
-                        </td>
-                        <td>
-                            <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="example-date-input" name="qa_date" disabled>
-                        </td>
-                    </tr>
-                </tbody>
-                <thead>
-                    <tr>
-                        <th>Perlu Tanggapan Bidang Lain :</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <input type="hidden" value="{{$fup->tanggapan}}" id="tanggapan">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check form-check-inline" type="radio" name="tanggapan" id="tidak" value="tidak" onclick="document.getElementById('tanggapan2').style.display = 'none'" disabled>
-                                <label class="form-check-label" for="tidak">Tidak</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check form-check-inline" type="radio" name="tanggapan" id="perlu" value="perlu" onclick="document.getElementById('tanggapan2').style.display = 'block'" disabled>
-                                <label class="form-check-label" for="perlu">Perlu, dari Bidang :</label>
-                            </div>
-                        </td>
-                        @if($fup->tanggapan != "tidak")
-                        <td>
-                        <!-- 
-                        di baca-approve, misal si user butuh bidang 1,5 
-                        yg tampil cuma bidang 1/R&D aja bidang 5/teknik nya ga ketampil 
-                        -->
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" disabled {{ in_array("1", $tanggapans2) ? "checked" : "" }}>
-                                <label class="form-check-label" for="inlineCheckbox1">R&D</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" disabled {{ in_array("2", $tanggapans2) ? "checked" : "" }}>
-                                <label class="form-check-label" for="inlineCheckbox1">Produksi</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" disabled {{ in_array("3", $tanggapans2) ? "checked" : "" }}>
-                                <label class="form-check-label" for="inlineCheckbox1">Pemasaran</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" disabled {{ in_array("4", $tanggapans2) ? "checked" : "" }}>
-                                <label class="form-check-label" for="inlineCheckbox1">QC</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" disabled {{ in_array("5", $tanggapans2) ? "checked" : "" }}>
-                                <label class="form-check-label" for="inlineCheckbox1">Teknik</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" disabled {{ in_array("6", $tanggapans2) ? "checked" : "" }}>
-                                <label class="form-check-label" for="inlineCheckbox1">SCM</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" disabled {{ in_array("7", $tanggapans2) ? "checked" : "" }}>
-                                <label class="form-check-label" for="inlineCheckbox1">Pengadaan</label>
-                            </div>
-                        </td>
-                        @endif
-                    </tr>
-                </tbody>
+                    <thead>
+                        <tr>
+                            <td>Usulan Diterima Oleh : *)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-danger">*) Diisi oleh QA</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Asman :</th>
+                            <th scope="col">Nama :</th>
+                            <th scope="col">Tanda Tangan :</th>
+                            <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input class="form-control @error('qa_asman') is-invalid @enderror" type="text" name="qa_asman" value="{{ old('qa_asman') }}">
+                                @error('qa_asman')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>*Asman Harus diisi!</strong>
+                                    </span>
+                                @enderror                        
+                            </td>
+                            <td>
+                                <input class="form-control @error('qa_nama') is-invalid @enderror" type="text" name="qa_nama">
+                                @error('qa_nama')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>*Nama harus diisi!</strong>
+                                    </span>
+                                @enderror                       
+                            </td>
+                            <td>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
+                            </td>
+                            <td>
+                                <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="datepicker" name="qa_date">
+                            </td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th>Perlu Tanggapan Bidang Lain :</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check form-check-inline" type="radio" name="tanggapan" id="tidak" value="tidak" onclick="document.getElementById('tanggapan2').style.display = 'none'"
+                                    {{ (old('tanggapan') == 'tidak') ? 'checked' : ''}}>
+                                    <label class="form-check-label" for="tidak">Tidak</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check form-check-inline" type="radio" name="tanggapan" id="perlu" value="perlu" onclick="document.getElementById('tanggapan2').style.display = 'block'"
+                                    {{ (old('tanggapan') == 'perlu') ? 'checked' : ''}}>
+                                    <label class="form-check-label" for="perlu">Perlu, dari Bidang :</label>
+                                </div>
+                                <br><br>
+                                <label 
+                                    @error('tanggapan') 
+                                    class="text-danger"
+                                    @enderror>@error('tanggapan')
+                                    *Tanggapan Bidang Lain harus dipilih!
+                                    @enderror
+                                </label>                             
+                            </td>
+                            <td id="tanggapan2">
+                                @foreach($bidang2 as $bidang2)
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="cb" name="tanggapan2[]" value="{{$bidang2->id}}" {{ (is_array(old('tanggapan2')) && in_array($bidang2->id, old('tanggapan2'))) ? ' checked' : '' }}>
+                                        <label class="form-check-label">{{$bidang2->name}}</label>
+                                    </div>
+                                @endforeach
+                            </td>
+                        </tr>
+                    </tbody>
             </table>
             @if($role == "approval" OR $role == "admin")
             <table class="table table-bordered">

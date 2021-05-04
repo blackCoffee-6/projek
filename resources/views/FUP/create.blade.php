@@ -57,12 +57,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <select class="form-control" name="produk">
-                                <option id="pilih" name="pilih">Pilih...</option>
-                                @foreach($product as $pro)
-                                <option value="{{$pro->id}}">{{$pro->name}}</option>
-                                @endforeach
-                            </select>
+                            <input class="form-control @error('produk') is-invalid @enderror" type="text" name="produk">
                             <label 
                                 @error('produk') 
                                 class="text-danger"
@@ -231,91 +226,28 @@
                 </tbody>
                 <thead>
                     <tr>
-                        <td>Usulan Diterima Oleh : *)</td>
-                    </tr>
-                    <tr>
-                        <td class="text-danger">*) Diisi oleh QA</td>
-                    </tr>
-                    <tr>
-                        <th scope="col">Asman :</th>
-                        <th scope="col">Nama :</th>
-                        <th scope="col">Tanda Tangan :</th>
-                        <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
+                        <td>
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1" class="font-weight-bold">Masukan File / Dokumen (*Jika diperlukan)</label>
+                                <input name="file" type="file" class="form-control-file" id="exampleFormControlFile1">
+                            </div>
+                        </td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
+                        <div class="btn-group" role="group" aria-label="Basic example">
                         <td>
-                            <input class="form-control @error('qa_asman') is-invalid @enderror" type="text" name="qa_asman" value="{{ old('qa_asman') }}">
-                            @error('qa_asman')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>*Asman Harus diisi!</strong>
-                                </span>
-                            @enderror                        
-                        </td>
-                        <td>
-                            <input class="form-control @error('qa_nama') is-invalid @enderror" type="text" name="qa_nama">
-                            @error('qa_nama')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>*Nama harus diisi!</strong>
-                                </span>
-                            @enderror                       
-                        </td>
-                        <td>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
-                        </td>
-                        <td>
-                            <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="datepicker" name="qa_date">
-                        </td>
+                            <button type="submit" class="btn btn-success my-2">Submit</button>
+                        </form>
+                            <a href="/home" type="button" class="btn btn-danger my-2 mx-2">Cancel</a>
+                        </td>    
+                        </div>
                     </tr>
                 </tbody>
-                <thead>
-                    <tr>
-                        <th>Perlu Tanggapan Bidang Lain :</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check form-check-inline" type="radio" name="tanggapan" id="tidak" value="tidak" onclick="document.getElementById('tanggapan2').style.display = 'none'"
-                                {{ (old('tanggapan') == 'tidak') ? 'checked' : ''}}>
-                                <label class="form-check-label" for="tidak">Tidak</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check form-check-inline" type="radio" name="tanggapan" id="perlu" value="perlu" onclick="document.getElementById('tanggapan2').style.display = 'block'"
-                                {{ (old('tanggapan') == 'perlu') ? 'checked' : ''}}>
-                                <label class="form-check-label" for="perlu">Perlu, dari Bidang :</label>
-                            </div>
-                            <br><br>
-                            <label 
-                                @error('tanggapan') 
-                                class="text-danger"
-                                @enderror>@error('tanggapan')
-                                *Tanggapan Bidang Lain harus dipilih!
-                                @enderror
-                            </label>                             
-                        </td>
-                        <td id="tanggapan2">
-                            @foreach($bidang2 as $bidang2)
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="cb" name="tanggapan2[]" value="{{$bidang2->id}}" {{ (is_array(old('tanggapan2')) && in_array($bidang2->id, old('tanggapan2'))) ? ' checked' : '' }}>
-                                    <label class="form-check-label">{{$bidang2->name}}</label>
-                                </div>
-                            @endforeach
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        </table>
 
-            <div class="form-group">
-                <label for="exampleFormControlFile1">Masukan File / Dokumen (Jika diperlukan)</label>
-                <input name="file" type="file" class="form-control-file" id="exampleFormControlFile1">
-            </div>
 
-            <button type="submit" class="btn btn-success my-2">Submit</button>
-    </form>
-            <a href="/home" type="button" class="btn btn-danger my-2 mx-2">Cancel</a>
         </div>
 </div>
 <script>
