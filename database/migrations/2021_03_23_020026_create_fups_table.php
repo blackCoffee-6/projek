@@ -19,10 +19,6 @@ class CreateFupsTable extends Migration
             $table->foreignId('user_id')->constrained()
             ->onDelete('cascade')
             ->onUpdate('cascade');
-
-            $table->foreignId('product_id')->constrained()
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
             
             $table->foreignId('bidang_id')->constrained()
             ->onDelete('cascade')
