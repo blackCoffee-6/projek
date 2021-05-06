@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Approval;
 use App\FUP;
 use App\Tanggapan;
 use App\FUB;
@@ -22,7 +23,8 @@ class TanggapanController extends Controller
         $user = Auth::user();
         $tanggapans = Tanggapan::all();
         
-        if(strcasecmp($user->role,'staff') == 0){
+        if($user->role == 'staff'){
+            // buat nampilin ke bidang yang di perlukan
             $fubs = FUB::where('bidang_id',$user->bidang_id)->get();
             
             $fup_id = "";
@@ -32,7 +34,7 @@ class TanggapanController extends Controller
             $arrFupId = explode(",",$fup_id);
             $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
 
-            $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->where('bidang_id',Auth::user()->bidang_id)->get();
+            $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->where('bidang_id',$user->bidang_id)->get();
         }
         else{
             $fups = FUP::where('tanggapan', 'like', 'perlu')->paginate(10);
@@ -44,7 +46,7 @@ class TanggapanController extends Controller
             $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->get();
         }
 
-        if(strcasecmp($user->role, 'Approval') == 0){
+        if($user->role == 'Approval'){
             abort(404);
         }
         

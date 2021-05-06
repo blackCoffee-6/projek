@@ -86,7 +86,7 @@
                         @endif
                       @endif
                       @endforeach
-                      @if(strcasecmp(Auth::user()->role,'staff') == 0)
+                      @if($user->role,'staff')
                         @if($buttonFlag < 1)
                           <span class="badge rounded-pill badge-secondary">Menunggu di tanggapi</span>
                         @else
