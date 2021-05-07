@@ -120,24 +120,24 @@
                         <h6 class="my-2" id="laporanregulasi">b. Jika ya, laporan ditujukan ke</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="ru_b[]" disabled id="rubbadan" value="Badan POM" 
-                                >
-                                <label class="form-check-label">Badan POM</label>
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" disabled id="regul" value="bpom" 
+                                {{ in_array("bpom", $ru_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="regult">Badan POM</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="ru_b[]" disabled id="rubkementrian" value="Kementrian Kesehatan"
-                                >
-                                <label class="form-check-label">Kementrian Kesehatan</label>
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" disabled id="regul1" value="kemkes"
+                                {{ in_array("kemkes", $ru_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="regult1">Kementrian Kesehatan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="ru_b[]" disabled id="rubbalai" value="Balai POM"
-                                {{ in_array("Balai POM", $ru_bs) ? "checked" : "" }}>
-                                <label class="form-check-label">Balai POM</label>
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" disabled id="regul2" value="bapom"
+                                {{ in_array("bapom", $ru_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="regult2">Balai POM</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="ru_b[]" disabled id="rubelse" value="regulasielse"
-                                >
-                                <input type="text" class="form-control" aria-label="Default" disabled aria-describedby="inputGroup-sizing-default">
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" disabled id="regul3" value="regulasielse"
+                                {{ in_array("regulasielse", $ru_bb) ? "checked" : "" }}>
+                                <input type="text" class="form-control" id="regult3">
                             </div>
                         </div>
                     </td>
@@ -148,8 +148,9 @@
             </tbody>
             <tbody>
                 <tr>
-                    <td>2</td>
-                    <td>Registrasi</td>
+                    {{-- REGISTRASI --}}
+                    <td><center> 2</center></td>
+                    <td><center> Registrasi</center></td>
                     <td>
                         <h6>a. Mempengaruhi status ijin edar</h6>
                         <input type="hidden" value="{{$kajians->ri_a}}" disabled id="ria">
@@ -165,20 +166,20 @@
                             <input class="form-check-input" type="radio" name="ri_a" disabled id="riana" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, perubahan</h6>
+                        <h6 class="my-2" id="laporanregistrasi">b. Jika ya, perubahan</h6>
                         <div class="d-inline">
                             <input type="hidden" value="{{$kajians->ri_b}}" disabled id="rib">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ri_b" disabled id="ribperlu" value="perlu">
-                                <label class="form-check-label">Perlu memperoleh persetujuan BPOM terlebih dahulu</label>
+                                <input class="form-check-input" type="radio" name="ri_b" disabled id="ribperlu" value="Perlu Persetujuan">
+                                <label class="form-check-label" id="ribperlu1">Perlu memperoleh persetujuan BPOM terlebih dahulu</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ri_b" disabled id="ribijin" value="ijin">
-                                <label class="form-check-label">Ijin BPOM dapat disubmit setelah perubahan terjadi</label>
+                                <input class="form-check-input" type="radio" name="ri_b" disabled id="ribijin" value="Setelah Perubahan">
+                                <label class="form-check-label" id="ribijin1">Ijin BPOM dapat disubmit setelah perubahan terjadi</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ri_b" disabled id="ribtelah" value="telah">
-                                <label class="form-check-label">Telah memperoleh persetujuan BPOM</label>
+                                <input class="form-check-input" type="radio" name="ri_b" disabled id="ribtelah" value="Telah Persetujuan">
+                                <label class="form-check-label" id="ribtelah1">Telah memperoleh persetujuan BPOM</label>
                             </div>
                         </div>
                     </td>
@@ -188,9 +189,10 @@
                 </tr>
             </tbody>
             <tbody>
+                {{-- STABILITAS --}}
                 <tr>
-                    <td>3</td>
-                    <td>Stabilitas</td>
+                    <td><center> 3</center></td>
+                    <td><center> Stabilitas</center></td>
                     <td>
                         <h6>a. Mempengaruhi stabilitas</h6>
                         <input type="hidden" value="{{$kajians->st_a}}" disabled id="sta">
@@ -206,16 +208,27 @@
                             <input class="form-check-input" type="radio" name="st_a" disabled id="stana" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, perlu dilakukan uji stabilitas</h6>
+                        <h6 class="my-2" id="laporanst">b. Jika ya, perlu dilakukan uji stabilitas</h6>
                         <div class="d-inline">
-                            <input type="hidden" value="{{$kajians->st_b}}" disabled id="stb">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="st_b" disabled id="stbdiper" value="dipercepat">
-                                <label class="form-check-label">Dipercepat</label>
+                                <input class="form-check-input" type="checkbox" name="st_b[]" disabled id="stabil" value="Dipercepat"
+                                {{ in_array("Dipercepat", $st_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="stabilt">Dipercepat</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="st_b" disabled id="stbjangka" value="jangka">
-                                <label class="form-check-label">Jangka Panjang</label>
+                                <input class="form-check-input" type="checkbox" name="st_b[]" disabled id="stabil1" value="Jangka Panjang"
+                                {{ in_array("Jangka Panjang", $st_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="stabilt1">Jangka Panjang</label>
+                            </div>
+                            <div class="form-check font-italic">
+                                <input class="form-check-input" type="checkbox" name="st_b[]" disabled id="stabil2" value="Stress"
+                                {{ in_array("Stress", $st_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="stabilt2">Stress test</label>
+                            </div>
+                            <div class="form-check font-italic">
+                                <input class="form-check-input" type="checkbox" name="st_b[]" disabled id="stabil3" value="Stability"
+                                {{ in_array("Stability", $st_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="stabilt3">In Use Stability</label>
                             </div>
                         </div>
                     </td>
@@ -225,9 +238,41 @@
                 </tr>
             </tbody>
             <tbody>
+                {{-- PENGUJIAN --}}
                 <tr>
-                    <td>4</td>
-                    <td>Masa Edar</td>
+                    <td><center> 4</center></td>
+                    <td><center> Pengujian</center></td>
+                    <td>
+                        <h6>a. Memerlukan pengujian</h6>
+                        <input type="hidden" value="{{$kajians->pj_a}}" disabled id="pja">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="pj_a" disabled id="pjya" value="ya">
+                            <label class="form-check-label">Ya</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="pj_a" disabled id="pjtidak" value="tidak">
+                            <label class="form-check-label">Tidak</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="pj_a" disabled id="pjna" value="na">
+                            <label class="form-check-label">NA</label>
+                        </div>
+                        <h6 class="my-2" id="laporanpj">b. Jika ya, sebutkan pengujian yang diperlukan</h6>
+                        <div class="d-inline">
+                            <div class="form-check">
+                                <input type="hidden" value="{{$kajians->pj_b}}" id="pjb">
+                                <input class="form-check-input" type="radio" name="pj_b" id="dokp" value="dok1" disabled>
+                                <textarea name="dokumen" id="pjt" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                {{-- MASA EDAR --}}
+                <tr>
+                    <td><center> 5</center></td>
+                    <td><center> Masa Edar</center></td>
                     <td>
                         <h6>a. Mempengaruhi masa edar / daluwarsa</h6>
                         <input type="hidden" value="{{$kajians->me_a}}" disabled id="mea">
@@ -250,9 +295,10 @@
                 </tr>
             </tbody>
             <tbody>
+                {{-- VALIDASI / KUALIFIKASI --}}
                 <tr>
-                    <td>5</td>
-                    <td>Validasi / Kualifikasi</td>
+                    <td><center> 6</center></td>
+                    <td><center> Validasi / Kualifikasi</center></td>
                     <td>
                         <h6>a. Mempengaruhi status validasi / kualifikasi</h6>
                         <input type="hidden" value="{{$kajians->val_a}}" disabled id="vala">
@@ -268,36 +314,42 @@
                             <input class="form-check-input" type="radio" name="val_a" disabled id="valana" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, jenis validasi / kualifikasi</h6>
-                        <input type="hidden" value="{{$kajians->val_b}}" disabled id="valb">
+                        <h6 class="my-2" id="laporanval">b. Jika ya, jenis validasi / kualifikasi</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" disabled id="valb1" value="pengolahan">
-                                <label class="form-check-label">Validasi Pengolahan</label>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" disabled id="valda" value="pengolahan"
+                                {{ in_array("pengolahan", $val_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="valdat">Validasi Pengolahan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" disabled id="valb2" value="pembersihan">
-                                <label class="form-check-label">Validasi Pembersihan</label>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" disabled id="valda1" value="pembersihan"
+                                {{ in_array("pembersihan", $val_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="valdat1">Validasi Pembersihan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" disabled id="valb3" value="instalasi">
-                                <label class="form-check-label">Kualifikasi Instalasi</label>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" disabled id="valda2" value="instalasi"
+                                {{ in_array("instalasi", $val_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="valdat2">Kualifikasi Instalasi</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" disabled id="valb4" value="kinerja">
-                                <label class="form-check-label">Kualifikasi Kinerja</label>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" disabled id="valda3" value="kinerja"
+                                {{ in_array("kinerja", $val_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="valdat3">Kualifikasi Kinerja</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" disabled id="valb5" value="pengemasan">
-                                <label class="form-check-label">Validasi Pengemasan</label>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" disabled id="valda4" value="pengemasan"
+                                {{ in_array("pengemasan", $val_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="valdat4">Validasi Pengemasan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" disabled id="valb6" value="analisa">
-                                <label class="form-check-label">Validasi Metode Analisa</label>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" disabled id="valda5" value="analisa"
+                                {{ in_array("analisa", $val_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="valdat5">Validasi Metode Analisa</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" disabled id="valb7" value="operasional">
-                                <label class="form-check-label">Kualifikasi Operasional</label>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" disabled id="valda6" value="operasional"
+                                {{ in_array("operasional", $val_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="valdat6">Kualifikasi Operasional</label>
                             </div>
                         </div>
                     </td>
@@ -307,9 +359,10 @@
                 </tr>
             </tbody>
             <tbody>
+                {{-- TRIAL --}}
                 <tr>
-                    <td>6</td>
-                    <td>Trial</td>
+                    <td><center> 7</center></td>
+                    <td><center> Trial</center></td>
                     <td>
                         <h6>a. Perlu dilakukan trial</h6>
                         <input type="hidden" value="{{$kajians->tr_a}}" disabled id="tra">
@@ -325,20 +378,22 @@
                             <input class="form-check-input" type="radio" name="tr_a" disabled id="trana" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, dilakukan trial skala</h6>
-                        <input type="hidden" value="{{$kajians->tr_b}}" disabled id="trb">
+                        <h6 class="my-2" id="laporantrial">b. Jika ya, dilakukan trial skala</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tr_b" disabled id="trb1" value="lab">
-                                <label class="form-check-label">Laboratorium</label>
+                                <input class="form-check-input" type="checkbox" name="tr_b[]" disabled id="tri" value="lab"
+                                {{ in_array("lab", $tr_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="trit">Laboratorium</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tr_b" disabled id="trb2" value="pilot">
-                                <label class="form-check-label">Pilot</label>
+                                <input class="form-check-input" type="checkbox" name="tr_b" disabled id="tri1" value="pilot"
+                                {{ in_array("pilot", $tr_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="trit1">Pilot</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tr_b" disabled id="trb3" value="komersial">
-                                <label class="form-check-label">Komersial</label>
+                                <input class="form-check-input" type="checkbox" name="tr_b" disabled id="tri2" value="komersial"
+                                {{ in_array("komersial", $tr_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="trit2">Komersial</label>
                             </div>
                         </div>
                     </td>
@@ -348,9 +403,10 @@
                 </tr>
             </tbody>
             <tbody>
+                {{-- PRODUKSI --}}
                 <tr>
-                    <td>7</td>
-                    <td>Produksi</td>
+                    <td><center> 8</center></td>
+                    <td><center> Produksi</center></td>
                     <td>
                         <h6>a. Perlu pemeriksaan tambahan</h6>
                         <input type="hidden" value="{{$kajians->pr_a}}" disabled id="pra">
@@ -366,20 +422,12 @@
                             <input class="form-check-input" type="radio" name="pr_a" disabled id="prana" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, sebutkan pemeriksaan tambahan yang diperlukan</h6>
+                        <h6 class="my-2" id="laporanpro">b. Jika ya, sebutkan pemeriksaan tambahan yang diperlukan</h6>
                         <input type="hidden" value="{{$kajians->pr_dok}}" id="prdok">
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pr_dok" id="prdok1" disabled value="dok1">
-                                <input type="text" class="form-control" aria-label="Default" disabled aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="form-check my-2">
-                                <input class="form-check-input" type="radio" name="pr_dok" id="prdok2" disabled value="dok2">
-                                <input type="text" class="form-control" aria-label="Default" disabled aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pr_dok" id="prdok3" disabled value="dok3">
-                                <input type="text" class="form-control" aria-label="Default" disabled aria-describedby="inputGroup-sizing-default">
+                                <input class="form-check-input" type="radio" name="pr_dok" id="pro" disabled value="dok1">
+                                <textarea name="dokumen" id="prot" class="form-control"></textarea>
                             </div>
                         </div>
                     </td>
@@ -389,9 +437,10 @@
                 </tr>
             </tbody>
             <tbody>
+                {{-- DOKUMEN --}}
                 <tr>
-                    <td>8</td>
-                    <td>Dokumen</td>
+                    <td><center> 9</center></td>
+                    <td><center> Dokumen</center></td>
                     <td>
                         <h6>a. Perlu pembuatan / perubahan dokumen</h6>
                         <input type="hidden" value="{{$kajians->dok_a}}" id="doka">
@@ -407,20 +456,12 @@
                             <input class="form-check-input" type="radio" name="dok_a" disabled id="dokana" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, sebutkan dokumen yang dibuat / diubah</h6>
+                        <h6 class="my-2" id="laporandok">b. Jika ya, sebutkan dokumen yang dibuat / diubah</h6>
                         <input type="hidden" value="{{$kajians->dok_b}}" id="dokb">
                         <div class="d-inline">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="dok_b" disabled id="dokb1" value="dok1">
-                                <input disabled type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="form-check my-2">
-                                <input class="form-check-input" type="radio" name="dok_b" disabled id="dokb2" value="dok2">
-                                <input disabled type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="dok_b" disabled id="dokb3" value="dok3">
-                                <input disabled type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <textarea name="dokt" id="dokt" class="form-control"></textarea>
                             </div>
                         </div>
                     </td>
@@ -430,9 +471,36 @@
                 </tr>
             </tbody>
             <tbody>
+                {{-- DESAIN KEMASAN --}}
                 <tr>
-                    <td>9</td>
-                    <td>Sistem ERP</td>
+                    <td><center> 10</center></td>
+                    <td><center> Desain Kemasan</center></td>
+                    <td>
+                        <h6>a. Memerlukan Artwork Desain</h6>
+                        <input type="hidden" value="{{$kajians->dk_a}}" id="dka">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="dk_a" disabled id="dkya" value="ya">
+                            <label class="form-check-label">Ya</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="dk_a" disabled id="dktidak" value="tidak">
+                            <label class="form-check-label">Tidak</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="dk_a" disabled id="dkna" value="na">
+                            <label class="form-check-label">NA</label>
+                        </div> 
+                    </td>
+                    <td>
+                        <textarea name="dk_ket" id="dk_ket" class="form-control" disabled>{{$kajians->dk_ket}}</textarea>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                {{-- SISTEM ERP --}}
+                <tr>
+                    <td><center> 11</center></td>
+                    <td><center> Sistem ERP</center></td>
                     <td>
                         <h6>a. Mempengaruhi sistem ERP</h6>
                         <input type="hidden" value="{{$kajians->si_a}}" id="sia">
@@ -458,7 +526,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>C. kajian Tambahan Terhadap Dampak Atas Usulan Perubahan *(jika diperlukan)</th>
+                    <th>C. Kajian Tambahan Terhadap Dampak Atas Usulan Perubahan *(jika diperlukan)</th>
                 </tr>
             </thead>
             <tbody>
@@ -857,32 +925,15 @@
                     <th scope="col"></th>
                     <th scope="col">Jabatan</th>
                     <th scope="col">Nama</th>
-                    <th scope="col">Tanda Tangan</th>
                     <th scope="col">Tanggal</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Dikaji oleh</td>
-                    <td>QA Specialist</td>
-                    <td>
-                        <input type="text" class="form-control" placeholder="Sertakan Nama" id="qa_nama" name="qa_nama" value="{{$kajians->qa_nama}}" disabled>
-                    </td>
-                    <td>
-                        <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
-                    </td>
-                    <td>
-                        <input class="form-control" type="date" value="{{$kajians->qa_date}}" id="qa_date" name="qa_date" disabled>
-                    </td>
-                </tr>
-                <tr>
                     <td>Diperiksa oleh</td>
                     <td>Asman Prod. Eval.</td>
                     <td>
                         <input type="text" class="form-control" placeholder="Sertakan Nama" id="asman_nama" name="asman_nama" value="{{$kajians->asman_nama}}" disabled>
-                    </td>
-                    <td>
-                        <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
                         <input class="form-control" type="date" value="{{$kajians->asman_date}}" id="asman_date" name="asman_date" disabled>
@@ -893,9 +944,6 @@
                     <td>QA Specialist</td>
                     <td>
                         <input type="text" class="form-control" placeholder="Sertakan Nama" id="aq_nama" name="aq_nama" value="{{$kajians->aq_nama}}" disabled>
-                    </td>
-                    <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
                     </td>
                     <td>
                         <input class="form-control" type="date" value="{{$kajians->aq_date}}" id="aq_date" name="aq_date" disabled>
@@ -1006,53 +1054,89 @@
     var value = $('#rua').val()
     if(value === 'ya'){
         $("#ruaya").attr('checked', 'checked');
+
+        $('#laporanregulasi').css('display', 'block');
+        $('#regul').css('display', 'block');
+        $('#regul1').css('display', 'block');
+        $('#regul2').css('display', 'block');
+        $('#regul3').css('display', 'block');
+        $('#regult').css('display', 'block');
+        $('#regult1').css('display', 'block');
+        $('#regult2').css('display', 'block');
+        $('#regult3').css('display', 'block');
     }
     else if(value === 'tidak'){
         $("#ruatidak").attr('checked', 'checked');
+
+        $('#laporanregulasi').css('display', 'none');
+        $('#regul').css('display', 'none');
+        $('#regul1').css('display', 'none');
+        $('#regul2').css('display', 'none');
+        $('#regul3').css('display', 'none');
+        $('#regult').css('display', 'none');
+        $('#regult1').css('display', 'none');
+        $('#regult2').css('display', 'none');
+        $('#regult3').css('display', 'none');
     }
     else{
         $("#ruana").attr('checked', 'checked');
-    }
-    
-    //ru_b
-    // var value = $('#rub').val()
-    // if(value === 'badan'){
-    //     $("#rubbadan").attr('checked', 'checked');
-    // }
-    // else if(value === 'kementrian'){
-    //     $("#rubkementrian").attr('checked', 'checked');
-    // }
-    // else if(value === 'balai'){
-    //     $("#rubbalai").attr('checked', 'checked');
-    // }
-    // else if(value === 'else'){
-    //     $("#rubelse").attr('checked', 'checked');
-    // }
-    // else{
 
-    // }
+        $('#laporanregulasi').css('display', 'none');
+        $('#regul').css('display', 'none');
+        $('#regul1').css('display', 'none');
+        $('#regul2').css('display', 'none');
+        $('#regul3').css('display', 'none');
+        $('#regult').css('display', 'none');
+        $('#regult1').css('display', 'none');
+        $('#regult2').css('display', 'none');
+        $('#regult3').css('display', 'none');
+    }
 
     //ri_a
     var value = $('#ria').val()
     if(value === 'ya'){
         $("#riaya").attr('checked', 'checked');
+
+        $('#laporanregistrasi').css('display', 'block');
+        $('#ribperlu').css('display', 'block');
+        $('#ribijin').css('display', 'block');
+        $('#ribtelah').css('display', 'block');
+        $('#ribperlu1').css('display', 'block');
+        $('#ribijin1').css('display', 'block');
+        $('#ribtelah1').css('display', 'block');
     }
     else if(value === 'tidak'){
         $("#riatidak").attr('checked', 'checked');
+
+        $('#laporanregistrasi').css('display', 'none');
+        $('#ribperlu').css('display', 'none');
+        $('#ribijin').css('display', 'none');
+        $('#ribtelah').css('display', 'none');
+        $('#ribperlu1').css('display', 'none');
+        $('#ribijin1').css('display', 'none');
+        $('#ribtelah1').css('display', 'none');
     }
     else{
         $("#riana").attr('checked', 'checked');
+
+        $('#laporanregistrasi').css('display', 'none');
+        $('#ribperlu').css('display', 'none');
+        $('#ribijin').css('display', 'none');
+        $('#ribtelah').css('display', 'none');
+        $('#ribperlu1').css('display', 'none');
+        $('#ribijin1').css('display', 'none');
+        $('#ribtelah1').css('display', 'none');
     }
 
-    ri_b
+    //ri_b
     var value = $('#rib').val()
-    if(value === 'perlu'){
+    if(value === 'Perlu Persetujuan'){
         $("#ribperlu").attr('checked', 'checked');
     }
-    else if(value === 'ijin'){
+    else if(value === 'Setelah Perubahan'){
         $("#ribijin").attr('checked', 'checked');
     }
-    else if(value === 'telah'){
+    else if(value === 'Telah Persetujuan'){
         $("#ribtelah").attr('checked', 'checked');
     }
     else{
@@ -1063,21 +1147,71 @@
     var value = $('#sta').val()
     if(value === 'ya'){
         $("#staya").attr('checked', 'checked');
+
+        $('#laporanst').css('display', 'block');
+        $('#stabil').css('display', 'block');
+        $('#stabil1').css('display', 'block');
+        $('#stabil2').css('display', 'block');
+        $('#stabil3').css('display', 'block');
+        $('#stabilt').css('display', 'block');
+        $('#stabilt1').css('display', 'block');
+        $('#stabilt2').css('display', 'block');
+        $('#stabilt3').css('display', 'block');
     }
     else if(value === 'tidak'){
         $("#statidak").attr('checked', 'checked');
+
+        $('#laporanst').css('display', 'none');
+        $('#stabil').css('display', 'none');
+        $('#stabil1').css('display', 'none');
+        $('#stabil2').css('display', 'none');
+        $('#stabil3').css('display', 'none');
+        $('#stabilt').css('display', 'none');
+        $('#stabilt1').css('display', 'none');
+        $('#stabilt2').css('display', 'none');
+        $('#stabilt3').css('display', 'none');
     }
     else{
         $("#stana").attr('checked', 'checked');
+        $('#laporanst').css('display', 'none');
+        $('#stabil').css('display', 'none');
+        $('#stabil1').css('display', 'none');
+        $('#stabil2').css('display', 'none');
+        $('#stabil3').css('display', 'none');
+        $('#stabilt').css('display', 'none');
+        $('#stabilt1').css('display', 'none');
+        $('#stabilt2').css('display', 'none');
+        $('#stabilt3').css('display', 'none');
     }
 
-    //st_b
-    var value = $('#stb').val()
-    if(value === 'dipercepat'){
-        $("#stbdiper").attr('checked', 'checked');
+    //pj_a
+    var value = $('#pja').val()
+    if(value == 'ya'){
+        $("#pjya").attr('checked', 'checked');
+
+        $('#laporanpj').css('display', 'block');
+        $('#dokp').css('display', 'block');
+        $('#pjt').css('display', 'block');
     }
-    else if(value === 'jangka'){
-        $("#stbjangka").attr('checked', 'checked');
+    else if(value == 'tidak'){
+        $("#pjtidak").attr('checked', 'checked');
+
+        $('#laporanpj').css('display', 'none');
+        $('#dokp').css('display', 'none');
+        $('#pjt').css('display', 'none');
+    }
+    else{
+        $("#pjna").attr('checked', 'checked');
+
+        $('#laporanpj').css('display', 'none');
+        $('#dokp').css('display', 'none');
+        $('#pjt').css('display', 'none');
+    }
+
+    //pj_b
+    var value = $('#pjb').val()
+    if(value == 'dok1'){
+        $("#dokp").attr('checked', 'checked');
     }
     else{
 
@@ -1099,12 +1233,60 @@
     var value = $('#vala').val()
     if(value === 'ya'){
         $("#valaya").attr('checked', 'checked');
+
+        $('#laporanval').css('display', 'block');
+        $('#valda').css('display', 'block');
+        $('#valda1').css('display', 'block');
+        $('#valda2').css('display', 'block');
+        $('#valda3').css('display', 'block');
+        $('#valda4').css('display', 'block');
+        $('#valda5').css('display', 'block');
+        $('#valda6').css('display', 'block');
+        $('#valdat').css('display', 'block');
+        $('#valdat1').css('display', 'block');
+        $('#valdat2').css('display', 'block');
+        $('#valdat3').css('display', 'block');
+        $('#valdat4').css('display', 'block');
+        $('#valdat5').css('display', 'block');
+        $('#valdat6').css('display', 'block');
     }
     else if(value === 'tidak'){
         $("#valatidak").attr('checked', 'checked');
+
+        $('#laporanval').css('display', 'none');
+        $('#valda').css('display', 'none');
+        $('#valda1').css('display', 'none');
+        $('#valda2').css('display', 'none');
+        $('#valda3').css('display', 'none');
+        $('#valda4').css('display', 'none');
+        $('#valda5').css('display', 'none');
+        $('#valda6').css('display', 'none');
+        $('#valdat').css('display', 'none');
+        $('#valdat1').css('display', 'none');
+        $('#valdat2').css('display', 'none');
+        $('#valdat3').css('display', 'none');
+        $('#valdat4').css('display', 'none');
+        $('#valdat5').css('display', 'none');
+        $('#valdat6').css('display', 'none');
     }
     else{
         $("#valana").attr('checked', 'checked');
+
+        $('#laporanval').css('display', 'none');
+        $('#valda').css('display', 'none');
+        $('#valda1').css('display', 'none');
+        $('#valda2').css('display', 'none');
+        $('#valda3').css('display', 'none');
+        $('#valda4').css('display', 'none');
+        $('#valda5').css('display', 'none');
+        $('#valda6').css('display', 'none');
+        $('#valdat').css('display', 'none');
+        $('#valdat1').css('display', 'none');
+        $('#valdat2').css('display', 'none');
+        $('#valdat3').css('display', 'none');
+        $('#valdat4').css('display', 'none');
+        $('#valdat5').css('display', 'none');
+        $('#valdat6').css('display', 'none');
     }
 
     //val_b
@@ -1138,12 +1320,36 @@
     var value = $('#tra').val()
     if(value === 'ya'){
         $("#traya").attr('checked', 'checked');
+
+        $('#laporantrial').css('display', 'block');
+        $('#tri').css('display', 'block');
+        $('#tri1').css('display', 'block');
+        $('#tri2').css('display', 'block');
+        $('#trit').css('display', 'block');
+        $('#trit1').css('display', 'block');
+        $('#trit2').css('display', 'block');
     }
     else if(value === 'tidak'){
         $("#tratidak").attr('checked', 'checked');
+
+        $('#laporantrial').css('display', 'none');
+        $('#tri').css('display', 'none');
+        $('#tri1').css('display', 'none');
+        $('#tri2').css('display', 'none');
+        $('#trit').css('display', 'none');
+        $('#trit1').css('display', 'none');
+        $('#trit2').css('display', 'none');
     }
     else{
         $("#trana").attr('checked', 'checked');
+
+        $('#laporantrial').css('display', 'none');
+        $('#tri').css('display', 'none');
+        $('#tri1').css('display', 'none');
+        $('#tri2').css('display', 'none');
+        $('#trit').css('display', 'none');
+        $('#trit1').css('display', 'none');
+        $('#trit2').css('display', 'none');
     }
 
     //tr_b
@@ -1165,39 +1371,69 @@
     var value = $('#pra').val()
     if(value === 'ya'){
         $("#praya").attr('checked', 'checked');
+
+        $('#laporanpro').css('display', 'block');
+        $('#pro').css('display', 'block');
+        $('#prot').css('display', 'block');
     }
     else if(value === 'tidak'){
         $("#pratidak").attr('checked', 'checked');
+
+        $('#laporanpro').css('display', 'none');
+        $('#pro').css('display', 'none');
+        $('#prot').css('display', 'none');
     }
     else{
         $("#prana").attr('checked', 'checked');
+
+        $('#laporanpro').css('display', 'none');
+        $('#pro').css('display', 'none');
+        $('#prot').css('display', 'none');
     }
 
     //pr_dok
     var value = $('#prdok').val()
     if(value === 'dok1'){
-        $("#prdok1").attr('checked', 'checked');
-    }
-    else if(value === 'dok2'){
-        $("#prdok2").attr('checked', 'checked');
-    }
-    else if(value === 'dok3'){
-        $("#prdok3").attr('checked', 'checked');
+        $("#pro").attr('checked', 'checked');
     }
     else{
 
+    }
+
+    //dk_a
+    var value = $('#dka').val()
+    if(value === 'ya'){
+        $("#dkya").attr('checked', 'checked');
+    }
+    else if(value === 'tidak'){
+        $("#dktidak").attr('checked', 'checked');
+    }
+    else{
+        $("#dkna").attr('checked', 'checked');
     }
 
     //dok_a
     var value = $('#doka').val()
     if(value === 'ya'){
         $("#dokaya").attr('checked', 'checked');
+
+        $('#laporandok').css('display', 'block');
+        $('#dokb1').css('display', 'block');
+        $('#dokt').css('display', 'block');
     }
     else if(value === 'tidak'){
         $("#dokatidak").attr('checked', 'checked');
+
+        $('#laporandok').css('display', 'none');
+        $('#dokb1').css('display', 'none');
+        $('#dokt').css('display', 'none');
     }
     else{
         $("#dokana").attr('checked', 'checked');
+
+        $('#laporandok').css('display', 'none');
+        $('#dokb1').css('display', 'none');
+        $('#dokt').css('display', 'none');
     }
 
     //dok_b

@@ -127,13 +127,10 @@ class KajianController extends Controller
         $ket_up = $kajians->ket_up;
         $ket_ups = explode("," , $ket_up);
 
-        $ru_b = $kajians->ru_b;
-        $ru_bs = explode("," , $ru_b);
-
         $ch_dis = $kajians->ch_dis;
         $ch_diss = explode("," , $ch_dis);
 
-        return view('editKajian', compact('role', 'kajians', 'ket_ups', 'ru_bs', 'ch_diss'));
+        return view('editKajian', compact('role', 'kajians', 'ket_ups', 'ru_bb', 'ch_diss'));
     }
 
     /**
@@ -233,10 +230,21 @@ class KajianController extends Controller
         $ket_up = $kajians->ket_up;
         $ket_ups = explode("," , $ket_up);
 
+        $ru_b = $kajians->ru_b;
+        $ru_bb = explode("," , $ru_b);
+
+        $st_b = $kajians->st_b;
+        $st_bb = explode("," , $st_b);
+
+        $val_b = $kajians->val_b;
+        $val_bb = explode("," , $val_b);
+
+        $tr_b = $kajians->tr_b;
+        $tr_bb = explode("," , $tr_b);
+
         $ch_dis = $kajians->ch_dis;
         $ch_diss = explode("," , $ch_dis);
 
-        // dd($ket_ups);
-        return view('baca-kajian', compact('kajians','ket_ups','ch_diss'));
+        return view('baca-kajian', compact('kajians', 'ru_bb', 'ket_ups', 'st_bb', 'val_bb', 'tr_bb','ch_diss'));
     }
 }

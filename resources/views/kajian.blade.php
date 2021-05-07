@@ -117,15 +117,15 @@
                         <h6 class="my-2" id="laporanregulasi">b. Jika ya, laporan ditujukan ke</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul" value="Badan POM" {{ (is_array(old('ru_b')) && in_array("Badan POM", old('ru_b'))) ? ' checked' : '' }}>
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul" value="bpom" {{ (is_array(old('ru_b')) && in_array("bpom", old('ru_b'))) ? ' checked' : '' }}>
                                 <label class="form-check-label" id="regult">Badan POM</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul1" value="Kementrian Kesehatan" {{ (is_array(old('ru_b')) && in_array("Kementrian Kesehatan", old('ru_b'))) ? ' checked' : '' }}>
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul1" value="kemkes" {{ (is_array(old('ru_b')) && in_array("kemkes", old('ru_b'))) ? ' checked' : '' }}>
                                 <label class="form-check-label" id="regult1">Kementrian Kesehatan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul2" value="Balai POM" {{ (is_array(old('ru_b')) && in_array("Balai POM", old('ru_b'))) ? ' checked' : '' }}>
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul2" value="bapom" {{ (is_array(old('ru_b')) && in_array("bapom", old('ru_b'))) ? ' checked' : '' }}>
                                 <label class="form-check-label" id="regult2">Balai POM</label>
                             </div>
                             <div class="form-check">
