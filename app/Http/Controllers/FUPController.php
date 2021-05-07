@@ -65,7 +65,7 @@ class FUPController extends Controller
             $request->request->add(['file' => ""]);            
         }
 
-        $fup_id = FUP::create($request->all())->id;
+        FUP::create($request->all());
 
         // if($request->tanggapan != "tidak"){
         //     $arrTanggapan = explode(",",$tanggapan2);
@@ -96,7 +96,14 @@ class FUPController extends Controller
         $apps = Approval::all();
         $user = Auth::user();
         
-        return view('FUP.index', compact('fups','apps','user'));
+        $auth = Auth::check();
+        $role = 'Staff';
+
+        if($auth){
+            $role = Auth::user()->role;
+        }
+        
+        return view('FUP.index', compact('fups','apps','user','role'));
     }
     
     public function edit($id)

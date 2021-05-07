@@ -146,6 +146,9 @@
                         </td>
                     </tr>
                 </tbody>
+                @if(Auth::user()->role == "approval" OR Auth::user()->role == "Admin")
+                <form action="/store/{{$fup->id}}" method="post">
+                    @csrf
                 <thead>
                     <thead>
                         <tr>
@@ -221,7 +224,6 @@
                         </tr>
                     </tbody>
             </table>
-            @if($role == "approval" OR $role == "Admin")
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -229,8 +231,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                <form action="/store/{{$fup->id}}" method="post">
-                    @csrf
                     <tr>
                         <td>
                             <div class="form-check form-check-inline">
@@ -265,13 +265,13 @@
         $("#sementara").attr('checked', 'checked');
     }
 
-    var value = $('#tanggapan').val()
-    if(value === 'tidak'){
-        $("#tidak").attr('checked', 'checked');
-    }
-    else{
-        $("#perlu").attr('checked', 'checked');
-    }
+    // var value = $('#tanggapan').val()
+    // if(value === 'tidak'){
+    //     $("#tidak").attr('checked', 'checked');
+    // }
+    // else{
+    //     $("#perlu").attr('checked', 'checked');
+    // }
 
 </script>
 

@@ -16,6 +16,11 @@ class CreateApprovalsTable extends Migration
         Schema::create('approvals', function (Blueprint $table) {
             $table->id();
             $table->foreignId('fup_id')->constrained()->onDelete('cascade');
+            $table->string('qa_asman');
+            $table->string('qa_nama');
+            $table->string('qa_date');
+            $table->string('tanggapan');
+            $table->string('tanggapan2');
             $table->string('decision');
             $table->rememberToken();
             $table->timestamps();

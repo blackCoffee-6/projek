@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTrFupBidangTable extends Migration
+class CreateTrApprovalBidangTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTrFupBidangTable extends Migration
      */
     public function up()
     {
-        Schema::create('tr_fup_bidang', function (Blueprint $table) {
+        Schema::create('tr_approval_bidang', function (Blueprint $table) {
             $table->id();
 
             $table->foreignId('fup_id')->constrained('fups')
@@ -23,7 +23,7 @@ class CreateTrFupBidangTable extends Migration
             $table->foreignId('bidang_id')->constrained('bidangs')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-
+            
             $table->timestamps();
         });
     }
@@ -35,6 +35,6 @@ class CreateTrFupBidangTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tr_fup_bidang');
+        Schema::dropIfExists('tr_approval_bidang');
     }
 }

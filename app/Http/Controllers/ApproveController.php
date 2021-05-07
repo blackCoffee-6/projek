@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Approval;
 use App\Bidang;
+use App\FUB;
 use App\FUP;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,20 +49,50 @@ class ApproveController extends Controller
      */
     public function store(Request $request, $id)
     {
-        // dd($request->decision);
+        // dd($request);
         $request->validate([
             'decision'=>'required'
         ]);
 
+        if($request->tanggapan != "tidak"){
+            $tanggapan2 = implode(',', $request->tanggapan2);
+            $request->request->add(['tanggapan2' => $tanggapan2]);
+        }
+
         $app = Approval::where('fup_id',$id)->first();
         if($app != null){
+            // kalo fup udah di approve
             Approval::where('fup_id',$id)->update([
-                'decision'=>$request->decision
+                'decision'=>$request->decision,
+                'qa_asman'=>$request->qa_asman,
+                'qa_nama'=>$request->qa_nama,
+                'qa_date'=>$request->qa_date,
+                'tanggapan'=>$request->tanggapan,
+                'tanggapan2'=>$request->tanggapan2,
             ]);
         }
         else{
+            // kalo fup belom di approve
             $request->request->add(['fup_id' => $id]);
             Approval::create($request->all());    
+        }
+
+        if($request->tanggapan != "tidak"){
+            $arrTanggapan = explode(",",$tanggapan2);
+            if(count($arrTanggapan) > 1){
+                foreach($arrTanggapan as $tanggapan){
+                    FUB::create([
+                        'fup_id'=>$id,
+                        'bidang_id'=>$tanggapan
+                    ]);
+                }
+            }
+            else{
+                FUB::create([
+                    'fup_id'=>$id,
+                    'bidang_id'=>$request->tanggapan2
+                ]);
+            }
         }
         Alert::success('Success', "Status Updated Successfully!");
         return redirect('/approve');
@@ -99,7 +130,6 @@ class ApproveController extends Controller
         $tanggapans2 = explode(",", $tanggapan2);
 
         // dd($tanggapans2);
-        // return view('baca-approve', compact('fup', 'role', 'product','tanggapans2'));
         return view('baca-approve', compact('fup', 'role','tanggapans2','bidang'));
     }
 
