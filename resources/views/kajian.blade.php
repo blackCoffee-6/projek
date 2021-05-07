@@ -95,6 +95,7 @@
                 </tr>
             </thead>
             <tbody>
+                {{-- REGULASI --}}
                 <tr>
                     <td align="center">1</td>
                     <td align="center">Regulasi</td>
@@ -116,20 +117,20 @@
                         <h6 class="my-2" id="laporanregulasi">b. Jika ya, laporan ditujukan ke</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" id="regul" value="Badan POM" {{ (old('ru_b') == 'Badan POM') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul" value="Badan POM" {{ (is_array(old('ru_b')) && in_array("Badan POM", old('ru_b'))) ? ' checked' : '' }}>
                                 <label class="form-check-label" id="regult">Badan POM</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" id="regul1" value="Kementrian Kesehatan" {{ (old('ru_b') == 'Kementrian Kesehatan') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul1" value="Kementrian Kesehatan" {{ (is_array(old('ru_b')) && in_array("Kementrian Kesehatan", old('ru_b'))) ? ' checked' : '' }}>
                                 <label class="form-check-label" id="regult1">Kementrian Kesehatan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" id="regul2" value="Balai POM" {{ (old('ru_b') == 'Balai POM') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul2" value="Balai POM" {{ (is_array(old('ru_b')) && in_array("Balai POM", old('ru_b'))) ? ' checked' : '' }}>
                                 <label class="form-check-label" id="regult2">Balai POM</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" id="regul3" value="regulasielse" {{ (old('ru_b') == 'regulasielse') ? 'checked' : ''}}>
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="regult3">
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul3" value="regulasielse" {{ (is_array(old('ru_b')) && in_array("regulasielse", old('ru_b'))) ? ' checked' : '' }}>
+                                <input type="text" class="form-control" id="regult3">
                             </div>
                         </div>
                         <label
@@ -146,6 +147,7 @@
                 </tr>
             </tbody>
             <tbody>
+                {{-- REGISTRASI --}}
                 <tr>
                     {{-- code id javascript pada regulasi brgya, brgyat, brgyan  --}}
                     <td><center> 2</center></td>
@@ -193,6 +195,7 @@
                 </tr>
             </tbody>
             <tbody>
+                {{-- STABILITAS --}}
                 <tr>
                     {{-- code id javascript pada regulasi stya, styat, styan  --}}
                     <td><center> 3</center></td>
@@ -214,12 +217,20 @@
                         <h6 class="my-2" id="laporanst">b. Jika ya, perlu dilakukan uji stabilitas</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="st_b" id="stabil" value="Dipercepat" {{ (old('st_b') == 'Dipercepat') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="checkbox" name="st_b[]" id="stabil" value="Dipercepat" {{ (is_array(old('st_b')) && in_array("Dipercepat", old('st_b'))) ? ' checked' : '' }}>
                                 <label class="form-check-label" id="stabilt">Dipercepat</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="st_b" id="stabil1" value="Jangka Panjang" {{ (old('st_b') == 'Jangka Panjang') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="checkbox" name="st_b[]" id="stabil1" value="Jangka Panjang" {{ (is_array(old('st_b')) && in_array("Jangka Panjang", old('st_b'))) ? ' checked' : '' }}>
                                 <label class="form-check-label" id="stabilt1">Jangka Panjang</label>
+                            </div>
+                            <div class="form-check font-italic" >
+                                <input class="form-check-input" type="checkbox" name="st_b[]" id="stabil2" value="Stress" {{ (is_array(old('st_b')) && in_array("Stress", old('st_b'))) ? ' checked' : '' }}>
+                                <label class="form-check-label" id="stabilt2">Stress test</label>
+                            </div>
+                            <div class="form-check font-italic">
+                                <input class="form-check-input" type="checkbox" name="st_b[]" id="stabil3" value="Stability" {{ (is_array(old('st_b')) && in_array("Stability", old('st_b'))) ? ' checked' : '' }}>
+                                <label class="form-check-label" id="stabilt3">In Use Stability</label>
                             </div>
                         </div>
                         <label 
@@ -236,8 +247,49 @@
                 </tr>
             </tbody>
             <tbody>
+                {{-- PENGUJIAN --}}
                 <tr>
+                    {{-- code id javascript pada regulasi pjya, pjyat, pjyan  --}}
                     <td><center> 4</center></td>
+                    <td><center> Pengujian</center></td>
+                    <td>
+                        <h6>a. Memerlukan pengujian</h6>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="pj_a" id="pjya" value="ya" {{ (old('pj_a') == 'ya') ? 'checked' : ''}}>
+                            <label class="form-check-label">Ya</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="pj_a" id="pjyat" value="tidak" {{ (old('pj_a') == 'tidak') ? 'checked' : ''}}>
+                            <label class="form-check-label">Tidak</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="pj_a" id="pjyan" value="na" {{ (old('pj_a') == 'na') ? 'checked' : ''}}>
+                            <label class="form-check-label">NA</label>
+                        </div>
+                        <h6 class="my-2" id="laporanpj">b. Jika ya, sebutkan pengujian yang diperlukan</h6>
+                        <div class="d-inline">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pj_b" id="pj" value="dok1" checked>
+                                <textarea name="dokumen" id="pjt" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <label 
+                        @error('pj_a')
+                        class="text-danger"
+                        @enderror>@error('pj_a')
+                        *Pengujian harus diisi
+                        @enderror
+                        </label>
+                    </td>
+                    <td>
+                        <textarea class="form-control" id="pj_ket" rows="3" name="pj_ket">{{ old('pj_ket') }}</textarea>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                {{-- MASA EDAR --}}
+                <tr>
+                    <td><center> 5</center></td>
                     <td><center> Masa Edar</center></td>
                     <td>
                         <h6>a. Mempengaruhi masa edar / daluwarsa</h6>
@@ -267,9 +319,10 @@
                 </tr>
             </tbody>
             <tbody>
+                {{-- VALIDASI / KUALIFIKASI --}}
                 <tr>
                     {{-- code id javascript pada regulasi valya, valyat, valyan  --}}
-                    <td><center> 5</center></td>
+                    <td><center> 6</center></td>
                     <td><center> Validasi / Kualifikasi</center></td>
                     <td>
                         <h6>a. Mempengaruhi status validasi / kualifikasi</h6>
@@ -288,31 +341,31 @@
                         <h6 class="my-2" id="laporanval">b. Jika ya, jenis validasi / kualifikasi</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valda" value="pengolahan" {{ (old('val_b') == 'pengolahan') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" id="valda" value="pengolahan" {{ (is_array(old('val_b')) && in_array("pengolahan", old('val_b'))) ? ' checked' : '' }}>
                                 <label class="form-check-label" id="valdat">Validasi Pengolahan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valda1" value="pembersihan" {{ (old('val_b') == 'pembersihan') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" id="valda1" value="pembersihan" {{ (is_array(old('val_b')) && in_array("pembersihan", old('val_b'))) ? ' checked' : '' }}>
                                 <label class="form-check-label" id="valdat1">Validasi Pembersihan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valda2" value="instalasi" {{ (old('val_b') == 'instalasi') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" id="valda2" value="instalasi" {{ (is_array(old('val_b')) && in_array("instalasi", old('val_b'))) ? ' checked' : '' }}>
                                 <label class="form-check-label" id="valdat2">Kualifikasi Instalasi</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valda3" value="kinerja" {{ (old('val_b') == 'kinerja') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" id="valda3" value="kinerja" {{ (is_array(old('val_b')) && in_array("kinerja", old('val_b'))) ? ' checked' : '' }}>
                                 <label class="form-check-label" id="valdat3">Kualifikasi Kinerja</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valda4" value="pengemasan" {{ (old('val_b') == 'pengemasan') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" id="valda4" value="pengemasan" {{ (is_array(old('val_b')) && in_array("pengemasan", old('val_b'))) ? ' checked' : '' }}>
                                 <label class="form-check-label" id="valdat4">Validasi Pengemasan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valda5" value="analisa" {{ (old('val_b') == 'analisa') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" id="valda5" value="analisa" {{ (is_array(old('val_b')) && in_array("analisa", old('val_b'))) ? ' checked' : '' }}>
                                 <label class="form-check-label" id="valdat5">Validasi Metode Analisa</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valda6" value="operasional" {{ (old('val_b') == 'operasional') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" id="valda6" value="operasional" {{ (is_array(old('val_b')) && in_array("operasional", old('val_b'))) ? ' checked' : '' }}>
                                 <label class="form-check-label" id="valdat6">Kualifikasi Operasional</label>
                             </div>
                         </div>
@@ -330,9 +383,10 @@
                 </tr>
             </tbody>
             <tbody>
+                {{-- TRIAL --}}
                 <tr>
                     {{-- code id javascript pada regulasi triya, triyat, triyan  --}}
-                    <td><center> 6</center></td>
+                    <td><center> 7</center></td>
                     <td><center> Trial</center></td>
                     <td>
                         <h6>a. Perlu dilakukan trial</h6>
@@ -351,15 +405,15 @@
                         <h6 class="my-2" id="laporantrial">b. Jika ya, dilakukan trial skala</h6>
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tr_b" id="tri" value="lab" {{ (old('tr_b') == 'lab') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="checkbox" name="tr_b[]" id="tri" value="lab" {{ (is_array(old('tr_b')) && in_array("lab", old('tr_b'))) ? ' checked' : '' }}>
                                 <label class="form-check-label" id="trit">Laboratorium</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tr_b" id="tri1" value="pilot" {{ (old('tr_b') == 'pilot') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="checkbox" name="tr_b[]" id="tri1" value="pilot" {{ (is_array(old('tr_b')) && in_array("pilot", old('tr_b'))) ? ' checked' : '' }}>
                                 <label class="form-check-label" id="trit1">Pilot</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tr_b" id="tri2" value="komersial" {{ (old('tr_b') == 'komersial') ? 'checked' : ''}}>
+                                <input class="form-check-input" type="checkbox" name="tr_b[]" id="tri2" value="komersial" {{ (is_array(old('tr_b')) && in_array("komersial", old('tr_b'))) ? ' checked' : '' }}>
                                 <label class="form-check-label" id="trit2">Komersial</label>
                             </div>
                         </div>
@@ -377,8 +431,9 @@
                 </tr>
             </tbody>
             <tbody>
+                {{-- PRODUKSI --}}
                 <tr>
-                    <td><center> 7</center></td>
+                    <td><center> 8</center></td>
                     <td><center> Produksi</center></td>
                     <td>
                          {{-- code id javascript pada regulasi proya, proyat, proyan  --}}
@@ -416,8 +471,9 @@
                 </tr>
             </tbody>
             <tbody>
+                {{-- DOKUMEN --}}
                 <tr>
-                    <td><center> 8</center></td>
+                    <td><center> 9</center></td>
                     <td><center> Dokumen</center></td>
                     <td>
                         {{-- code id javascript dokumen dokya, dokyat, dokyan --}}
@@ -455,8 +511,40 @@
                 </tr>
             </tbody>
             <tbody>
+                {{-- DESAIN KEMASAN --}}
                 <tr>
-                    <td><center> 9</center></td>
+                    <td><center> 10</center></td>
+                    <td><center> Desain Kemasan</center></td>
+                    <td>
+                        <h6>a. Memerlukan Artwork Desain</h6>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="dk_a" id="dk_a" value="ya" {{ (old('dk_a') == 'ya') ? 'checked' : ''}}>
+                            <label class="form-check-label">Ya</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="dk_a" id="dk_a" value="tidak" {{ (old('dk_a') == 'tidak') ? 'checked' : ''}}>
+                            <label class="form-check-label">Tidak</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="dk_a" id="dk_a" value="na" {{ (old('dk_a') == 'na') ? 'checked' : ''}}>
+                            <label class="form-check-label">NA</label>
+                        </div>
+                        <label 
+                        @error('dk_a')
+                        class="text-danger"
+                        @enderror>@error('dk_a')
+                        *Desain Kemasan harus diisi
+                        @enderror
+                    </td>
+                    <td>
+                        <textarea class="form-control" id="dk_ket" rows="3" name="dk_ket">{{old('dk_ket')}}</textarea>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                {{-- SISTEM ERP --}}
+                <tr>
+                    <td><center> 11</center></td>
                     <td><center> Sistem ERP</center></td>
                     <td>
                         <h6>a. Mempengaruhi sistem ERP</h6>
@@ -924,7 +1012,7 @@
                         </label>
                     </td>
                     <td>
-                        <textarea class="form-control" rows="3" name="ttd"></textarea>
+                        <textarea class="form-control" rows="3" name="asman_komentar" id="asman_komentar">{{old('asman_komentar')}}</textarea>
                     </td>
                     <td>
                         <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="asman_date" name="asman_date">
@@ -944,7 +1032,7 @@
                         </label>
                     </td>
                     <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd"></textarea>
+                        <textarea class="form-control" rows="3" name="aq_komentar" id="aq_komentar">{{old('aq_komentar')}}</textarea>
                     </td>
                     <td>
                         <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="aq_date" name="aq_date">
@@ -1104,23 +1192,35 @@
     $('#laporanst').css('display', 'none');
     $('#stabil').css('display', 'none');
     $('#stabil1').css('display', 'none');
+    $('#stabil2').css('display', 'none');
+    $('#stabil3').css('display', 'none');
     $('#stabilt').css('display', 'none');
     $('#stabilt1').css('display', 'none');
+    $('#stabilt2').css('display', 'none');
+    $('#stabilt3').css('display', 'none');
 
     $(document).on('change', '#stya', function(){
         $('#laporanst').css('display', 'block');
         $('#stabil').css('display', 'block');
         $('#stabil1').css('display', 'block');
+        $('#stabil2').css('display', 'block');
+        $('#stabil3').css('display', 'block');
         $('#stabilt').css('display', 'block');
         $('#stabilt1').css('display', 'block');
+        $('#stabilt2').css('display', 'block');
+        $('#stabilt3').css('display', 'block');
     });
 
     $(document).on('change', '#styat', function(){
         $('#laporanst').css('display', 'none');
         $('#stabil').css('display', 'none');
         $('#stabil1').css('display', 'none');
+        $('#stabil2').css('display', 'none');
+        $('#stabil3').css('display', 'none');
         $('#stabilt').css('display', 'none');
         $('#stabilt1').css('display', 'none');
+        $('#stabilt2').css('display', 'none');
+        $('#stabilt3').css('display', 'none');
     });
 
     $(document).on('change', '#styan', function(){
@@ -1129,6 +1229,29 @@
         $('#stabil1').css('display', 'none');
         $('#stabilt').css('display', 'none');
         $('#stabilt1').css('display', 'none');
+    });
+
+    //Hide laporan pada Pengujian
+    $('#laporanpj').css('display', 'none');
+    $('#pj').css('display', 'none');
+    $('#pjt').css('display', 'none');
+
+    $(document).on('change', '#pjya', function(){
+        $('#laporanpj').css('display', 'block');
+        $('#pj').css('display', 'block');
+        $('#pjt').css('display', 'block');
+    });
+
+    $(document).on('change', '#pjyat', function(){
+        $('#laporanpj').css('display', 'none');
+        $('#pj').css('display', 'none');
+        $('#pjt').css('display', 'none');
+    });
+
+    $(document).on('change', '#pjyan', function(){
+        $('#laporanpj').css('display', 'none');
+        $('#pj').css('display', 'none');
+        $('#pjt').css('display', 'none');
     });
 
     //Hide laporan pada Validasi / Kualifikasi

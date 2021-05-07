@@ -53,32 +53,36 @@ class KajianController extends Controller
      */
     public function store(Request $request, $fup_id)
     {
-        // dd($request->all()); 
-        
-        $request->validate([
-            'ket_up' =>'required',
-            'ru_a' =>'required',
-            'ri_a'=>'required',
-            'st_a'=>'required',
-            'me_a'=>'required',
-            'val_a'=>'required',
-            'tr_a'=>'required',
-            'pr_a'=>'required',
-            'dok_a'=>'required',
-            'si_a'=>'required',
-            'ch_kategori'=>'required',
-            'ch_status'=>'required',
-            'qa_nama'=>'required',
-            'asman_nama'=>'required',
-            'aq_nama'=>'required',
-            'ch_dis'=>'required'
-            ]);
+        // $request->validate([
+        //     'ket_up' =>'required',
+        //     'ru_a' =>'required',
+        //     'ri_a'=>'required',
+        //     'st_a'=>'required',
+        //     'pj_a'=>'required',
+        //     'me_a'=>'required',
+        //     'val_a'=>'required',
+        //     'tr_a'=>'required',
+        //     'pr_a'=>'required',
+        //     'dok_a'=>'required',
+        //     'dk_a'=>'required',
+        //     'si_a'=>'required',
+        //     'ch_kategori'=>'required',
+        //     'ch_status'=>'required',
+        //     'qa_nama'=>'required',
+        //     'asman_nama'=>'required',
+        //     'aq_nama'=>'required',
+        //     'ch_dis'=>'required'
+        //     ]);
             
         $request->request->add(['fup_id' => $fup_id]);
         $request->request->add(['ket_up' => implode(',', $request->ket_up)]);
+        $request->request->add(['ru_b' => implode(',', $request->ru_b)]);
+        $request->request->add(['st_b' => implode(',', $request->st_b)]);
+        $request->request->add(['val_b' => implode(',', $request->val_b)]);
+        $request->request->add(['tr_b' => implode(',', $request->tr_b)]);
         $request->request->add(['ch_dis' => implode(',', $request->ch_dis)]);
 
-        // dd($request);
+        // dd($request->all);
         // dd($request->kj_tambahan); 
         Kajian::create($request->all());
         Alert::success('Success', "Kajian Berhasil Dibuat!");
@@ -123,10 +127,13 @@ class KajianController extends Controller
         $ket_up = $kajians->ket_up;
         $ket_ups = explode("," , $ket_up);
 
+        $ru_b = $kajians->ru_b;
+        $ru_bs = explode("," , $ru_b);
+
         $ch_dis = $kajians->ch_dis;
         $ch_diss = explode("," , $ch_dis);
 
-        return view('editKajian', compact('role','kajians','ket_ups','ch_diss'));
+        return view('editKajian', compact('role', 'kajians', 'ket_ups', 'ru_bs', 'ch_diss'));
     }
 
     /**

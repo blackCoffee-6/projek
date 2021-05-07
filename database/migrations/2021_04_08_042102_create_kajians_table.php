@@ -34,6 +34,10 @@ class CreateKajiansTable extends Migration
             $table->string('st_b')->nullable();
             $table->string('st_ket')->nullable();
 
+            $table->string('pj_a');
+            $table->string('pj_b')->nullable();
+            $table->string('pj_ket')->nullable();
+
             $table->string('me_a');
             $table->string('me_ket')->nullable();
 
@@ -52,6 +56,9 @@ class CreateKajiansTable extends Migration
             $table->string('dok_a');
             $table->string('dok_b')->nullable();
             $table->string('dok_ket')->nullable();
+
+            $table->string('dk_a');
+            $table->string('dk_ket')->nullable();
 
             $table->string('si_a');
             $table->string('si_ket')->nullable();
@@ -73,9 +80,11 @@ class CreateKajiansTable extends Migration
 
             $table->string('asman_nama');
             $table->date('asman_date');
+            $table->string('asman_komentar')->nullable();
 
             $table->string('aq_nama');
             $table->date('aq_date');
+            $table->string('aq_komentar')->nullable();
 
             $table->string('ch_dis');
             

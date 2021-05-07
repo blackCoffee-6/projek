@@ -38,16 +38,17 @@
             {{ session('failed')}}
         </div>
     @endif
+    <div class="container my-4">
     <table class="table table-bordered my-3">
         <thead class="thead-dark">
             <tr class="text-center">
-                <th scope="col">No.</th>
-                <th scope="col">Bidang</th>
-                <th scope="col">Nomor Usulan</th>
-                <th scope="col">Tanggal Usulan</th>
-                <th scope="col">Usulan Perubahan</th>
-                <th scope="col">Tanggal Pemberlakuan</th>
-                <th scope="col">
+                <th scope="col" width="5%">No.</th>
+                <th scope="col" width="10%">Bidang</th>
+                <th scope="col" width="8%">Nomor Usulan</th>
+                <th scope="col" width="5%">Tanggal Usulan</th>
+                <th scope="col" width="20%">Usulan Perubahan</th>
+                <th scope="col" width="5%">Tanggal Pemberlakuan</th>
+                <th scope="col" width="5%">
                     @if(Auth::user()->bidang_id == NULL)
                     Aksi
                     @else
@@ -63,12 +64,12 @@
                 <tr>
                     <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
                     <td>{{$fup->Bidang->name}}</td>
-                    <td>04/USL/IV/2020</td>
-                    <td>{{$fup->date}}</td>
+                    <td class="text-center">04/USL/IV/2020</td>
+                    <td class="text-center">{{$fup->date}}</td>
                     <td>
                         {{$fup->ket_usulan}}
                     </td>
-                    <td>20/05/2021</td>
+                    <td class="text-center">20/05/2021</td>
                     <td class="text-center">
                         
                         @if(Auth::user()->bidang_id == NULL)
@@ -114,6 +115,7 @@
             @endforeach
         </tbody>
     </table>
+    </div>
     {{$fups->links()}}
 </div>
 @endsection

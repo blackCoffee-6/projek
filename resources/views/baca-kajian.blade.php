@@ -91,16 +91,17 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th scope="col">No.</th>
-                    <th scope="col">Kategori</th>
-                    <th scope="col">Uraian</th>
-                    <th scope="col">Keterangan</th>
+                    <th scope="col"><center> No.</center></th>
+                    <th scope="col"><center> Kategori</center></th>
+                    <th scope="col"><center> Uraian</center></th>
+                    <th scope="col"><center> Keterangan</center></th>
                 </tr>
             </thead>
             <tbody>
+                {{-- REGULASI --}}
                 <tr>
-                    <td>1</td>
-                    <td>Regulasi</td>
+                    <td align="center">1</td>
+                    <td align="center">Regulasi</td>
                     <td>
                         <h6>a. Perlu pelaporan ke pemerintah</h6>
                         <input type="hidden" value="{{$kajians->ru_a}}" id="rua">
@@ -116,23 +117,26 @@
                             <input class="form-check-input" type="radio" name="ru_a" disabled id="ruana" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, laporan ditujukan ke</h6>
+                        <h6 class="my-2" id="laporanregulasi">b. Jika ya, laporan ditujukan ke</h6>
                         <div class="d-inline">
-                            <input type="hidden" value="{{$kajians->ru_b}}" disabled id="rub">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" disabled id="rubbadan" value="badan">
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" disabled id="rubbadan" value="Badan POM" 
+                                >
                                 <label class="form-check-label">Badan POM</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" disabled id="rubkementrian" value="kementrian">
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" disabled id="rubkementrian" value="Kementrian Kesehatan"
+                                >
                                 <label class="form-check-label">Kementrian Kesehatan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" disabled id="rubbalai" value="balai">
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" disabled id="rubbalai" value="Balai POM"
+                                {{ in_array("Balai POM", $ru_bs) ? "checked" : "" }}>
                                 <label class="form-check-label">Balai POM</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" disabled id="rubelse" value="else">
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" disabled id="rubelse" value="regulasielse"
+                                >
                                 <input type="text" class="form-control" aria-label="Default" disabled aria-describedby="inputGroup-sizing-default">
                             </div>
                         </div>
@@ -1011,22 +1015,22 @@
     }
     
     //ru_b
-    var value = $('#rub').val()
-    if(value === 'badan'){
-        $("#rubbadan").attr('checked', 'checked');
-    }
-    else if(value === 'kementrian'){
-        $("#rubkementrian").attr('checked', 'checked');
-    }
-    else if(value === 'balai'){
-        $("#rubbalai").attr('checked', 'checked');
-    }
-    else if(value === 'else'){
-        $("#rubelse").attr('checked', 'checked');
-    }
-    else{
+    // var value = $('#rub').val()
+    // if(value === 'badan'){
+    //     $("#rubbadan").attr('checked', 'checked');
+    // }
+    // else if(value === 'kementrian'){
+    //     $("#rubkementrian").attr('checked', 'checked');
+    // }
+    // else if(value === 'balai'){
+    //     $("#rubbalai").attr('checked', 'checked');
+    // }
+    // else if(value === 'else'){
+    //     $("#rubelse").attr('checked', 'checked');
+    // }
+    // else{
 
-    }
+    // }
 
     //ri_a
     var value = $('#ria').val()
@@ -1040,7 +1044,7 @@
         $("#riana").attr('checked', 'checked');
     }
 
-    //ri_b
+    ri_b
     var value = $('#rib').val()
     if(value === 'perlu'){
         $("#ribperlu").attr('checked', 'checked');
