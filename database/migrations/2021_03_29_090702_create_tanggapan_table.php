@@ -20,18 +20,22 @@ class CreateTanggapanTable extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
             
-            $table->string('tg_bidang')->nullable();
             $table->string('tg_nama')->nullable();
+            $table->string('tg_bidang')->nullable();
             $table->date('tg_date')->nullable();
+
             $table->string('gt_bidang')->nullable();
             $table->string('gt_nama')->nullable();
             $table->date('gt_date')->nullable();
+
             $table->string('bidang_tg')->nullable();
             $table->string('nama_tg')->nullable();
             $table->date('date_tg')->nullable();
+
             $table->string('tg_bidang2')->nullable();
             $table->string('tg_nama2')->nullable();
             $table->date('tg_date2')->nullable();
+            
             $table->string('tg_bidang3')->nullable();
             $table->string('tg_nama3')->nullable();
             $table->date('tg_date3')->nullable();

@@ -53,36 +53,61 @@ class KajianController extends Controller
      */
     public function store(Request $request, $fup_id)
     {
-        // $request->validate([
-        //     'ket_up' =>'required',
-        //     'ru_a' =>'required',
-        //     'ri_a'=>'required',
-        //     'st_a'=>'required',
-        //     'pj_a'=>'required',
-        //     'me_a'=>'required',
-        //     'val_a'=>'required',
-        //     'tr_a'=>'required',
-        //     'pr_a'=>'required',
-        //     'dok_a'=>'required',
-        //     'dk_a'=>'required',
-        //     'si_a'=>'required',
-        //     'ch_kategori'=>'required',
-        //     'ch_status'=>'required',
-        //     'qa_nama'=>'required',
-        //     'asman_nama'=>'required',
-        //     'aq_nama'=>'required',
-        //     'ch_dis'=>'required'
-        //     ]);
+        $request->validate([
+            'ket_up' =>'required',
+            'ru_a' =>'required',
+            'ri_a'=>'required',
+            'st_a'=>'required',
+            'pj_a'=>'required',
+            'me_a'=>'required',
+            'val_a'=>'required',
+            'tr_a'=>'required',
+            'pr_a'=>'required',
+            'dok_a'=>'required',
+            'dk_a'=>'required',
+            'si_a'=>'required',
+            'ch_kategori'=>'required',
+            'ch_status'=>'required',
+            'asman_nama'=>'required',
+            'asman_date'=>'required',
+            'aq_nama'=>'required',
+            'aq_date'=>'required',
+            'ch_dis'=>'required'
+        ]);
+
+        if($request->ket_up){
+            $ket_up = implode(',', $request->ket_up);
+            $request->request->add(['ket_up' => $ket_up]);
+        }
+
+        if($request->ru_b){
+            $ru_b = implode(',', $request->ru_b);
+            $request->request->add(['ru_b' => $ru_b]);
+        }
+        
+        if($request->st_b){
+            $st_b = implode(',', $request->st_b);
+            $request->request->add(['st_b' => $st_b]);
+        }
+        
+        if($request->val_b){
+            $val_b = implode(',', $request->val_b);
+            $request->request->add(['val_b' => $val_b]);
+        }
+        
+        if($request->tr_b){
+            $tr_b = implode(',', $request->tr_b);
+            $request->request->add(['tr_b' => $tr_b]);
+        }
+        
+        if($request->ch_dis){
+            $ch_dis = implode(',', $request->ch_dis);
+            $request->request->add(['ch_dis' => $ch_dis]);
+        }
             
         $request->request->add(['fup_id' => $fup_id]);
-        $request->request->add(['ket_up' => implode(',', $request->ket_up)]);
-        $request->request->add(['ru_b' => implode(',', $request->ru_b)]);
-        $request->request->add(['st_b' => implode(',', $request->st_b)]);
-        $request->request->add(['val_b' => implode(',', $request->val_b)]);
-        $request->request->add(['tr_b' => implode(',', $request->tr_b)]);
-        $request->request->add(['ch_dis' => implode(',', $request->ch_dis)]);
-
-        // dd($request->all);
+        
+        // dd($request->all());
         // dd($request->kj_tambahan); 
         Kajian::create($request->all());
         Alert::success('Success', "Kajian Berhasil Dibuat!");
@@ -130,7 +155,7 @@ class KajianController extends Controller
         $ch_dis = $kajians->ch_dis;
         $ch_diss = explode("," , $ch_dis);
 
-        return view('editKajian', compact('role', 'kajians', 'ket_ups', 'ru_bb', 'ch_diss'));
+        return view('editKajian', compact('role', 'kajians', 'ket_ups', 'ch_diss'));
     }
 
     /**

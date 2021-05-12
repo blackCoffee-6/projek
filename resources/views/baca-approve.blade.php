@@ -146,7 +146,7 @@
                         </td>
                     </tr>
                 </tbody>
-                @if(Auth::user()->role == "approval" OR Auth::user()->role == "Admin")
+                @if(Auth::user()->role == "Approval" OR Auth::user()->role == "Admin")
                 <form action="/store/{{$fup->id}}" method="post">
                     @csrf
                 <thead>

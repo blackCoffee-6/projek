@@ -21,8 +21,13 @@ class TanggapanController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $apps = Approval::all();
+        $fups = FUP::all();
         $tanggapans = Tanggapan::all();
-        
+
+        //mau nampilin fup yang tanggapan approval nya "perlu"
+        //berarti kalo ada fup yang not approve, tapi tanggapannya "perlu", masih bisa ketampil di tanggapan dong?
+
         if($user->role == 'staff'){
             // buat nampilin ke bidang yang di perlukan
             $fubs = FUB::where('bidang_id',$user->bidang_id)->get();
@@ -37,24 +42,24 @@ class TanggapanController extends Controller
             $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->where('bidang_id',$user->bidang_id)->get();
         }
         else{
-            $fups = FUP::where('tanggapan', 'like', 'perlu')->paginate(10);
+            $apps = Approval::where('tanggapan', 'like', 'perlu')->paginate(10);
             $fup_id = "";
-            foreach($fups as $fub){
-                $fup_id .= $fub->id.","; 
-            }
+                foreach($fups as $fub){
+                    $fup_id .= $fub->id.","; 
+                }
             $arrFupId = explode(",",$fup_id);
+            $FUPFlag = FUP::whereIn('id', $arrFupId)->get();
             $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->get();
         }
+        // dd($FUPFlag);
 
         if($user->role == 'Approval'){
             abort(404);
         }
         
         else{
-            return view('tanggapan.index', compact('fups','user','tanggapans', 'tanggapanFlag'))
-            ->with('alert', "Tanggapan Created Successfully!");
+            return view('tanggapan.index', compact('apps','FUPFlag','fups','tanggapans','tanggapanFlag','user'));
         }
-        
     }
 
     /**
@@ -77,32 +82,30 @@ class TanggapanController extends Controller
     {
         $bidang_id = Auth::user()->bidang_id == null ? "0" : Auth::user()->bidang_id;
         // dd($request->all());
-        // tambahin validasi, biar si user ga submit form yg kosong
-        $validator = Validator::make($request->all(),[
-            'tg_rnd' => 'required',
-            'ch_regulasi' => 'required',
-            'ch_registrasi' => 'required',
-            'tg_nama' => 'required'
-        ]);
-            
-        if ($validator->fails()) {
-            return back()->withErrors($validator->errors());
-        }
+
         Tanggapan::create([
-            'tg_rnd' => $request->tg_rnd,
             'fup_id' => $id,
-            'ch_regulasi' => $request->ch_regulasi,
-            'ch_registrasi' => $request->ch_registrasi,
-            'dok_perlukan' => $request->dok_perlukan,
+
             'tg_nama' => $request->tg_nama,
+            'tg_bidang' => $request->tg_bidang,
             'tg_date' => $request->tg_date,
+
             'gt_bidang' => $request->gt_bidang,
             'gt_nama' => $request->gt_nama,
             'gt_date' => $request->gt_date,
+
             'bidang_tg' => $request->bidang_tg,
             'nama_tg' => $request->nama_tg,
             'date_tg' => $request->date_tg,
-            'bidang_id' => $bidang_id,
+
+            'tg_bidang2' => $request->tg_bidang2,
+            'tg_nama2' => $request->tg_nama2,
+            'tg_date2' => $request->tg_date2,
+            'tg_bidang3' => $request->tg_bidang3,
+            'tg_nama3' => $request->tg_nama3,
+            'tg_date3' => $request->tg_date3,
+
+            'bidang_id' => $bidang_id
         ]);
 
         Alert::success('Success', "Tanggapan Berhasil Dibuat!");

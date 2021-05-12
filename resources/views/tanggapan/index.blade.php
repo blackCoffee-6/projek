@@ -56,17 +56,17 @@
         </tr>
       </thead>
                 <tbody>
-                  @foreach($fups as $fup)
+                @foreach($fups as $fup)
                 <tr>
                     <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
                     <td>04/USL/IV/2020</td>
                     <td>{{$fup->Bidang->name}}</td>
                     <td>07/04/2020</td>
                     <td>
-                        {{$fup->ket_usulan}}
+                    {{$fup->ket_usulan}}
                     </td>
                     <td class="text-center">
-                      <?php  $count = 0; ?>
+                    <?php  $count = 0; ?>
                       @foreach($tanggapans as $tanggapan)
                         @if($tanggapan->fup_id == $fup->id)
                         <?php $count++?>
@@ -77,7 +77,7 @@
                       @endforeach
                     </td>
                     <td class="text-center">
-                      <?php $buttonFlag = 0; $admindFlag = 0; ?>
+                    <?php $buttonFlag = 0; $admindFlag = 0; ?>
                       @foreach($tanggapanFlag as $flag)
                       @if($flag->fup_id == $fup->id)
                       <?php $buttonFlag++ ?>
@@ -86,7 +86,7 @@
                         @endif
                       @endif
                       @endforeach
-                      @if($user->role,'staff')
+                      @if($user->role == 'staff')
                         @if($buttonFlag < 1)
                           <span class="badge rounded-pill badge-secondary">Menunggu di tanggapi</span>
                         @else
@@ -116,6 +116,5 @@
                 </tbody>
             </table>
             <!-- ADD PAGINATION -->
-            {{ $fups->links() }}
         </div>
 @endsection
