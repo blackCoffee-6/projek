@@ -56,7 +56,7 @@ table.table-bordered > tbody > tr > td{
                         @if($user->id == $fup->user_id || $user->bidang_id == $fup->bidang_id || $user->role == 'Admin')
                         <td scope="row" class="font-weight-bold text-center">{{$number++}}</td>
                         <td>{{$fup->Bidang->name}}</td>
-                        <td>04/USL/IV/2020</td>
+                        <td>{{$fup->no_usulan}}</td>
                         <td>{{$fup->date}}</td>
                         <td>
                             {{$fup->ket_usulan}}

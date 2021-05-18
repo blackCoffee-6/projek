@@ -27,6 +27,7 @@ class ApproveController extends Controller
         if($auth){
             $role = Auth::user()->role;
         }
+
         // dd($apps);
         return view('approve', compact('fups', 'apps', 'role'));
     }

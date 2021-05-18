@@ -73,17 +73,14 @@
                         {{$fup->ket_usulan}}
                     </td>
                     <td class="text-center">
-                        <?php $count = 0; $date = '';?>
+                        <?php $count = 0;?>
                         @foreach($kontrols as $kontrol)
-                            @if($kontrol->fup_id == $fup->id)
-                            <?php $count++; $date = $kontrol->hasil_mitigasi_date?>
-                                @if($count < 1) <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                                @else 
-                                    @if(!($date))
-                                        <span class="badge rounded-pill bg-warning">Sedang di Proses</span>
-                                    @elseif($date)
-                                        <span class="badge rounded-pill bg-danger">Closed</span>
-                                    @endif
+                            @if($fup->id == $kontrol->fup_id)
+                                <?php $count++;?>
+                                @if(!($count))
+                                <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                                @else
+                                <span class="badge rounded-pill bg-warning">Sedang di Proses</span>
                                 @endif
                             @endif
                         @endforeach

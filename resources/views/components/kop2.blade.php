@@ -36,8 +36,15 @@
             </td>
             <td><input type="text" class="form-control" name="{{$pic}}" id="{{$picid}}"></td>
             <td><input type="text" class="form-control" name="{{$dok}}" id="{{$dokid}}"></td>
-            <td class="text-center">
-                <span class="badge rounded-pill {{$bg}} text-light">{{$badge}}</span>
+            <td>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{$stat}}" id="{{$statid}}" value="closed">
+                    <label class="form-check-label">Closed</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{$stat2}}" id="{{$statid2}}" value="pending">
+                    <label class="form-check-label">Pending</label>
+                </div>
             </td>
             <td class="text-center" width="3%">
                 <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$date}}" width="3%">

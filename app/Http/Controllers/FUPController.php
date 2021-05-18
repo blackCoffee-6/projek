@@ -7,6 +7,7 @@ use App\Bidang;
 use App\FUB;
 use App\FUP;
 use App\User;
+use App\Helpers\Helper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -20,11 +21,35 @@ class FUPController extends Controller
         $user = User::all();
         $bidang = Bidang::all();
         $bidang2 = Bidang::all();
+        
         return view('FUP.create', compact('user', 'bidang' , 'bidang2'));
     }
 
     public function store(Request $request)
     {
+        $fup = FUP::all();
+        $bln = date('M');
+        $thn = date('Y');
+
+        if($fup){
+            $id = FUP::getId();
+            foreach ($id as $value)
+            $idlama = $value->id;
+            $idbaru = $idlama + 1;
+            $no_usulan = $idbaru.'/UP/'.$bln.'/'.$thn;
+        }else{
+            $no_usulan = '1'.'/UP/'.$bln.'/'.$thn;
+        }
+        // if($fup){
+        //     $id = FUP::getId();
+        //     foreach ($id as $value)
+        //     $idlama = $value->id;
+        //     $idbaru = $idlama + 1;
+        //     $no_usulan = $idbaru.'/UP/'.$bln.'/'.$thn;
+        // }elseif(!$fup){
+        //     $no_usulan = '1'.'/UP/'.$bln.'/'.$thn;
+        // }
+
         $request->validate([
             'bidang'=>'required',
             'produk'=>'required',
@@ -45,8 +70,10 @@ class FUPController extends Controller
         //     $request->request->add(['tanggapan2' => $tanggapan2]);
         // }
 
+        
         $request->request->add(['user_id' => $user->id]);
         $request->request->add(['bidang_id' => $request->bidang]);
+        $request->request->add(['no_usulan' => $no_usulan]);
         $request->request->add(['status' => "Pending"]);
         // dd($request->hasFile('image_uploded'));
 
@@ -186,4 +213,5 @@ class FUPController extends Controller
 
         return redirect('/FUP')->with('failed', "Usulan Deleted Successfully!");
     }
+    
 }

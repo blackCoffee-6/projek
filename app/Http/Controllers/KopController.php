@@ -30,7 +30,7 @@ class KopController extends Controller
         $arrFUPId = explode(',',$fup_id);
         $fups = FUP::whereIn('id', $arrFUPId)->paginate(10);
 
-        return view('control', compact('fups', 'user', 'kajians', 'kontrols'));
+        return view('control', compact('kontrols', 'fups', 'user', 'kajians'));
     }
 
     public function listKop()
@@ -66,7 +66,7 @@ class KopController extends Controller
             $role = Auth::user()->role;
         }
         
-        return view('perubahan', compact('role','fup'));
+        return view('perubahan', compact('role','fup', 'kontrols'));
     }
 
     public function store(Request $request, $fup_id)

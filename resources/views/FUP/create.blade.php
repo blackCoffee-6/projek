@@ -41,7 +41,9 @@
                             @enderror
                         </label>
                     </td>
-                    <td>04/USL/IV/2020</td>
+                    <td>
+                        04/USL/IV/2020
+                    </td>
                     <td>
                         <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="datepicker" name="date">
                     </td>
