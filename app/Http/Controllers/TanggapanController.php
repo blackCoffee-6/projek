@@ -25,40 +25,36 @@ class TanggapanController extends Controller
         $fups = FUP::all();
         $tanggapans = Tanggapan::all();
 
-        //mau nampilin fup yang tanggapan approval nya "perlu"
-        //berarti kalo ada fup yang not approve, tapi tanggapannya "perlu", masih bisa ketampil di tanggapan dong?
-
-        if($user->role == 'staff'){
+        if($user->role == 'Staff'){
             // buat nampilin ke bidang yang di perlukan
             $fubs = FUB::where('bidang_id',$user->bidang_id)->get();
-            
             $fup_id = "";
             foreach($fubs as $fub){
                 $fup_id .= $fub->fup_id.","; 
             }
             $arrFupId = explode(",",$fup_id);
             $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
-
+            // dd($arrFupId);
             $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->where('bidang_id',$user->bidang_id)->get();
         }
-        else{
-            $apps = Approval::where('tanggapan', 'like', 'perlu')->paginate(10);
+        else if($user->role == 'Admin'){
+            $apps = Approval::where('tanggapan', 'like', 'perlu')->get(); 
+            // dd($apps);
             $fup_id = "";
-                foreach($fups as $fub){
-                    $fup_id .= $fub->id.","; 
+                foreach($apps as $app){
+                    $fup_id .= $app->id.","; 
                 }
-            $arrFupId = explode(",",$fup_id);
-            $FUPFlag = FUP::whereIn('id', $arrFupId)->get();
+            $arrFupId = explode(",",$fup_id); //1
+            $fups = FUP::whereIn('id', $arrFupId)->get();
+            // dd($fups);
             $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->get();
         }
-        // dd($FUPFlag);
-
         if($user->role == 'Approval'){
             abort(404);
         }
         
         else{
-            return view('tanggapan.index', compact('apps','FUPFlag','fups','tanggapans','tanggapanFlag','user'));
+            return view('tanggapan.index', compact('apps','fups','tanggapans','tanggapanFlag','user'));
         }
     }
 
