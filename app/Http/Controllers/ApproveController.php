@@ -58,6 +58,8 @@ class ApproveController extends Controller
         if($request->tanggapan != "tidak"){
             $tanggapan2 = implode(',', $request->tanggapan2);
             $request->request->add(['tanggapan2' => $tanggapan2]);
+        }else{
+            $request->request->add(['tanggapan2' => '']);
         }
 
         $app = Approval::where('fup_id',$id)->first();

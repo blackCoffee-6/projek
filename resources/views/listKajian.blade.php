@@ -99,7 +99,6 @@
                                 ?>
                             @endif
                         @endforeach
-                            <span class="badge rounded-pill bg-secondary text-light">Menunggu Dikaji</span>
                         @if($flag < 1) <span class="badge rounded-pill bg-secondary text-light">Menunggu Dikaji</span>
                             @else 
                                 @if(strcasecmp($stats,'disetujui') == 0)    
