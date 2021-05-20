@@ -38,7 +38,7 @@ class TanggapanController extends Controller
             }
             $arrFupId = explode(",",$fup_id);
             $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
-
+            // dd($arrFupId);
             $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->where('bidang_id',$user->bidang_id)->get();
         }
         else{
