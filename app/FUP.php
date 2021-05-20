@@ -8,10 +8,8 @@ use Kyslik\ColumnSortable\Sortable;
 
 class FUP extends Model
 {
-    protected $table = 'fups',
-    $fillable = ['id', 'user_id', 'bidang_id', 'no_usulan', 'produk', 'date', 'ket_ketentuan', 'ket_usulan',
-                'ket_alasan', 'ch_sifat', 'pic_asman', 'pic_nama', 'pic_date', 'cip_manager', 'cip_nama', 'cip_date', 'file'];
-
+    protected $table = 'fups';
+    
     protected $guarded = ['id'];
 
     public function User(){
@@ -19,7 +17,7 @@ class FUP extends Model
     }
 
     public function Approval(){
-        return $this->belongsTo(Approval::class);
+        return $this->belongsTo(Approval::class)->orderBy('decision', 'DESC');
     }
 
     public function Bidang(){
