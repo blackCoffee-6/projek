@@ -10,6 +10,7 @@ use App\User;
 use App\Helpers\Helper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
@@ -27,18 +28,18 @@ class FUPController extends Controller
 
     public function store(Request $request)
     {
-        $fup = FUP::all();
+        $data = DB::table('fups')->where('id')->get();
         $bln = date('M');
         $thn = date('Y');
 
-        if($fup){
+        if(is_null($data)){
+            $no_usulan = '1'.'/UP/'.$bln.'/'.$thn;
+        }else{
             $id = FUP::getId();
             foreach ($id as $value)
             $idlama = $value->id;
             $idbaru = $idlama + 1;
-            $no_usulan = $idbaru.'/UP/'.$bln.'/'.$thn;
-        }else{
-            $no_usulan = '1'.'/UP/'.$bln.'/'.$thn;
+            $no_usulan = $idbaru.'/UP/'.$bln.'/'.$thn;  
         }
         // if($fup){
         //     $id = FUP::getId();
@@ -74,7 +75,7 @@ class FUPController extends Controller
         $request->request->add(['user_id' => $user->id]);
         $request->request->add(['bidang_id' => $request->bidang]);
         $request->request->add(['no_usulan' => $no_usulan]);
-        $request->request->add(['status' => "Pending"]);
+        $request->request->add(['status' => 'Pending']);
         // dd($request->hasFile('image_uploded'));
 
         if ($request->hasFile('file')){ 
@@ -174,12 +175,7 @@ class FUPController extends Controller
             'pic_date' => $request-> pic_date, 
             'cip_manager' => $request-> cip_manager, 
             'cip_nama' => $request-> cip_nama, 
-            'cip_date' => $request-> cip_date, 
-            // 'qa_asman' => $request-> qa_asman, 
-            // 'qa_nama' => $request-> qa_nama, 
-            // 'qa_date' => $request-> qa_date, 
-            // 'tanggapan' => $request-> tanggapan, 
-            // 'tanggapan2' => $request->tanggapan2,
+            'cip_date' => $request-> cip_date,
             'file' => $request-> file, 
             'status' => "Pending"
         ]);

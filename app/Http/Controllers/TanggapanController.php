@@ -28,10 +28,10 @@ class TanggapanController extends Controller
         //mau nampilin fup yang tanggapan approval nya "perlu"
         //berarti kalo ada fup yang not approve, tapi tanggapannya "perlu", masih bisa ketampil di tanggapan dong?
 
-        if($user->role == 'staff'){
+        if($user->role == 'Staff'){
             // buat nampilin ke bidang yang di perlukan
             $fubs = FUB::where('bidang_id',$user->bidang_id)->get();
-            
+
             $fup_id = "";
             foreach($fubs as $fub){
                 $fup_id .= $fub->fup_id.","; 
@@ -43,22 +43,21 @@ class TanggapanController extends Controller
         }
         else{
             $apps = Approval::where('tanggapan', 'like', 'perlu')->paginate(10);
+
             $fup_id = "";
-                foreach($fups as $fub){
-                    $fup_id .= $fub->id.","; 
+                foreach($apps as $app){
+                    $fup_id .= $app->id.","; 
                 }
             $arrFupId = explode(",",$fup_id);
-            $FUPFlag = FUP::whereIn('id', $arrFupId)->get();
+            $fups = FUP::whereIn('id', $arrFupId)->get();
             $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->get();
         }
-        // dd($FUPFlag);
 
         if($user->role == 'Approval'){
             abort(404);
         }
-        
         else{
-            return view('tanggapan.index', compact('apps','FUPFlag','fups','tanggapans','tanggapanFlag','user'));
+            return view('tanggapan.index', compact('apps','fups','tanggapans','tanggapanFlag','user'));
         }
     }
 

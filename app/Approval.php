@@ -12,4 +12,5 @@ class Approval extends Model
     public function FUP(){
         return $this->hasOne(FUP::class);
     }
+
 }
