@@ -66,7 +66,7 @@ class KopController extends Controller
             $role = Auth::user()->role;
         }
         
-        return view('perubahan', compact('role','fup', 'kontrols'));
+        return view('perubahan', compact('role','fup'));
     }
 
     public function store(Request $request, $fup_id)
@@ -90,5 +90,16 @@ class KopController extends Controller
         $dis_setuju = $kontrols->dis_setuju;
         $dis_setujus = explode("," , $dis_setuju);
         return view('baca-kop', compact('kontrols','dis_setujus'));
+    }
+
+    public function edit($fup_id)
+    {
+        $fup = FUP::find($fup_id);
+        return view('edit-kop', compact('fup'));
+    }
+    
+    public function update(Request $request, $fup_id)
+    {
+        return view("update");
     }
 }

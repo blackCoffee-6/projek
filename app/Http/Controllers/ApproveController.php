@@ -52,6 +52,7 @@ class ApproveController extends Controller
     public function store(Request $request, $id)
     {
         // dd($request);
+        $fups = FUP::all();
         $request->validate([
             'decision'=>'required'
         ]);
@@ -79,6 +80,9 @@ class ApproveController extends Controller
             // kalo fup belom di approve
             $request->request->add(['fup_id' => $id]);
             Approval::create($request->all());    
+            FUP::findOrFail($id)->update([
+                'status' => 'null'
+            ]);  
         }
 
         if($request->tanggapan != "tidak"){
