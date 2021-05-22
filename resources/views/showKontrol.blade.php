@@ -74,7 +74,7 @@
                     @if(Auth::user()->bidang_id == NULL)
                     <td class="text-center">
                         @if(!($date))
-                            <a href="/Edit/KP/{{$fup->id}}" class="btn btn-primary my-2 my-sm-0"><i class="fa fa-folder"></i>  Edit</a>
+                            <a href="/Edit/KP/{{$kontrol->id}}" class="btn btn-primary my-2 my-sm-0"><i class="fa fa-folder"></i>  Edit</a>
                         @elseif($date)
                             <a href="/Baca-KontrolPerubahan/{{$kontrol->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
                         @endif

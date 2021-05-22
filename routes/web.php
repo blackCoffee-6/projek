@@ -74,8 +74,8 @@ Route::get('/Detail/KP/{fup_id}', 'KopController@show');
 Route::post('/Store/KP/{fup_id}', 'KopController@store');
 Route::get('/List/Kontrol/Perubahan', 'KopController@listKop');
 Route::get('/Baca-KontrolPerubahan/{kop_id}', 'KopController@bacaKop');
-Route::get('/Edit/KP/{fup_id}', 'KopController@edit');
-Route::post('/Update/KP/{fup_id}', 'KopController@update');
+Route::get('/Edit/KP/{kontrol_id}', 'KopController@edit');
+Route::put('/Update/KP/{kontrol_id}', 'KopController@update');
 
 
 Route::get('/list-up', function () {

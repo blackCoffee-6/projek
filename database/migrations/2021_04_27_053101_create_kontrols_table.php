@@ -16,9 +16,9 @@ class CreateKontrolsTable extends Migration
         Schema::create('kontrols', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('fup_id')->constrained()
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
+            $table->foreignId('fup_id')->constrained('fups')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
 
             $table->text('ru_tlp')->nullable();
             $table->text('ru_pic')->nullable();
@@ -103,7 +103,7 @@ class CreateKontrolsTable extends Migration
             $table->text('val_tlp5')->nullable();
             $table->text('val_pic5')->nullable();
             $table->text('val_dok5')->nullable();
-            $table->date('val_status5')->nullable();
+            $table->text('val_status5')->nullable();
             $table->text('val_date5')->nullable();
             $table->text('val_rencana5')->nullable();
             $table->text('val_realisasi5')->nullable();
@@ -333,7 +333,7 @@ class CreateKontrolsTable extends Migration
             $table->text('sis_realisasi')->nullable();
 
             $table->text('hasil_mitigasi')->nullable();
-            $table->text('hasil_mitigasi_date')->nullable();
+            $table->date('hasil_mitigasi_date')->nullable();
 
             $table->text('mpm_nama');
             $table->date('mpm_date');
