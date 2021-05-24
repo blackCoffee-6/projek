@@ -917,6 +917,14 @@
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <td class="font-weight-bold"> Catatan :</td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea class="form-control" rows="3" name="kj_tambahan" disabled>{{$kajians->kj_tambahan}}</textarea>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-bordered">
@@ -925,6 +933,7 @@
                     <th scope="col"></th>
                     <th scope="col">Jabatan</th>
                     <th scope="col">Nama</th>
+                    <th scope="col">Komentar</th>
                     <th scope="col">Tanggal</th>
                 </tr>
             </thead>
@@ -936,6 +945,9 @@
                         <input type="text" class="form-control" placeholder="Sertakan Nama" id="asman_nama" name="asman_nama" value="{{$kajians->asman_nama}}" disabled>
                     </td>
                     <td>
+                        <textarea class="form-control" rows="3" name="asman_komentar" id="asman_komentar" disabled>{{$kajians->asman_komentar}}</textarea>
+                    </td>
+                    <td>
                         <input class="form-control" type="date" value="{{$kajians->asman_date}}" id="asman_date" name="asman_date" disabled>
                     </td>
                 </tr>
@@ -944,6 +956,9 @@
                     <td>QA Specialist</td>
                     <td>
                         <input type="text" class="form-control" placeholder="Sertakan Nama" id="aq_nama" name="aq_nama" value="{{$kajians->aq_nama}}" disabled>
+                    </td>
+                    <td>
+                        <textarea class="form-control" rows="3" name="aq_komentar" id="aq_komentar" disabled>{{$kajians->aq_komentar}}</textarea>
                     </td>
                     <td>
                         <input class="form-control" type="date" value="{{$kajians->aq_date}}" id="aq_date" name="aq_date" disabled>

@@ -45,7 +45,7 @@
                 <th scope="col" width="5%">No.</th>
                 <th scope="col" width="10%">Bidang</th>
                 <th scope="col" width="8%">Nomor Usulan</th>
-                <th scope="col" width="5%">Tanggal Usulan</th>
+                <th scope="col" width="10%">Tanggal Usulan</th>
                 <th scope="col" width="20%">Usulan Perubahan</th>
                 <th scope="col" width="5%">Tanggal Pemberlakuan</th>
                 <th scope="col" width="5%">
@@ -64,7 +64,7 @@
                 <tr>
                     <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
                     <td>{{$fup->Bidang->name}}</td>
-                    <td class="text-center">04/USL/IV/2020</td>
+                    <td class="text-center">{{$fup->no_usulan}}</td>
                     <td class="text-center">{{$fup->date}}</td>
                     <td>
                         {{$fup->ket_usulan}}
@@ -82,11 +82,14 @@
                             @if($flag < 1) 
                                 <a href="/Detail/Kajian/{{$fup->id}}"><button class="btn btn-dark my-2 my-sm-0" type="submit"><i class="fa fa-database"></i>  Kaji</button></a>
                             @else
-                                <?php $flag = 0; ?>
+                                <?php $flag = 0; $status = '';?>
                             @foreach($kajians as $kajian)
                                 @if($fup->id == $kajian->fup_id)
-                                    <?php $flag++; ?>
-                                <a href="/Edit/Kajian/{{$kajian->id}}" class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fa fa-edit"></i></a>
+                                    <?php $flag++; $status = $kajian->ch_status;?>
+                                    @if(!($status))
+                                        <a href="/Edit/Kajian/{{$kajian->id}}" class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fa fa-edit"></i></a>
+                                    @else
+                                    @endif
                                 @endif
                             @endforeach
                             @endif
@@ -101,7 +104,9 @@
                         @endforeach
                         @if($flag < 1) <span class="badge rounded-pill bg-secondary text-light">Menunggu Dikaji</span>
                             @else 
-                                @if(strcasecmp($stats,'disetujui') == 0)    
+                                @if(!($stats))
+                                <span class="badge rounded-pill bg-warning">Sedang di Proses</span>
+                                @elseif(strcasecmp($stats,'disetujui') == 0)    
                                 <span class="badge rounded-pill bg-success text-light">Disetujui</span>
                                 @elseif(strcasecmp($stats,'ditolak') == 0)
                                 <span class="badge rounded-pill bg-danger text-light">Ditolak</span>

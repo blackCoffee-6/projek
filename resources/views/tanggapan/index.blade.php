@@ -46,8 +46,8 @@
       <thead class="thead-dark">
         <tr class="text-center">
           <th scope="col">No.</th>
-          <th scope="col">Nomor Usul</th>
-          <th scope="col">Bidang Usul</th>
+          <th scope="col">Nomor Usulan</th>
+          <th scope="col">Bidang</th>
           <th scope="col">Tanggal Pengkajian</th>
           <th scope="col">Usulan Perubahan</th>
           <th scope="col">Aksi</th>
@@ -59,7 +59,7 @@
                 @foreach($fups as $fup)
                 <tr>
                     <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
-                    <td>04/USL/IV/2020</td>
+                    <td>{{$fup->no_usulan}}</td>
                     <td>{{$fup->Bidang->name}}</td>
                     <td>07/04/2020</td>
                     <td>

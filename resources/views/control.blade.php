@@ -58,7 +58,7 @@
                 @foreach ($fups as $fup)
                 <tr>
                     <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
-                    <td>04/USL/IV/2020</td>
+                    <td>{{$fup->no_usulan}}</td>
                     <td>{{$fup->Bidang->name}}</td>
                     <td>
                         <?php $flag = ''; ?>
@@ -73,14 +73,18 @@
                         {{$fup->ket_usulan}}
                     </td>
                     <td class="text-center">
-                        <?php $count = 0;?>
+                        <?php $count = 0; $date = ''; $mitigasi = ''?>
                         @foreach($kontrols as $kontrol)
                             @if($fup->id == $kontrol->fup_id)
-                                <?php $count++;?>
-                                @if(!($count))
-                                <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                                @else
-                                <span class="badge rounded-pill bg-warning">Sedang di Proses</span>
+                                <?php $count++; $date = $kontrol->hasil_mitigasi_date; $mitigasi = $kontrol->hasil_mitigasi?>
+                                @if($count < 1)
+                                    <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                                @elseif(!($mitigasi))
+                                    <span class="badge rounded-pill bg-warning">Sedang di Proses</span>
+                                @elseif($mitigasi)
+                                    <span class="badge rounded-pill bg-danger">Closed</span>
+                                @elseif($date)
+                                    <span class="badge rounded-pill bg-danger">Closed</span>
                                 @endif
                             @endif
                         @endforeach

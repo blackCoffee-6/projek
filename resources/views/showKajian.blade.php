@@ -46,7 +46,7 @@
                     <tr>
                         <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
                         <td>{{$fup->Bidang->name}}</td>
-                        <td>04/USL/IV/2020</td>
+                        <td>{{$fup->no_usulan}}</td>
                         <td>{{$fup->date}}</td>
                         <td>
                             {{$fup->ket_usulan}}
@@ -62,7 +62,9 @@
                         @endforeach
                             @if($flag < 1) <span class="badge rounded-pill bg-secondary text-light">Menunggu Dikaji</span>
                             @else 
-                                @if(strcasecmp($stats,'disetujui') == 0)    
+                                @if(!($stats))
+                                <span class="badge rounded-pill bg-warning">Sedang di Proses</span>
+                                @elseif(strcasecmp($stats,'disetujui') == 0)    
                                 <span class="badge rounded-pill bg-success text-light">Disetujui</span>
                                 @elseif(strcasecmp($stats,'ditolak') == 0)
                                 <span class="badge rounded-pill bg-danger text-light">Ditolak</span>
@@ -70,11 +72,14 @@
                             @endif
                         </td>
                         <td class="text-center">
-                        <?php $flag = 0;?>
+                        <?php $flag = 0; $status = '';?>
                         @foreach($kajians as $kajian)
                             @if($fup->id == $kajian->fup_id)
-                                <?php $flag++;?>
+                                <?php $flag++; $status = $kajian->ch_status?>
+                                @if($status)
                                 <a href="/Baca-kajian/{{$kajian->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
+                                @else
+                                @endif
                             @endif
                         @endforeach
                         </td>

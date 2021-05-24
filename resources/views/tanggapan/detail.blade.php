@@ -43,7 +43,6 @@
                       
                         <!-- kalo yg login R&D abis dia isi button lihat nya harusnya ilang -->
                           <a href="/Tanggapan/{{$tanggapan->id}}/edit" class="btn btn-success my-2 my-sm-0" type="submit" ><i class="fa fa-folder"></i>  Lihat</a>
-                        
                     </td>
                 </tr>
                 @endforeach

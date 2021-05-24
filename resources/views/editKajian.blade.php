@@ -101,10 +101,10 @@
                 </tr>
             </thead>
             <tbody>
+                {{-- REGULASI --}}
                 <tr>
-                <tr>
-                    <td>1</td>
-                    <td>Regulasi</td>
+                    <td align="center">1</td>
+                    <td align="center">Regulasi</td>
                     <td>
                         <h6>a. Perlu pelaporan ke pemerintah</h6>
                         <input type="hidden" value="{{$kajians->ru_a}}" id="rua">
@@ -124,19 +124,23 @@
                         <div class="d-inline">
                             <input type="hidden" value="{{$kajians->ru_b}}" id="rub">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" id="rubbadan" value="badan">
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul" value="bpom"
+                                {{ in_array("bpom", $ru_bb) ? "checked" : ""}}>
                                 <label class="form-check-label">Badan POM</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" id="rubkementrian" value="kementrian">
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul1" value="kemkes"
+                                {{ in_array("kemkes", $ru_bb) ? "checked" : ""}}>
                                 <label class="form-check-label">Kementrian Kesehatan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" id="rubbalai" value="balai">
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul2" value="bapom"
+                                {{ in_array("bapom", $ru_bb) ? "checked" : ""}}>
                                 <label class="form-check-label">Balai POM</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ru_b" id="rubelse" value="else">
+                                <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul3" value="regulasielse"
+                                {{ in_array("regulasielse", $ru_bb) ? "checked" : ""}}>
                                 <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                             </div>
                         </div>
@@ -147,9 +151,10 @@
                 </tr>
             </tbody>
             <tbody>
-            <tr>
-                    <td>2</td>
-                    <td>Registrasi</td>
+                <tr>
+                    {{-- REGISTRASI --}}
+                    <td align="center">2</td>
+                    <td align="center">Registrasi</td>
                     <td>
                         <h6>a. Mempengaruhi status ijin edar</h6>
                         <input type="hidden" value="{{$kajians->ri_a}}" id="ria">
@@ -169,15 +174,15 @@
                         <div class="d-inline">
                             <input type="hidden" value="{{$kajians->ri_b}}" id="rib">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ri_b" id="ribperlu" value="perlu">
+                                <input class="form-check-input" type="radio" name="ri_b" id="ribperlu" value="Perlu Persetujuan">
                                 <label class="form-check-label">Perlu memperoleh persetujuan BPOM terlebih dahulu</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ri_b" id="ribijin" value="ijin">
+                                <input class="form-check-input" type="radio" name="ri_b" id="ribijin" value="Setelah Perubahan">
                                 <label class="form-check-label">Ijin BPOM dapat disubmit setelah perubahan terjadi</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ri_b" id="ribtelah" value="telah">
+                                <input class="form-check-input" type="radio" name="ri_b" id="ribtelah" value="Telah Persetujuan">
                                 <label class="form-check-label">Telah memperoleh persetujuan BPOM</label>
                             </div>
                         </div>
@@ -188,9 +193,10 @@
                 </tr>
             </tbody>
             <tbody>
-            <tr>
-                    <td>3</td>
-                    <td>Stabilitas</td>
+                <tr>
+                    {{-- STABILITAS --}}
+                    <td align="center">3</td>
+                    <td align="center">Stabilitas</td>
                     <td>
                         <h6>a. Mempengaruhi stabilitas</h6>
                         <input type="hidden" value="{{$kajians->st_a}}" id="sta">
@@ -210,12 +216,24 @@
                         <div class="d-inline">
                             <input type="hidden" value="{{$kajians->st_b}}" id="stb">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="st_b" id="stbdiper" value="dipercepat">
+                                <input class="form-check-input" type="checkbox" name="st_b[]" id="stbdiper" value="Dipercepat"
+                                {{ in_array("Dipercepat", $st_bb) ? "checked" : ""}}>
                                 <label class="form-check-label">Dipercepat</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="st_b" id="stbjangka" value="jangka">
+                                <input class="form-check-input" type="checkbox" name="st_b[]" id="stbjangka" value="Jangka Panjang"
+                                {{ in_array("Dipercepat", $st_bb) ? "checked" : ""}}>
                                 <label class="form-check-label">Jangka Panjang</label>
+                            </div>
+                            <div class="form-check font-italic">
+                                <input class="form-check-input" type="checkbox" name="st_b[]" id="stabil2" value="Stress"
+                                {{ in_array("Stress", $st_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="stabilt2">Stress test</label>
+                            </div>
+                            <div class="form-check font-italic">
+                                <input class="form-check-input" type="checkbox" name="st_b[]" id="stabil3" value="Stability"
+                                {{ in_array("Stability", $st_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="stabilt3">In Use Stability</label>
                             </div>
                         </div>
                     </td>
@@ -225,9 +243,44 @@
                 </tr>
             </tbody>
             <tbody>
-            <tr>
-                    <td>4</td>
-                    <td>Masa Edar</td>
+                <tr>
+                {{-- PENGUJIAN --}}
+                    <td align="center">4</td>
+                    <td align="center">Pengujian</td>
+                    <td>
+                        <h6>a. Memerlukan pengujian</h6>
+                        <input type="hidden" value="{{$kajians->pj_a}}" id="pja">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="pj_a" id="pjya" value="ya">
+                            <label class="form-check-label">Ya</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="pj_a" id="pjtidak" value="tidak">
+                            <label class="form-check-label">Tidak</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="pj_a" id="pjna" value="na">
+                            <label class="form-check-label">NA</label>
+                        </div>
+                        <h6 class="my-2" id="laporanpj">b. Jika ya, sebutkan pengujian yang diperlukan</h6>
+                        <div class="d-inline">
+                            <div class="form-check">
+                                <input type="hidden" value="{{$kajians->pj_b}}" id="pjb">
+                                <input class="form-check-input" type="radio" name="pj_b" id="dokp" value="dok1">
+                                <textarea name="dokumen" id="pjt" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <textarea class="form-control" id="pj_ket" rows="3" name="pj_ket">{{$kajians->pj_ket}}</textarea>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                {{-- MASA EDAR --}}
+                <tr>
+                    <td align="center"> 5</td>
+                    <td align="center"> Masa Edar</td>
                     <td>
                         <h6>a. Mempengaruhi masa edar / daluwarsa</h6>
                         <input type="hidden" value="{{$kajians->me_a}}" id="mea">
@@ -250,9 +303,10 @@
                 </tr>
             </tbody>
             <tbody>
-            <tr>
-                    <td>5</td>
-                    <td>Validasi / Kualifikasi</td>
+                <tr>
+                    {{-- VALIDASI / KUALIFIKASI --}}
+                    <td align="center">6</td>
+                    <td align="center">Validasi / Kualifikasi</td>
                     <td>
                         <h6>a. Mempengaruhi status validasi / kualifikasi</h6>
                         <input type="hidden" value="{{$kajians->val_a}}" id="vala">
@@ -268,36 +322,43 @@
                             <input class="form-check-input" type="radio" name="val_a" id="valana" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, jenis validasi / kualifikasi</h6>
+                        <h6 class="my-2" id="laporanval">b. Jika ya, jenis validasi / kualifikasi</h6>
                         <input type="hidden" value="{{$kajians->val_b}}" id="valb">
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valb1" value="pengolahan">
-                                <label class="form-check-label">Validasi Pengolahan</label>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" id="valda" value="pengolahan"
+                                {{ in_array("pengolahan", $val_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="valdat">Validasi Pengolahan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valb2" value="pembersihan">
-                                <label class="form-check-label">Validasi Pembersihan</label>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" id="valda1" value="pembersihan"
+                                {{ in_array("pembersihan", $val_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="valdat1">Validasi Pembersihan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valb3" value="instalasi">
-                                <label class="form-check-label">Kualifikasi Instalasi</label>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" id="valda2" value="instalasi"
+                                {{ in_array("instalasi", $val_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="valdat2">Kualifikasi Instalasi</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valb4" value="kinerja">
-                                <label class="form-check-label">Kualifikasi Kinerja</label>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" id="valda3" value="kinerja"
+                                {{ in_array("kinerja", $val_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="valdat3">Kualifikasi Kinerja</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valb5" value="pengemasan">
-                                <label class="form-check-label">Validasi Pengemasan</label>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" id="valda4" value="pengemasan"
+                                {{ in_array("pengemasan", $val_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="valdat4">Validasi Pengemasan</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valb6" value="analisa">
-                                <label class="form-check-label">Validasi Metode Analisa</label>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" id="valda5" value="analisa"
+                                {{ in_array("analisa", $val_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="valdat5">Validasi Metode Analisa</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="val_b" id="valb7" value="operasional">
-                                <label class="form-check-label">Kualifikasi Operasional</label>
+                                <input class="form-check-input" type="checkbox" name="val_b[]" id="valda6" value="operasional"
+                                {{ in_array("operasional", $val_bb) ? "checked" : "" }}>
+                                <label class="form-check-label" id="valdat6">Kualifikasi Operasional</label>
                             </div>
                         </div>
                     </td>
@@ -307,9 +368,10 @@
                 </tr>
             </tbody>
             <tbody>
-            <tr>
-                    <td>6</td>
-                    <td>Trial</td>
+                {{-- TRIAL --}}
+                <tr>
+                    <td align="center">7</td>
+                    <td align="center">Trial</td>
                     <td>
                         <h6>a. Perlu dilakukan trial</h6>
                         <input type="hidden" value="{{$kajians->tr_a}}" id="tra">
@@ -329,15 +391,18 @@
                         <input type="hidden" value="{{$kajians->tr_b}}" id="trb">
                         <div class="d-inline">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tr_b" id="trb1" value="lab">
+                                <input class="form-check-input" type="checkbox" name="tr_b[]" id="trb1" value="lab"
+                                {{ in_array("lab", $tr_bb) ? "checked" : ""}}>
                                 <label class="form-check-label">Laboratorium</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tr_b" id="trb2" value="pilot">
+                                <input class="form-check-input" type="checkbox" name="tr_b[]" id="trb2" value="pilot"
+                                {{ in_array("pilot", $tr_bb) ? "checked" : ""}}>
                                 <label class="form-check-label">Pilot</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tr_b" id="trb3" value="komersial">
+                                <input class="form-check-input" type="checkbox" name="tr_b[]" id="trb3" value="komersial"
+                                {{ in_array("komersial", $tr_bb) ? "checked" : ""}}>
                                 <label class="form-check-label">Komersial</label>
                             </div>
                         </div>
@@ -348,9 +413,10 @@
                 </tr>
             </tbody>
             <tbody>
-            <tr>
-                    <td>7</td>
-                    <td>Produksi</td>
+                <tr>
+                    {{-- PRODUKSI --}}
+                    <td align="center">8</td>
+                    <td align="center">Produksi</td>
                     <td>
                         <h6>a. Perlu pemeriksaan tambahan</h6>
                         <input type="hidden" value="{{$kajians->pr_a}}" id="pra">
@@ -366,20 +432,12 @@
                             <input class="form-check-input" type="radio" name="pr_a" id="prana" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, sebutkan pemeriksaan tambahan yang diperlukan</h6>
+                        <h6 class="my-2" id="laporanpro">b. Jika ya, sebutkan pemeriksaan tambahan yang diperlukan</h6>
                         <input type="hidden" value="{{$kajians->pr_dok}}" id="prdok">
                         <div class="d-inline">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="pr_dok" id="prdok1" value="dok1">
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="form-check my-2">
-                                <input class="form-check-input" type="radio" name="pr_dok" id="prdok2" value="dok2">
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pr_dok" id="prdok3" value="dok3">
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <textarea name="dokumen" id="prot" class="form-control"></textarea>
                             </div>
                         </div>
                     </td>
@@ -389,9 +447,10 @@
                 </tr>
             </tbody>
             <tbody>
-            <tr>
-                    <td>8</td>
-                    <td>Dokumen</td>
+                <tr>
+                    {{-- DOKUMEN --}}
+                    <td align="center"> 9</td>
+                    <td align="center"> Dokumen</td>
                     <td>
                         <h6>a. Perlu pembuatan / perubahan dokumen</h6>
                         <input type="hidden" value="{{$kajians->dok_a}}" id="doka">
@@ -407,20 +466,12 @@
                             <input class="form-check-input" type="radio" name="dok_a" id="dokana" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, sebutkan dokumen yang dibuat / diubah</h6>
+                        <h6 class="my-2" id="laporandok">b. Jika ya, sebutkan dokumen yang dibuat / diubah</h6>
                         <input type="hidden" value="{{$kajians->dok_b}}" id="dokb">
                         <div class="d-inline">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="dok_b" id="dokb1" value="dok1">
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="form-check my-2">
-                                <input class="form-check-input" type="radio" name="dok_b" id="dokb2" value="dok2">
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="dok_b" id="dokb3" value="dok3">
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <textarea name="dokt" id="dokt" class="form-control"></textarea>
                             </div>
                         </div>
                     </td>
@@ -430,9 +481,36 @@
                 </tr>
             </tbody>
             <tbody>
-            <tr>
-                    <td>9</td>
-                    <td>Sistem ERP</td>
+                {{-- DESAIN KEMASAN --}}
+                <tr>
+                    <td><center> 10</center></td>
+                    <td><center> Desain Kemasan</center></td>
+                    <td>
+                        <h6>a. Memerlukan Artwork Desain</h6>
+                        <input type="hidden" value="{{$kajians->dk_a}}" id="dka">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="dk_a" id="dkya" value="ya">
+                            <label class="form-check-label">Ya</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="dk_a" id="dktidak" value="tidak">
+                            <label class="form-check-label">Tidak</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="dk_a" id="dkna" value="na">
+                            <label class="form-check-label">NA</label>
+                        </div> 
+                    </td>
+                    <td>
+                        <textarea name="dk_ket" id="dk_ket" class="form-control">{{$kajians->dk_ket}}</textarea>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                {{-- SISTEM ERP --}}
+                <tr>
+                    <td align="center">11</td>
+                    <td align="center">Sistem ERP</td>
                     <td>
                         <h6>a. Mempengaruhi sistem ERP</h6>
                         <input type="hidden" value="{{$kajians->si_a}}" id="sia">
@@ -849,6 +927,14 @@
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <td class="font-weight-bold"> Catatan :</td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea class="form-control" rows="3" name="kj_tambahan">{{$kajians->kj_tambahan}}</textarea>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-bordered">
@@ -857,24 +943,11 @@
                     <th scope="col"></th>
                     <th scope="col">Jabatan</th>
                     <th scope="col">Nama</th>
-                    <th scope="col">Tanda Tangan</th>
+                    <th scope="col">Komentar</th>
                     <th scope="col">Tanggal</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Dikaji oleh</td>
-                    <td>QA Specialist</td>
-                    <td>
-                        <input type="text" name="qa_nama" value="{{$kajians->qa_nama}}" placeholder="Sertakan Nama" class="form-control">
-                    </td>
-                    <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ttd" disabled></textarea>
-                    </td>
-                    <td>
-                        <input class="form-control" type="date" value="{{$kajians->qa_date}}" id="qa_date" name="qa_date">
-                    </td>
-                </tr>
                 <tr>
                     <td>Diperiksa oleh</td>
                     <td>Asman Prod. Eval.</td>
@@ -882,7 +955,7 @@
                         <input type="text" class="form-control" placeholder="Sertakan Nama" id="asman_nama" name="asman_nama" value="{{$kajians->asman_nama}}">
                     </td>
                     <td>
-                        <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
+                        <textarea class="form-control" rows="3" name="asman_komentar" id="asman_komentar">{{$kajians->asman_komentar}}</textarea>
                     </td>
                     <td>
                         <input class="form-control" type="date" value="{{$kajians->asman_date}}" id="asman_date" name="asman_date">
@@ -895,7 +968,7 @@
                         <input type="text" class="form-control" placeholder="Sertakan Nama" id="aq_nama" name="aq_nama" value="{{$kajians->aq_nama}}">
                     </td>
                     <td>
-                        <textarea class="form-control" rows="3" name="ttd" disabled></textarea>
+                        <textarea class="form-control" rows="3" name="aq_komentar" id="aq_komentar">{{$kajians->aq_komentar}}</textarea>
                     </td>
                     <td>
                         <input class="form-control" type="date" value="{{$kajians->aq_date}}" id="aq_date" name="aq_date">
@@ -1048,13 +1121,13 @@
 
     //ri_b
     var value = $('#rib').val()
-    if(value === 'perlu'){
+    if(value === 'Perlu Persetujuan'){
         $("#ribperlu").attr('checked', 'checked');
     }
-    else if(value === 'ijin'){
+    else if(value === 'Setelah Perubahan'){
         $("#ribijin").attr('checked', 'checked');
     }
-    else if(value === 'telah'){
+    else if(value === 'Telah Persetujuan'){
         $("#ribtelah").attr('checked', 'checked');
     }
     else{
@@ -1080,6 +1153,39 @@
     }
     else if(value === 'jangka'){
         $("#stbjangka").attr('checked', 'checked');
+    }
+    else{
+
+    }
+
+    //pj_a
+    var value = $('#pja').val()
+    if(value == 'ya'){
+        $("#pjya").attr('checked', 'checked');
+
+        $('#laporanpj').css('display', 'block');
+        $('#dokp').css('display', 'block');
+        $('#pjt').css('display', 'block');
+    }
+    else if(value == 'tidak'){
+        $("#pjtidak").attr('checked', 'checked');
+
+        $('#laporanpj').css('display', 'none');
+        $('#dokp').css('display', 'none');
+        $('#pjt').css('display', 'none');
+    }
+    else{
+        $("#pjna").attr('checked', 'checked');
+
+        $('#laporanpj').css('display', 'none');
+        $('#dokp').css('display', 'none');
+        $('#pjt').css('display', 'none');
+    }
+
+    //pj_b
+    var value = $('#pjb').val()
+    if(value == 'dok1'){
+        $("#dokp").attr('checked', 'checked');
     }
     else{
 
@@ -1180,14 +1286,20 @@
     if(value === 'dok1'){
         $("#prdok1").attr('checked', 'checked');
     }
-    else if(value === 'dok2'){
-        $("#prdok2").attr('checked', 'checked');
-    }
-    else if(value === 'dok3'){
-        $("#prdok3").attr('checked', 'checked');
-    }
     else{
 
+    }
+
+    //dk_a
+    var value = $('#dka').val()
+    if(value === 'ya'){
+        $("#dkya").attr('checked', 'checked');
+    }
+    else if(value === 'tidak'){
+        $("#dktidak").attr('checked', 'checked');
+    }
+    else{
+        $("#dkna").attr('checked', 'checked');
     }
 
     //dok_a

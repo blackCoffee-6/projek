@@ -75,7 +75,7 @@ class CreateKajiansTable extends Migration
             $table->integer('result_dxo');
 
             $table->string('ch_kategori');
-            $table->string('ch_status');
+            $table->string('ch_status')->nullable();
             $table->string('catatan')->nullable();
 
             $table->string('asman_nama');

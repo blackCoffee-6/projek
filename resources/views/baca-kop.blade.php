@@ -58,7 +58,11 @@
                     <td><input type="text" class="form-control" name="ru_pic" value="{{$kontrols->ru_pic}}" disabled></td>
                     <td><input type="text" class="form-control" name="ru_dok" value="{{$kontrols->ru_dok}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @if($kontrols->ru_status == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->ru_date }}" class="form-control" name="ru_date" width="3%" disabled>
@@ -121,7 +125,11 @@
                     <td><input type="text" class="form-control" name="ri_pic" value="{{$kontrols->ri_pic}}" disabled></td>
                     <td><input type="text" class="form-control" name="ri_dok" value="{{$kontrols->ri_dok}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->ri_status == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->ri_date }}" class="form-control" name="ri_date" width="3%" disabled>
@@ -184,7 +192,11 @@
                     <td><input type="text" class="form-control" name="st_pic" value="{{$kontrols->st_pic}}" disabled></td>
                     <td><input type="text" class="form-control" name="st_dok" value="{{$kontrols->st_dok}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->st_status == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->st_date }}" class="form-control" name="st_date" width="3%" disabled>
@@ -246,7 +258,11 @@
                     <td><input type="text" class="form-control" name="st_pic2" value="{{$kontrols->st_pic2}}" disabled></td>
                     <td><input type="text" class="form-control" name="st_dok2" value="{{$kontrols->st_dok2}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->st_status2 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->st_date2 }}" class="form-control" name="st_date2" width="3%" disabled>
@@ -309,7 +325,11 @@
                     <td><input type="text" class="form-control" name="me_pic" value="{{$kontrols->me_pic}}" disabled></td>
                     <td><input type="text" class="form-control" name="me_dok" value="{{$kontrols->me_dok}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->me_status == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->me_date }}" class="form-control" name="me_date" width="3%" disabled>
@@ -371,7 +391,11 @@
                     <td><input type="text" class="form-control" name="me_pic2" value="{{$kontrols->me_pic2}}" disabled></td>
                     <td><input type="text" class="form-control" name="me_dok2" value="{{$kontrols->me_dok2}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->me_status2 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->me_date2 }}" class="form-control" name="me_date2" width="3%" disabled>
@@ -434,7 +458,11 @@
                     <td><input type="text" class="form-control" name="val_pic" value="{{$kontrols->val_pic}}" disabled></td>
                     <td><input type="text" class="form-control" name="val_dok" value="{{$kontrols->val_dok}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->val_status == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->val_date }}" class="form-control" name="val_date" width="3%" disabled>
@@ -496,7 +524,11 @@
                     <td><input type="text" class="form-control" name="val_pic2" value="{{$kontrols->val_pic2}}" disabled></td>
                     <td><input type="text" class="form-control" name="val_dok2" value="{{$kontrols->val_dok2}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->val_status2 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->val_date2 }}" class="form-control" name="val_date2" width="3%" disabled>
@@ -558,7 +590,11 @@
                     <td><input type="text" class="form-control" name="val_pic3" value="{{$kontrols->val_pic3}}" disabled></td>
                     <td><input type="text" class="form-control" name="val_dok3" value="{{$kontrols->val_dok3}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->val_status3 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->val_date3 }}" class="form-control" name="val_date3" width="3%" disabled>
@@ -620,7 +656,11 @@
                     <td><input type="text" class="form-control" name="val_pic4" value="{{$kontrols->val_pic4}}" disabled></td>
                     <td><input type="text" class="form-control" name="val_dok4" value="{{$kontrols->val_dok4}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->val_status4 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->val_date4 }}" class="form-control" name="val_date4" width="3%" disabled>
@@ -682,7 +722,11 @@
                     <td><input type="text" class="form-control" name="val_pic5" value="{{$kontrols->val_pic5}}" disabled></td>
                     <td><input type="text" class="form-control" name="val_dok5" value="{{$kontrols->val_dok5}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->val_status5 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->val_date5 }}" class="form-control" name="val_date5" width="3%" disabled>
@@ -744,7 +788,11 @@
                     <td><input type="text" class="form-control" name="val_pic6" value="{{$kontrols->val_pic6}}" disabled></td>
                     <td><input type="text" class="form-control" name="val_dok6" value="{{$kontrols->val_dok6}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->val_status6 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->val_date6 }}" class="form-control" name="val_date6" width="3%" disabled>
@@ -806,7 +854,11 @@
                     <td><input type="text" class="form-control" name="val_pic7" value="{{$kontrols->val_pic7}}" disabled></td>
                     <td><input type="text" class="form-control" name="val_dok7" value="{{$kontrols->val_dok7}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->val_status7 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->val_date7 }}" class="form-control" name="val_date7" width="3%" disabled>
@@ -868,7 +920,11 @@
                     <td><input type="text" class="form-control" name="val_pic8" value="{{$kontrols->val_pic8}}" disabled></td>
                     <td><input type="text" class="form-control" name="val_dok8" value="{{$kontrols->val_dok8}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->val_status8 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->val_date8 }}" class="form-control" name="val_date8" width="3%" disabled>
@@ -930,7 +986,11 @@
                     <td><input type="text" class="form-control" name="val_pic9" value="{{$kontrols->val_pic9}}" disabled></td>
                     <td><input type="text" class="form-control" name="val_dok9" value="{{$kontrols->val_dok9}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->val_status9 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->val_date9 }}" class="form-control" name="val_date9" width="3%" disabled>
@@ -992,7 +1052,11 @@
                     <td><input type="text" class="form-control" name="val_pic10" value="{{$kontrols->val_pic10}}" disabled></td>
                     <td><input type="text" class="form-control" name="val_dok10" value="{{$kontrols->val_dok10}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->val_status10 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->val_date10 }}" class="form-control" name="val_date10" width="3%" disabled>
@@ -1054,7 +1118,11 @@
                     <td><input type="text" class="form-control" name="val_pic11" value="{{$kontrols->val_pic11}}" disabled></td>
                     <td><input type="text" class="form-control" name="val_dok11" value="{{$kontrols->val_dok11}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->val_status11 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->val_date11 }}" class="form-control" name="val_date11" width="3%" disabled>
@@ -1116,7 +1184,11 @@
                     <td><input type="text" class="form-control" name="val_pic12" value="{{$kontrols->val_pic12}}" disabled></td>
                     <td><input type="text" class="form-control" name="val_dok12" value="{{$kontrols->val_dok12}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->val_status12 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->val_date12 }}" class="form-control" name="val_date12" width="3%" disabled>
@@ -1178,7 +1250,11 @@
                     <td><input type="text" class="form-control" name="val_pic13" value="{{$kontrols->val_pic13}}" disabled></td>
                     <td><input type="text" class="form-control" name="val_dok13" value="{{$kontrols->val_dok13}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->val_status13 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->val_date13 }}" class="form-control" name="val_date13" width="3%" disabled>
@@ -1240,7 +1316,11 @@
                     <td><input type="text" class="form-control" name="val_pic14" value="{{$kontrols->val_pic14}}" disabled></td>
                     <td><input type="text" class="form-control" name="val_dok14" value="{{$kontrols->val_dok14}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->val_status14 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->val_date14 }}" class="form-control" name="val_date14" width="3%" disabled>
@@ -1303,7 +1383,11 @@
                     <td><input type="text" class="form-control" name="tr_pic" value="{{$kontrols->tr_pic}}" disabled></td>
                     <td><input type="text" class="form-control" name="tr_dok" value="{{$kontrols->tr_dok}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->tr_status == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->tr_date }}" class="form-control" name="tr_date" width="3%" disabled>
@@ -1365,7 +1449,11 @@
                     <td><input type="text" class="form-control" name="tr_pic2" value="{{$kontrols->tr_pic2}}" disabled></td>
                     <td><input type="text" class="form-control" name="tr_dok2" value="{{$kontrols->tr_dok2}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->tr_status2== "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->tr_date2 }}" class="form-control" name="tr_date2" width="3%" disabled>
@@ -1427,7 +1515,11 @@
                     <td><input type="text" class="form-control" name="tr_pic3" value="{{$kontrols->tr_pic3}}" disabled></td>
                     <td><input type="text" class="form-control" name="tr_dok3" value="{{$kontrols->tr_dok3}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->tr_status3 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->tr_date3 }}" class="form-control" name="tr_date3" width="3%" disabled>
@@ -1489,7 +1581,11 @@
                     <td><input type="text" class="form-control" name="tr_pic4" value="{{$kontrols->tr_pic4}}" disabled></td>
                     <td><input type="text" class="form-control" name="tr_dok4" value="{{$kontrols->tr_dok4}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->tr_status4 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->tr_date4 }}" class="form-control" name="tr_date4" width="3%" disabled>
@@ -1551,7 +1647,11 @@
                     <td><input type="text" class="form-control" name="tr_pic5" value="{{$kontrols->tr_pic5}}" disabled></td>
                     <td><input type="text" class="form-control" name="tr_dok5" value="{{$kontrols->tr_dok5}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->tr_status5 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->tr_date5 }}" class="form-control" name="tr_date5" width="3%" disabled>
@@ -1613,7 +1713,11 @@
                     <td><input type="text" class="form-control" name="tr_pic6" value="{{$kontrols->tr_pic6}}" disabled></td>
                     <td><input type="text" class="form-control" name="tr_dok6" value="{{$kontrols->tr_dok6}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->tr_status6 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->tr_date6 }}" class="form-control" name="tr_date6" width="3%" disabled>
@@ -1676,7 +1780,11 @@
                     <td><input type="text" class="form-control" name="pro_pic" value="{{$kontrols->pro_pic}}" disabled></td>
                     <td><input type="text" class="form-control" name="pro_dok" value="{{$kontrols->pro_dok}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->pro_status == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->pro_date }}" class="form-control" name="pro_date" width="3%" disabled>
@@ -1738,7 +1846,11 @@
                     <td><input type="text" class="form-control" name="pro_pic2" value="{{$kontrols->pro_pic2}}" disabled></td>
                     <td><input type="text" class="form-control" name="pro_dok2" value="{{$kontrols->pro_dok2}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->pro_status2 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->pro_date2 }}" class="form-control" name="pro_date2" width="3%" disabled>
@@ -1800,7 +1912,11 @@
                     <td><input type="text" class="form-control" name="pro_pic3" value="{{$kontrols->pro_pic3}}" disabled></td>
                     <td><input type="text" class="form-control" name="pro_dok3" value="{{$kontrols->pro_dok3}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->pro_status3 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->pro_date3 }}" class="form-control" name="pro_date3" width="3%" disabled>
@@ -1863,7 +1979,11 @@
                     <td><input type="text" class="form-control" name="dok_pic" value="{{$kontrols->dok_pic}}" disabled></td>
                     <td><input type="text" class="form-control" name="dok_dok" value="{{$kontrols->dok_dok}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->dok_status == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->dok_date }}" class="form-control" name="dok_date" width="3%" disabled>
@@ -1925,7 +2045,11 @@
                     <td><input type="text" class="form-control" name="dok_pic2" value="{{$kontrols->dok_pic2}}" disabled></td>
                     <td><input type="text" class="form-control" name="dok_dok2" value="{{$kontrols->dok_dok2}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->dok_status2 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->dok_date2 }}" class="form-control" name="dok_date2" width="3%" disabled>
@@ -1987,7 +2111,11 @@
                     <td><input type="text" class="form-control" name="dok_pic3" value="{{$kontrols->dok_pic3}}" disabled></td>
                     <td><input type="text" class="form-control" name="dok_dok3" value="{{$kontrols->dok_dok3}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->dok_status3 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->dok_date3 }}" class="form-control" name="dok_date3" width="3%" disabled>
@@ -2049,7 +2177,11 @@
                     <td><input type="text" class="form-control" name="dok_pic4" value="{{$kontrols->dok_pic4}}" disabled></td>
                     <td><input type="text" class="form-control" name="dok_dok4" value="{{$kontrols->dok_dok4}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->dok_status4 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->dok_date4 }}" class="form-control" name="dok_date4" width="3%" disabled>
@@ -2111,7 +2243,11 @@
                     <td><input type="text" class="form-control" name="dok_pic5" value="{{$kontrols->dok_pic5}}" disabled></td>
                     <td><input type="text" class="form-control" name="dok_dok5" value="{{$kontrols->dok_dok5}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->dok_status5 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->dok_date5 }}" class="form-control" name="dok_date5" width="3%" disabled>
@@ -2173,7 +2309,11 @@
                     <td><input type="text" class="form-control" name="dok_pic6" value="{{$kontrols->dok_pic6}}" disabled></td>
                     <td><input type="text" class="form-control" name="dok_dok6" value="{{$kontrols->dok_dok6}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->dok_status6 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->dok_date6 }}" class="form-control" name="dok_date6" width="3%" disabled>
@@ -2235,7 +2375,11 @@
                     <td><input type="text" class="form-control" name="dok_pic7" value="{{$kontrols->dok_pic7}}" disabled></td>
                     <td><input type="text" class="form-control" name="dok_dok7" value="{{$kontrols->dok_dok7}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->dok_status7 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->dok_date7 }}" class="form-control" name="dok_date7" width="3%" disabled>
@@ -2297,7 +2441,11 @@
                     <td><input type="text" class="form-control" name="dok_pic8" value="{{$kontrols->dok_pic8}}" disabled></td>
                     <td><input type="text" class="form-control" name="dok_dok8" value="{{$kontrols->dok_dok8}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->dok_status8 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->dok_date8 }}" class="form-control" name="dok_date8" width="3%" disabled>
@@ -2359,7 +2507,11 @@
                     <td><input type="text" class="form-control" name="dok_pic9" value="{{$kontrols->dok_pic9}}" disabled></td>
                     <td><input type="text" class="form-control" name="dok_dok9" value="{{$kontrols->dok_dok9}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->dok_status9 == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->dok_date9 }}" class="form-control" name="dok_date9" width="3%" disabled>
@@ -2422,7 +2574,11 @@
                     <td><input type="text" class="form-control" name="sis_pic" value="{{$kontrols->sis_pic}}" disabled></td>
                     <td><input type="text" class="form-control" name="sis_dok" value="{{$kontrols->sis_dok}}" disabled></td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @if($kontrols->sis_status == "closed")
+                            <span class="badge rounded-pill bg-danger text-light">Closed</span>
+                        @else
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @endif
                     </td>
                     <td class="text-center" width="3%">
                         <input type="date" value="{{ $kontrols->sis_date }}" class="form-control" name="sis_date" width="3%" disabled>
@@ -2530,7 +2686,7 @@
                 </tr>
             </tbody>
         </table>
-        <a href="/home"><button type="button" class="btn btn-danger my-2 mx-2">Back</button></a>
+        <a href="/home"><button type="button" class="btn btn-primary my-2 mx-2">Kembali</button></a>
     </div>
 </div>
 
@@ -2539,9 +2695,13 @@
     var value = $('#mitigasi').val()
     if(value === 'dilaksanakan'){
         $("#DD").attr('checked', 'checked');
+
+        $("#DDtext").css('display', 'block');
     }
     else{
-        $("#dokatTDDidak").attr('checked', 'checked');
+        $("#TDD").attr('checked', 'checked');
+
+        $("#DDtext").css('display', 'none');
     }
 </script>
 @endsection

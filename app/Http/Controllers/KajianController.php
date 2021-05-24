@@ -67,7 +67,6 @@ class KajianController extends Controller
             'dk_a'=>'required',
             'si_a'=>'required',
             'ch_kategori'=>'required',
-            'ch_status'=>'required',
             'asman_nama'=>'required',
             'asman_date'=>'required',
             'aq_nama'=>'required',
@@ -152,10 +151,22 @@ class KajianController extends Controller
         $ket_up = $kajians->ket_up;
         $ket_ups = explode("," , $ket_up);
 
+        $ru_b = $kajians->ru_b;
+        $ru_bb = explode("," , $ru_b);
+
+        $st_b = $kajians->st_b;
+        $st_bb = explode("," , $st_b);
+
+        $val_b = $kajians->val_b;
+        $val_bb = explode("," , $val_b);
+
+        $tr_b = $kajians->tr_b;
+        $tr_bb = explode("," , $tr_b);
+
         $ch_dis = $kajians->ch_dis;
         $ch_diss = explode("," , $ch_dis);
 
-        return view('editKajian', compact('role', 'kajians', 'ket_ups', 'ch_diss'));
+        return view('editKajian', compact('role', 'kajians', 'ket_ups', 'ru_bb', 'val_bb', 'tr_bb','st_bb','ch_diss'));
     }
 
     /**
@@ -173,7 +184,7 @@ class KajianController extends Controller
             'ch_dis' => implode(',', $request->ch_dis),
 
             'ru_a' => $request->ru_a,
-            'ru_b' => $request->ru_b,
+            'ru_b' => implode(',', $request->ru_b),
             'ru_ket' => $request->ru_ket,
 
             'ri_a' => $request->ri_a,
@@ -181,18 +192,18 @@ class KajianController extends Controller
             'ri_ket' => $request->ri_ket,
 
             'st_a' => $request->st_a,
-            'st_b' => $request->st_b,
+            'st_b' => implode(',', $request->st_b),
             'st_ket' => $request->st_ket,
 
             'me_a' => $request->me_a,
             'me_ket' => $request->me_ket,
 
             'val_a' => $request->val_a,
-            'val_b' => $request->val_b,
+            'val_b' => implode(',', $request->val_b),
             'val_ket' => $request->val_ket,
 
             'tr_a' => $request->tr_a,
-            'tr_b' => $request->tr_b,
+            'tr_b' => implode(',', $request->tr_b),
             'tr_ket' => $request->tr_ket,
 
             'pr_a' => $request->pr_a,
@@ -220,13 +231,12 @@ class KajianController extends Controller
             'ch_kategori' => $request->ch_kategori,
             'ch_status' => $request->ch_status,
 
-            'qa_nama' => $request->qa_nama,
-            'qa_date' => $request->qa_date,
-
             'asman_nama' => $request->asman_nama,
+            'asman_komentar' => $request->asman_komentar,
             'asman_date' => $request->asman_date,
 
             'aq_nama' => $request->aq_nama,
+            'aq_komentar' => $request->aq_komentar,
             'aq_date' => $request->aq_date
         ]);
 

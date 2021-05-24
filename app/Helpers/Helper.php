@@ -2,27 +2,27 @@
 
 namespace App\Helpers;
 
-class Helper {
+class Helper{
 
-    public static function No_Usulan($model, $trow, $length = 4, $prefix)
-    {
-        $data_fup = $model::orderBy('id')->first();
-
-        if(!$data_fup){
-            $data_length = $length;
-            $last_number = '';
+    public static function IDGenerator($model, $trow, $length = 4, $prefix){
+        $data = $model::orderBy('id', 'DESC')->first();
+        if(!$data){
+            $og_length = $length;
+            $last_number = '1';
         }else{
-            $code_data = substr($data_fup->$trow,strlen($prefix)+1);
-            $data_last_number = ($code_data/1)*1;
-            $increment_last_number = $data_last_number+1;
+            $code = substr($data->$trow, strlen($prefix)+1);
+            $actial_last_number = ((int)$code/1)*1;
+            $increment_last_number = $actial_last_number+1;
             $last_number_length = strlen($increment_last_number);
-            $data_length = $length - $last_number_length;
-            $last_number_length = $increment_last_number;
+            $og_length = $length - $last_number_length;
+            $last_number = $increment_last_number;
         }
-        $no_usul = "";
-        for($i=0; $i<$data_length;$i++){
-            $no_usul.="0";
+        $zeros = "";
+        for($i=0; $i<$og_length; $i++){
+            $zeros.="0";
         }
-        return $prefix.'-'.$no_usul.$last_number;
+        return $zeros.$last_number.'/'.$prefix.'/'.date('M').'/'.date('Y');
     }
 }
+
+?>

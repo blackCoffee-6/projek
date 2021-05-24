@@ -46,7 +46,7 @@
             @foreach($fups as $fup)
                 <tr>
                     <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
-                    <td>04/USL/IV/2020</td>
+                    <td>{{$fup->no_usulan}}</td>
                     <td>{{$fup->Bidang->name}}</td>
                     <td>
                         <?php $flag = ''; ?>
@@ -59,13 +59,15 @@
                     </td>
                     <td>{{$fup->ket_usulan}}</td>
                     <td class="text-center">
-                        <?php $count = 0; $date = '';?>
+                        <?php $count = 0; $date = ''; $mitigasi ='';?>
                         @foreach($kontrols as $kontrol)
                             @if($fup->id == $kontrol->fup_id)
-                                <?php $count++; $date = $kontrol->hasil_mitigasi_date?>
-                                @if(!($date))
+                                <?php $count++; $date = $kontrol->hasil_mitigasi_date; $mitigasi = $kontrol->hasil_mitigasi?>
+                                @if(!($mitigasi))
                                     <span class="badge rounded-pill bg-warning">Sedang di Proses</span>
                                 @elseif($date)
+                                    <span class="badge rounded-pill bg-danger">Closed</span>
+                                @elseif($mitigasi)
                                     <span class="badge rounded-pill bg-danger">Closed</span>
                                 @endif
                             @endif
@@ -73,9 +75,11 @@
                     </td>
                     @if(Auth::user()->bidang_id == NULL)
                     <td class="text-center">
-                        @if(!($date))
+                        @if(!($mitigasi))
                             <a href="/Edit/KP/{{$kontrol->id}}" class="btn btn-primary my-2 my-sm-0"><i class="fa fa-folder"></i>  Edit</a>
                         @elseif($date)
+                            <a href="/Baca-KontrolPerubahan/{{$kontrol->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
+                        @elseif($mitigasi)
                             <a href="/Baca-KontrolPerubahan/{{$kontrol->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
                         @endif
                     </td>

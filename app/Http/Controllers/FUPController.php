@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Approval;
 use App\Bidang;
-use App\FUB;
 use App\FUP;
-use App\User;
 use App\Helpers\Helper;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -28,27 +27,19 @@ class FUPController extends Controller
 
     public function store(Request $request)
     {
-        $data = DB::table('fups')->where('id')->get();
-        $bln = date('M');
-        $thn = date('Y');
+        $no_usulan = Helper::IDGenerator(new FUP, 'no_usulan', 4, 'UP');
+        // $data = DB::table('fups')->where('id')->get();
+        // $bln = date('M');
+        // $thn = date('Y');
 
-        if(is_null($data)){
-            $no_usulan = '1'.'/UP/'.$bln.'/'.$thn;
-        }else{
-            $id = FUP::getId();
-            foreach ($id as $value)
-            $idlama = $value->id;
-            $idbaru = $idlama + 1;
-            $no_usulan = $idbaru.'/UP/'.$bln.'/'.$thn;  
-        }
-        // if($fup){
+        // if(is_null($data)){
+        //     $no_usulan = '1'.'/UP/'.$bln.'/'.$thn;
+        // }else{
         //     $id = FUP::getId();
         //     foreach ($id as $value)
         //     $idlama = $value->id;
         //     $idbaru = $idlama + 1;
-        //     $no_usulan = $idbaru.'/UP/'.$bln.'/'.$thn;
-        // }elseif(!$fup){
-        //     $no_usulan = '1'.'/UP/'.$bln.'/'.$thn;
+        //     $no_usulan = $idbaru.'/UP/'.$bln.'/'.$thn;  
         // }
 
         $request->validate([
@@ -71,7 +62,6 @@ class FUPController extends Controller
         //     $request->request->add(['tanggapan2' => $tanggapan2]);
         // }
 
-        
         $request->request->add(['user_id' => $user->id]);
         $request->request->add(['bidang_id' => $request->bidang]);
         $request->request->add(['no_usulan' => $no_usulan]);
@@ -84,8 +74,6 @@ class FUPController extends Controller
             // dd($image);
          }
 
-          
-         
         if($request->file)
         {
             $request->request->add(['file' => $request->file->getClientOriginalName()]);
@@ -94,6 +82,27 @@ class FUPController extends Controller
         }
 
         FUP::create($request->all());
+
+        // $data_fup = new FUP;
+        // $data_fup->no_usulan = $no_usulan;
+        // $data_fup->user_id = $user_id;
+        // $data_fup->bidang_id = $bidang_id;
+        // $data_fup->status = $status;
+        // $data_fup->produk = $request->produk;
+        // $data_fup->date = $request->date;
+        // $data_fup->ket_ketentuan = $request->ket_ketentuan;
+        // $data_fup->ket_usulan = $request->ket_usulan;
+        // $data_fup->ket_alasan = $request->ket_alasan;
+        // $data_fup->ch_sifat = $request->ch_sifat;
+        // $data_fup->pic_asman = $request->pic_asman;
+        // $data_fup->pic_nama = $request->pic_nama;
+        // $data_fup->pic_date = $request->pic_date;
+        // $data_fup->cip_manager = $request->cip_manager;
+        // $data_fup->cip_nama = $request->cip_nama;
+        // $data_fup->cip_date = $request->cip_date;
+        // $data_fup->file = $fup_file;
+        // $data_fup->save();
+        // dd($data_fup);
 
         // if($request->tanggapan != "tidak"){
         //     $arrTanggapan = explode(",",$tanggapan2);

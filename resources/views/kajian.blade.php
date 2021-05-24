@@ -968,13 +968,6 @@
                             <input class="form-check-input" type="radio" name="ch_status" value="ditolak" {{ (old('ch_status') == 'ditolak') ? 'checked' : ''}}>
                             <label class="form-check-label" for="inlineRadio2">Ditolak</label>
                         </div>
-                        <label 
-                        @error('ch_status')
-                        class="text-danger"
-                        @enderror>@error('ch_status')
-                        *Status Usulan Perubahan harus diisi
-                        @enderror
-                        </label>
                     </td>
                 </tr>
                 <tr>

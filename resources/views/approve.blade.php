@@ -49,7 +49,7 @@
                     @if(Auth::user()->id == $fup->user_id || Auth::user()->bidang_id == $fup->bidang_id || Auth::user()->role == 'Admin' || Auth::user()->role == 'Approval')
                     <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
                     <td>{{$fup->Bidang->name}}</td>
-                    <td>04/USL/IV/2020</td>
+                    <td>{{$fup->no_usulan}}</td>
                     <td>{{$fup->date}}</td>
                     <td>
                         {{$fup->ket_usulan}}

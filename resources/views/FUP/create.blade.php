@@ -14,7 +14,6 @@
                 <thead>
                 <tr>
                     <th scope="col">A. Bidang yang Mengajukan :</th>
-                    <th scope="col">No</th>
                     <th scope="col">Tanggal (Bulan/Tanggal/Tahun)</th>
                 </tr>
                 </thead>
@@ -40,9 +39,6 @@
                             *Bidang yang mengajukan harus diisi!
                             @enderror
                         </label>
-                    </td>
-                    <td>
-                        04/USL/IV/2020
                     </td>
                     <td>
                         <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="datepicker" name="date">
