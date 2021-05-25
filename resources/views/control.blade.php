@@ -77,17 +77,17 @@
                         @foreach($kontrols as $kontrol)
                             @if($fup->id == $kontrol->fup_id)
                                 <?php $count++; $date = $kontrol->hasil_mitigasi_date; $mitigasi = $kontrol->hasil_mitigasi?>
-                                @if($count < 1)
-                                    <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                                @elseif(!($mitigasi))
-                                    <span class="badge rounded-pill bg-warning">Sedang di Proses</span>
-                                @elseif($mitigasi)
-                                    <span class="badge rounded-pill bg-danger">Closed</span>
-                                @elseif($date)
-                                    <span class="badge rounded-pill bg-danger">Closed</span>
-                                @endif
                             @endif
                         @endforeach
+                        @if($count < 1)
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        @elseif(!($mitigasi))
+                            <span class="badge rounded-pill bg-warning">Sedang di Proses</span>
+                        @elseif($mitigasi)
+                            <span class="badge rounded-pill bg-danger">Closed</span>
+                        @elseif($date)
+                            <span class="badge rounded-pill bg-danger">Closed</span>
+                        @endif
                     </td>
                     @if(Auth::user()->bidang_id == NULL)
                     <td class="text-center">

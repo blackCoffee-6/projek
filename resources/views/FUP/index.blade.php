@@ -43,7 +43,7 @@ table.table-bordered > tbody > tr > td{
                     <th scope="col">Bidang</th>
                     <th scope="col">Nomor</th>
                     <th scope="col">Tanggal Usulan</th>
-                    <th scope="col">Usulan Perubahan</th>
+                    <th scope="col" width="20%">Usulan Perubahan</th>
                     <th scope="col">Tanggal Berlaku</th>
                     <th scope="col">Status</th>
                     <th scope="col">Aksi</th>

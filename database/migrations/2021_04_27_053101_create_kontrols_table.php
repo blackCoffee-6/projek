@@ -229,6 +229,7 @@ class CreateKontrolsTable extends Migration
             $table->text('tr_realisasi6')->nullable();
 
             $table->text('pro_tlp')->nullable();
+            $table->text('pro_input')->nullable();
             $table->text('pro_pic')->nullable();
             $table->text('pro_dok')->nullable();
             $table->text('pro_status')->nullable();
@@ -237,6 +238,7 @@ class CreateKontrolsTable extends Migration
             $table->text('pro_realisasi')->nullable();
 
             $table->text('pro_tlp2')->nullable();
+            $table->text('pro_input2')->nullable();
             $table->text('pro_pic2')->nullable();
             $table->text('pro_dok2')->nullable();
             $table->text('pro_status2')->nullable();
@@ -245,6 +247,7 @@ class CreateKontrolsTable extends Migration
             $table->text('pro_realisasi2')->nullable();
 
             $table->text('pro_tlp3')->nullable();
+            $table->text('pro_input3')->nullable();
             $table->text('pro_pic3')->nullable();
             $table->text('pro_dok3')->nullable();
             $table->text('pro_status3')->nullable();
@@ -269,6 +272,7 @@ class CreateKontrolsTable extends Migration
             $table->text('dok_realisasi2')->nullable();
 
             $table->text('dok_tlp3')->nullable();
+            $table->text('dok_input3')->nullable();
             $table->text('dok_pic3')->nullable();
             $table->text('dok_dok3')->nullable();
             $table->text('dok_status3')->nullable();
@@ -277,6 +281,7 @@ class CreateKontrolsTable extends Migration
             $table->text('dok_realisasi3')->nullable();
 
             $table->text('dok_tlp4')->nullable();
+            $table->text('dok_input4')->nullable();
             $table->text('dok_pic4')->nullable();
             $table->text('dok_dok4')->nullable();
             $table->text('dok_status4')->nullable();
@@ -285,6 +290,7 @@ class CreateKontrolsTable extends Migration
             $table->text('dok_realisasi4')->nullable();
 
             $table->text('dok_tlp5')->nullable();
+            $table->text('dok_input5')->nullable();
             $table->text('dok_pic5')->nullable();
             $table->text('dok_dok5')->nullable();
             $table->text('dok_status5')->nullable();
@@ -293,6 +299,7 @@ class CreateKontrolsTable extends Migration
             $table->text('dok_realisasi5')->nullable();
 
             $table->text('dok_tlp6')->nullable();
+            $table->text('dok_input6')->nullable();
             $table->text('dok_pic6')->nullable();
             $table->text('dok_dok6')->nullable();
             $table->text('dok_status6')->nullable();
@@ -301,6 +308,7 @@ class CreateKontrolsTable extends Migration
             $table->text('dok_realisasi6')->nullable();
 
             $table->text('dok_tlp7')->nullable();
+            $table->text('dok_input7')->nullable();
             $table->text('dok_pic7')->nullable();
             $table->text('dok_dok7')->nullable();
             $table->text('dok_status7')->nullable();
@@ -309,6 +317,7 @@ class CreateKontrolsTable extends Migration
             $table->text('dok_realisasi7')->nullable();
 
             $table->text('dok_tlp8')->nullable();
+            $table->text('dok_input8')->nullable();
             $table->text('dok_pic8')->nullable();
             $table->text('dok_dok8')->nullable();
             $table->text('dok_status8')->nullable();
@@ -317,6 +326,7 @@ class CreateKontrolsTable extends Migration
             $table->text('dok_realisasi8')->nullable();
             
             $table->text('dok_tlp9')->nullable();
+            $table->text('dok_input9')->nullable();
             $table->text('dok_pic9')->nullable();
             $table->text('dok_dok9')->nullable();
             $table->text('dok_status9')->nullable();

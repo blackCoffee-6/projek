@@ -241,6 +241,6 @@ class KopController extends Controller
         $input = $request->all();
         $kontrols->fill($input)->save();
 
-        return redirect('home');
+        return redirect('/List/Kontrol/Perubahan')->with('alert', "Kontrol Perubahan Updated Successfully!");
     }
 }

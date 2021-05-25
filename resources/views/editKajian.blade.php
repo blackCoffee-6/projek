@@ -21,66 +21,66 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="1" id="bahan"
                             {{ in_array("1", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Spesifikasi Bahan / Produk</label>
+                            <label class="form-check-label">Spesifikasi Bahan / Produk</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="2" id="baku"
                             {{ in_array("2", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Bahan Baku</label>
+                            <label class="form-check-label">Bahan Baku</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="3" id="proses"
                             {{ in_array("3", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Formula / Proses</label>
+                            <label class="form-check-label">Formula / Proses</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="4" id="mesin"
                             {{ in_array("4", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Mesin dan Peralatan</label>
+                            <label class="form-check-label">Mesin dan Peralatan</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="5" id="metode"
                             {{ in_array("5", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Metode Analisis</label>
+                            <label class="form-check-label">Metode Analisis</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="6" id="site"
                             {{ in_array("6", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Site Produksi</label>
+                            <label class="form-check-label">Site Produksi</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="7" id="bangunan"
                             {{ in_array("7", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Bangunan dan Fasilitas</label>
+                            <label class="form-check-label">Bangunan dan Fasilitas</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="8" id="dokumen"
                             {{ in_array("8", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Dokumentasi</label>
+                            <label class="form-check-label">Dokumentasi</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="9" id="lingkungan"
                             {{ in_array("9", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Lingkungan</label>
+                            <label class="form-check-label">Lingkungan</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="10" id="pie"
                             {{ in_array("10", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">PIE</label>
+                            <label class="form-check-label">PIE</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="11" id="peraturan"
                             {{ in_array("11", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Peraturan Perundangan</label>
+                            <label class="form-check-label">Peraturan Perundangan</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="12" id="else1"
                             {{ in_array("12", $ket_ups) ? "checked" : "" }}>
-                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            <input type="text" class="form-control" name="ket_else" placeholder="{{$kajians->ket_else}}">
                         </div>
                     </td>
                 </tr>
@@ -120,28 +120,28 @@
                             <input class="form-check-input" type="radio" name="ru_a" id="ruana" value="na">
                             <label class="form-check-label" for="inlineRadio2">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, laporan ditujukan ke</h6>
+                        <h6 class="my-2" id="laporanregulasi">b. Jika ya, laporan ditujukan ke</h6>
                         <div class="d-inline">
                             <input type="hidden" value="{{$kajians->ru_b}}" id="rub">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul" value="bpom"
                                 {{ in_array("bpom", $ru_bb) ? "checked" : ""}}>
-                                <label class="form-check-label">Badan POM</label>
+                                <label class="form-check-label" id="regult">Badan POM</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul1" value="kemkes"
                                 {{ in_array("kemkes", $ru_bb) ? "checked" : ""}}>
-                                <label class="form-check-label">Kementrian Kesehatan</label>
+                                <label class="form-check-label" id="regult1">Kementrian Kesehatan</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul2" value="bapom"
                                 {{ in_array("bapom", $ru_bb) ? "checked" : ""}}>
-                                <label class="form-check-label">Balai POM</label>
+                                <label class="form-check-label" id="regult2">Balai POM</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul3" value="regulasielse"
                                 {{ in_array("regulasielse", $ru_bb) ? "checked" : ""}}>
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <input type="text" class="form-control" id="regult3" placeholder="{{$kajians->ru_else}}">
                             </div>
                         </div>
                     </td>
@@ -170,20 +170,20 @@
                             <input class="form-check-input" type="radio" name="ri_a" id="riana" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, perubahan</h6>
+                        <h6 class="my-2" id="laporanregistrasi">b. Jika ya, perubahan</h6>
                         <div class="d-inline">
                             <input type="hidden" value="{{$kajians->ri_b}}" id="rib">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="ri_b" id="ribperlu" value="Perlu Persetujuan">
-                                <label class="form-check-label">Perlu memperoleh persetujuan BPOM terlebih dahulu</label>
+                                <label class="form-check-label" id="regist">Perlu memperoleh persetujuan BPOM terlebih dahulu</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="ri_b" id="ribijin" value="Setelah Perubahan">
-                                <label class="form-check-label">Ijin BPOM dapat disubmit setelah perubahan terjadi</label>
+                                <label class="form-check-label" id="regist1">Ijin BPOM dapat disubmit setelah perubahan terjadi</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="ri_b" id="ribtelah" value="Telah Persetujuan">
-                                <label class="form-check-label">Telah memperoleh persetujuan BPOM</label>
+                                <label class="form-check-label" id="regist2">Telah memperoleh persetujuan BPOM</label>
                             </div>
                         </div>
                     </td>
@@ -212,18 +212,18 @@
                             <input class="form-check-input" type="radio" name="st_a" id="stana" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, perlu dilakukan uji stabilitas</h6>
+                        <h6 class="my-2" id="laporanst">b. Jika ya, perlu dilakukan uji stabilitas</h6>
                         <div class="d-inline">
                             <input type="hidden" value="{{$kajians->st_b}}" id="stb">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="st_b[]" id="stbdiper" value="Dipercepat"
+                                <input class="form-check-input" type="checkbox" name="st_b[]" id="stabil" value="Dipercepat"
                                 {{ in_array("Dipercepat", $st_bb) ? "checked" : ""}}>
-                                <label class="form-check-label">Dipercepat</label>
+                                <label class="form-check-label" id="stabilt">Dipercepat</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="st_b[]" id="stbjangka" value="Jangka Panjang"
+                                <input class="form-check-input" type="checkbox" name="st_b[]" id="stabil1" value="Jangka Panjang"
                                 {{ in_array("Dipercepat", $st_bb) ? "checked" : ""}}>
-                                <label class="form-check-label">Jangka Panjang</label>
+                                <label class="form-check-label" id="stabilt1">Jangka Panjang</label>
                             </div>
                             <div class="form-check font-italic">
                                 <input class="form-check-input" type="checkbox" name="st_b[]" id="stabil2" value="Stress"
@@ -267,7 +267,7 @@
                             <div class="form-check">
                                 <input type="hidden" value="{{$kajians->pj_b}}" id="pjb">
                                 <input class="form-check-input" type="radio" name="pj_b" id="dokp" value="dok1">
-                                <textarea name="dokumen" id="pjt" class="form-control"></textarea>
+                                <textarea name="pj_else" id="pjt" class="form-control">{{$kajians->pj_else}}</textarea>
                             </div>
                         </div>
                     </td>
@@ -387,23 +387,23 @@
                             <input class="form-check-input" type="radio" name="tr_a" id="trana" value="na">
                             <label class="form-check-label">NA</label>
                         </div>
-                        <h6 class="my-2">b. Jika ya, dilakukan trial skala</h6>
+                        <h6 class="my-2" id="laporantrial">b. Jika ya, dilakukan trial skala</h6>
                         <input type="hidden" value="{{$kajians->tr_b}}" id="trb">
                         <div class="d-inline">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="tr_b[]" id="trb1" value="lab"
                                 {{ in_array("lab", $tr_bb) ? "checked" : ""}}>
-                                <label class="form-check-label">Laboratorium</label>
+                                <label class="form-check-label" id="trit">Laboratorium</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="tr_b[]" id="trb2" value="pilot"
                                 {{ in_array("pilot", $tr_bb) ? "checked" : ""}}>
-                                <label class="form-check-label">Pilot</label>
+                                <label class="form-check-label" id="trit1">Pilot</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="tr_b[]" id="trb3" value="komersial"
                                 {{ in_array("komersial", $tr_bb) ? "checked" : ""}}>
-                                <label class="form-check-label">Komersial</label>
+                                <label class="form-check-label" id="trit2">Komersial</label>
                             </div>
                         </div>
                     </td>
@@ -437,7 +437,7 @@
                         <div class="d-inline">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="pr_dok" id="prdok1" value="dok1">
-                                <textarea name="dokumen" id="prot" class="form-control"></textarea>
+                                <textarea name="pr_else" id="prot" class="form-control">{{$kajians->pr_else}}</textarea>
                             </div>
                         </div>
                     </td>
@@ -471,7 +471,7 @@
                         <div class="d-inline">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="dok_b" id="dokb1" value="dok1">
-                                <textarea name="dokt" id="dokt" class="form-control"></textarea>
+                                <textarea name="dok_else" id="dokt" class="form-control">{{$kajians->dok_else}}</textarea>
                             </div>
                         </div>
                     </td>
@@ -1022,12 +1022,12 @@
                         <div class="form-check mx-3">
                             <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis[]" value="7"
                             {{ in_array("7", $ch_diss) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Pengadaan</label>
+                            <label class="form-check-label">Pengadaan</label>
                         </div>
                         <div class="form-check mx-3">
                             <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis[]" value="8"
                             {{ in_array("8", $ch_diss) ? "checked" : "" }}>
-                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            <input type="text" class="form-control" name="ch_else" placeholder="{{$kajians->ch_else}}">
                         </div>
                     </td>
                 </tr>
@@ -1073,47 +1073,135 @@
     if(value === 'disetujui'){
         $("#disetujui").attr('checked', 'checked');
     }
-    else{
+    else if(value === 'ditolak'){
         $("#ditolak").attr('checked', 'checked');
+    }else{
+
     }
     
+    // REGULASI
     //ru_a
+    $(document).on('change', '#ruaya', function(){
+        $('#laporanregulasi').css('display', 'block');
+        $('#regul').css('display', 'block');
+        $('#regul1').css('display', 'block');
+        $('#regul2').css('display', 'block');
+        $('#regul3').css('display', 'block');
+        $('#regult').css('display', 'block');
+        $('#regult1').css('display', 'block');
+        $('#regult2').css('display', 'block');
+        $('#regult3').css('display', 'block');
+    });
+
+    $(document).on('change', '#ruatidak', function(){
+        $('#laporanregulasi').css('display', 'none');
+        $('#regul').css('display', 'none');
+        $('#regul1').css('display', 'none');
+        $('#regul2').css('display', 'none');
+        $('#regul3').css('display', 'none');
+        $('#regult').css('display', 'none');
+        $('#regult1').css('display', 'none');
+        $('#regult2').css('display', 'none');
+        $('#regult3').css('display', 'none');
+    });
+
+    $(document).on('change', '#ruana', function(){
+        $('#laporanregulasi').css('display', 'none');
+        $('#regul').css('display', 'none');
+        $('#regul1').css('display', 'none');
+        $('#regul2').css('display', 'none');
+        $('#regul3').css('display', 'none');
+        $('#regult').css('display', 'none');
+        $('#regult1').css('display', 'none');
+        $('#regult2').css('display', 'none');
+        $('#regult3').css('display', 'none');
+    });
+
     var value = $('#rua').val()
     if(value === 'ya'){
         $("#ruaya").attr('checked', 'checked');
+
+        $('#laporanregulasi').css('display', 'block');
+        $('#regul').css('display', 'block');
+        $('#regul1').css('display', 'block');
+        $('#regul2').css('display', 'block');
+        $('#regul3').css('display', 'block');
+        $('#regult').css('display', 'block');
+        $('#regult1').css('display', 'block');
+        $('#regult2').css('display', 'block');
+        $('#regult3').css('display', 'block');
     }
     else if(value === 'tidak'){
         $("#ruatidak").attr('checked', 'checked');
+
+        $('#laporanregulasi').css('display', 'none');
+        $('#regul').css('display', 'none');
+        $('#regul1').css('display', 'none');
+        $('#regul2').css('display', 'none');
+        $('#regul3').css('display', 'none');
+        $('#regult').css('display', 'none');
+        $('#regult1').css('display', 'none');
+        $('#regult2').css('display', 'none');
+        $('#regult3').css('display', 'none');
     }
     else{
         $("#ruana").attr('checked', 'checked');
     }
-    
-    //ru_b
-    var value = $('#rub').val()
-    if(value === 'badan'){
-        $("#rubbadan").attr('checked', 'checked');
-    }
-    else if(value === 'kementrian'){
-        $("#rubkementrian").attr('checked', 'checked');
-    }
-    else if(value === 'balai'){
-        $("#rubbalai").attr('checked', 'checked');
-    }
-    else if(value === 'else'){
-        $("#rubelse").attr('checked', 'checked');
-    }
-    else{
 
-    }
-
+    // REGISTRASI
     //ri_a
+    $(document).on('change', '#riaya', function(){
+        $('#laporanregistrasi').css('display', 'block');
+        $('#ribperlu').css('display', 'block');
+        $('#ribijin').css('display', 'block');
+        $('#ribtelah').css('display', 'block');
+        $('#regist').css('display', 'block');
+        $('#regist1').css('display', 'block');
+        $('#regist2').css('display', 'block');
+    });
+
+    $(document).on('change', '#riatidak', function(){
+        $('#laporanregistrasi').css('display', 'none');
+        $('#ribperlu').css('display', 'none');
+        $('#ribijin').css('display', 'none');
+        $('#ribtelah').css('display', 'none');
+        $('#regist').css('display', 'none');
+        $('#regist1').css('display', 'none');
+        $('#regist2').css('display', 'none');
+    });
+
+    $(document).on('change', '#riana', function(){
+        $('#laporanregistrasi').css('display', 'none');
+        $('#ribperlu').css('display', 'none');
+        $('#ribijin').css('display', 'none');
+        $('#ribtelah').css('display', 'none');
+        $('#regist').css('display', 'none');
+        $('#regist1').css('display', 'none');
+        $('#regist2').css('display', 'none');
+    });
+
     var value = $('#ria').val()
     if(value === 'ya'){
         $("#riaya").attr('checked', 'checked');
+
+        $('#laporanregistrasi').css('display', 'block');
+        $('#ribperlu').css('display', 'block');
+        $('#ribijin').css('display', 'block');
+        $('#ribtelah').css('display', 'block');
+        $('#regist').css('display', 'block');
+        $('#regist1').css('display', 'block');
+        $('#regist2').css('display', 'block');
     }
     else if(value === 'tidak'){
         $("#riatidak").attr('checked', 'checked');
+
+        $('#laporanregistrasi').css('display', 'none');
+        $('#ribperlu').css('display', 'none');
+        $('#ribijin').css('display', 'none');
+        $('#ribtelah').css('display', 'none');
+        $('#regist').css('display', 'none');
+        $('#regist1').css('display', 'none');
+        $('#regist2').css('display', 'none');
     }
     else{
         $("#riana").attr('checked', 'checked');
@@ -1135,12 +1223,68 @@
     }
 
     //st_a
+    $(document).on('change', '#staya', function(){
+        $('#laporanst').css('display', 'block');
+        $('#stabil').css('display', 'block');
+        $('#stabil1').css('display', 'block');
+        $('#stabil2').css('display', 'block');
+        $('#stabil3').css('display', 'block');
+        $('#stabilt').css('display', 'block');
+        $('#stabilt1').css('display', 'block');
+        $('#stabilt2').css('display', 'block');
+        $('#stabilt3').css('display', 'block');
+    });
+
+    $(document).on('change', '#statidak', function(){
+        $('#laporanst').css('display', 'none');
+        $('#stabil').css('display', 'none');
+        $('#stabil1').css('display', 'none');
+        $('#stabil2').css('display', 'none');
+        $('#stabil3').css('display', 'none');
+        $('#stabilt').css('display', 'none');
+        $('#stabilt1').css('display', 'none');
+        $('#stabilt2').css('display', 'none');
+        $('#stabilt3').css('display', 'none');
+    });
+
+    $(document).on('change', '#stana', function(){
+        $('#laporanst').css('display', 'none');
+        $('#stabil').css('display', 'none');
+        $('#stabil1').css('display', 'none');
+        $('#stabil2').css('display', 'none');
+        $('#stabil3').css('display', 'none');
+        $('#stabilt').css('display', 'none');
+        $('#stabilt1').css('display', 'none');
+        $('#stabilt2').css('display', 'none');
+        $('#stabilt3').css('display', 'none');
+    });
+
     var value = $('#sta').val()
     if(value === 'ya'){
         $("#staya").attr('checked', 'checked');
+
+        $('#laporanst').css('display', 'block');
+        $('#stabil').css('display', 'block');
+        $('#stabil1').css('display', 'block');
+        $('#stabil2').css('display', 'block');
+        $('#stabil3').css('display', 'block');
+        $('#stabilt').css('display', 'block');
+        $('#stabilt1').css('display', 'block');
+        $('#stabilt2').css('display', 'block');
+        $('#stabilt3').css('display', 'block');
     }
     else if(value === 'tidak'){
         $("#statidak").attr('checked', 'checked');
+
+        $('#laporanst').css('display', 'none');
+        $('#stabil').css('display', 'none');
+        $('#stabil1').css('display', 'none');
+        $('#stabil2').css('display', 'none');
+        $('#stabil3').css('display', 'none');
+        $('#stabilt').css('display', 'none');
+        $('#stabilt1').css('display', 'none');
+        $('#stabilt2').css('display', 'none');
+        $('#stabilt3').css('display', 'none');
     }
     else{
         $("#stana").attr('checked', 'checked');
@@ -1159,6 +1303,24 @@
     }
 
     //pj_a
+    $(document).on('change', '#pjya', function(){
+        $('#laporanpj').css('display', 'block');
+        $('#dokp').css('display', 'block');
+        $('#pjt').css('display', 'block');
+    });
+
+    $(document).on('change', '#pjtidak', function(){
+        $('#laporanpj').css('display', 'none');
+        $('#dokp').css('display', 'none');
+        $('#pjt').css('display', 'none');
+    });
+
+    $(document).on('change', '#pjna', function(){
+        $('#laporanpj').css('display', 'none');
+        $('#dokp').css('display', 'none');
+        $('#pjt').css('display', 'none');
+    });
+
     var value = $('#pja').val()
     if(value == 'ya'){
         $("#pjya").attr('checked', 'checked');
@@ -1204,12 +1366,97 @@
     }
 
     //val_a
+    $(document).on('change', '#valaya', function(){
+        $('#laporanval').css('display', 'block');
+        $('#valda').css('display', 'block');
+        $('#valda1').css('display', 'block');
+        $('#valda2').css('display', 'block');
+        $('#valda3').css('display', 'block');
+        $('#valda4').css('display', 'block');
+        $('#valda5').css('display', 'block');
+        $('#valda6').css('display', 'block');
+        $('#valdat').css('display', 'block');
+        $('#valdat1').css('display', 'block');
+        $('#valdat2').css('display', 'block');
+        $('#valdat3').css('display', 'block');
+        $('#valdat4').css('display', 'block');
+        $('#valdat5').css('display', 'block');
+        $('#valdat6').css('display', 'block');
+    });
+
+    $(document).on('change', '#valatidak', function(){
+        $('#laporanval').css('display', 'none');
+        $('#valda').css('display', 'none');
+        $('#valda1').css('display', 'none');
+        $('#valda2').css('display', 'none');
+        $('#valda3').css('display', 'none');
+        $('#valda4').css('display', 'none');
+        $('#valda5').css('display', 'none');
+        $('#valda6').css('display', 'none');
+        $('#valdat').css('display', 'none');
+        $('#valdat1').css('display', 'none');
+        $('#valdat2').css('display', 'none');
+        $('#valdat3').css('display', 'none');
+        $('#valdat4').css('display', 'none');
+        $('#valdat5').css('display', 'none');
+        $('#valdat6').css('display', 'none');
+    });
+
+    $(document).on('change', '#valana', function(){
+        $('#laporanval').css('display', 'none');
+        $('#valda').css('display', 'none');
+        $('#valda1').css('display', 'none');
+        $('#valda2').css('display', 'none');
+        $('#valda3').css('display', 'none');
+        $('#valda4').css('display', 'none');
+        $('#valda5').css('display', 'none');
+        $('#valda6').css('display', 'none');
+        $('#valdat').css('display', 'none');
+        $('#valdat1').css('display', 'none');
+        $('#valdat2').css('display', 'none');
+        $('#valdat3').css('display', 'none');
+        $('#valdat4').css('display', 'none');
+        $('#valdat5').css('display', 'none');
+        $('#valdat6').css('display', 'none');
+    });
     var value = $('#vala').val()
     if(value === 'ya'){
         $("#valaya").attr('checked', 'checked');
+
+        $('#laporanval').css('display', 'block');
+        $('#valda').css('display', 'block');
+        $('#valda1').css('display', 'block');
+        $('#valda2').css('display', 'block');
+        $('#valda3').css('display', 'block');
+        $('#valda4').css('display', 'block');
+        $('#valda5').css('display', 'block');
+        $('#valda6').css('display', 'block');
+        $('#valdat').css('display', 'block');
+        $('#valdat1').css('display', 'block');
+        $('#valdat2').css('display', 'block');
+        $('#valdat3').css('display', 'block');
+        $('#valdat4').css('display', 'block');
+        $('#valdat5').css('display', 'block');
+        $('#valdat6').css('display', 'block');
     }
     else if(value === 'tidak'){
         $("#valatidak").attr('checked', 'checked');
+
+        $('#laporanval').css('display', 'none');
+        $('#valda').css('display', 'none');
+        $('#valda1').css('display', 'none');
+        $('#valda2').css('display', 'none');
+        $('#valda3').css('display', 'none');
+        $('#valda4').css('display', 'none');
+        $('#valda5').css('display', 'none');
+        $('#valda6').css('display', 'none');
+        $('#valdat').css('display', 'none');
+        $('#valdat1').css('display', 'none');
+        $('#valdat2').css('display', 'none');
+        $('#valdat3').css('display', 'none');
+        $('#valdat4').css('display', 'none');
+        $('#valdat5').css('display', 'none');
+        $('#valdat6').css('display', 'none');
     }
     else{
         $("#valana").attr('checked', 'checked');
@@ -1243,12 +1490,58 @@
     }
 
     //tr_a
+    $(document).on('change', '#traya', function(){
+        $('#laporantrial').css('display', 'block');
+        $('#trb1').css('display', 'block');
+        $('#trb2').css('display', 'block');
+        $('#trb3').css('display', 'block');
+        $('#trit').css('display', 'block');
+        $('#trit1').css('display', 'block');
+        $('#trit2').css('display', 'block');
+    });
+
+    $(document).on('change', '#tratidak', function(){
+        $('#laporantrial').css('display', 'none');
+        $('#trb1').css('display', 'none');
+        $('#trb2').css('display', 'none');
+        $('#trb3').css('display', 'none');
+        $('#trit').css('display', 'none');
+        $('#trit1').css('display', 'none');
+        $('#trit2').css('display', 'none');
+    });
+
+    $(document).on('change', '#trana', function(){
+        $('#laporantrial').css('display', 'none');
+        $('#trb1').css('display', 'none');
+        $('#trb2').css('display', 'none');
+        $('#trb3').css('display', 'none');
+        $('#trit').css('display', 'none');
+        $('#trit1').css('display', 'none');
+        $('#trit2').css('display', 'none');
+    });
+
     var value = $('#tra').val()
     if(value === 'ya'){
         $("#traya").attr('checked', 'checked');
+
+        $('#laporantrial').css('display', 'block');
+        $('#trb1').css('display', 'block');
+        $('#trb2').css('display', 'block');
+        $('#trb3').css('display', 'block');
+        $('#trit').css('display', 'block');
+        $('#trit1').css('display', 'block');
+        $('#trit2').css('display', 'block');
     }
     else if(value === 'tidak'){
         $("#tratidak").attr('checked', 'checked');
+
+        $('#laporantrial').css('display', 'none');
+        $('#trb1').css('display', 'none');
+        $('#trb2').css('display', 'none');
+        $('#trb3').css('display', 'none');
+        $('#trit').css('display', 'none');
+        $('#trit1').css('display', 'none');
+        $('#trit2').css('display', 'none');
     }
     else{
         $("#trana").attr('checked', 'checked');
@@ -1270,12 +1563,38 @@
     }
 
     //pr_a
+    $(document).on('change', '#praya', function(){
+        $('#laporanpro').css('display', 'block');
+        $('#prdok1').css('display', 'block');
+        $('#prot').css('display', 'block');
+    });
+
+    $(document).on('change', '#pratidak', function(){
+        $('#laporanpro').css('display', 'none');
+        $('#prdok1').css('display', 'none');
+        $('#prot').css('display', 'none');
+    });
+
+    $(document).css('change', '#prana', function(){
+        $('#laporanpro').css('display', 'none');
+        $('#prdok1').css('display', 'none');
+        $('#prot').css('display', 'none');
+    });
+
     var value = $('#pra').val()
     if(value === 'ya'){
         $("#praya").attr('checked', 'checked');
+
+        $('#laporanpro').css('display', 'block');
+        $('#prdok1').css('display', 'block');
+        $('#prot').css('display', 'block');
     }
     else if(value === 'tidak'){
         $("#pratidak").attr('checked', 'checked');
+
+        $('#laporanpro').css('display', 'none');
+        $('#prdok1').css('display', 'none');
+        $('#prot').css('display', 'none');
     }
     else{
         $("#prana").attr('checked', 'checked');
@@ -1303,12 +1622,38 @@
     }
 
     //dok_a
+    $(document).on('change', '#dokaya', function(){
+        $('#laporandok').css('display', 'block');
+        $('#dokb1').css('display', 'block');
+        $('#dokt').css('display', 'block');
+    });
+
+    $(document).on('change', '#dokatidak', function(){
+        $('#laporandok').css('display', 'none');
+        $('#dokb1').css('display', 'none');
+        $('#dokt').css('display', 'none');
+    });
+
+    $(document).on('change', '#dokana', function(){
+        $('#laporandok').css('display', 'none');
+        $('#dokb1').css('display', 'none');
+        $('#dokt').css('display', 'none');
+    });
+
     var value = $('#doka').val()
     if(value === 'ya'){
         $("#dokaya").attr('checked', 'checked');
+
+        $('#laporandok').css('display', 'block');
+        $('#dokb1').css('display', 'block');
+        $('#dokt').css('display', 'block');
     }
     else if(value === 'tidak'){
         $("#dokatidak").attr('checked', 'checked');
+
+        $('#laporandok').css('display', 'none');
+        $('#dokb1').css('display', 'none');
+        $('#dokt').css('display', 'none');
     }
     else{
         $("#dokana").attr('checked', 'checked');
@@ -1318,12 +1663,6 @@
     var value = $('#dokb').val()
     if(value === 'dok1'){
         $("#dokb1").attr('checked', 'checked');
-    }
-    else if(value === 'dok2'){
-        $("#dokb2").attr('checked', 'checked');
-    }
-    else if(value === 'dok3'){
-        $("#dokb3").attr('checked', 'checked');
     }
     else{
 

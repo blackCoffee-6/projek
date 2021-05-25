@@ -179,6 +179,7 @@ class KajianController extends Controller
     public function update(Request $request, $kajian_id)
     {
         // dd($request->all());
+<<<<<<< HEAD
         $kajians = Kajian::findOrFail($kajian_id);
         
         if($request->ru_b != null){
@@ -187,6 +188,56 @@ class KajianController extends Controller
         else{
             $request->request->add(['ru_b' => ""]);
         }
+=======
+        Kajian::findOrFail($kajian_id)->update([
+            'ket_up' => implode(',', $request->ket_up),
+            'ch_dis' => implode(',', $request->ch_dis),
+
+            'ket_else' => $request->ket_else,
+            'ch_else' => $request->ch_else,
+
+            'ru_a' => $request->ru_a,
+            'ru_b' => $request->ru_b,
+            'ru_else' => $request->ru_else,
+            'ru_ket' => $request->ru_ket,
+
+            'ri_a' => $request->ri_a,
+            'ri_b' => $request->ri_b,
+            'ri_ket' => $request->ri_ket,
+
+            'st_a' => $request->st_a,
+            'st_b' => $request->st_b,
+            'st_ket' => $request->st_ket,
+
+            'pj_a' => $request->pj_a,
+            'pj_b' => $request->pj_b,
+            'pj_else' => $request->pj_else,
+            'pj_ket' => $request->pj_ket,
+
+            'me_a' => $request->me_a,
+            'me_ket' => $request->me_ket,
+
+            'val_a' => $request->val_a,
+            'val_b' => $request->val_b,
+            'val_ket' => $request->val_ket,
+
+            'tr_a' => $request->tr_a,
+            'tr_b' => $request->tr_b,
+            'tr_ket' => $request->tr_ket,
+
+            'pr_a' => $request->pr_a,
+            'pr_dok' => $request->pr_dok,
+            'pr_ket' => $request->pr_ket,
+
+            'dok_a' => $request->dok_a,
+            'dok_b' => $request->dok_b,
+            'dok_ket' => $request->dok_ket,
+
+            'si_a' => $request->si_a,
+            'si_ket' => $request->si_ket,
+
+            'kj_tambahan' => $request->kj_tambahan,
+>>>>>>> 5f706ecc575c9abcaa4986980bfa47d4f61f0486
 
         if($request->st_b != null){
             $request->request->add(['st_b' => implode(',', $request->st_b)]);

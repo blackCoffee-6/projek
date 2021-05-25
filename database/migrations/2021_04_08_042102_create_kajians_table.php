@@ -21,9 +21,11 @@ class CreateKajiansTable extends Migration
             ->onUpdate('cascade');
 
             $table->string('ket_up');
+            $table->string('ket_else')->nullable();
             
             $table->string('ru_a');
             $table->string('ru_b')->nullable();
+            $table->string('ru_else')->nullable();
             $table->string('ru_ket')->nullable();
 
             $table->string('ri_a');
@@ -36,6 +38,7 @@ class CreateKajiansTable extends Migration
 
             $table->string('pj_a');
             $table->string('pj_b')->nullable();
+            $table->string('pj_else')->nullable();
             $table->string('pj_ket')->nullable();
 
             $table->string('me_a');
@@ -51,10 +54,12 @@ class CreateKajiansTable extends Migration
 
             $table->string('pr_a');
             $table->string('pr_dok')->nullable();
+            $table->string('pr_else')->nullable();
             $table->string('pr_ket')->nullable();
 
             $table->string('dok_a');
             $table->string('dok_b')->nullable();
+            $table->string('dok_else')->nullable();
             $table->string('dok_ket')->nullable();
 
             $table->string('dk_a');
@@ -87,6 +92,7 @@ class CreateKajiansTable extends Migration
             $table->string('aq_komentar')->nullable();
 
             $table->string('ch_dis');
+            $table->string('ch_else')->nullable();
             
             $table->timestamps();
         });
