@@ -19,55 +19,55 @@
                     <td>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="1" id="bahan" {{ (is_array(old('ket_up')) && in_array(1, old('ket_up'))) ? ' checked' : '' }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Spesifikasi Bahan / Produk</label>
+                            <label class="form-check-label">Spesifikasi Bahan / Produk</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="2" id="baku" {{ (is_array(old('ket_up')) && in_array(2, old('ket_up'))) ? ' checked' : '' }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Bahan Baku</label>
+                            <label class="form-check-label">Bahan Baku</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="3" id="proses" {{ (is_array(old('ket_up')) && in_array(3, old('ket_up'))) ? ' checked' : '' }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Formula / Proses</label>
+                            <label class="form-check-label">Formula / Proses</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="4" id="mesin" {{ (is_array(old('ket_up')) && in_array(4, old('ket_up'))) ? ' checked' : '' }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Mesin dan Peralatan</label>
+                            <label class="form-check-label">Mesin dan Peralatan</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="5" id="metode" {{ (is_array(old('ket_up')) && in_array(5, old('ket_up'))) ? ' checked' : '' }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Metode Analisis</label>
+                            <label class="form-check-label">Metode Analisis</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="6" id="site" {{ (is_array(old('ket_up')) && in_array(6, old('ket_up'))) ? ' checked' : '' }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Site Produksi</label>
+                            <label class="form-check-label">Site Produksi</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="7" id="bangunan" {{ (is_array(old('ket_up')) && in_array(7, old('ket_up'))) ? ' checked' : '' }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Bangunan dan Fasilitas</label>
+                            <label class="form-check-label">Bangunan dan Fasilitas</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="8" id="dokumen" {{ (is_array(old('ket_up')) && in_array(8, old('ket_up'))) ? ' checked' : '' }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Dokumentasi</label>
+                            <label class="form-check-label">Dokumentasi</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="9" id="lingkungan" {{ (is_array(old('ket_up')) && in_array(9, old('ket_up'))) ? ' checked' : '' }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Lingkungan</label>
+                            <label class="form-check-label">Lingkungan</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="10" id="pie" {{ (is_array(old('ket_up')) && in_array(10, old('ket_up'))) ? ' checked' : '' }}>
-                            <label class="form-check-label" for="inlineCheckbox1">PIE</label>
+                            <label class="form-check-label">PIE</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="11" id="peraturan" {{ (is_array(old('ket_up')) && in_array(11, old('ket_up'))) ? ' checked' : '' }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Peraturan Perundangan</label>
+                            <label class="form-check-label">Peraturan Perundangan</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" value="12" id="else">
-                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" {{ (is_array(old('ket_up')) && in_array(12, old('ket_up'))) ? ' checked' : '' }}>
+                            <input type="text" class="form-control" name="ket_else" {{ (is_array(old('ket_up')) && in_array(12, old('ket_up'))) ? ' checked' : '' }}>
                         </div>
                     </td>
                 </tr>
@@ -130,7 +130,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul3" value="regulasielse" {{ (is_array(old('ru_b')) && in_array("regulasielse", old('ru_b'))) ? ' checked' : '' }}>
-                                <input type="text" class="form-control" id="regult3">
+                                <input type="text" class="form-control" id="regult3" name="ru_else">
                             </div>
                         </div>
                         <label
@@ -270,7 +270,7 @@
                         <div class="d-inline">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="pj_b" id="pj" value="dok1" checked>
-                                <textarea name="dokumen" id="pjt" class="form-control"></textarea>
+                                <textarea name="pj_else" id="pjt" class="form-control"></textarea>
                             </div>
                         </div>
                         <label 
@@ -454,7 +454,7 @@
                         <div class="d-inline">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="pr_dok" id="pro" value="dok1" checked>
-                                <textarea name="dokumen" id="prot" class="form-control"></textarea>
+                                <textarea name="pr_else" id="prot" class="form-control"></textarea>
                             </div>
                         </div>
                         <label 
@@ -494,7 +494,7 @@
                         <div class="d-inline">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="dok_b" id="dok" value="dok1" checked>
-                                <textarea name="dokt" id="dokt" class="form-control"></textarea>
+                                <textarea name="dok_else" id="dokt" class="form-control"></textarea>
                             </div>
                         </div>
                         <label 
@@ -1072,11 +1072,11 @@
                     <td>
                         <div class="form-check mx-3">
                             <input class="form-check-input" type="checkbox" name="ch_dis[]" value="7" {{ (is_array(old('ch_dis')) && in_array(7, old('ch_dis'))) ? ' checked' : '' }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Pengadaan</label>
+                            <label class="form-check-label">Pengadaan</label>
                         </div>
                         <div class="form-check mx-3">
                             <input class="form-check-input" type="checkbox" name="ch_dis[]" value="8" {{ (is_array(old('ch_dis')) && in_array(8, old('ch_dis'))) ? ' checked' : '' }}>
-                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            <input type="text" class="form-control" name="ch_else">
                         </div>
                     </td>
                     <label

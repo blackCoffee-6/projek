@@ -18,66 +18,66 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="1" id="bahan"
                             {{ in_array("1", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Spesifikasi Bahan / Produk</label>
+                            <label class="form-check-label">Spesifikasi Bahan / Produk</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="2" id="baku"
                             {{ in_array("2", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Bahan Baku</label>
+                            <label class="form-check-label">Bahan Baku</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="3" id="proses"
                             {{ in_array("3", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Formula / Proses</label>
+                            <label class="form-check-label">Formula / Proses</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="4" id="mesin"
                             {{ in_array("4", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Mesin dan Peralatan</label>
+                            <label class="form-check-label">Mesin dan Peralatan</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="5" id="metode"
                             {{ in_array("5", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Metode Analisis</label>
+                            <label class="form-check-label">Metode Analisis</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="6" id="site"
                             {{ in_array("6", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Site Produksi</label>
+                            <label class="form-check-label">Site Produksi</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="7" id="bangunan"
                             {{ in_array("7", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Bangunan dan Fasilitas</label>
+                            <label class="form-check-label">Bangunan dan Fasilitas</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="8" id="dokumen"
                             {{ in_array("8", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Dokumentasi</label>
+                            <label class="form-check-label">Dokumentasi</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="9" id="lingkungan"
                             {{ in_array("9", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Lingkungan</label>
+                            <label class="form-check-label">Lingkungan</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="10" id="pie"
                             {{ in_array("10", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">PIE</label>
+                            <label class="form-check-label">PIE</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="11" id="peraturan"
                             {{ in_array("11", $ket_ups) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Peraturan Perundangan</label>
+                            <label class="form-check-label">Peraturan Perundangan</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="ket_up[]" disabled value="12" id="else1"
                             {{ in_array("12", $ket_ups) ? "checked" : "" }}>
-                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            <input type="text" class="form-control" name="ket_else" placeholder="{{$kajians->ket_else}}" disabled>
                         </div>
                     </td>
                 </tr>
@@ -137,7 +137,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="ru_b[]" disabled id="regul3" value="regulasielse"
                                 {{ in_array("regulasielse", $ru_bb) ? "checked" : "" }}>
-                                <input type="text" class="form-control" id="regult3">
+                                <input type="text" class="form-control" id="regult3" placeholder="{{$kajians->ru_else}}" disabled>
                             </div>
                         </div>
                     </td>
@@ -262,7 +262,7 @@
                             <div class="form-check">
                                 <input type="hidden" value="{{$kajians->pj_b}}" id="pjb">
                                 <input class="form-check-input" type="radio" name="pj_b" id="dokp" value="dok1" disabled>
-                                <textarea name="dokumen" id="pjt" class="form-control"></textarea>
+                                <textarea name="pj_else" id="pjt" class="form-control" disabled>{{$kajians->pj_else}}</textarea>
                             </div>
                         </div>
                     </td>
@@ -427,7 +427,7 @@
                         <div class="d-inline">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="pr_dok" id="pro" disabled value="dok1">
-                                <textarea name="dokumen" id="prot" class="form-control"></textarea>
+                                <textarea name="pr_else" id="prot" class="form-control" disabled>{{$kajians->pr_else}}</textarea>
                             </div>
                         </div>
                     </td>
@@ -461,7 +461,7 @@
                         <div class="d-inline">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="dok_b" disabled id="dokb1" value="dok1">
-                                <textarea name="dokt" id="dokt" class="form-control"></textarea>
+                                <textarea name="dok_else" id="dokt" class="form-control" disabled>{{$kajians->dok_else}}</textarea>
                             </div>
                         </div>
                     </td>
@@ -1012,12 +1012,12 @@
                         <div class="form-check mx-3">
                             <input class="form-check-input" disabled type="checkbox" id="ch_dis" name="ch_dis" value="7"
                             {{ in_array("7", $ch_diss) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">Pengadaan</label>
+                            <label class="form-check-label">Pengadaan</label>
                         </div>
                         <div class="form-check mx-3">
                             <input class="form-check-input" disabled type="checkbox" id="ch_dis" name="ch_dis" value="8"
                             {{ in_array("8", $ch_diss) ? "checked" : "" }}>
-                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            <input type="text" class="form-control" name="ch_else" placeholder="{{$kajians->ch_else}}" disabled>
                         </div>
                     </td>
                 </tr>

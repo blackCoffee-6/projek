@@ -183,8 +183,12 @@ class KajianController extends Controller
             'ket_up' => implode(',', $request->ket_up),
             'ch_dis' => implode(',', $request->ch_dis),
 
+            'ket_else' => $request->ket_else,
+            'ch_else' => $request->ch_else,
+
             'ru_a' => $request->ru_a,
-            'ru_b' => implode(',', $request->ru_b),
+            'ru_b' => $request->ru_b,
+            'ru_else' => $request->ru_else,
             'ru_ket' => $request->ru_ket,
 
             'ri_a' => $request->ri_a,
@@ -192,18 +196,23 @@ class KajianController extends Controller
             'ri_ket' => $request->ri_ket,
 
             'st_a' => $request->st_a,
-            'st_b' => implode(',', $request->st_b),
+            'st_b' => $request->st_b,
             'st_ket' => $request->st_ket,
+
+            'pj_a' => $request->pj_a,
+            'pj_b' => $request->pj_b,
+            'pj_else' => $request->pj_else,
+            'pj_ket' => $request->pj_ket,
 
             'me_a' => $request->me_a,
             'me_ket' => $request->me_ket,
 
             'val_a' => $request->val_a,
-            'val_b' => implode(',', $request->val_b),
+            'val_b' => $request->val_b,
             'val_ket' => $request->val_ket,
 
             'tr_a' => $request->tr_a,
-            'tr_b' => implode(',', $request->tr_b),
+            'tr_b' => $request->tr_b,
             'tr_ket' => $request->tr_ket,
 
             'pr_a' => $request->pr_a,

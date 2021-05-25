@@ -20,7 +20,7 @@
                     <td>
                         {{$fup->ket_usulan}}
                     </td>
-                    <td>04/USL/IV/2020</td>
+                    <td>{{$fup->no_usulan}}</td>
                 </tr>
             </tbody>
         </table>

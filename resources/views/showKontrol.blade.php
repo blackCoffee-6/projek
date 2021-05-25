@@ -26,7 +26,17 @@
                 <a href="#" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i>  Cari</a>
             </form>
         </div>
-
+        @if(session('alert'))
+            <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="aler">x</button>
+                {{ session('alert')}}
+            </div>
+        @elseif(session('failed'))
+            <div class="alert alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                {{ session('failed')}}
+            </div>
+        @endif
         <table class="table table-bordered my-3">
             <thead class="thead-dark">
                 <tr class="text-center">
