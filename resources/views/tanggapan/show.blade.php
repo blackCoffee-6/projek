@@ -31,7 +31,18 @@
         <table class="table table-bordered my-3">
             <thead>
                 <tr>
-                    <th>A. Tanggapan dari Bidang</th>
+                    <th>
+                        A. Tanggapan dari Bidang :
+                        @if(Auth::user()->role == 'Admin')
+                            <br><br>
+                            <select name="tg_bidangs">
+                                <option>Select Bidang</option>
+                                @foreach($bidangs as $bidang)
+                                <option value="{{$bidang->Bidang->name}}">{{$bidang->Bidang->name}}</option>
+                                @endforeach
+                            </select>
+                        @endif
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -60,134 +71,7 @@
                 </tr>
             </tbody>
         </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>B. Tanggapan dari Bidang :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <textarea class="form-control" rows="3" name="gt_bidang"></textarea>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Nama :</th>
-                    <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input class="form-control" type="text" name="gt_nama">
-                    </td>
-                    <td>
-                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="gt_date">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>C. Tanggapan dari Bidang :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <textarea class="form-control" rows="3" name="bidang_tg"></textarea>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Nama :</th>
-                    <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input class="form-control" type="text" name="nama_tg">
-                    </td>
-                    <td>
-                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="date_tg">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>D. Tanggapan dari Bidang :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <textarea class="form-control" rows="3" name="tg_bidang2" ></textarea>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Nama :</th>
-                    <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input class="form-control" type="text" name="tg_nama2">
-                    </td>
-                    <td>
-                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="tg_date2">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>E. Tanggapan dari Bidang :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <textarea class="form-control" rows="3" name="tg_bidang3"></textarea>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Nama :</th>
-                    <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input class="form-control" type="text" name="tg_nama3">
-                    </td>
-                    <td>
-                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="tg_date3">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        
         <button class="btn btn-success my-2">Submit</button>
         <a href="/home" class="btn btn-danger my-2 mx-2">Cancel</a>
         </form>

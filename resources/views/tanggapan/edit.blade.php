@@ -29,7 +29,14 @@
         <table class="table table-bordered my-3">
             <thead>
                 <tr>
-                    <th>A. Tanggapan dari Bidang</th>
+                    <th>
+                        A. Tanggapan dari Bidang : 
+                        @if($tanggapan->tg_bidangs != null)
+                            {{$tanggapan->tg_bidangs}}
+                        @else
+                            {{$tanggapan->Bidang->name}}
+                        @endif
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -55,134 +62,6 @@
                     </td>
                     <td>
                         <input class="form-control" type="date" value="{{ $tanggapan->tg_date }}" disabled name="tg_date">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>B. Tanggapan dari Bidang :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <textarea class="form-control" rows="3" disabled>{{$tanggapan->gt_bidang}}</textarea>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Nama :</th>
-                    <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input class="form-control" type="text" value="{{$tanggapan->gt_nama}}" disabled>
-                    </td>
-                    <td>
-                        <input class="form-control" type="date" value="{{$tanggapan->gt_date}}" disabled>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>C. Tanggapan dari Bidang :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <textarea class="form-control" rows="3" disabled>{{$tanggapan->bidang_tg}}</textarea>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Nama :</th>
-                    <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input class="form-control" type="text" value="{{$tanggapan->nama_tg}}" disabled>
-                    </td>
-                    <td>
-                        <input class="form-control" type="date" value="{{$tanggapan->date_tg}}" disabled>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>D. Tanggapan dari Bidang :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <textarea class="form-control" rows="3" name="tg_bidang2" disabled>{{$tanggapan->tg_bidang2}}</textarea>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Nama :</th>
-                    <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input class="form-control" type="text" value="{{$tanggapan->tg_nama2}}" disabled>
-                    </td>
-                    <td>
-                        <input class="form-control" type="date" value="{{ $tanggapan->tg_date2 }}" name="date_tg" disabled>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>E. Tanggapan dari Bidang :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <textarea class="form-control" rows="3" name="tg_bidang3" disabled>{{$tanggapan->tg_bidang3}}</textarea>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Nama :</th>
-                    <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input class="form-control" type="text" value="{{ $tanggapan->tg_nama3 }}" disabled >
-                    </td>
-                    <td>
-                        <input class="form-control" type="date" value="{{ $tanggapan->tg_date3 }}" disabled>
                     </td>
                 </tr>
             </tbody>

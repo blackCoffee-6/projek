@@ -324,7 +324,7 @@
         <hr>
         {{-- PRODUKSI  --}}
         <x-kop2 kategori="Produksi" 
-        tlp="pro_tlp" tlpid="pro_tlp" tlpval="lhu" tlplabel="Laporan hasil uji"
+        tlp="pro_tlp" tlpid="pro_tlp" tlpval="lhu" tlplabel="Laporan hasil uji" tlptext="pro_input"
         pic="pro_pic" picid="pro_pic" 
         dok="pro_dok" dokid="pro_dok" 
         stat="pro_status" statid="pro_statusid"
@@ -335,7 +335,7 @@
         />
         
         <x-kop2 kategori="" 
-        tlp="pro_tlp2" tlpid="pro_tlp2" tlpval="lhu2" tlplabel="Laporan hasil uji" 
+        tlp="pro_tlp2" tlpid="pro_tlp2" tlpval="lhu2" tlplabel="Laporan hasil uji" tlptext="pro_input2"
         pic="pro_pic2" picid="pro_pic2" 
         dok="pro_dok2" dokid="pro_dok2" 
         stat="pro_status2" statid="pro_statusid3"
@@ -346,7 +346,7 @@
         />
         
         <x-kop2 kategori="" 
-        tlp="pro_tlp3" tlpid="pro_tlp3" tlpval="lhu3" tlplabel="Laporan hasil uji" 
+        tlp="pro_tlp3" tlpid="pro_tlp3" tlpval="lhu3" tlplabel="Laporan hasil uji" tlptext="pro_input3"
         pic="pro_pic3" picid="pro_pic3" 
         dok="pro_dok3" dokid="pro_dok3" 
         stat="pro_status3" statid="pro_statusid5"
@@ -357,7 +357,7 @@
         />
         <hr>
         {{-- DOKUMEN  --}}
-        <x-kop2 kategori="Dokumen" 
+        <x-kop kategori="Dokumen" 
         tlp="dok_tlp" tlpid="dok_tlp" tlpval="mm" tlplabel="Manual Mutu" 
         pic="dok_pic" picid="dok_pic" 
         dok="dok_dok" dokid="dok_dok" 
@@ -368,7 +368,7 @@
         realisasi="dok_realisasi" realisasiid="dok_realisasi"
         />
         
-        <x-kop2 kategori="" 
+        <x-kop kategori="" 
         tlp="dok_tlp2" tlpid="dok_tlp2" tlpval="diif" tlplabel="Dokumen induk industri farmasi" 
         pic="dok_pic2" picid="dok_pic2" 
         dok="dok_dok2" dokid="dok_dok2" 
@@ -380,7 +380,7 @@
         />
         
         <x-kop2 kategori="" 
-        tlp="dok_tlp3" tlpid="dok_tlp3" tlpval="prose" tlplabel="Prosedur" 
+        tlp="dok_tlp3" tlpid="dok_tlp3" tlpval="prose" tlplabel="Prosedur" tlptext="dok_input3"
         pic="dok_pic3" picid="dok_pic3" 
         dok="dok_dok3" dokid="dok_dok3" 
         stat="dok_status3" statid="dok_statusid5"
@@ -391,7 +391,7 @@
         />
         
         <x-kop2 kategori="" 
-        tlp="dok_tlp4" tlpid="dok_tlp4" tlpval="ku" tlplabel="Ketentuan umum" 
+        tlp="dok_tlp4" tlpid="dok_tlp4" tlpval="ku" tlplabel="Ketentuan umum" tlptext="dok_input4"
         pic="dok_pic4" picid="dok_pic4" 
         dok="dok_dok4" dokid="dok_dok4" 
         stat="dok_status4" statid="dok_statusid7"
@@ -402,7 +402,7 @@
         />
         
         <x-kop2 kategori="" 
-        tlp="dok_tlp5" tlpid="dok_tlp5" tlpval="protap" tlplabel="Protap" 
+        tlp="dok_tlp5" tlpid="dok_tlp5" tlpval="protap" tlplabel="Protap" tlptext="dok_input5"
         pic="dok_pic5" picid="dok_pic5" 
         dok="dok_dok5" dokid="dok_dok5" 
         stat="dok_status5" statid="dok_statusid9"
@@ -413,7 +413,7 @@
         />
         
         <x-kop2 kategori="" 
-        tlp="dok_tlp6" tlpid="dok_tlp6" tlpval="formulir" tlplabel="Formulir" 
+        tlp="dok_tlp6" tlpid="dok_tlp6" tlpval="formulir" tlplabel="Formulir" tlptext="dok_input6" 
         pic="dok_pic6" picid="dok_pic6" 
         dok="dok_dok6" dokid="dok_dok6" 
         stat="dok_status6" statid="dok_statusid11"
@@ -424,7 +424,7 @@
         />
         
         <x-kop2 kategori="" 
-        tlp="dok_tlp7" tlpid="dok_tlp7" tlpval="daftar" tlplabel="Daftar" 
+        tlp="dok_tlp7" tlpid="dok_tlp7" tlpval="daftar" tlplabel="Daftar" tlptext="dok_input7"
         pic="dok_pic7" picid="dok_pic7" 
         dok="dok_dok7" dokid="dok_dok7" 
         stat="dok_status7" statid="dok_statusid13"
@@ -435,7 +435,7 @@
         />
         
         <x-kop2 kategori="" 
-        tlp="dok_tlp8" tlpid="dok_tlp8" tlpval="spek" tlplabel="Spesifikasi" 
+        tlp="dok_tlp8" tlpid="dok_tlp8" tlpval="spek" tlplabel="Spesifikasi" tlptext="dok_input8"
         pic="dok_pic8" picid="dok_pic8" 
         dok="dok_dok8" dokid="dok_dok8" 
         stat="dok_status8" statid="dok_statusid15"
@@ -446,7 +446,7 @@
         />
         
         <x-kop2 kategori="" 
-        tlp="dok_tlp9" tlpid="dok_tlp9" tlpval="ma" tlplabel="Metode analisa" 
+        tlp="dok_tlp9" tlpid="dok_tlp9" tlpval="ma" tlplabel="Metode analisa" tlptext="dok_input9"
         pic="dok_pic9" picid="dok_pic9" 
         dok="dok_dok9" dokid="dok_dok9" 
         stat="dok_status9" statid="dok_status17"
@@ -548,7 +548,7 @@
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="6">
-                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            <input type="text" name="dis_input" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                         </div>
                     </td>
                     <td>

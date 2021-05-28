@@ -42,6 +42,10 @@ class User extends Authenticatable
     public function Bidang(){
         return $this->belongsTo(Bidang::class);
     }
+    
+    public function Tanggapan(){
+        return $this->belongsTo(Tanggapan::class);
+    }
 
     protected $table = "users";
 }
