@@ -20,8 +20,9 @@ class ApproveController extends Controller
     public function index()
     {
         //ini masih nyoba" masih salah logicnya soalnya mau ngambil value table dari approval dan value fup_id yang decisionnya sudah disetujui
-        $fups = FUP::orderBy('status', 'DESC')->paginate(5);
+        $fups = FUP::orderBy('status', 'DESC')->paginate(10);
         $apps = Approval::all();
+
         $auth = Auth::check();
         $role = 'Staff';
 

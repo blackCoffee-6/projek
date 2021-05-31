@@ -71,7 +71,7 @@ class KopController extends Controller
 
     public function store(Request $request, $fup_id)
     {
-        // dd($request->all());
+        dd($request->all());
         // dd($fup_id);
         if($request->dis_setuju != null){
             $request->request->add(['dis_setuju' => implode(',', $request->dis_setuju)]);

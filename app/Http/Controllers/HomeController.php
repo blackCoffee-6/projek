@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Approval;
 use App\FUP;
 use App\Tanggapan;
 use App\User;
 use App\FUB;
 use App\Kajian;
+use App\KontrolPerubahan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -44,13 +46,26 @@ class HomeController extends Controller
             $tanggapan = FUP::whereIn('id', $arrFupId)->count();
         }
         else{
-            // $tanggapan = FUP::Where('tanggapan', '=', 'perlu')->count();
+            $tanggapan = Approval::Where('tanggapan', '=', 'perlu')->count();
             $fup = FUP::all();
+            $kajian = Kajian::all();
+            $entrykj = Approval::where('decision', '=', 'setuju')->count();
+            $kontrol = KontrolPerubahan::all();
+            $entrykop = Kajian::where('ch_status', '=', 'disetujui')->count();
         }
         
         if($fup){
             $fup = $fup->count();
         }
+
+        if($kajian){
+            $kajian = $kajian->count();
+        }
+
+        if($kontrol){
+            $kontrol = $kontrol->count();
+        }
+
         $usul = FUP::where('user_id',Auth::user()->id)->count();
         $auth = Auth::check();
         $role = 'Staff';
@@ -58,7 +73,6 @@ class HomeController extends Controller
         if($auth){
             $role = Auth::user()->role;
         }
-        // return view('home', compact('user','fup', 'tanggapan', 'role', 'usul'));
-        return view('home', compact('user','fup','role', 'usul'));
+        return view('home', compact('user','fup', 'tanggapan', 'role', 'usul', 'kajian', 'entrykj', 'kontrol', 'entrykop'));
     }
 }

@@ -1859,7 +1859,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="pro_tlp" value="lhu"
                             {{ in_array("lhu", $pro_tlps) ? "checked" : "" }}>
-                            <label class="form-check-label">Laporan hasil uji <input type="text" name="lahatext" class="form-control mt-1" value=""></label>
+                            <label class="form-check-label">Laporan hasil uji <input type="text" name="pro_input" class="form-control mt-1" placeholder="{{$kontrols->pro_input}}"></label>
                         </div>
                     </td>
                     <td><input type="text" name="pro_pic" class="form-control" value="{{ $kontrols->pro_pic }}"></td>

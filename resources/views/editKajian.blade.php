@@ -141,7 +141,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul3" value="regulasielse"
                                 {{ in_array("regulasielse", $ru_bb) ? "checked" : ""}}>
-                                <input type="text" class="form-control" id="regult3" placeholder="{{$kajians->ru_else}}">
+                                <input type="text" class="form-control" id="regult3" value="{{$kajians->ru_else}}" name="ru_else">
                             </div>
                         </div>
                     </td>

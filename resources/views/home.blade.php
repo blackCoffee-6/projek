@@ -42,7 +42,7 @@
                 </a>
             </div>
             <h4 class="mb-0">
-                <span class="count"></span>
+                <span class="count">{{$tanggapan}}</span>
             </h4>
             <p class="text-light">Menunggu Tanggapan</p>
             <div class="chart-wrapper px-0" style="height:70px;" height="70">
@@ -60,7 +60,7 @@
                 </a>
             </div>
             <h4 class="mb-0">
-                <span class="count">10468</span>
+                <span class="count">{{$kajian}}</span>
             </h4>
             <p class="text-light">Menunggu Kajian</p>
             <div class="chart-wrapper px-0" style="height:70px;" height="70">
@@ -78,7 +78,7 @@
                 </a>
             </div>
             <h4 class="mb-0">
-                <span class="count">10468</span>
+                <span class="count">{{$kontrol}}</span>
             </h4>
             <p class="text-light">Kontrol Perubahan</p>
 
@@ -126,7 +126,7 @@
                 </a>
             </div>
             <h4 class="mb-0">
-                <span class="count">10468</span>
+                <span class="count">{{$entrykj}}</span>
             </h4>
             <p class="text-light">Kajian</p>
         </div>
@@ -141,7 +141,7 @@
                 </a>
             </div>
             <h4 class="mb-0">
-                <span class="count">10468</span>
+                <span class="count">{{$entrykop}}</span>
             </h4>
             <p class="text-light">Kontrol Perubahan</p>
         </div>
