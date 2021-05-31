@@ -30,11 +30,11 @@
             <thead>
                 <tr>
                     <th>
-                        A. Tanggapan dari Bidang : 
+                        A. Tanggapan dari Bidang 
                         @if($tanggapan->tg_bidangs != null)
-                            {{$tanggapan->tg_bidangs}}
+                            {{$tanggapan->tg_bidangs}} :
                         @else
-                            {{$tanggapan->Bidang->name}}
+                            {{$tanggapan->Bidang->name}} :
                         @endif
                     </th>
                 </tr>
@@ -66,8 +66,8 @@
                 </tr>
             </tbody>
         </table>
+        <a href="/home" class="btn btn-primary my-2 mx-2">Kembali</a>
     </div>
-        <a href="/home" class="btn btn-danger my-2 mx-2">Cancel</a>
     </form>
     
 <script>

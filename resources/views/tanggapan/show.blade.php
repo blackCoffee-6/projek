@@ -35,7 +35,7 @@
                         A. Tanggapan dari Bidang :
                         @if(Auth::user()->role == 'Admin')
                             <br><br>
-                            <select name="tg_bidangs">
+                            <select name="tg_bidangs[]">
                                 <option>Select Bidang</option>
                                 @foreach($bidangs as $bidang)
                                 <option value="{{$bidang->Bidang->name}}">{{$bidang->Bidang->name}}</option>
@@ -48,7 +48,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <textarea class="form-control" rows="3" name="tg_bidang"></textarea>
+                        <textarea class="form-control" rows="3" name="tg_bidang[]"></textarea>
                     </td>
                 </tr>
             </tbody>
@@ -63,34 +63,40 @@
             <tbody>
                 <tr>
                     <td>
-                        <input class="form-control" type="text" name="tg_nama">
+                        <input class="form-control" type="text" name="tg_nama[]">
                     </td>
                     <td>
-                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="tg_date">
+                        <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="tg_date[]">
                     </td>
                 </tr>
             </tbody>
         </table>
+        <div class="container text-right">
+            <button type="button" class="btn btn-success" id="add_btn"><i class="fa fa-plus"></i></button>
+        </div>
         
-        <button class="btn btn-success my-2">Submit</button>
-        <a href="/home" class="btn btn-danger my-2 mx-2">Cancel</a>
+        <button class="btn btn-success my-2  mx-2">Submit</button>
+        <a href="/home" class="btn btn-danger my-2">Cancel</a>
         </form>
     </div>
 
-<script>
-    $(function() {
-        var count=0;
-      $("#dynamic_field_add").click(function (e) {
-        e.preventDefault();
-        $("#dynamic_field_append").append('<div class="input-group mb-3 dynamic_field_div"><div class="input-group-prepend"><span class="input-group-text">1</span></div><input name="dok_perlukan[]" type="text" class="form-control dynamic_field_focus" aria-label="Default" aria-describedby="inputGroup-sizing-default"><a href="#" class="dynamic_field_remove"><i class="fa fa-close fa-fw text-danger"></i></a></div>');
-        $(".dynamic_field_focus").last().focus();
-      });
-
-      $("body").on("click", ".dynamic_field_remove", function (e) {
-        e.preventDefault();
-        $(this).closest('.dynamic_field_div').remove();
-      });
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#add_btn').on('click', function(){
+            var html='';
+            html+='<tr>';
+            html+='<td><textarea class="form-control" rows="3" name="tg_bidang[]"></textarea></td>';
+            html+='<td><input class="form-control" type="text" name="tg_nama[]"></td>';
+            html+='<td><input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="tg_date[]"></td>';
+            html+='</tr>';
+            html+='<div class="container text-right"><button type="button" class="btn btn-danger" id="remove_btn"><i class="fa fa-plus"></i></button></div>';
+            $('tbody').append(html);
+        })
     });
-  </script>
+
+    $(document).on('click', '#remove_btn', function(){
+        $(this).closest('tr').remove();
+    });
+</script>
 </div>
 @endsection

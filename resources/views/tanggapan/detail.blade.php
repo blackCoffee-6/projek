@@ -3,6 +3,20 @@
 @section('title', 'List Tanggapan Bidang')
 
 @section('content')
+<style>
+  table.table-bordered{
+      border:1px solid black;
+      margin-top:20px;
+    }
+  table.table-bordered > thead > tr > th{
+      border:1px solid black;
+  }
+  table.table-bordered > tbody > tr > td{
+      border:1px solid black;
+  
+  }
+</style>
+
 <div class="main">
   <h1 class="display-5 mx-5">
     Detail Tanggapan
@@ -17,8 +31,8 @@
       <a href="#"><button class="btn btn-danger mx-3">Reset</button></a>    
     </div>
     <table class="table table-bordered my-3">
-      <thead>
-        <tr>
+      <thead class="thead-dark">
+        <tr align="center">
           <th scope="col">No.</th>
           <th scope="col">Bidang Menanggapi</th>
           <th scope="col">Tanggal Menanggapi</th>
@@ -29,18 +43,17 @@
                 <tbody>
                   @foreach($tanggapans as $tanggapan)
                 <tr>
-                    <th>{{$loop->iteration}}</th>
+                    <td align="center" class="font-weight-bold">{{$loop->iteration}}</td>
                     @if($tanggapan->bidang_id != "0")
                     <td>{{$tanggapan->Bidang->name}}</td>
                     @else
-                    <td>QC <span class="text-danger">*</span></td>
+                    <td>QA <span class="text-danger">*</span></td>
                     @endif
                     <td>{{$fups->date}}</td>
                     <td>
                         {{$fups->ket_usulan}}
                     </td>
-                    <td>
-                      
+                    <td class="text-center">
                         <!-- kalo yg login R&D abis dia isi button lihat nya harusnya ilang -->
                           <a href="/Tanggapan/{{$tanggapan->id}}/edit" class="btn btn-success my-2 my-sm-0" type="submit" ><i class="fa fa-folder"></i>  Lihat</a>
                     </td>

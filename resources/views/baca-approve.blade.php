@@ -100,7 +100,7 @@
                 </tbody>
             </table>
             <table class="table table-bordered my-3">
-                <thead>
+                <tbody>
                     <tr>
                         <th>G. Usulan Pemberlakuan Perubahan :</th>
                     </tr>
@@ -112,7 +112,7 @@
                         <th scope="col">Nama :</th>
                         <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
                     </tr>
-                </thead>
+                </tbody>
                 <tbody>
                     <tr>
                         <td>
@@ -126,13 +126,13 @@
                         </td>
                     </tr>
                 </tbody>
-                <thead>
+                <tbody>
                     <tr>
                         <th scope="col">Manager :</th>
                         <th scope="col">Nama :</th>
                         <th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th>
                     </tr>
-                </thead>
+                </tbody>
                 <tbody>
                     <tr>
                         <td>
@@ -146,7 +146,11 @@
                         </td>
                     </tr>
                 </tbody>
-                @if(Auth::user()->role == "Approval" OR Auth::user()->role == "Admin")
+                </table>
+                @if(Auth::user()->role == "Staff")
+                <a href="/home" id="test" type="button" class="btn btn-primary my-2 mx-2">Kembali</a>
+                @elseif(Auth::user()->role == "Approval" OR Auth::user()->role == "Admin")
+                <table class="table table-bordered my-3">
                 <form action="/store/{{$fup->id}}" method="post">
                     @csrf
                 <thead>

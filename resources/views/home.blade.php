@@ -60,7 +60,11 @@
                 </a>
             </div>
             <h4 class="mb-0">
-                <span class="count">{{$kajian}}</span>
+                @if(Auth::user()->role == 'Admin')
+                    <span class="count">{{$kajian}}</span>
+                @else
+                    <span class="count">0</span>
+                @endif
             </h4>
             <p class="text-light">Menunggu Kajian</p>
             <div class="chart-wrapper px-0" style="height:70px;" height="70">
@@ -78,7 +82,11 @@
                 </a>
             </div>
             <h4 class="mb-0">
-                <span class="count">{{$kontrol}}</span>
+                @if(Auth::user()->role == 'Admin')
+                    <span class="count">{{$kontrol}}</span>
+                @else
+                    <span class="count">0</span>
+                @endif
             </h4>
             <p class="text-light">Kontrol Perubahan</p>
 
@@ -126,7 +134,11 @@
                 </a>
             </div>
             <h4 class="mb-0">
-                <span class="count">{{$entrykj}}</span>
+                @if(Auth::user()->role == 'Admin')
+                    <span class="count">{{$entrykj}}</span>
+                @else
+                    <span class="count">0</span>
+                @endif
             </h4>
             <p class="text-light">Kajian</p>
         </div>
@@ -141,7 +153,11 @@
                 </a>
             </div>
             <h4 class="mb-0">
-                <span class="count">{{$entrykop}}</span>
+                @if(Auth::user()->role == 'Admin')
+                    <span class="count">{{$entrykop}}</span>
+                @else
+                    <span class="count">0</span>
+                @endif
             </h4>
             <p class="text-light">Kontrol Perubahan</p>
         </div>

@@ -33,6 +33,13 @@ class HomeController extends Controller
     public function index()
     {
         $user = User::all();
+        $usul = FUP::where('user_id',Auth::user()->id)->count();
+        $auth = Auth::check();
+        $role = 'Staff';
+
+        if($auth){
+            $role = Auth::user()->role;
+        }
         
         if(strcasecmp(Auth::user()->role,'staff') == 0){
             $fup = FUP::where('user_id',Auth::user()->id)->get();
@@ -44,6 +51,12 @@ class HomeController extends Controller
             }
             $arrFupId = explode(",",$fup_id);
             $tanggapan = FUP::whereIn('id', $arrFupId)->count();
+
+            if($fup){
+                $fup = $fup->count();
+            }
+            
+            return view('home', compact('user','fup', 'tanggapan', 'role', 'usul'));
         }
         else{
             $tanggapan = Approval::Where('tanggapan', '=', 'perlu')->count();
@@ -52,27 +65,19 @@ class HomeController extends Controller
             $entrykj = Approval::where('decision', '=', 'setuju')->count();
             $kontrol = KontrolPerubahan::all();
             $entrykop = Kajian::where('ch_status', '=', 'disetujui')->count();
-        }
-        
-        if($fup){
-            $fup = $fup->count();
-        }
 
-        if($kajian){
-            $kajian = $kajian->count();
+            if($fup){
+                $fup = $fup->count();
+            }
+    
+            if($kajian){
+                $kajian = $kajian->count();
+            }
+    
+            if($kontrol){
+                $kontrol = $kontrol->count();
+            }
+            return view('home', compact('user','fup', 'tanggapan', 'role', 'usul', 'kajian', 'entrykj', 'kontrol', 'entrykop'));
         }
-
-        if($kontrol){
-            $kontrol = $kontrol->count();
-        }
-
-        $usul = FUP::where('user_id',Auth::user()->id)->count();
-        $auth = Auth::check();
-        $role = 'Staff';
-
-        if($auth){
-            $role = Auth::user()->role;
-        }
-        return view('home', compact('user','fup', 'tanggapan', 'role', 'usul', 'kajian', 'entrykj', 'kontrol', 'entrykop'));
     }
 }
