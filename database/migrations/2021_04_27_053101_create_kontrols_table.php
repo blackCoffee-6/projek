@@ -349,6 +349,7 @@ class CreateKontrolsTable extends Migration
             $table->date('mpm_date');
 
             $table->text('dis_setuju')->nullable();
+            $table->text('dis_input')->nullable();
 
             $table->timestamps();
         });

@@ -16,4 +16,8 @@ class Bidang extends Model
     public function FUP(){
         return $this->hasMany(FUP::class);
     }
+    
+    public function FUB(){
+        return $this->hasMany(FUB::class);
+    }
 }

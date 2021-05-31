@@ -11,4 +11,8 @@ class FUB extends Model
 
     protected $guarded = ["id"];
 
+    public function Bidang(){
+        return $this->belongsTo(Bidang::class);
+    }
+
 }

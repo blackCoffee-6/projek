@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Approval;
+use App\Bidang;
 use App\FUP;
 use App\Tanggapan;
 use App\FUB;
@@ -84,27 +85,32 @@ class TanggapanController extends Controller
 
         Tanggapan::create([
             'fup_id' => $id,
+            'bidang_id' => $bidang_id,
 
             'tg_nama' => $request->tg_nama,
             'tg_bidang' => $request->tg_bidang,
+            'tg_bidangs' => $request->tg_bidangs,
             'tg_date' => $request->tg_date,
 
             'gt_bidang' => $request->gt_bidang,
+            'gt_bidangs' => $request->gt_bidangs,
             'gt_nama' => $request->gt_nama,
             'gt_date' => $request->gt_date,
 
             'bidang_tg' => $request->bidang_tg,
+            'bidang_tgs' => $request->bidang_tgs,
             'nama_tg' => $request->nama_tg,
             'date_tg' => $request->date_tg,
 
             'tg_bidang2' => $request->tg_bidang2,
+            'tg_bidangs2' => $request->tg_bidangs2,
             'tg_nama2' => $request->tg_nama2,
             'tg_date2' => $request->tg_date2,
+
             'tg_bidang3' => $request->tg_bidang3,
+            'tg_bidangs3' => $request->tg_bidangs3,
             'tg_nama3' => $request->tg_nama3,
             'tg_date3' => $request->tg_date3,
-
-            'bidang_id' => $bidang_id
         ]);
 
         Alert::success('Success', "Tanggapan Berhasil Dibuat!");
@@ -123,11 +129,20 @@ class TanggapanController extends Controller
         $fup = FUP::find($id);
         $role = 'Staff';
 
+        $bidangs = FUB::where('fup_id',$id)->get();
+        // dd($bidangs);
+        // $bidang_id = "";
+        // foreach($bidangs as $bidang){
+        //     $bidang_id .= $bidang->bidang_id.","; 
+        // }
+        // $arrBidangId = explode(",",$bidang_id);
+        // dd($arrBidangId);
+
         if($auth){
             $role = Auth::user()->role;
         }
 
-        return view('tanggapan.show', compact('fup', 'role'));
+        return view('tanggapan.show', compact('fup', 'role', 'bidangs'));
     }
 
     /**
@@ -138,7 +153,6 @@ class TanggapanController extends Controller
      */
     public function edit($id)
     {
-        // $fup = FUP::find($id);
         $tanggapan = Tanggapan::where('id', $id)->first();
         $fup = FUP::find($tanggapan->FUP->id);
         $auth = Auth::check();
@@ -149,11 +163,6 @@ class TanggapanController extends Controller
         }
         // dd($fup);
         return view('tanggapan.edit', compact('fup', 'tanggapan', 'role'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
     }
 
     public function showDetail($id){

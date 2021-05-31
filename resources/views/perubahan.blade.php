@@ -548,7 +548,7 @@
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="6">
-                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            <input type="text" name="dis_input" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                         </div>
                     </td>
                     <td>

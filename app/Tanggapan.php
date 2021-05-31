@@ -17,4 +17,8 @@ class Tanggapan extends Model
     public function Bidang(){
         return $this->belongsTo(Bidang::class,'bidang_id');
     }
+
+    public function User(){
+        return $this->belongsTo(User::class);
+    }
 }
