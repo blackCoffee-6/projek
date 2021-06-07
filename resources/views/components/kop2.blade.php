@@ -31,7 +31,8 @@
             <td>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="{{$tlp}}" id="{{$tlpid}}" value="{{$tlpval}}">
-                    <label class="form-check-label">{{$tlplabel}}<input type="text" name="{{$tlptext}}" class="form-control mt-1"></label>
+                    <label class="form-check-label">{{$tlplabel}}</label>
+                    <input  class="form-control mt-1" type="text" name="{{$tlptext}}">
                 </div>
             </td>
             <td><input type="text" class="form-control" name="{{$pic}}" id="{{$picid}}"></td>

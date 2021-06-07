@@ -30,7 +30,7 @@
             <thead>
                 <tr>
                     <th>
-                        A. Tanggapan dari Bidang 
+                        Tanggapan dari Bidang 
                         @if($tanggapan->tg_bidangs != null)
                             {{$tanggapan->tg_bidangs}} :
                         @else

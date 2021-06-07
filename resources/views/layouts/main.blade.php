@@ -57,13 +57,13 @@
                         </ul>
                     </li>
                     <li class="active">
-                        <a href="/tanggapan"> <i class="menu-icon fa fa-shopping-cart"></i>Transaksi </a>
+                        <a href="/tanggapan"> <i class="menu-icon fa fa-shopping-cart"></i>Transaksi (Inactive)</a>
                     </li>
                     <li class="active">
-                        <a href="/kajian"> <i class="menu-icon fa fa-folder-open-o"></i>Report </a>
+                        <a href="/kajian"> <i class="menu-icon fa fa-folder-open-o"></i>Report (Inactive)</a>
                     </li>
                     <li class="active">
-                        <a href="/kontrol"> <i class="menu-icon fa fa-gears (alias)"></i>Kontrol </a>
+                        <a href="/kontrol"> <i class="menu-icon fa fa-gears (alias)"></i>Kontrol (Inactive)</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
