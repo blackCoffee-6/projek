@@ -44,9 +44,10 @@ table.table-bordered > tbody > tr > td{
                     <th scope="col">Nomor</th>
                     <th scope="col">Tanggal Usulan</th>
                     <th scope="col" width="20%">Usulan Perubahan</th>
-                    <th scope="col">Tanggal Berlaku</th>
+                    <th scope="col" width="10%">Tanggal Berlaku</th>
                     <th scope="col">Status</th>
                     <th scope="col">Aksi</th>
+                    <th scope="col" width="9%">File (*Jika ada)</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -89,12 +90,15 @@ table.table-bordered > tbody > tr > td{
                             <form action="/FUP/{{$fup->id}}" method="POST">
                             @csrf
                             @method('DELETE')
-                                <a href="/FUP/{{$fup->id}}/edit" class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fa fa-edit"></i></a>
-                                <button class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fa fa-trash"></i></button>
+                                <a href="/FUP/{{$fup->id}}/edit" class="btn btn-primary my-2 my-sm-0 rounded" type="submit"><i class="fa fa-edit"></i></a>
+                                <button class="btn btn-danger my-2 my-sm-0 rounded" type="submit"><i class="fa fa-trash"></i></button>
                             </form>
                             @endif
                         </td>
                         @endif
+                        <td class="text-center">
+                            <a href="#" class="btn btn-secondary my-2 my-sm-0 rounded" type="submit"><i class="fa fa-cloud-download"></i> Lihat</a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

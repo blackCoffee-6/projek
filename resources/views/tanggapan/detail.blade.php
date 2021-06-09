@@ -44,10 +44,10 @@
                   @foreach($tanggapans as $tanggapan)
                 <tr>
                     <td align="center" class="font-weight-bold">{{$loop->iteration}}</td>
-                    @if($tanggapan->bidang_id != "0")
-                    <td>{{$tanggapan->Bidang->name}}</td>
+                    @if($tanggapan->tg_bidangs != null)
+                      <td>{{$tanggapan->tg_bidangs}}</td>
                     @else
-                    <td>QA <span class="text-danger">*</span></td>
+                      <td>{{$tanggapan->Bidang->name}}</td>
                     @endif
                     <td>{{$fups->date}}</td>
                     <td>

@@ -41,7 +41,7 @@ class HomeController extends Controller
             $role = Auth::user()->role;
         }
         
-        if(strcasecmp(Auth::user()->role,'staff') == 0){
+        if(strcasecmp(Auth::user()->role,'Staff') == 0){
             $fup = FUP::where('user_id',Auth::user()->id)->get();
             $fubs = FUB::where('bidang_id',Auth::user()->bidang_id)->get();
             
@@ -51,12 +51,17 @@ class HomeController extends Controller
             }
             $arrFupId = explode(",",$fup_id);
             $tanggapan = FUP::whereIn('id', $arrFupId)->count();
+            $kajian = Approval::where('decision', '=', 'setuju')->count();
+            $hasilCTKop = KontrolPerubahan::where('hasil_mitigasi', '!=', null)->count();
+            $kopz = KontrolPerubahan::where('hasil_mitigasi', '=', null)->count();
 
             if($fup){
                 $fup = $fup->count();
             }
+
+            $hasilCT = $tanggapan + $kajian + $hasilCTKop + $kopz;
             
-            return view('home', compact('user','fup', 'tanggapan', 'role', 'usul'));
+            return view('home', compact('user','fup', 'tanggapan', 'role', 'usul', 'hasilCT'));
         }
         else{
             $tanggapan = Approval::Where('tanggapan', '=', 'perlu')->count();
@@ -65,6 +70,8 @@ class HomeController extends Controller
             $entrykj = Approval::where('decision', '=', 'setuju')->count();
             $kontrol = KontrolPerubahan::all();
             $entrykop = Kajian::where('ch_status', '=', 'disetujui')->count();
+            $hasilCTKop = KontrolPerubahan::where('hasil_mitigasi', '!=', null)->count();
+            $kopz = KontrolPerubahan::where('hasil_mitigasi', '=', null)->count();
 
             if($fup){
                 $fup = $fup->count();
@@ -77,7 +84,10 @@ class HomeController extends Controller
             if($kontrol){
                 $kontrol = $kontrol->count();
             }
-            return view('home', compact('user','fup', 'tanggapan', 'role', 'usul', 'kajian', 'entrykj', 'kontrol', 'entrykop'));
+
+            $hasilCT = $tanggapan + $entrykj + $entrykop + $kopz;
+
+            return view('home', compact('user','fup','tanggapan', 'role', 'usul', 'kajian', 'entrykj', 'kontrol', 'entrykop', 'hasilCT', 'hasilCTKop'));
         }
     }
 }

@@ -21,10 +21,11 @@
     </h1>
     <div class="container my-4">
         <div class="input-group">
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <a href="#" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i>  Cari</a>
+            <form action="/searchKop2" method="GET" class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search Usulan" aria-label="Search Usulan" name="query" value="{{Request::input('query')}}">
+                <button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i>  Cari</button>
             </form>
+            <a href="/List/Kontrol/Perubahan"><button class="btn btn-danger mx-3">Reset</button></a>
         </div>
         @if(session('alert'))
             <div class="alert alert-success" role="alert">
@@ -73,19 +74,23 @@
                         @foreach($kontrols as $kontrol)
                             @if($fup->id == $kontrol->fup_id)
                                 <?php $count++; $date = $kontrol->hasil_mitigasi_date; $mitigasi = $kontrol->hasil_mitigasi?>
-                                @if(!($mitigasi))
-                                    <span class="badge rounded-pill bg-warning">Sedang di Proses</span>
-                                @elseif($date)
-                                    <span class="badge rounded-pill bg-danger">Closed</span>
-                                @elseif($mitigasi)
-                                    <span class="badge rounded-pill bg-danger">Closed</span>
-                                @endif
                             @endif
                         @endforeach
+                        @if($count < 1) <span class="badge rounded-pill bg-secondary text-light">Menunggu di Kontrol</span>
+                        @else
+                            @if(!($mitigasi))
+                                <span class="badge rounded-pill bg-warning">Sedang di Proses</span>
+                            @elseif($date)
+                                <span class="badge rounded-pill bg-danger">Closed</span>
+                            @elseif($mitigasi)
+                                <span class="badge rounded-pill bg-danger">Closed</span>
+                            @endif
+                        @endif
                     </td>
                     @if(Auth::user()->bidang_id == NULL)
                     <td class="text-center">
-                        @if(!($mitigasi))
+                        @if($count < 1)
+                        @elseif(!($mitigasi))
                             <a href="/Edit/KP/{{$kontrol->id}}" class="btn btn-primary my-2 my-sm-0"><i class="fa fa-folder"></i>  Edit</a>
                         @elseif($date)
                             <a href="/Baca-KontrolPerubahan/{{$kontrol->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>

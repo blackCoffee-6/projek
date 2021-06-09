@@ -66,7 +66,7 @@
                 </tr>
             </tbody>
         </table>
-        <a href="/home" class="btn btn-primary my-2 mx-2">Kembali</a>
+        <a href="javascript:history.back()" class="btn btn-primary my-2 mx-2">Kembali</a>
     </div>
     </form>
     

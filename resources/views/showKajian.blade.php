@@ -23,10 +23,11 @@
         </h1>
         <div class="container my-4">
             <div class="input-group">
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <form action="/searchKaj2" method="GET" class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search Usulan" aria-label="Search Usulan" name="query" value="{{Request::input('query')}}">
                     <a href="/FUP/"><button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i>  Cari</button></a>
                 </form>
+                <a href='/List/Menunggu/Kajian'><button class="btn btn-danger mx-3">Reset</button></a>
             </div>
 
             <table class="table table-bordered my-3">
@@ -38,7 +39,9 @@
                         <th scope="col">Tanggal Usulan</th>
                         <th scope="col">Usulan Perubahan</th>
                         <th scope="col">Status</th>
+                        @if(Auth::user()->role == 'Admin')
                         <th scope="col">Aksi</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -71,6 +74,7 @@
                                 @endif
                             @endif
                         </td>
+                        @if(Auth::user()->role == 'Admin')
                         <td class="text-center">
                         <?php $flag = 0; $status = '';?>
                         @foreach($kajians as $kajian)
@@ -83,6 +87,7 @@
                             @endif
                         @endforeach
                         </td>
+                        @endif
                     </tr>
                 @endforeach
                 </tbody>

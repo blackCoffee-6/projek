@@ -50,14 +50,19 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-plus-square"></i>Master Data</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-laptop"></i><a href="/List/Data/Bidang">Data Bidang </a></li>
                             @if(Auth::user()->role == 'Admin' | Auth::user()->role == 'Approval')
+                            <li><i class="fa fa-laptop"></i><a href="/List/Data/Bidang">Data Bidang </a></li>
                             <li><i class="fa fa-group (alias)"></i><a href="/user">Data User </a></li>
                             @endif
                         </ul>
                     </li>
-                    <li class="active">
-                        <a href="/tanggapan"> <i class="menu-icon fa fa-shopping-cart"></i>Transaksi (Inactive)</a>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-shopping-cart"></i>Transaksi</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-circle-o"></i><a href="/FUP">Entry Usulan Perubahan </a></li>
+                            <li><i class="fa fa-circle-o"></i><a href="/List/Kajian">Entry Kajian </a></li>
+                            <li><i class="fa fa-circle-o"></i><a href="/List/KP">Entry Kontrol Perubahan </a></li>
+                        </ul>
                     </li>
                     <li class="active">
                         <a href="/kajian"> <i class="menu-icon fa fa-folder-open-o"></i>Report (Inactive)</a>

@@ -129,18 +129,17 @@ class FUPController extends Controller
     //untuk menampilkan list-usulan.blade.php
     public function index()
     {
-        $fups = FUP::paginate(10);
+        $fups = FUP::all();
         $apps = Approval::all();
         $user = Auth::user();
-        
-        $auth = Auth::check();
-        $role = 'Staff';
 
-        if($auth){
-            $role = Auth::user()->role;
+        if($user->role == 'Staff'){
+            $fups = FUP::where('bidang_id', 'like', "$user->bidang_id")->paginate(10);
+        }else{
+            $fups = FUP::paginate(10);
         }
         
-        return view('FUP.index', compact('fups','apps','user','role'));
+        return view('FUP.index', compact('fups','apps','user'));
     }
     
     public function edit($id)

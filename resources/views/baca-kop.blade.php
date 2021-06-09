@@ -1774,7 +1774,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="pro_tlp" value="lhu"
                             {{ ($kontrols->pro_tlp == "lhu") ? "checked" : "" }} disabled>
-                            <label class="form-check-label">Laporan hasil uji</label>
+                            <label class="form-check-label">Laporan hasil uji<input type="text" name="pro_input" class="form-control mt-1" value="{{$kontrols->pro_input}}"></label>
                         </div>
                     </td>
                     <td><input type="text" class="form-control" name="pro_pic" value="{{$kontrols->pro_pic}}" disabled></td>
@@ -1840,7 +1840,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="pro_tlp2" value="lhu2"
                             {{ ($kontrols->pro_tlp2 == "lhu2") ? "checked" : "" }} disabled>
-                            <label class="form-check-label">Laporan hasil uji</label>
+                            <label class="form-check-label">Laporan hasil uji<input type="text" name="pro_input2" class="form-control mt-1" value="{{$kontrols->pro_input2}}"></label>
                         </div>
                     </td>
                     <td><input type="text" class="form-control" name="pro_pic2" value="{{$kontrols->pro_pic2}}" disabled></td>
@@ -1904,9 +1904,9 @@
                     <td align="justify"></td>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="pro_tlp3" value="lhu3"
+                            <input class="form-check-input" type="checkbox" name="pro_tlp3" value="{{$kontrols->pro_input3}}"
                             {{ ($kontrols->pro_tlp3 == "lhu3") ? "checked" : "" }} disabled>
-                            <label class="form-check-label">Laporan hasil uji</label>
+                            <label class="form-check-label">Laporan hasil uji<input type="text" name="pro_input3" class="form-control mt-1" value="{{$kontrols->pro_input3}}" disabled></label>
                         </div>
                     </td>
                     <td><input type="text" class="form-control" name="pro_pic3" value="{{$kontrols->pro_pic3}}" disabled></td>
@@ -2105,7 +2105,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dok_tlp3" value="prose"
                             {{ ($kontrols->dok_tlp3 == "prose") ? "checked" : "" }} disabled>
-                            <label class="form-check-label">Prosedur</label>
+                            <label class="form-check-label">Prosedur<input type="text" class="form-control" value="{{$kontrols->dok_input3}}" name="prosetext" disabled></label>
                         </div>
                     </td>
                     <td><input type="text" class="form-control" name="dok_pic3" value="{{$kontrols->dok_pic3}}" disabled></td>
@@ -2171,7 +2171,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dok_tlp4" value="ku"
                             {{ ($kontrols->dok_tlp4 == "ku") ? "checked" : "" }} disabled>
-                            <label class="form-check-label">Ketentuan umum</label>
+                            <label class="form-check-label">Ketentuan umum<input type="text" class="form-control" value="{{$kontrols->dok_input4}}" name="ketentuantext" disabled></label>
                         </div>
                     </td>
                     <td><input type="text" class="form-control" name="dok_pic4" value="{{$kontrols->dok_pic4}}" disabled></td>
@@ -2237,7 +2237,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dok_tlp5" value="protap"
                             {{ ($kontrols->dok_tlp5 == "protap") ? "checked" : "" }} disabled>
-                            <label class="form-check-label">Protap</label>
+                            <label class="form-check-label">Protap<input type="text" class="form-control" value="{{$kontrols->dok_input5}}" name="protaptext" disabled></label>
                         </div>
                     </td>
                     <td><input type="text" class="form-control" name="dok_pic5" value="{{$kontrols->dok_pic5}}" disabled></td>
@@ -2303,7 +2303,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dok_tlp6" value="formulir"
                             {{ ($kontrols->dok_tlp6 == "formulir") ? "checked" : "" }} disabled>
-                            <label class="form-check-label">Formulir</label>
+                            <label class="form-check-label">Formulir<input type="text" class="form-control" value="{{$kontrols->dok_input6}}" name="formulirtext" disabled></label>
                         </div>
                     </td>
                     <td><input type="text" class="form-control" name="dok_pic6" value="{{$kontrols->dok_pic6}}" disabled></td>
@@ -2369,7 +2369,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dok_tlp7" value="daftar"
                             {{ ($kontrols->dok_tlp7 == "daftar") ? "checked" : "" }} disabled>
-                            <label class="form-check-label">Daftar</label>
+                            <label class="form-check-label">Daftar<input type="text" class="form-control" value="{{$kontrols->dok_input7}}" name="daftartext" disabled></label>
                         </div>
                     </td>
                     <td><input type="text" class="form-control" name="dok_pic7" value="{{$kontrols->dok_pic7}}" disabled></td>
@@ -2435,7 +2435,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dok_tlp8" value="spek"
                             {{ ($kontrols->dok_tlp8 == "spek") ? "checked" : "" }} disabled>
-                            <label class="form-check-label">Spesifikasi</label>
+                            <label class="form-check-label">Spesifikasi<input type="text" class="form-control" value="{{$kontrols->dok_input8}}" name="spektext" disabled></label>
                         </div>
                     </td>
                     <td><input type="text" class="form-control" name="dok_pic8" value="{{$kontrols->dok_pic8}}" disabled></td>
@@ -2501,7 +2501,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dok_tlp9" value="ma"
                             {{ ($kontrols->dok_tlp9 == "ma") ? "checked" : "" }} disabled>
-                            <label class="form-check-label">Metode analisa</label>
+                            <label class="form-check-label">Metode analisa<input type="text" class="form-control" value="{{$kontrols->dok_input9}}" name="metodeantext"></label>
                         </div>
                     </td>
                     <td><input type="text" class="form-control" name="dok_pic9" value="{{$kontrols->dok_pic9}}" disabled></td>
@@ -2641,46 +2641,46 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dis_setuju" value="1" disabled
                             {{ in_array("1", $dis_setujus) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">R&D</label>
+                            <label class="form-check-label">R&D</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dis_setuju" value="2" disabled 
                             {{ in_array("2", $dis_setujus) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox2">Produksi</label>
+                            <label class="form-check-label">Produksi</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dis_setuju" value="3" disabled 
                             {{ in_array("3", $dis_setujus) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox2">Pemasaran</label>
+                            <label class="form-check-label">Pemasaran</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dis_setuju" value="4" disabled 
                             {{ in_array("4", $dis_setujus) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">QC</label>
+                            <label class="form-check-label">QC</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dis_setuju" value="5" disabled 
                             {{ in_array("5", $dis_setujus) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox2">Teknik</label>
+                            <label class="form-check-label">Teknik</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dis_setuju" value="6" disabled 
                             {{ in_array("6", $dis_setujus) ? "checked" : "" }}>
-                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" disabled>
+                            <input type="text" class="form-control" name="dis_input" value="{{$kontrols->dis_input}}" disabled>
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dis_setuju" value="7" disabled 
                             {{ in_array("7", $dis_setujus) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox1">SCM</label>
+                            <label class="form-check-label">SCM</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dis_setuju" value="8" disabled 
                             {{ in_array("8", $dis_setujus) ? "checked" : "" }}>
-                            <label class="form-check-label" for="inlineCheckbox2">Pengadaan</label>
+                            <label class="form-check-label">Pengadaan</label>
                         </div>
                     </td>
                 </tr>

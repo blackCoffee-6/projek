@@ -67,9 +67,13 @@ class TanggapanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function indexSearch(Request $request)
     {
-        //
+        //masih error karna di blade butuh tanggapanFlag 
+        $tanggapans = Tanggapan::all();
+        $search = $request->input('query');
+        $fups = FUP::where('ket_usulan', 'like', "%$search%")->orWhere('no_usulan', 'like', "%$search%")->paginate(5);
+        return view('tanggapan.index', compact('tanggapans', 'fups'));
     }
 
     /**
@@ -82,36 +86,45 @@ class TanggapanController extends Controller
     {
         $bidang_id = Auth::user()->bidang_id == null ? "0" : Auth::user()->bidang_id;
         // dd($request->all());
+        $request->request->add(['fup_id' => $id]);
+        $request->request->add(['bidang_id' => $bidang_id]);
 
-        Tanggapan::create([
-            'fup_id' => $id,
-            'bidang_id' => $bidang_id,
+        if($request->tg_bidang OR $request->tg_bidangs OR $request->tg_nama OR $request->tg_date){
+            foreach($request->input('tg_bidang','tg_bidangs','tg_nama','tg_date') as $key => $value){
+                Tanggapan::create([
+                    'fup_id' => $id,
+                    'bidang_id' => $bidang_id,
 
-            'tg_nama' => $request->tg_nama,
-            'tg_bidang' => $request->tg_bidang,
-            'tg_bidangs' => $request->tg_bidangs,
-            'tg_date' => $request->tg_date,
+                    'tg_nama' => $request->tg_nama [$key],
+                    'tg_bidang' => $request->tg_bidang [$key],
+                    'tg_bidangs' => $request->tg_bidangs [$key],
+                    'tg_date' => $request->tg_date [$key],
 
-            'gt_bidang' => $request->gt_bidang,
-            'gt_bidangs' => $request->gt_bidangs,
-            'gt_nama' => $request->gt_nama,
-            'gt_date' => $request->gt_date,
+                    'gt_bidang' => $request->gt_bidang,
+                    'gt_bidangs' => $request->gt_bidangs,
+                    'gt_nama' => $request->gt_nama,
+                    'gt_date' => $request->gt_date,
 
-            'bidang_tg' => $request->bidang_tg,
-            'bidang_tgs' => $request->bidang_tgs,
-            'nama_tg' => $request->nama_tg,
-            'date_tg' => $request->date_tg,
+                    'bidang_tg' => $request->bidang_tg,
+                    'bidang_tgs' => $request->bidang_tgs,
+                    'nama_tg' => $request->nama_tg,
+                    'date_tg' => $request->date_tg,
 
-            'tg_bidang2' => $request->tg_bidang2,
-            'tg_bidangs2' => $request->tg_bidangs2,
-            'tg_nama2' => $request->tg_nama2,
-            'tg_date2' => $request->tg_date2,
+                    'tg_bidang2' => $request->tg_bidang2,
+                    'tg_bidangs2' => $request->tg_bidangs2,
+                    'tg_nama2' => $request->tg_nama2,
+                    'tg_date2' => $request->tg_date2,
 
-            'tg_bidang3' => $request->tg_bidang3,
-            'tg_bidangs3' => $request->tg_bidangs3,
-            'tg_nama3' => $request->tg_nama3,
-            'tg_date3' => $request->tg_date3,
-        ]);
+                    'tg_bidang3' => $request->tg_bidang3,
+                    'tg_bidangs3' => $request->tg_bidangs3,
+                    'tg_nama3' => $request->tg_nama3,
+                    'tg_date3' => $request->tg_date3,
+                ]);
+            }
+        }
+        else{
+            Tanggapan::create($request->all());
+        }
 
         Alert::success('Success', "Tanggapan Berhasil Dibuat!");
         return redirect('/Tanggapan')->with('alert', "Tanggapan Created Successfully!");
@@ -167,7 +180,7 @@ class TanggapanController extends Controller
 
     public function showDetail($id){
         $fups = FUP::where('id',$id)->first();
-        $tanggapans = Tanggapan::where('fup_id',$id)->paginate(10);
+        $tanggapans = Tanggapan::where('fup_id',$id)->where('tg_bidangs', 'like', Auth::user()->Bidang->name)->paginate(10);
         return view('tanggapan.detail', compact('fups','tanggapans'));
     }
 }

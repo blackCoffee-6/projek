@@ -22,11 +22,11 @@
         </h1>
         <div class="container my-4">
             <div class="input-group">
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <a href="#"><button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i>  Cari</button></a>
+                <form action="/searchKop" method="GET" class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search Usulan" aria-label="Search Usulan" name="query" value="{{Request::input('query')}}">
+                    <button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i>  Cari</button>
                 </form>
-                <a href="#"><button class="btn btn-danger mx-3">Reset</button></a>    
+                <a href="/List/KP"><button class="btn btn-danger mx-3">Reset</button></a>    
             </div>
             @if(session('alert'))
             <div class="alert alert-success" role="alert">

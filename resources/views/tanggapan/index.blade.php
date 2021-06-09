@@ -24,11 +24,11 @@
   <!-- <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a> -->
   <div class="container my-4">
     <div class="input-group">
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <a href="#"><button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i>  Cari</button></a>
+      <form action="/searchTang" class="form-inline" method="GET">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search Usulan" aria-label="Search Usulan" name="query" value="{{Request::input('query')}}">
+        <button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i>  Cari</button>
       </form>
-      <a href="#"><button class="btn btn-danger mx-3">Reset</button></a>    
+      <a href='/Tanggapan'><button class="btn btn-danger mx-3">Reset</button></a>    
     </div>
     <br>
     @if(session('alert'))
@@ -86,7 +86,7 @@
                         @endif
                       @endif
                       @endforeach
-                      @if($user->role == 'staff')
+                      @if($user->role == 'Staff')
                         @if($buttonFlag < 1)
                           <span class="badge rounded-pill badge-secondary">Menunggu di tanggapi</span>
                         @else
@@ -101,7 +101,7 @@
                       @endif
                     </td>
                     <td class="text-center">
-                    @if(strcasecmp($user->role,'staff') == 0)
+                    @if(strcasecmp($user->role,'Staff') == 0)
                       @if($buttonFlag < 1)
                         <a href="/Tanggapan/{{$fup->id}}"><button class="btn btn-info my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Menanggapi</button></a>
                       @endif

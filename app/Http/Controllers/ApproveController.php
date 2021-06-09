@@ -39,9 +39,12 @@ class ApproveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function indexSearch(Request $request)
     {
-        //
+        $apps = Approval::all();
+        $search = $request->input('query');
+        $fups = FUP::where('ket_usulan', 'like', "%$search%")->orWhere('no_usulan', 'like', "%$search%")->paginate(5);
+        return view('approve', compact('fups', 'apps'));
     }
 
     /**

@@ -35,19 +35,62 @@ class KopController extends Controller
 
     public function listKop()
     {
+        $user = Auth::user();
         $kontrols = KontrolPerubahan::all();
 
         $kajians = Kajian::where('ch_status', 'like', 'disetujui')->get();
-        $fup_id = '';
-        foreach($kontrols as $kontrol){
-            $fup_id .= $kontrol->fup_id.','; //1,3,
+
+        if($user->role == 'Staff'){
+            $fup_id = '';
+            foreach($kajians as $kajian){
+                $fup_id .= $kajian->fup_id.','; //1,3,
+            }
+            $arrFupId = explode(',',$fup_id);//{1, 3}
+            $fups = FUP::whereIn('id', $arrFupId)->where('bidang_id', 'like', "$user->bidang_id")->paginate(10);
+        }else{
+            $fup_id = '';
+            foreach($kajians as $kajian){
+                $fup_id .= $kajian->fup_id.','; //1,3,
+            }
+            $arrFupId = explode(',',$fup_id);//{1, 3}
+            // dd($arrFupId);
+            $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
+            // dd($kajians);
         }
-        $arrFupId = explode(',',$fup_id);//{1, 3}
-        // dd($arrFupId);
-        $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
-        // dd($kajians);
-        
         return view('showKontrol', compact('kontrols','fups', 'kajians'));
+    }
+
+    public function indexSearch(Request $request)
+    {
+        $user = Auth::user();
+        $kontrols = KontrolPerubahan::all();
+        $kajians = Kajian::where('ch_status', 'like', 'disetujui')->get();
+        $search = $request->input('query');
+
+        $fup_id = '';
+        foreach($kajians as $kajian){
+            $fup_id .= $kajian->fup_id.',';
+        }
+        $arrFUPId = explode(',',$fup_id);
+        $fups = FUP::whereIn('id', $arrFUPId)->where('ket_usulan', 'like', "%$search%")->orWhere('no_usulan', 'like', "%$search%")->paginate(5);
+
+        return view('control', compact('user', 'kontrols', 'kajians','fups'));
+    }
+
+    public function indexSearch2(Request $request)
+    {
+        $kontrols = KontrolPerubahan::all();
+        $kajians = Kajian::where('ch_status', 'like', 'disetujui')->get();
+        $search = $request->input('query');
+
+        $fup_id = '';
+        foreach($kajians as $kajian){
+            $fup_id .= $kajian->fup_id.',';
+        }
+        $arrFupId = explode(',',$fup_id);
+        $fups = FUP::whereIn('id', $arrFupId)->where('ket_usulan', 'like', "%$search%")->orWhere('no_usulan', 'like', "%$search%")->paginate(5);
+
+        return view('showKontrol', compact('kontrols', 'kajians','fups'));
     }
 
     /**
@@ -71,7 +114,6 @@ class KopController extends Controller
 
     public function store(Request $request, $fup_id)
     {
-        dd($request->all());
         // dd($fup_id);
         if($request->dis_setuju != null){
             $request->request->add(['dis_setuju' => implode(',', $request->dis_setuju)]);

@@ -446,7 +446,7 @@
         />
         
         <x-kop2 kategori="" 
-        tlp="dok_tlp9" tlpid="dok_tlp9" tlpval="ma" tlplabel="Metode analisa" tlp="dok_input9"
+        tlp="dok_tlp9" tlpid="dok_tlp9" tlpval="ma" tlplabel="Metode analisa" tlptext="dok_input9"
         pic="dok_pic9" picid="dok_pic9" 
         dok="dok_dok9" dokid="dok_dok9" 
         stat="dok_status9" statid="dok_status17"
@@ -526,39 +526,39 @@
                     <td>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="1">
-                            <label class="form-check-label" for="inlineCheckbox1">R&D</label>
+                            <label class="form-check-label">R&D</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="2">
-                            <label class="form-check-label" for="inlineCheckbox2">Produksi</label>
+                            <label class="form-check-label">Produksi</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="3">
-                            <label class="form-check-label" for="inlineCheckbox2">Pemasaran</label>
+                            <label class="form-check-label">Pemasaran</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="4">
-                            <label class="form-check-label" for="inlineCheckbox1">QC</label>
+                            <label class="form-check-label">QC</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="5">
-                            <label class="form-check-label" for="inlineCheckbox2">Teknik</label>
+                            <label class="form-check-label">Teknik</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="6">
-                            <input type="text" name="dis_input" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            <input type="text" name="dis_input" class="form-control" id="dis_input">
                         </div>
                     </td>
                     <td>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="7">
-                            <label class="form-check-label" for="inlineCheckbox1">SCM</label>
+                            <label class="form-check-label">SCM</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="8">
-                            <label class="form-check-label" for="inlineCheckbox2">Pengadaan</label>
+                            <label class="form-check-label">Pengadaan</label>
                         </div>
                     </td>
                 </tr>

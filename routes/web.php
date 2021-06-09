@@ -81,3 +81,14 @@ Route::put('/Update/KP/{kontrol_id}', 'KopController@update');
 Route::get('/list-up', function () {
     return view('list-usulan');
 });
+
+//--------Route for searching FUP in Approve Blade--------//
+Route::get('/searchApp', 'ApproveController@indexSearch');
+//--------Route for searching FUP in Tanggapan Blade-----//
+Route::get('/searchTang', 'TanggapanController@indexSearch');
+//--------Route for searching FUP in Kajian Blade--------//
+Route::get('/searchKaj', 'KajianController@indexSearch');
+Route::get('/searchKaj2', 'KajianController@indexSearch2');
+//--------Route for searching FUP in Kontrol Perubahan Blade--------//
+Route::get('/searchKop', 'KopController@indexSearch');
+Route::get('/searchKop2', 'KopController@indexSearch2');

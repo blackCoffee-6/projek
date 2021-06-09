@@ -1027,7 +1027,7 @@
                         <div class="form-check mx-3">
                             <input class="form-check-input" type="checkbox" id="ch_dis" name="ch_dis[]" value="8"
                             {{ in_array("8", $ch_diss) ? "checked" : "" }}>
-                            <input type="text" class="form-control" name="ch_else" placeholder="{{$kajians->ch_else}}">
+                            <input type="text" class="form-control" name="ch_else" value="{{$kajians->ch_else}}">
                         </div>
                     </td>
                 </tr>

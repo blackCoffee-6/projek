@@ -30,7 +30,7 @@ class KajianController extends Controller
         }
         $arrFupId = explode(',',$fup_id);//{1, 3}
         $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
-        
+
         // dd($kajians);   
        return view('listKajian', compact('fups', 'user', 'apps', 'kajians'));
     }
@@ -40,9 +40,21 @@ class KajianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function indexSearch(Request $request)
     {
-        //
+        $user = Auth::user();
+        $kajians = Kajian::all();
+        $search = $request->input('query');
+        $fups = FUP::where('ket_usulan', 'like', "%$search%")->orWhere('no_usulan', 'like', "%$search%")->paginate(5);
+        return view('listKajian', compact('fups', 'user', 'kajians'));
+    }
+
+    public function indexSearch2(Request $request)
+    {
+        $kajians = Kajian::all();
+        $search = $request->input('query');
+        $fups = FUP::where('ket_usulan', 'like', "%$search%")->orWhere('no_usulan', 'like', "%$search%")->paginate(5);
+        return view('showKajian', compact('fups', 'kajians'));
     }
 
     /**
@@ -225,17 +237,29 @@ class KajianController extends Controller
     
     public function listKajian()
     {
+        $user = Auth::user();
         $kajians = Kajian::all();
-        $fup_id = '';
-        foreach($kajians as $kajian){
-            $fup_id .= $kajian->fup_id.','; //1,3,
+
+        $apps = Approval::where('decision', 'like', 'setuju')->get();
+
+        if($user->role == 'Staff'){
+            $fup_id = '';
+            foreach($apps as $app){
+                $fup_id .= $app->fup_id.','; //1,3,
+            }
+            $arrFupId = explode(',',$fup_id);//{1, 3}
+            $fups = FUP::whereIn('id', $arrFupId)->where('bidang_id', 'like', "$user->bidang_id")->paginate(10);
+        }else{
+            $fup_id = '';
+            foreach($apps as $app){
+                $fup_id .= $app->fup_id.','; //1,3,
+            }
+            $arrFupId = explode(',',$fup_id);//{1, 3}
+            // dd($fup_id);
+            $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
+            // dd($kajians);
         }
-        $arrFupId = explode(',',$fup_id);//{1, 3}
-        // dd($fup_id);
-        $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
-        // dd($kajians);
-        
-        return view('showKajian', compact('kajians','fups'));
+        return view('showKajian', compact('kajians','fups', 'apps'));
     }
 
     public function bacaKajian($id)
