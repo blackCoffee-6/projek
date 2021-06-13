@@ -36,7 +36,7 @@ class FUP extends Model
         return $getId = DB::table('fups')->orderBy('id', 'DESC')->take(1)->get();
     }
 
-    public static function IDGenerator($model, $trow, $length = 4, $prefix){
+    public static function IDGenerator($model, $trow, $length = 4, $prefix=0){
         $data = $model::orderBy('id', 'DESC')->first();
         if(!$data){
             $og_length = $length;
