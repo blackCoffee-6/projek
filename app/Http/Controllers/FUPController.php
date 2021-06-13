@@ -52,7 +52,8 @@ class FUPController extends Controller
             'pic_asman'=>'required',
             'pic_nama'=>'required',
             'cip_manager'=>'required',
-            'cip_nama'=>'required'
+            'cip_nama'=>'required',
+            'file'=>'max:2048|mimes:pdf,jpeg,jpg,png'
         ]);
             
         $user = Auth::user();
@@ -71,7 +72,6 @@ class FUPController extends Controller
         if ($request->hasFile('file')){ 
             $file = $request->file->getClientOriginalName() . '-' . time() . '.' . $request->file->extension();
             $request->file->move(public_path('file'), $file);
-            // dd($image);
          }
 
         if($request->file)

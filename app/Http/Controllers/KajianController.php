@@ -248,7 +248,7 @@ class KajianController extends Controller
                 $fup_id .= $app->fup_id.','; //1,3,
             }
             $arrFupId = explode(',',$fup_id);//{1, 3}
-            $fups = FUP::whereIn('id', $arrFupId)->where('bidang_id', 'like', "$user->bidang_id")->paginate(10);
+            $fups = FUP::whereIn('id', $arrFupId)->where('bidang_id', 'like', "$user->bidang_id")->orderBy('id', 'DESC')->paginate(10);
         }else{
             $fup_id = '';
             foreach($apps as $app){

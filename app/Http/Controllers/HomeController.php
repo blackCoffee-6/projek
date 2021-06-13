@@ -33,10 +33,10 @@ class HomeController extends Controller
     public function index()
     {
         $user = User::all();
-        $usul = FUP::where('user_id',Auth::user()->id)->count();
         $auth = Auth::check();
         $role = 'Staff';
-
+        $usul = FUP::where('user_id',Auth::user()->id)->count();
+        
         if($auth){
             $role = Auth::user()->role;
         }

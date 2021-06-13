@@ -218,9 +218,14 @@
                     <tr>
                         <td>
                             <div class="form-group">
-                                <label for="exampleFormControlFile1" class="font-weight-bold">Masukan File / Dokumen (*Jika diperlukan)</label>
-                                <input name="file" type="file" class="form-control-file" id="exampleFormControlFile1">
+                                <label class="font-weight-bold">Masukan File / Dokumen (*Jika diperlukan)</label>
+                                <input name="file" type="file" class="form-control-file @error('file') is-invalid @enderror" id="file"> <p class="text-danger mt-1" style="font-size: 14px">Max: 2MB | PDF / JPG / JPEG / PNG</p>    
                             </div>
+                            @error('file')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>*File tidak sesuai dengan Ketentuan!</strong>
+                                </span>
+                            @enderror
                         </td>
                     </tr>
                 </thead>

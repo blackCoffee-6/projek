@@ -97,7 +97,9 @@ table.table-bordered > tbody > tr > td{
                         </td>
                         @endif
                         <td class="text-center">
-                            <a href="#" class="btn btn-secondary my-2 my-sm-0 rounded" type="submit"><i class="fa fa-cloud-download"></i> Lihat</a>
+                            @if($fup->file)
+                                <a href='{{ url($fup->file) }}' target="_blank" class="btn btn-secondary my-2 my-sm-0 rounded" type="submit"><i class="fa fa-cloud-download"></i> Lihat</a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach
@@ -106,9 +108,4 @@ table.table-bordered > tbody > tr > td{
               {{ $fups->links() }}
         </div>
     </div>
-    {{-- <script>
-        $('#datepicker').datetimepicker({
-		format: 'DD-MM-YYYY'
-	});
-    </script> --}}
 @endsection
