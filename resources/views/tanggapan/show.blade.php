@@ -50,7 +50,11 @@
                 <tbody>
                     <tr>
                         <td>
+                        @if(Auth::user()->role == 'Admin')
                             <textarea class="form-control" rows="3" name="tg_bidang[]"></textarea>
+                        @else
+                            <textarea class="form-control" rows="3" name="tg_bidang"></textarea>
+                        @endif
                         </td>
                     </tr>
                 </tbody>
@@ -65,10 +69,18 @@
                 <tbody>
                     <tr>
                         <td>
+                        @if(Auth::user()->role == 'Admin')
                             <input class="form-control" type="text" name="tg_nama[]">
+                        @else
+                            <input class="form-control" type="text" name="tg_nama">
+                        @endif
                         </td>
                         <td>
+                        @if(Auth::user()->role == 'Admin')
                             <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="tg_date[]">
+                        @else
+                            <input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="tg_date">
+                        @endif
                         </td>
                     </tr>
                 </tbody>

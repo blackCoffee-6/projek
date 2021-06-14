@@ -89,7 +89,11 @@ class TanggapanController extends Controller
         $request->request->add(['fup_id' => $id]);
         $request->request->add(['bidang_id' => $bidang_id]);
 
-        if($request->tg_bidang OR $request->tg_bidangs OR $request->tg_nama OR $request->tg_date){
+        if(!$request->tg_bidangs){
+            $request->request->add(['tg_bidangs' => Auth::user()->Bidang->name]);
+            Tanggapan::create($request->all());
+        }
+        else if($request->tg_bidang OR $request->tg_nama OR $request->tg_date){
             foreach($request->input('tg_bidang','tg_bidangs','tg_nama','tg_date') as $key => $value){
                 Tanggapan::create([
                     'fup_id' => $id,
@@ -122,10 +126,7 @@ class TanggapanController extends Controller
                 ]);
             }
         }
-        else{
-            Tanggapan::create($request->all());
-        }
-
+        
         Alert::success('Success', "Tanggapan Berhasil Dibuat!");
         return redirect('/Tanggapan')->with('alert', "Tanggapan Created Successfully!");
     }
@@ -180,7 +181,12 @@ class TanggapanController extends Controller
 
     public function showDetail($id){
         $fups = FUP::where('id',$id)->first();
-        $tanggapans = Tanggapan::where('fup_id',$id)->where('tg_bidangs', 'like', Auth::user()->Bidang->name)->paginate(10);
+        // dd($fups);
+        if(Auth::user()->role == 'Staff'){
+            $tanggapans = Tanggapan::where('fup_id',$id)->where('tg_bidangs', 'like', Auth::user()->Bidang->name)->paginate(10);
+        }else{
+            $tanggapans = Tanggapan::where('fup_id',$id)->paginate(10);
+        }
         return view('tanggapan.detail', compact('fups','tanggapans'));
     }
 }
