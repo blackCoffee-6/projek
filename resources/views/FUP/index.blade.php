@@ -96,13 +96,15 @@ table.table-bordered > tbody > tr > td{
                             @endif
                         </td>
                         @endif
+                    @endforeach
                         <td class="text-center">
-                            @if($fup->file)
-                                <a href='{{ url($fup->file) }}' target="_blank" class="btn btn-secondary my-2 my-sm-0 rounded" type="submit"><i class="fa fa-cloud-download"></i> Lihat</a>
-                            @endif
+                            @foreach($files as $f)
+                                @if($f->file)
+                                    <a href="/file/{{$f->file}}" target="_blank"  class="btn btn-secondary my-2 my-sm-0 rounded" type="submit"><i class="fa fa-cloud-download"></i> Lihat</a>
+                                @endif
+                            @endforeach
                         </td>
                     </tr>
-                    @endforeach
                 </tbody>
             </table>
               {{ $fups->links() }}

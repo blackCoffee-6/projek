@@ -219,7 +219,7 @@
                         <td>
                             <div class="form-group">
                                 <label class="font-weight-bold">Masukan File / Dokumen (*Jika diperlukan)</label>
-                                <input name="file" type="file" class="form-control-file @error('file') is-invalid @enderror" id="file"> <p class="text-danger mt-1" style="font-size: 14px">Max: 2MB | PDF / JPG / JPEG / PNG</p>    
+                                <input name="file" type="file" class="form-control-file @error('file') is-invalid @enderror"> <p class="text-danger mt-1" style="font-size: 14px">Max: 2MB | PDF / JPG / JPEG / PNG</p>    
                             </div>
                             @error('file')
                                 <span class="invalid-feedback" role="alert">

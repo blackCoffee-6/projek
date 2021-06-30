@@ -26,18 +26,17 @@ class CreateFupsTable extends Migration
             
             $table->string('no_usulan')->nullable();
             $table->string('produk');
-            $table->date('date');
+            $table->date('date')->nullable();
             $table->string('ket_ketentuan');
             $table->string('ket_usulan');
             $table->string('ket_alasan');
             $table->string('ch_sifat');
             $table->string('pic_asman');
             $table->string('pic_nama');
-            $table->date('pic_date');
+            $table->date('pic_date')->nullable();
             $table->string('cip_manager');
             $table->string('cip_nama');
-            $table->date('cip_date');
-            $table->string('file')->nullable();
+            $table->date('cip_date')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
         });

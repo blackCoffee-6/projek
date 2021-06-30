@@ -31,6 +31,10 @@ class FUP extends Model
     public function Kajian(){
         return $this->belongsTo(Kajian::class);
     }
+    
+    public function File(){
+        return $this->belongsTo(File::class);
+    }
 
     public static function getId(){
         return $getId = DB::table('fups')->orderBy('id', 'DESC')->take(1)->get();

@@ -156,7 +156,7 @@
                         <td>
                             <div class="form-group">
                                 <label for="exampleFormControlFile1" class="font-weight-bold">Masukan File / Dokumen (*Jika diperlukan)</label>
-                                <input name="file" type="file" class="form-control-file" id="exampleFormControlFile1" value="{{$fup->file}}">
+                                <input name="file" type="file" class="form-control-file" value="{{$fup->file}}">
                             </div>
                         </td>
                     </tr>

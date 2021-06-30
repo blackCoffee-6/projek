@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Approval;
 use App\Bidang;
+use App\File;
 use App\FUP;
 use App\Helpers\Helper;
 use App\User;
@@ -28,19 +29,6 @@ class FUPController extends Controller
     public function store(Request $request)
     {
         $no_usulan = Helper::IDGenerator(new FUP, 'no_usulan', 4, 'UP');
-        // $data = DB::table('fups')->where('id')->get();
-        // $bln = date('M');
-        // $thn = date('Y');
-
-        // if(is_null($data)){
-        //     $no_usulan = '1'.'/UP/'.$bln.'/'.$thn;
-        // }else{
-        //     $id = FUP::getId();
-        //     foreach ($id as $value)
-        //     $idlama = $value->id;
-        //     $idbaru = $idlama + 1;
-        //     $no_usulan = $idbaru.'/UP/'.$bln.'/'.$thn;  
-        // }
 
         $request->validate([
             'bidang'=>'required',
@@ -57,79 +45,35 @@ class FUPController extends Controller
         ]);
             
         $user = Auth::user();
-        // dd($request->all());
-        // if($request->tanggapan != "tidak"){
-        //     $tanggapan2 = implode(',', $request->tanggapan2);
-        //     $request->request->add(['tanggapan2' => $tanggapan2]);
-        // }
 
         $request->request->add(['user_id' => $user->id]);
         $request->request->add(['bidang_id' => $request->bidang]);
         $request->request->add(['no_usulan' => $no_usulan]);
         $request->request->add(['status' => 'Pending']);
-        // dd($request->hasFile('image_uploded'));
-
-        if ($request->hasFile('file')){ 
-            $file = $request->file->getClientOriginalName() . '-' . time() . '.' . $request->file->extension();
-            $request->file->move(public_path('file'), $file);
-         }
-
-        if($request->file)
-        {
-            $request->request->add(['file' => $request->file->getClientOriginalName()]);
-        }else{
-            $request->request->add(['file' => ""]);            
-        }
-
         FUP::create($request->all());
 
-        // $data_fup = new FUP;
-        // $data_fup->no_usulan = $no_usulan;
-        // $data_fup->user_id = $user_id;
-        // $data_fup->bidang_id = $bidang_id;
-        // $data_fup->status = $status;
-        // $data_fup->produk = $request->produk;
-        // $data_fup->date = $request->date;
-        // $data_fup->ket_ketentuan = $request->ket_ketentuan;
-        // $data_fup->ket_usulan = $request->ket_usulan;
-        // $data_fup->ket_alasan = $request->ket_alasan;
-        // $data_fup->ch_sifat = $request->ch_sifat;
-        // $data_fup->pic_asman = $request->pic_asman;
-        // $data_fup->pic_nama = $request->pic_nama;
-        // $data_fup->pic_date = $request->pic_date;
-        // $data_fup->cip_manager = $request->cip_manager;
-        // $data_fup->cip_nama = $request->cip_nama;
-        // $data_fup->cip_date = $request->cip_date;
-        // $data_fup->file = $fup_file;
-        // $data_fup->save();
-        // dd($data_fup);
-
-        // if($request->tanggapan != "tidak"){
-        //     $arrTanggapan = explode(",",$tanggapan2);
-        //     if(count($arrTanggapan) > 1){
-        //         foreach($arrTanggapan as $tanggapan){
-        //             FUB::create([
-        //                 'fup_id'=>$fup_id,
-        //                 'bidang_id'=>$tanggapan
-        //             ]);
-        //         }
-        //     }
-        //     else{
-        //         FUB::create([
-        //             'fup_id'=>$fup_id,
-        //             'bidang_id'=>$request->tanggapan2
-        //         ]);
-        //     }
-        // }
+        $id = DB::getPdo()->lastInsertId();
+        // dd($id);
         
+        if($request->hasFile('file'))
+        {
+            $fileName = $request->file->getClientOriginalName() . '-' . time() . '-' . $request->file->extension();
+            $request->file->move(public_path('file'), $fileName);
+
+            File::create([
+                'file' => $fileName,
+                'fup_id' => $id
+            ]);
+        }
         Alert::success('Success', "Usulan Created Successfully!");
         return redirect('/home');
     }
-    
+
     //untuk menampilkan list-usulan.blade.php
     public function index()
     {
         $fups = FUP::all();
+        $files = File::all();
         $apps = Approval::all();
         $user = Auth::user();
 
@@ -139,7 +83,7 @@ class FUPController extends Controller
             $fups = FUP::paginate(10);
         }
         
-        return view('FUP.index', compact('fups','apps','user'));
+        return view('FUP.index', compact('fups','apps','user','files'));
     }
     
     public function edit($id)
@@ -155,9 +99,18 @@ class FUPController extends Controller
     {
         $user = Auth::user();
 
+        $fupUpdate = FUP::findOrFail($id);
+        $request->request->add(['user_id' => $user->id]);
+        $input = $request->all();
+        $fupUpdate->fill($input)->save();
+        
         if ($request->hasFile('file')){ 
-            $file = $request->file->getClientOriginalName() . '-' . time() . '.' . $request->file->extension();
-            $request->file->move(public_path('file'), $file);
+            $fileName = $request->file->getClientOriginalName() . '-' . time() . '-' . $request->file->extension();
+            $request->file->move(public_path('file'), $fileName);
+
+            File::where('fup_id', $id)->update([
+                'file' => $fileName
+            ]);
         }
         
         // if($request->tanggapan != "tidak"){
@@ -167,26 +120,6 @@ class FUPController extends Controller
         //     $request->request->add(['tanggapan2' => $tanggapan2]);
         // }
         // dd($request);
-        
-        FUP::findOrFail($id)->update([
-            'user_id' => Auth::user()->id,  
-            'produk' => $request->produk, 
-            'bidang_id' => $request->bidang, 
-            'no_usulan' => $request->no_usulan, 
-            'date' => $request-> date, 
-            'ket_ketentuan' => $request-> ket_ketentuan, 
-            'ket_usulan' => $request-> ket_usulan, 
-            'ket_alasan' => $request-> ket_alasan, 
-            'ch_sifat' => $request-> ch_sifat, 
-            'pic_asman' => $request-> pic_asman, 
-            'pic_nama' => $request-> pic_nama, 
-            'pic_date' => $request-> pic_date, 
-            'cip_manager' => $request-> cip_manager, 
-            'cip_nama' => $request-> cip_nama, 
-            'cip_date' => $request-> cip_date,
-            'file' => $request-> file, 
-            'status' => "Pending"
-        ]);
             
         // dd($request->tanggapan2);
         
