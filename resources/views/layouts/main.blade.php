@@ -65,7 +65,7 @@
                         </ul>
                     </li>
                     <li class="active">
-                        <a href="/kajian"> <i class="menu-icon fa fa-folder-open-o"></i>Report (Inactive)</a>
+                        <a href="/List/Menunggu/Kajian"> <i class="menu-icon fa fa-folder-open-o"></i>Report</a>
                     </li>
                     <li class="active">
                         <a href="/kontrol"> <i class="menu-icon fa fa-gears (alias)"></i>Kontrol (Inactive)</a>

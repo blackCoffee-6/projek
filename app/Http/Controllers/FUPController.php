@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Approval;
-use App\Bidang;
-use App\File;
 use App\FUP;
-use App\Helpers\Helper;
+use App\File;
 use App\User;
+use App\Bidang;
+use App\Approval;
+use App\Helpers\Helper;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Support\Facades\Validator;
 
 
 class FUPController extends Controller
@@ -86,6 +86,19 @@ class FUPController extends Controller
         return view('FUP.index', compact('fups','apps','user','files'));
     }
     
+    public function cetak($fup_id)
+    {
+        // dd($fups->bidang_id);
+        // $fups = FUP::find($fup_id);
+        $fups = FUP::where('id', $fup_id)->first();
+        $bidang = Bidang::all();
+        $files = File::where('fup_id', $fup_id)->first();
+        $pdf = PDF::loadView('FUP.cetak-pdf', compact('fups','bidang','files'));
+
+        // return $pdf->view('cetak.pdf'); //langsung download
+        return $pdf->stream(); //ngeliat dulu, abis itu terserah mau download apa engga
+    }
+
     public function edit($id)
     {
         $fup = FUP::find($id);

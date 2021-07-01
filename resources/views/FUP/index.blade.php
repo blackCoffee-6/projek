@@ -47,6 +47,7 @@ table.table-bordered > tbody > tr > td{
                     <th scope="col" width="10%">Tanggal Berlaku</th>
                     <th scope="col">Status</th>
                     <th scope="col">Aksi</th>
+                    <th scope="col">Download</th>
                     <th scope="col" width="9%">File (*Jika ada)</th>
                 </tr>
                 </thead>
@@ -96,8 +97,10 @@ table.table-bordered > tbody > tr > td{
                             @endif
                         </td>
                         @endif
-                    @endforeach
-                        <td class="text-center">
+                        <td>
+                            <a href="/cetak-pdf/{{$fup->id}}" target="_blank" class="btn btn-primary my-2 my-sm-0 rounded" type="submit"><i class="fa fa-download"></i> Download</a>
+                        </td>
+                        <td>
                             @foreach($files as $f)
                                 @if($f->file)
                                     <a href="/file/{{$f->file}}" target="_blank"  class="btn btn-secondary my-2 my-sm-0 rounded" type="submit"><i class="fa fa-cloud-download"></i> Lihat</a>
@@ -105,6 +108,7 @@ table.table-bordered > tbody > tr > td{
                             @endforeach
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
               {{ $fups->links() }}

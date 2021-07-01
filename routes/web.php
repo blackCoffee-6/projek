@@ -40,6 +40,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //-----Route Form Usulan Perubahan-----//
 Route::resource('FUP', 'FUPController');
+Route::get('/cetak-pdf/{fup_id}', 'FUPController@cetak');
 
 //untuk mengambil dan melihat data form usulan perubahan
 Route::get('/approve', 'ApproveController@index');
