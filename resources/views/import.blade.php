@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'List FUP')
+@section('title', 'Rekap Usulan Perubahan')
 
 @section('content')
 <style>
@@ -18,23 +18,25 @@ table.table-bordered > tbody > tr > td{
 </style>
     <div class="main">
         <h1 class="display-5 mx-5">
-            List Data Masuk Usulan Perubahan
+            List Keseluruhan Usulan Perubahan
         </h1>
         <div class="container my-4">
-            <div class="input-group mb-4">
-                <a href="/FUP/create"><button class="btn btn-success"><i class="fa fa-plus-square"></i>   Buat Ulasan Perubahan</button></a> 
+            <form action="/searchRek" method="GET">
+            <div class="row mx-1">
+                <label for="from" class="col-form-label">From</label>
+                <div class="col-md-3">
+                    <input type="date" class="form-control" id="from" name="from">
+                </div>
+                <label for="to" class="col-form-label">To</label>
+                <div class="col-md-3">
+                    <input type="date" class="form-control" id="to" name="to">
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary rounded" name="search" >Search</button>
+                </form>
+                    <button type="submit" class="btn btn-success rounded" name="exportExcel" >Export Excel</button>
+                </div>
             </div>
-            @if(session('alert'))
-            <div class="alert alert-success" role="alert">
-                <button type="button" class="close" data-dismiss="alert">x</button>
-                {{ session('alert')}}
-            </div>
-            @elseif(session('failed'))
-            <div class="alert alert-danger" role="alert">
-                <button type="button" class="close" data-dismiss="alert">x</button>
-                {{ session('failed')}}
-            </div>
-            @endif
         
             <table class="table table-bordered my-3">
                 <thead class="thead-dark">
@@ -44,10 +46,7 @@ table.table-bordered > tbody > tr > td{
                     <th scope="col">Nomor Usulan</th>
                     <th scope="col">Tanggal Usulan</th>
                     <th scope="col" width="20%">Usulan Perubahan</th>
-                    <th scope="col" width="10%">Tanggal Berlaku</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Aksi</th>
-                    <th scope="col" width="9%">File (*Jika ada)</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -62,7 +61,6 @@ table.table-bordered > tbody > tr > td{
                         <td>
                             {{$fup->ket_usulan}}
                         </td>
-                        <td>12/05/2021</td>
                         <td class="text-center">
                         <?php $flag = 0; $revisi = 0; ?>
                         @foreach($apps as $app)
@@ -84,30 +82,11 @@ table.table-bordered > tbody > tr > td{
                         <span class="badge rounded-pill bg-secondary text-light">Pending</span>
                         @endif
                         </td>
-                        <td class="text-center">
-                            @if($flag == 0 || ($flag > 0 && $revisi > 0 ))
-                            <form action="/FUP/{{$fup->id}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                                <a href="/FUP/{{$fup->id}}/edit" class="btn btn-primary my-2 my-sm-0 rounded" type="submit"><i class="fa fa-edit"></i></a>
-                                <button class="btn btn-danger my-2 my-sm-0 rounded" type="submit"><i class="fa fa-trash"></i></button>
-                            </form>
-                            @endif
-                        </td>
                         @endif
-                        <td>
-                            @foreach($files as $f)
-                                @if($f->fup_id == $fup->id)
-                                    <a href="/file/{{$f->file}}" target="_blank"  class="btn btn-success my-2 my-sm-0 rounded" type="submit"><i class="fa fa-eye"></i> Lihat</a>
-                                @else
-                                @endif
-                            @endforeach
-                        </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
-              {{ $fups->links() }}
         </div>
     </div>
 @endsection

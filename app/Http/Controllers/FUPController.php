@@ -76,6 +76,7 @@ class FUPController extends Controller
         $files = File::all();
         $apps = Approval::all();
         $user = Auth::user();
+        // dd($files);
 
         if($user->role == 'Staff'){
             $fups = FUP::where('bidang_id', 'like', "$user->bidang_id")->paginate(10);
@@ -93,10 +94,19 @@ class FUPController extends Controller
         $fups = FUP::where('id', $fup_id)->first();
         $bidang = Bidang::all();
         $files = File::where('fup_id', $fup_id)->first();
-        $pdf = PDF::loadView('FUP.cetak-pdf', compact('fups','bidang','files'));
+        $pdf = PDF::loadView('cetak-pdf', compact('fups','bidang','files'));
 
         // return $pdf->view('cetak.pdf'); //langsung download
         return $pdf->stream(); //ngeliat dulu, abis itu terserah mau download apa engga
+    }
+
+    public function liat($fup_id)
+    {
+        $fups = FUP::where('id', $fup_id)->first();
+        $bidang = Bidang::all();
+        $files = File::where('fup_id', $fup_id)->first();
+
+        return view('cetak-pdf', compact('fups', 'bidang', 'files'));
     }
 
     public function edit($id)

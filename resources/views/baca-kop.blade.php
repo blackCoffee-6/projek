@@ -10,7 +10,7 @@
 </style>
 <div class="main">
     <h1 class="display-5 mx-5 text-center">
-        Baca Kontrol Perubahan
+        Kontrol Perubahan
     </h1>
     <div class="container my-4">
         <table class="table table-bordered">

@@ -40,7 +40,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //-----Route Form Usulan Perubahan-----//
 Route::resource('FUP', 'FUPController');
-Route::get('/cetak-pdf/{fup_id}', 'FUPController@cetak');
 
 //untuk mengambil dan melihat data form usulan perubahan
 Route::get('/approve', 'ApproveController@index');
@@ -83,6 +82,19 @@ Route::put('/Update/KP/{kontrol_id}', 'KopController@update');
 Route::get('/list-up', function () {
     return view('list-usulan');
 });
+
+//--------Route Report Usulan Perubahan----------//
+Route::get('/Report/UP', 'ReportController@index');
+Route::get('/cetak-pdf/{fup_id}', 'FUPController@cetak');
+//--------Route Report Kajian--------------------//
+Route::get('/Report/Kajian', 'ReportController@indexKajian');
+Route::get('/Report/Kajian/Export', 'KajianController@export');
+//--------Route Report Kontrol Perubahan---------//
+Route::get('/Report/KontrolPerubahan', 'ReportController@indexKop');
+//--------Route Report Rekaptulasi--------------//
+Route::get('/Report/Rekap', 'ReportController@rekapExport');
+Route::get('/Report/LihatRekap', 'ReportController@rekapIndex');
+Route::get('/searchRek', 'ReportController@rekapIndex');
 
 //--------Route for searching FUP in Approve Blade--------//
 Route::get('/searchApp', 'ApproveController@indexSearch');

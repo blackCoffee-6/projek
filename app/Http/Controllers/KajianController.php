@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\KajianExport;
 
 class KajianController extends Controller
 {
@@ -285,5 +287,10 @@ class KajianController extends Controller
         $ch_diss = explode("," , $ch_dis);
 
         return view('baca-kajian', compact('kajians', 'ru_bb', 'ket_ups', 'st_bb', 'val_bb', 'tr_bb','ch_diss'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new KajianExport(1), 'kajian.xlsx');
     }
 }

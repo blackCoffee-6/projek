@@ -64,11 +64,16 @@
                             <li><i class="fa fa-circle-o"></i><a href="/List/KP">Entry Kontrol Perubahan </a></li>
                         </ul>
                     </li>
-                    <li class="active">
-                        <a href="/List/Menunggu/Kajian"> <i class="menu-icon fa fa-folder-open-o"></i>Report</a>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-folder-open-o"></i>Report</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-circle-o"></i><a href="/Report/UP">Usulan Perubahan </a></li>
+                            <li><i class="fa fa-circle-o"></i><a href="/Report/Kajian">Kajian </a></li>
+                            <li><i class="fa fa-circle-o"></i><a href="/Report/KontrolPerubahan">Kontrol Perubahan </a></li>
+                        </ul>
                     </li>
                     <li class="active">
-                        <a href="/kontrol"> <i class="menu-icon fa fa-gears (alias)"></i>Kontrol (Inactive)</a>
+                        <a href="/Report/LihatRekap"> <i class="menu-icon fa fa-gears (alias)"></i>Kontrol (Inactive)</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
