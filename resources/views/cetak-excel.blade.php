@@ -5,7 +5,7 @@
         <table>
             <thead>
                 <tr>
-                   <th colspan="1" style="font-weight: bold" align="center">Rekaptulasi Usulan Perubahan</th> 
+                   <th colspan="2" style="font-weight: bold" align="center">Rekaptulasi Usulan Perubahan</th> 
                 </tr>
                 <tr>
                     <th style="font-weight: bold" align="center"> No</th>

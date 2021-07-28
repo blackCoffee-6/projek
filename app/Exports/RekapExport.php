@@ -32,7 +32,7 @@ class RekapExport implements FromView, ShouldAutoSize
     {
         return view('cetak-excel', [
             'apps' => Approval::all(),
-            'fups' => FUP::where('date', '>=', $this->from)->where('date', '<=', $this->to)->get()
+            'fups' => FUP::where('date', '>=', $this->from)->where('date', '<=', $this->to)->get(),
         ]);
     }
 }

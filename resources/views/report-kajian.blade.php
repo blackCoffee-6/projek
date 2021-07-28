@@ -47,7 +47,7 @@
                             @if($fup->id == $kajian->fup_id)
                                 <?php $flag++; $status = $kajian->ch_status?>
                                 @if($status)
-                                <a href="/Report/Kajian/Export" target="_blank" class="btn btn-primary my-2 my-sm-0 rounded" type="submit"><i class="fa fa-cloud-download"></i> Download</a>
+                                <a href="/Report/Kajian/Export/{{$kajian->id}}" target="_blank" class="btn btn-primary my-2 my-sm-0 rounded" type="submit"><i class="fa fa-cloud-download"></i> Download</a>
                                 @else
                                 @endif
                             @endif   

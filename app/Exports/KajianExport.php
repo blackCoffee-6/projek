@@ -2,13 +2,14 @@
 
 namespace App\Exports;
 
+use App\FUP;
 use App\Kajian;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\FromView;
 
-class KajianExport implements FromCollection
+class KajianExport implements FromView
 {
     use Exportable;
 
@@ -18,8 +19,12 @@ class KajianExport implements FromCollection
     {
         $this->id = $id;
     }
-    public function collection()
+
+    public function view(): View
     {
-        return Kajian::where('fup_id', $this->id)->get();
+        return view('excel-kajian',[
+            'kajians' => Kajian::find($this->id),
+            // 'kajians' => Kajian::where('fup_id', $this->id)->get()
+        ]);    
     }
 }
