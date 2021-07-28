@@ -1,11 +1,16 @@
     <style>
-    
     </style>
     <div class="content">
         <table>
             <thead>
                 <tr>
                    <th colspan="1" style="font-weight: bold" align="center">Rekaptulasi Usulan Perubahan</th> 
+                </tr>
+                <tr>
+                   <th colspan="1" style="font-weight: bold" align="center">from : {{$from}}</th> 
+                </tr>
+                <tr>
+                   <th colspan="1" style="font-weight: bold" align="center">to : {{$to}}</th> 
                 </tr>
                 <tr>
                     <th style="font-weight: bold" align="center"> No</th>

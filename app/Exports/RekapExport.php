@@ -4,6 +4,7 @@ namespace App\Exports;
 
 use App\Approval;
 use App\FUP;
+use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -32,7 +33,10 @@ class RekapExport implements FromView, ShouldAutoSize
     {
         return view('cetak-excel', [
             'apps' => Approval::all(),
-            'fups' => FUP::where('date', '>=', $this->from)->where('date', '<=', $this->to)->get()
+            'fups' => FUP::where('date', '>=', $this->from)->where('date', '<=', $this->to)->get(),
+            'from' => $this->from,
+            'to' => $this->to
         ]);
     }
 }
+
