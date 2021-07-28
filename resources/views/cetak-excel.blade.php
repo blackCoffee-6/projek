@@ -5,7 +5,14 @@
         <table>
             <thead>
                 <tr>
-                   <th colspan="2" style="font-weight: bold" align="center">Rekaptulasi Usulan Perubahan</th> 
+                    <th></th>
+                    <th></th>
+                    <th colspan="2" style="font-weight: bold" align="center">Rekaptulasi Usulan Perubahan</th> 
+                </tr>
+                <tr>
+                    <th></th>
+                    <th colspan="2" style="font-weight: bold" align="center">Per Tanggal : {{$from->date}}</th>
+                    <th colspan="2" style="font-weight: bold" align="center">Sampai Dengan : </th>
                 </tr>
                 <tr>
                     <th style="font-weight: bold" align="center"> No</th>
