@@ -289,8 +289,9 @@ class KajianController extends Controller
         return view('baca-kajian', compact('kajians', 'ru_bb', 'ket_ups', 'st_bb', 'val_bb', 'tr_bb','ch_diss'));
     }
 
-    public function export()
+    public function export($id)
     {
-        return Excel::download(new KajianExport(1), 'kajian.xlsx');
+        $kajians = Kajian::where('id', $id)->first();
+        return Excel::download(new KajianExport($kajians), 'kajian.xlsx');
     }
 }
