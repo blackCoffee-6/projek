@@ -1,5 +1,4 @@
     <style>
-    
     </style>
     <div class="content">
         <table>
@@ -13,6 +12,12 @@
                     <th></th>
                     <th colspan="2" style="font-weight: bold" align="center">Per Tanggal : {{$from->date}}</th>
                     <th colspan="2" style="font-weight: bold" align="center">Sampai Dengan : </th>
+                </tr>
+                <tr>
+                   <th colspan="1" style="font-weight: bold" align="center">from : {{$from}}</th> 
+                </tr>
+                <tr>
+                   <th colspan="1" style="font-weight: bold" align="center">to : {{$to}}</th> 
                 </tr>
                 <tr>
                     <th style="font-weight: bold" align="center"> No</th>

@@ -90,7 +90,6 @@ class ReportController extends Controller
         $apps = Approval::all();
         $user = Auth::user();
         $fups = FUP::paginate(10);
-            
         if($request->has('search'))
         {
             $from = $request->input('from');

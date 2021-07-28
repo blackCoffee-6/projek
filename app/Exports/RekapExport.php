@@ -4,6 +4,7 @@ namespace App\Exports;
 
 use App\Approval;
 use App\FUP;
+use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -29,7 +30,13 @@ class RekapExport implements FromView, ShouldAutoSize
             'apps' => Approval::all(),
             'from' => FUP::where('date', '=', $this->from)->get(),
             'fups' => FUP::where('date', '>=', $this->from)->where('date', '<=', $this->to)->get(),
+<<<<<<< HEAD
+            'from' => $this->from,
+            'to' => $this->to
+=======
+>>>>>>> a1551dc14927b0c7f832d173f1c4ea6401d7c1a7
         ]);
     }
 
 }
+
