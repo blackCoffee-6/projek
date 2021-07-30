@@ -64,30 +64,23 @@ class HomeController extends Controller
             return view('home', compact('user','fup', 'tanggapan', 'role', 'usul', 'hasilCT'));
         }
         else{
-            $tanggapan = Approval::Where('tanggapan', '=', 'perlu')->count();
-            $fup = FUP::all();
             $kajian = Kajian::all();
             $entrykj = Approval::where('decision', '=', 'setuju')->count();
             $kontrol = KontrolPerubahan::all();
             $entrykop = Kajian::where('ch_status', '=', 'disetujui')->count();
-            $hasilCTKop = KontrolPerubahan::where('hasil_mitigasi', '!=', null)->count();
-            $kopz = KontrolPerubahan::where('hasil_mitigasi', '=', null)->count();
+            //Count Dashboard Bawah
+            $fup = FUP::all()->count();
+            $mdup_count = FUP::where('status', '=', 'Pending')->count();
+            $tanggapan_count = FUP::where('status', '=', 'null')->count();
+            $kajian_count = FUP::where('status', '=', 'Ditanggapi')->count();
+            $kontrol_count = FUP::where('status', '=', 'Dikaji')->count();
+            //Count Dashboard Atas
+            $closed_count = FUP::where('status', '=', 'Closed')->count();
+            $reject_count = FUP::where('status', '=', 'Ditolak')->count();
 
-            if($fup){
-                $fup = $fup->count();
-            }
-    
-            if($kajian){
-                $kajian = $kajian->count();
-            }
-    
-            if($kontrol){
-                $kontrol = $kontrol->count();
-            }
+            $proses_count = $tanggapan_count + $kajian_count + $kontrol_count;
 
-            $hasilCT = $tanggapan + $entrykj + $entrykop + $kopz;
-
-            return view('home', compact('user','fup','tanggapan', 'role', 'usul', 'kajian', 'entrykj', 'kontrol', 'entrykop', 'hasilCT', 'hasilCTKop'));
+            return view('home', compact('user','fup','tanggapan_count', 'role', 'usul', 'kajian_count', 'entrykj', 'kontrol_count', 'entrykop', 'proses_count', 'closed_count', 'reject_count', 'mdup_count'));
         }
     }
 }

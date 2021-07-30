@@ -64,25 +64,25 @@ table.table-bordered > tbody > tr > td{
                         </td>
                         <td>12/05/2021</td>
                         <td class="text-center">
-                        <?php $flag = 0; $revisi = 0; ?>
-                        @foreach($apps as $app)
-                        @if($app->fup_id == $fup->id)
-                        <?php $flag = 1; ?>
-                        @endif
-                            @if($app->fup_id == $fup->id AND $app->decision == "setuju")
-                                    <span class="badge rounded-pill bg-success text-light">Approved</span>
+                            <?php $flag = 0; $revisi = 0;?>
+                            @foreach($apps as $app)
+                            @if($app->fup_id == $fup->id)
+                            <?php $flag = 1; ?>
+                            @endif
+                                @if($app->fup_id == $fup->id AND $app->decision == "setuju")
+                                        <span class="badge rounded-pill bg-success text-light">Approved</span>
 
                                 @elseif($app->fup_id == $fup->id AND $app->decision == "tidak")
                                     <span class="badge rounded-pill bg-danger text-dark">Not Approved</span>
-                                    
+                                        
                                 @elseif($app->fup_id == $fup->id AND $app->decision == "revisi")
                                 <?php $revisi = 1; ?>
                                     <span class="badge rounded-pill bg-warning text-dark">Perlu di Revisi</span>
+                                @endif
+                            @endforeach
+                            @if($flag == 0)
+                                <span class="badge rounded-pill bg-secondary text-light">Pending</span>
                             @endif
-                        @endforeach
-                        @if($flag == 0)
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                        @endif
                         </td>
                         <td class="text-center">
                             @if($flag == 0 || ($flag > 0 && $revisi > 0 ))

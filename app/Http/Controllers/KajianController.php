@@ -120,6 +120,16 @@ class KajianController extends Controller
             
         $request->request->add(['fup_id' => $fup_id]);
         
+        if($request->ch_status == 'disetujui'){
+            FUP::findOrFail($fup_id)->update([
+                'status' => 'Dikaji'
+            ]);
+        }elseif($request->ch_status == 'ditolak'){
+            FUP::findOrFail($fup_id)->update([
+                'status' => 'Ditolak'
+            ]);
+        }
+        
         // dd($request->all());
         // dd($request->kj_tambahan); 
         Kajian::create($request->all());
@@ -229,6 +239,16 @@ class KajianController extends Controller
         
         if($request->ch_dis != null){
             $request->request->add(['ch_dis' => implode(',', $request->ch_dis)]);
+        }
+
+        if($request->ch_status == 'disetujui'){
+            FUP::findOrFail($kajian_id)->update([
+                'status' => 'Dikaji'
+            ]);
+        }elseif($request->ch_status == 'ditolak'){
+            FUP::findOrFail($kajian_id)->update([
+                'status' => 'Ditolak'
+            ]);
         }
 
         $input = $request->all();
