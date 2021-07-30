@@ -123,6 +123,16 @@ class KopController extends Controller
 
         $request->request->add(['fup_id' => $fup_id]);
 
+        if($request->hasil_mitigasi_date != NULL){
+            FUP::findOrFail($fup_id)->update([
+                'status' => 'Closed'
+            ]);
+        }elseif($request->hasil_mitigasi != NULL){
+            FUP::findOrFail($fup_id)->update([
+                'status' => 'Ditolak'
+            ]);
+        }
+
         KontrolPerubahan::create($request->all());
         Alert::success('Success', "Kontrol Perubahan Berhasil Dibuat!");
         return redirect('/home');
@@ -280,6 +290,16 @@ class KopController extends Controller
         
         if($request->dis_setuju != null){
             $request->request->add(['dis_setuju' => implode(',', $request->dis_setuju)]);
+        }
+
+        if($request->hasil_mitigasi_date != NULL){
+            FUP::findOrFail($kontrol_id)->update([
+                'status' => 'Closed'
+            ]);
+        }elseif($request->hasil_mitigasi != NULL){
+            FUP::findOrFail($kontrol_id)->update([
+                'status' => 'Ditolak'
+            ]);
         }
 
         $input = $request->all();

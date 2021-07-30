@@ -92,6 +92,9 @@ class TanggapanController extends Controller
         if(!$request->tg_bidangs){
             $request->request->add(['tg_bidangs' => Auth::user()->Bidang->name]);
             Tanggapan::create($request->all());
+            FUP::findOrFail($id)->update([
+                'status' => 'Ditanggapi'
+            ]);
         }
         else if($request->tg_bidang OR $request->tg_nama OR $request->tg_date){
             foreach($request->input('tg_bidang','tg_bidangs','tg_nama','tg_date') as $key => $value){
@@ -124,6 +127,9 @@ class TanggapanController extends Controller
                     'tg_nama3' => $request->tg_nama3,
                     'tg_date3' => $request->tg_date3,
                 ]);
+                FUP::findOrFail($id)->update([
+                    'status' => 'Ditanggapi'
+                ]);
             }
         }
         
@@ -145,11 +151,11 @@ class TanggapanController extends Controller
 
         $bidangs = FUB::where('fup_id',$id)->get();
         // dd($bidangs);
-        // $bidang_id = "";
-        // foreach($bidangs as $bidang){
-        //     $bidang_id .= $bidang->bidang_id.","; 
-        // }
-        // $arrBidangId = explode(",",$bidang_id);
+        $bidang_id = "";
+        foreach($bidangs as $bidang){
+            $bidang_id .= $bidang->bidang_id.","; 
+        }
+        $arrBidangId = explode(",",$bidang_id);
         // dd($arrBidangId);
 
         if($auth){

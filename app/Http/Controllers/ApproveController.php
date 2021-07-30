@@ -83,10 +83,17 @@ class ApproveController extends Controller
         else{
             // kalo fup belom di approve
             $request->request->add(['fup_id' => $id]);
-            Approval::create($request->all());    
-            FUP::findOrFail($id)->update([
-                'status' => 'null'
-            ]);  
+            Approval::create($request->all());
+            if($request->tanggapan == 'perlu')
+            {
+                FUP::findOrFail($id)->update([
+                    'status' => 'null'
+                ]);
+            }else{
+                FUP::findOrFail($id)->update([
+                    'status' => 'Ditanggapi'
+                ]);
+            }  
         }
 
         if($request->tanggapan != "tidak"){

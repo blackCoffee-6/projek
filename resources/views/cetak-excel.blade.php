@@ -4,13 +4,14 @@
         <table>
             <thead>
                 <tr>
-                   <th>Rekaptulasi Usulan Perubahan</th> 
+                    <th></th>
+                    <th></th>
+                    <th colspan="2" style="font-weight: bold" align="center">Rekaptulasi Usulan Perubahan</th> 
                 </tr>
                 <tr>
-                   <th>from : {{$from}}</th> 
-                </tr>
-                <tr>
-                   <th>to : {{$to}}</th> 
+                    <th></th>
+                    <th colspan="2" style="font-weight: bold" align="center">Per Tanggal : {{$from}}</th>
+                    <th colspan="2" style="font-weight: bold" align="center">Sampai Dengan : {{$to}}</th>
                 </tr>
                 <tr>
                     <th> No</th>
