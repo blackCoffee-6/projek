@@ -2,19 +2,16 @@
 
 namespace App\Exports;
 
-use App\Approval;
 use App\FUP;
-use Carbon\Carbon;
+use App\Approval;
 use Illuminate\Contracts\View\View;
-use Maatwebsite\Excel\Concerns\Exportable;
-use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\FromView;
+use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
-use Maatwebsite\Excel\Concerns\WithEvents;
-use Maatwebsite\Excel\Concerns\WithHeadings;
-use Maatwebsite\Excel\Events\AfterSheet;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class RekapExport implements FromView, ShouldAutoSize
+class RekapExport implements FromView, ShouldAutoSize, WithStyles
 {
     use Exportable;
 
@@ -34,12 +31,36 @@ class RekapExport implements FromView, ShouldAutoSize
         return view('cetak-excel', [
             'apps' => Approval::all(),
             'fups' => FUP::where('date', '>=', $this->from)->where('date', '<=', $this->to)->get(),
-<<<<<<< HEAD
             'from' => $this->from,
             'to' => $this->to
-=======
->>>>>>> a1551dc14927b0c7f832d173f1c4ea6401d7c1a7
         ]);
+    }
+    
+    public function styles(Worksheet $sheet)
+    {
+
+        $styleArray = [
+            'borders' => [
+                'outline' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                    'color' => ['argb' => '000000'],
+                ],
+            ],
+        ];
+        $sheet->getStyle('A4:F15')->applyFromArray($styleArray);
+
+        $styleArray = [
+            'font' => [
+                'bold' => true,
+            ],
+            'alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+            ],
+        ];
+        $sheet->getStyle('A1:F4')->applyFromArray($styleArray);
+
+        $sheet->getStyle('A')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        $sheet->getStyle('A5:F5')->getFill()->getStartColor()->setARGB('FFFF0000');
     }
 }
 

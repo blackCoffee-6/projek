@@ -291,7 +291,7 @@ class KajianController extends Controller
 
     public function export($id)
     {
-        $kajians = Kajian::where('id', $id)->first();
+        $kajians = Kajian::find($id);
         return Excel::download(new KajianExport($kajians), 'kajian.xlsx');
     }
 }

@@ -48,12 +48,12 @@
                                 @if($fup->id == $kontrol->fup_id)
                                     <?php $flag++; $date = $kontrol->hasil_mitigasi_date; $mitigasi = $kontrol->hasil_mitigasi?>
                                 @endif
+                                @if($date)
+                                <a href="/Report/KontrolPerubahan/Export/{{$kontrol->id}}" target="_blank" class="btn btn-primary my-2 my-sm-0 rounded" type="submit"><i class="fa fa-cloud-download"></i> Download</a>
+                                @elseif($mitigasi)
+                                <a href="/Report/KontrolPerubahan/Export/{{$kontrol->id}}" target="_blank" class="btn btn-primary my-2 my-sm-0 rounded" type="submit"><i class="fa fa-cloud-download"></i> Download</a>
+                                @endif
                             @endforeach
-                            @if($date)
-                                <a href="/Report/Rekap" target="_blank" class="btn btn-primary my-2 my-sm-0 rounded" type="submit"><i class="fa fa-cloud-download"></i> Download</a>
-                            @elseif($mitigasi)
-                                <a href="/Report/Rekap" target="_blank" class="btn btn-primary my-2 my-sm-0 rounded" type="submit"><i class="fa fa-cloud-download"></i> Download</a>
-                            @endif
                         </td>
                     </tr>
                 </tr>   

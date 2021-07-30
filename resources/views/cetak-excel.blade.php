@@ -4,21 +4,21 @@
         <table>
             <thead>
                 <tr>
-                   <th colspan="2" style="font-weight: bold" align="center">Rekaptulasi Usulan Perubahan</th> 
+                   <th>Rekaptulasi Usulan Perubahan</th> 
                 </tr>
                 <tr>
-                   <th colspan="1" style="font-weight: bold" align="center">from : {{$from}}</th> 
+                   <th>from : {{$from}}</th> 
                 </tr>
                 <tr>
-                   <th colspan="1" style="font-weight: bold" align="center">to : {{$to}}</th> 
+                   <th>to : {{$to}}</th> 
                 </tr>
                 <tr>
-                    <th style="font-weight: bold" align="center"> No</th>
-                    <th style="font-weight: bold" align="center"> Tanggal Usulan</th>
-                    <th style="font-weight: bold" align="center"> Bidang</th>
-                    <th style="font-weight: bold" align="center"> Nomor Usulan</th>
-                    <th style="font-weight: bold" align="center"> Usulan Perubahan</th>
-                    <th style="font-weight: bold" align="center"> Status</th>
+                    <th> No</th>
+                    <th> Tanggal Usulan</th>
+                    <th> Bidang</th>
+                    <th> Nomor Usulan</th>
+                    <th> Usulan Perubahan</th>
+                    <th> Status</th>
                 </tr>
             </thead>
             <tbody>

@@ -88,9 +88,10 @@ Route::get('/Report/UP', 'ReportController@index');
 Route::get('/cetak-pdf/{fup_id}', 'FUPController@cetak');
 //--------Route Report Kajian--------------------//
 Route::get('/Report/Kajian', 'ReportController@indexKajian');
-Route::get('/Report/Kajian/Export/{$id}', 'KajianController@export');
+Route::get('/Report/Kajian/Export/{id}', 'KajianController@export');
 //--------Route Report Kontrol Perubahan---------//
 Route::get('/Report/KontrolPerubahan', 'ReportController@indexKop');
+Route::get('/Report/KontrolPerubahan/Export/{id}', 'KOPController@export');
 //--------Route Report Rekaptulasi--------------//
 Route::get('/Report/Rekap', 'ReportController@rekapExport');
 Route::get('/Report/LihatRekap', 'ReportController@rekapIndex');

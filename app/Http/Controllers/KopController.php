@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\FUP;
 use App\Kajian;
 use App\KontrolPerubahan;
+use App\Exports\KopExport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class KopController extends Controller
@@ -284,5 +286,11 @@ class KopController extends Controller
         $kontrols->fill($input)->save();
 
         return redirect('/List/Kontrol/Perubahan')->with('alert', "Kontrol Perubahan Updated Successfully!");
+    }
+
+    public function export($id)
+    {
+        $kontrols = KontrolPerubahan::find($id);
+        return Excel::download(new KopExport($kontrols), 'kajian.xlsx');
     }
 }

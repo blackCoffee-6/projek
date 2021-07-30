@@ -5,7 +5,7 @@
     <table>
         <thead>
             <tr>
-               <th colspan="1" style="font-weight: bold" align="center">Rekaptulasi Kajian</th>
+               <th colspan="1" style="font-weight: bold" align="center">Rekaptulasi Kontrol Perubahan</th>
                <th rowspan="1" style="font-weight: bold" align="center">
                 No.*)
                 </th> 
@@ -20,13 +20,13 @@
         </thead>
         <tbody>
             <?php $number = 1;?>
-            @foreach ($kajians as $kajian)
+            @foreach ($kontrols as $kontrol)
             <tr>
                 <td>{{$number++}}</td>
-                <td>{{$kajian->asman_nama}}</td>
-                <td>{{$kajian->asman_date}}</td>
-                <td>{{$kajian->asman_komentar}}</td>
-                <td>{{$kajian->aq_nama}}</td>
+                <td>{{$kontrol->mpm_nama}}</td>
+                <td>{{$kontrol->mpm_nama}}</td>
+                <td>{{$kontrol->mpm_nama}}</td>
+                <td>{{$kontrol->mpm_nama}}</td>
             </tr>
             @endforeach
         </tbody>

@@ -2,13 +2,13 @@
 
 namespace App\Exports;
 
-use App\Kajian;
+use App\KontrolPerubahan;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class KajianExport implements FromView, ShouldAutoSize
+class KopExport implements FromView, ShouldAutoSize
 {
     use Exportable;
 
@@ -21,8 +21,8 @@ class KajianExport implements FromView, ShouldAutoSize
 
     public function view(): View
     {
-        return view('excel-kajian',[
-            'kajians' => Kajian::find($this->id)
+        return view('excel-kop',[
+            'kontrols' => KontrolPerubahan::find($this->id)
         ]);  
     }
 }
