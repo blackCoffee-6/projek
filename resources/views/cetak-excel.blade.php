@@ -1,20 +1,23 @@
-    <style>
-    </style>
     <div class="content">
         <table>
             <thead>
                 <tr>
+                    <th colspan="2" rowspan="2"></th>
+                </tr>
+                <tr><th></th></tr>
+                <tr>
                     <th></th>
                     <th></th>
-                    <th colspan="2" style="font-weight: bold" align="center">Rekaptulasi Usulan Perubahan</th> 
+                    <th colspan="2" style="font-weight: bold" align="center" width="20">Rekapitulasi Usulan Perubahan</th> 
                 </tr>
                 <tr>
                     <th></th>
                     <th colspan="2" style="font-weight: bold" align="center">Per Tanggal : {{$from}}</th>
                     <th colspan="2" style="font-weight: bold" align="center">Sampai Dengan : {{$to}}</th>
                 </tr>
+                <tr><th></th></tr>
                 <tr>
-                    <th> No</th>
+                    <th width="5"> No</th>
                     <th> Tanggal Usulan</th>
                     <th> Bidang</th>
                     <th> Nomor Usulan</th>
