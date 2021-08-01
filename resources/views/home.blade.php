@@ -2,6 +2,11 @@
 
 @section('title', 'Dashboard')
 
+<style>
+    .gambar i{
+        display: block;
+    }
+</style>
 @section('header')
 <div class="content">
     <div class="col-sm-6 col-lg-3 mt-4">

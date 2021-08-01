@@ -29,9 +29,7 @@ class ApproveController extends Controller
         if($auth){
             $role = Auth::user()->role;
         }
-
-        // dd($apps);
-        return view('approve', compact('fups', 'apps', 'role'));
+        return view('approve.approve', compact('fups', 'apps', 'role'));
     }
 
     /**
@@ -44,7 +42,7 @@ class ApproveController extends Controller
         $apps = Approval::all();
         $search = $request->input('query');
         $fups = FUP::where('ket_usulan', 'like', "%$search%")->orWhere('no_usulan', 'like', "%$search%")->paginate(5);
-        return view('approve', compact('fups', 'apps'));
+        return view('approve.approve', compact('fups', 'apps'));
     }
 
     /**
@@ -55,8 +53,6 @@ class ApproveController extends Controller
      */
     public function store(Request $request, $id)
     {
-        // dd($request);
-        $fups = FUP::all();
         $request->validate([
             'decision'=>'required'
         ]);
@@ -136,8 +132,6 @@ class ApproveController extends Controller
         
         $tanggapan2 = $fup->tanggapan2;
         $tanggapans2 = explode(",", $tanggapan2);
-
-        // dd($tanggapans2);
-        return view('baca-approve', compact('fup', 'role','tanggapans2','bidang'));
+        return view('approve.baca-approve', compact('fup', 'role','tanggapans2','bidang'));
     }
 }

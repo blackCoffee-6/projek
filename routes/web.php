@@ -17,22 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 //-----Route User----//
 //Route untuk register
-Route::post('/SubmitRegistration', 'userController@Register');
-Route::get('/registerview', 'userController@getBidang');
+Route::post('/SubmitRegistration', 'UserController@Register');
+Route::get('/registerview', 'UserController@getBidang');
 
 //Route untuk melihat register dan login page
-Route::get('/login', function () {
-    return view('/login');
-});
+Route::view('/login','/login');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome');
 
-Route::get('/review', function () {
-    return view('review');
-});
-
+Route::view('/review', 'review');
 
 Auth::routes();
 
@@ -47,7 +40,7 @@ Route::get('/lihat-data/{id}', 'ApproveController@edit');
 Route::post('/store/{id}', 'ApproveController@store');
 
 //-----Route USER-----//
-Route::resource('user', 'userController');
+Route::resource('user', 'UserController');
 
 //----- Route Bidang ------//
 Route::get('/List/Data/Bidang', 'BidangController@index');
@@ -67,7 +60,6 @@ Route::put('/Update/Kajian/{kajian_id}', 'KajianController@update');
 // ini buat list yang ada di menunggu kajian
 Route::get('/List/Menunggu/Kajian', 'KajianController@listKajian');
 Route::get('/Baca-kajian/{id}', 'KajianController@bacaKajian');
-// Route::resource('Kajian', 'KajianController');
 
 //--------Route Kontrol Perubahan----------//
 Route::get('/List/KP', 'KopController@index');

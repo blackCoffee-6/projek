@@ -53,7 +53,6 @@ class FUPController extends Controller
         FUP::create($request->all());
 
         $id = DB::getPdo()->lastInsertId();
-        // dd($id);
         
         if($request->hasFile('file'))
         {
@@ -76,7 +75,6 @@ class FUPController extends Controller
         $files = File::all();
         $apps = Approval::all();
         $user = Auth::user();
-        // dd($files);
 
         if($user->role == 'Staff'){
             $fups = FUP::where('bidang_id', 'like', "$user->bidang_id")->paginate(10);
@@ -89,8 +87,6 @@ class FUPController extends Controller
     
     public function cetak($fup_id)
     {
-        // dd($fups->bidang_id);
-        // $fups = FUP::find($fup_id);
         $fups = FUP::where('id', $fup_id)->first();
         $bidang = Bidang::all();
         $files = File::where('fup_id', $fup_id)->first();
@@ -173,5 +169,4 @@ class FUPController extends Controller
 
         return redirect('/FUP')->with('failed', "Usulan Deleted Successfully!");
     }
-    
 }

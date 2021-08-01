@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Bidang;
 use Exception;
+use App\Bidang;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
-class userController extends Controller
+class UserController extends Controller
 {
     //untuk memvalidasi permintaan registrasi dari user
     public function validateRequest($request){
@@ -48,7 +47,6 @@ class userController extends Controller
             $user->status = "Not Verified";
             $user->bidang_id = $request->bidang;
             $user->save();
-            // dd($user);
             return redirect('/login')->with('status', "Register Behasil!");
         }
         catch(Exception $e){

@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Approval;
 use App\FUP;
 use App\Kajian;
-use Illuminate\Support\Facades\Validator;
+use App\Approval;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use RealRashid\SweetAlert\Facades\Alert;
-use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\KajianExport;
+use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KajianController extends Controller
 {
@@ -32,9 +31,7 @@ class KajianController extends Controller
         }
         $arrFupId = explode(',',$fup_id);//{1, 3}
         $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
-
-        // dd($kajians);   
-       return view('listKajian', compact('fups', 'user', 'apps', 'kajians'));
+       return view('kajian.listKajian', compact('fups', 'user', 'apps', 'kajians'));
     }
 
     /**
@@ -48,7 +45,7 @@ class KajianController extends Controller
         $kajians = Kajian::all();
         $search = $request->input('query');
         $fups = FUP::where('ket_usulan', 'like', "%$search%")->orWhere('no_usulan', 'like', "%$search%")->paginate(5);
-        return view('listKajian', compact('fups', 'user', 'kajians'));
+        return view('kajian.listKajian', compact('fups', 'user', 'kajians'));
     }
 
     public function indexSearch2(Request $request)
@@ -56,7 +53,7 @@ class KajianController extends Controller
         $kajians = Kajian::all();
         $search = $request->input('query');
         $fups = FUP::where('ket_usulan', 'like', "%$search%")->orWhere('no_usulan', 'like', "%$search%")->paginate(5);
-        return view('showKajian', compact('fups', 'kajians'));
+        return view('kajian.showKajian', compact('fups', 'kajians'));
     }
 
     /**
@@ -129,9 +126,7 @@ class KajianController extends Controller
                 'status' => 'Ditolak'
             ]);
         }
-        
-        // dd($request->all());
-        // dd($request->kj_tambahan); 
+
         Kajian::create($request->all());
         Alert::success('Success', "Kajian Berhasil Dibuat!");
         return redirect('/home');
@@ -153,7 +148,7 @@ class KajianController extends Controller
             $role = Auth::user()->role;
         }
         
-        return view('kajian', compact('role','fup'));
+        return view('kajian.kajian', compact('role','fup'));
     }
 
     /**
@@ -190,7 +185,7 @@ class KajianController extends Controller
         $ch_dis = $kajians->ch_dis;
         $ch_diss = explode("," , $ch_dis);
 
-        return view('editKajian', compact('role', 'kajians', 'ket_ups', 'ru_bb', 'val_bb', 'tr_bb','st_bb','ch_diss'));
+        return view('kajian.editKajian', compact('role', 'kajians', 'ket_ups', 'ru_bb', 'val_bb', 'tr_bb','st_bb','ch_diss'));
     }
 
     /**
@@ -202,7 +197,6 @@ class KajianController extends Controller
      */
     public function update(Request $request, $kajian_id)
     {
-        // dd($request->all());
         $kajians = Kajian::findOrFail($kajian_id);
         
         if($request->ru_b != null){
@@ -277,11 +271,9 @@ class KajianController extends Controller
                 $fup_id .= $app->fup_id.','; //1,3,
             }
             $arrFupId = explode(',',$fup_id);//{1, 3}
-            // dd($fup_id);
             $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
-            // dd($kajians);
         }
-        return view('showKajian', compact('kajians','fups', 'apps'));
+        return view('kajian.showKajian', compact('kajians','fups', 'apps'));
     }
 
     public function bacaKajian($id)
@@ -306,7 +298,7 @@ class KajianController extends Controller
         $ch_dis = $kajians->ch_dis;
         $ch_diss = explode("," , $ch_dis);
 
-        return view('baca-kajian', compact('kajians', 'ru_bb', 'ket_ups', 'st_bb', 'val_bb', 'tr_bb','ch_diss'));
+        return view('kajian.baca-kajian', compact('kajians', 'ru_bb', 'ket_ups', 'st_bb', 'val_bb', 'tr_bb','ch_diss'));
     }
 
     public function export($id)

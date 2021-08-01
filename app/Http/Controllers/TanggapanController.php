@@ -39,7 +39,6 @@ class TanggapanController extends Controller
             }
             $arrFupId = explode(",",$fup_id);
             $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
-            // dd($arrFupId);
             $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->where('bidang_id',$user->bidang_id)->get();
         }
         else{
@@ -85,7 +84,6 @@ class TanggapanController extends Controller
     public function store(Request $request, $id)
     {
         $bidang_id = Auth::user()->bidang_id == null ? "0" : Auth::user()->bidang_id;
-        // dd($request->all());
         $request->request->add(['fup_id' => $id]);
         $request->request->add(['bidang_id' => $bidang_id]);
 
@@ -147,22 +145,9 @@ class TanggapanController extends Controller
     {
         $auth = Auth::check();
         $fup = FUP::find($id);
-        $role = 'Staff';
+        $bidangAll = Bidang::all();
 
-        $bidangs = FUB::where('fup_id',$id)->get();
-        // dd($bidangs);
-        $bidang_id = "";
-        foreach($bidangs as $bidang){
-            $bidang_id .= $bidang->bidang_id.","; 
-        }
-        $arrBidangId = explode(",",$bidang_id);
-        // dd($arrBidangId);
-
-        if($auth){
-            $role = Auth::user()->role;
-        }
-
-        return view('tanggapan.show', compact('fup', 'role', 'bidangs'));
+        return view('tanggapan.show', compact('fup', 'bidangAll'));
     }
 
     /**
@@ -181,13 +166,11 @@ class TanggapanController extends Controller
         if($auth){
             $role = Auth::user()->role;
         }
-        // dd($fup);
         return view('tanggapan.edit', compact('fup', 'tanggapan', 'role'));
     }
 
     public function showDetail($id){
         $fups = FUP::where('id',$id)->first();
-        // dd($fups);
         if(Auth::user()->role == 'Staff'){
             $tanggapans = Tanggapan::where('fup_id',$id)->where('tg_bidangs', 'like', Auth::user()->Bidang->name)->paginate(10);
         }else{

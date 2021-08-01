@@ -32,7 +32,7 @@ class KopController extends Controller
         $arrFUPId = explode(',',$fup_id);
         $fups = FUP::whereIn('id', $arrFUPId)->paginate(10);
 
-        return view('control', compact('kontrols', 'fups', 'user', 'kajians'));
+        return view('KOP.control', compact('kontrols', 'fups', 'user', 'kajians'));
     }
 
     public function listKop()
@@ -55,11 +55,9 @@ class KopController extends Controller
                 $fup_id .= $kajian->fup_id.','; //1,3,
             }
             $arrFupId = explode(',',$fup_id);//{1, 3}
-            // dd($arrFupId);
             $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
-            // dd($kajians);
         }
-        return view('showKontrol', compact('kontrols','fups', 'kajians'));
+        return view('KOP.showKontrol', compact('kontrols','fups', 'kajians'));
     }
 
     public function indexSearch(Request $request)
@@ -76,7 +74,7 @@ class KopController extends Controller
         $arrFUPId = explode(',',$fup_id);
         $fups = FUP::whereIn('id', $arrFUPId)->where('ket_usulan', 'like', "%$search%")->orWhere('no_usulan', 'like', "%$search%")->paginate(5);
 
-        return view('control', compact('user', 'kontrols', 'kajians','fups'));
+        return view('KOP.control', compact('user', 'kontrols', 'kajians','fups'));
     }
 
     public function indexSearch2(Request $request)
@@ -92,7 +90,7 @@ class KopController extends Controller
         $arrFupId = explode(',',$fup_id);
         $fups = FUP::whereIn('id', $arrFupId)->where('ket_usulan', 'like', "%$search%")->orWhere('no_usulan', 'like', "%$search%")->paginate(5);
 
-        return view('showKontrol', compact('kontrols', 'kajians','fups'));
+        return view('KOP.showKontrol', compact('kontrols', 'kajians','fups'));
     }
 
     /**
@@ -111,7 +109,7 @@ class KopController extends Controller
             $role = Auth::user()->role;
         }
         
-        return view('perubahan', compact('role','fup'));
+        return view('KOP.perubahan', compact('role','fup'));
     }
 
     public function store(Request $request, $fup_id)
@@ -143,7 +141,7 @@ class KopController extends Controller
         $kontrols = KontrolPerubahan::find($kop_id);
         $dis_setuju = $kontrols->dis_setuju;
         $dis_setujus = explode("," , $dis_setuju);
-        return view('baca-kop', compact('kontrols','dis_setujus'));
+        return view('KOP.baca-kop', compact('kontrols','dis_setujus'));
     }
 
     public function edit($kontrol_id)
@@ -270,9 +268,7 @@ class KopController extends Controller
         $dis_setuju = $kontrols->dis_setuju;
         $dis_setujus = explode("," , $dis_setuju);
 
-
-
-        return view('edit-kop', compact('kontrols',
+        return view('KOP.edit-kop', compact('kontrols',
         'ru_tlps', 'ri_tlps', 'st_tlps', 'st_tlps2',
         'me_tlps', 'me_tlps2',
         'val_tlps', 'val_tlps2', 'val_tlps3', 'val_tlps4', 'val_tlps5', 'val_tlps6',

@@ -25,7 +25,7 @@ class RekapExport implements FromView, ShouldAutoSize, WithStyles, WithDrawings
 
     public function view(): View
     {
-        return view('cetak-excel', [
+        return view('excel.cetak-excel', [
             'apps' => Approval::all(),
             'fups' => FUP::where('date', '>=', $this->from)->where('date', '<=', $this->to)->get(),
             'from' => $this->from,
