@@ -12,10 +12,18 @@
     <div class="col-sm-6 col-lg-3 mt-4">
         <div class="card text-white bg-flat-color-1 rounded">
             <div class="card-body pb-0" style="max-width: 18rem; height: 11rem;">
+                <div class="dropdown float-right">
+                    <a href="/Dashboard/TotalUP" class="btn bg-transparent theme-toggle text-light">
+                        <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
                 <p class="text-light" style="font-size: 105%">Total Usulan Perubahan</p>
                 <h3 class="mb-0">
                     <span class="count">{{$fup}}</span>
                 </h3>
+                <div class="dropdown mt-1 float-right">
+                    <i class="fa fa-archive" style="font-size: 70px;"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -24,10 +32,18 @@
     <div class="col-sm-6 col-lg-3 mt-4">
         <div class="card text-white bg-flat-color-5 rounded">
             <div class="card-body pb-0" style="max-width: 18rem; height: 11rem;">
+                <div class="dropdown float-right">
+                    <a href="/approve" class="btn bg-transparent theme-toggle text-light">
+                        <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
                 <p class="text-light" style="font-size: 105%">Sedang di Proses</p>
                 <h3 class="mb-0">
                     <span class="count">{{$proses_count}}</span>
                 </h3>
+                <div class="dropdown mt-1 float-right">
+                    <i class="fa fa-gear" style="font-size: 70px;"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -35,10 +51,18 @@
     <div class="col-sm-6 col-lg-3 mt-4">
         <div class="card text-white bg-flat-color-3 rounded">
             <div class="card-body pb-0" style="max-width: 18rem; height: 11rem;">
+                <div class="dropdown float-right">
+                    <a href="/Dashboard/Rejected" class="btn bg-transparent theme-toggle text-light">
+                        <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
                 <p class="text-light" style="font-size: 105%">UP Rejected</p>
                 <h3 class="mb-0">
                     <span class="count">{{$reject_count}}</span>
                 </h3>
+                <div class="dropdown mt-1 float-right">
+                    <i class="fa fa-calendar-times-o" style="font-size: 70px;"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -46,6 +70,11 @@
     <div class="col-sm-6 col-lg-3 mt-4">
         <div class="card text-white bg-flat-color-4 rounded">
             <div class="card-body pb-0" style="max-width: 18rem; height: 11rem;">
+                <div class="dropdown float-right">
+                    <a href="/Dashboard/Closed" class="btn bg-transparent theme-toggle text-light">
+                        <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
                 <p class="text-light" style="font-size: 105%">Closed</p>
                 <h3 class="mb-0">
                     @if(Auth::user()->role == 'Admin')
@@ -54,6 +83,9 @@
                     <span class="count">0</span>
                     @endif
                 </h3>
+                <div class="dropdown mt-1 float-right">
+                    <i class="fa fa-area-chart" style="font-size: 70px;"></i>
+                </div>
             </div>
         </div>
     </div>

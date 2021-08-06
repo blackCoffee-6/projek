@@ -41,20 +41,26 @@ class KajianExport implements FromView, ShouldAutoSize, WithStyles, WithDrawings
                 ],
             ],
         ];
+<<<<<<< HEAD
         $sheet->getStyle('A5:E100')->applyFromArray($styleArray);
+=======
+        $sheet->getStyle('A8:E25')->applyFromArray($styleArray);
+>>>>>>> 7765cbedc1bfb2e8a833c10451db9d1f44c58205
 
         $styleArray = [
             'font' => [
+                'name' => 'Calibri',
+                'size' => 16,
                 'bold' => true,
             ],
             'alignment' => [
                 'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
             ],
         ];
-        $sheet->getStyle('A3:E5')->applyFromArray($styleArray);
+        $sheet->getStyle('A3:E3')->applyFromArray($styleArray);
 
         $sheet->getStyle('A')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-        $sheet->getStyle('A5:E5')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
+        $sheet->getStyle('A8:E8')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
         ->getStartColor()->setARGB('6696e3');
         $sheet->getTabColor()->setRGB('6696e3');
 

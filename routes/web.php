@@ -70,6 +70,12 @@ Route::get('/Baca-KontrolPerubahan/{kop_id}', 'KopController@bacaKop');
 Route::get('/Edit/KP/{kontrol_id}', 'KopController@edit');
 Route::put('/Update/KP/{kontrol_id}', 'KopController@update');
 
+//--------Route Dashboard Usulan Perubahan------------------//
+Route::get('/Dashboard/TotalUP', 'FUPController@totalIndex');
+//--------Route Dashboard Rejected Usulan Perubahan------------------//
+Route::get('/Dashboard/Rejected', 'FUPController@rejectedIndex');
+//--------Route Dashboard Closed Usulan Perubahan------------------//
+Route::get('/Dashboard/Closed', 'FUPController@closedIndex');
 
 Route::get('/list-up', function () {
     return view('list-usulan');
