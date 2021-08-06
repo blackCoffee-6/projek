@@ -41,7 +41,7 @@ class RekapExport implements FromView, ShouldAutoSize, WithStyles, WithDrawings
                 'allBorders' => [
                     'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
                     'color' => ['argb' => '000000'],
-                ],
+                ],  
             ],
         ];
         $sheet->getStyle('A6:F15')->applyFromArray($styleArray);

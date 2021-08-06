@@ -169,4 +169,34 @@ class FUPController extends Controller
 
         return redirect('/FUP')->with('failed', "Usulan Deleted Successfully!");
     }
+
+    public function totalIndex()
+    {
+        $fups = FUP::all();
+        $user = Auth::user();
+
+        if($user->role == 'Staff'){
+            $fups = FUP::where('bidang_id', 'like', "$user->bidang_id")->paginate(10);
+        }else{
+            $fups = FUP::paginate(10);
+        }
+        
+        return view('count.fup-index', compact('fups','user'));
+    }
+
+    public function rejectedIndex()
+    {
+        $fups = FUP::where('status', 'like', 'Ditolak')->paginate(10);
+        $user = Auth::user();
+
+        return view('count.rejected-index', compact('fups', 'user'));
+    }
+
+    public function closedIndex()
+    {
+        $fups = FUP::where('status', 'like', 'Closed')->paginate(10);
+        $user = Auth::user();
+
+        return view('count.closed-index', compact('fups', 'user'));
+    }
 }

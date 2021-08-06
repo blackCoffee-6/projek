@@ -10,13 +10,23 @@
                 <th></th>
                 <th colspan="2" style="font-weight: bold" align="center" width="20">Rekapitulasi Kajian</th>
             </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th colspan="2" style="font-weight: bold" align="center" width="20">No*)</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th style="font-weight: bold" align="center">Kategori Usulan Perubahan :</th>
+            </tr>
+            <tr><th></th></tr>
             <tr><th></th></tr>
             <tr>
-                <th width="5"> No</th>
-                <th> Tanggal Usulan</th>
-                <th> Bidang</th>
-                <th> Nomor Usulan</th>
-                <th> Usulan Perubahan</th>
+                <th width="5" style="font-weight: bold" align="center"> No</th>
+                <th style="font-weight: bold" align="center"> Tanggal Usulan</th>
+                <th style="font-weight: bold" align="center"> Bidang</th>
+                <th style="font-weight: bold" align="center"> Nomor Usulan</th>
+                <th style="font-weight: bold" align="center"> Usulan Perubahan</th>
             </tr>
         </thead>
         <tbody>
