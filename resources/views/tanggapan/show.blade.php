@@ -37,8 +37,8 @@
                                 <br><br>
                                 <select name="tg_bidangs[]">
                                     Select Bidang
-                                    @foreach($bidangAll as $bidang)
-                                    <option value="{{$bidang->name}}">{{$bidang->name}}</option>
+                                    @foreach($bidangs as $bidang)
+                                    <option value="{{$bidang->Bidang->name}}">{{$bidang->Bidang->name}}</option>
                                     @endforeach
                                 </select>
                             @else
@@ -101,7 +101,7 @@
     // add table
     $("#add_btn").click(function () {
         var html = '';
-        html+='<div id="dynamic_field_append" class="container my-3"><table class="table table-bordered my-3"><thead><tr><th>A. Tanggapan dari Bidang :@if(Auth::user()->role == 'Admin')<br><br><select name="tg_bidangs[]"><option>Select Bidang</option>@foreach($bidangAll as $bidang)<option value="{{$bidang->name}}">{{$bidang->name}}</option>@endforeach</select>@endif</th></tr></thead><tbody><tr><td><textarea class="form-control" rows="3" name="tg_bidang[]"></textarea></td></tr></tbody></table><table class="table table-bordered"><thead><tr><th scope="col">Nama :</th><th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th></tr></thead><tbody><tr><td><input class="form-control" type="text" name="tg_nama[]"></td><td><input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="tg_date[]"></td></tr></tbody></table><div class="container text-right"><button type="button" class="btn btn-danger" id="remove_btn"><i class="fa fa-minus"></i>  Delete</button></div></div><div class="container text-right mx-2"></div>';
+        html+='<div id="dynamic_field_append" class="container my-3"><table class="table table-bordered my-3"><thead><tr><th>A. Tanggapan dari Bidang :@if(Auth::user()->role == 'Admin')<br><br><select name="tg_bidangs[]"><option>Select Bidang</option>@foreach($bidangs as $bidang)<option value="{{$bidang->name}}">{{$bidang->name}}</option>@endforeach</select>@endif</th></tr></thead><tbody><tr><td><textarea class="form-control" rows="3" name="tg_bidang[]"></textarea></td></tr></tbody></table><table class="table table-bordered"><thead><tr><th scope="col">Nama :</th><th scope="col">Tanggal (Bulan/Tanggal/Tahun) :</th></tr></thead><tbody><tr><td><input class="form-control" type="text" name="tg_nama[]"></td><td><input class="form-control" type="date" value="{{ date('Y-m-d') }}" name="tg_date[]"></td></tr></tbody></table><div class="container text-right"><button type="button" class="btn btn-danger" id="remove_btn"><i class="fa fa-minus"></i>  Delete</button></div></div><div class="container text-right mx-2"></div>';
 
         $('#newRow').append(html);
     });

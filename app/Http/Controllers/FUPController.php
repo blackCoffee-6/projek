@@ -122,6 +122,7 @@ class FUPController extends Controller
         $request->request->add(['user_id' => $user->id]);
         $input = $request->all();
         $fupUpdate->fill($input)->save();
+        // $fupUpdate->update($request->all());
         
         if ($request->hasFile('file')){ 
             $fileName = $request->file->getClientOriginalName() . '-' . time() . '-' . $request->file->extension();
@@ -156,7 +157,7 @@ class FUPController extends Controller
         //     else{
         //         FUB::create([
         //             'fup_id'=>$id,
-        //             'bidang_id'=>$request->tanggapan2
+    //             'bidang_id'=>$request->tanggapan2
         //         ]);
         //     }
         // }

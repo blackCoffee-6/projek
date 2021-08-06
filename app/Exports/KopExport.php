@@ -25,7 +25,7 @@ class KopExport implements FromView, ShouldAutoSize, WithStyles, WithDrawings
 
     public function view(): View
     {
-        return view('excel-kop',[
+        return view('excel.excel-kop',[
             'kontrols' => KontrolPerubahan::find($this->id)
         ]);  
     }
@@ -41,7 +41,7 @@ class KopExport implements FromView, ShouldAutoSize, WithStyles, WithDrawings
                 ],
             ],
         ];
-        $sheet->getStyle('A5:E15')->applyFromArray($styleArray);
+        $sheet->getStyle('A5:E100')->applyFromArray($styleArray);
 
         $styleArray = [
             'font' => [
@@ -56,6 +56,7 @@ class KopExport implements FromView, ShouldAutoSize, WithStyles, WithDrawings
         $sheet->getStyle('A')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $sheet->getStyle('A5:E5')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
         ->getStartColor()->setARGB('6696e3');
+        $sheet->getTabColor()->setRGB('6696e3');
 
     }
 

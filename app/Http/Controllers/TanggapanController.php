@@ -145,9 +145,8 @@ class TanggapanController extends Controller
     {
         $auth = Auth::check();
         $fup = FUP::find($id);
-        $bidangAll = Bidang::all();
-
-        return view('tanggapan.show', compact('fup', 'bidangAll'));
+        $bidangs = FUB::where('fup_id', $id)->get();
+        return view('tanggapan.show', compact('fup', 'bidangs'));
     }
 
     /**

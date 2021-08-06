@@ -35,7 +35,6 @@ class RekapExport implements FromView, ShouldAutoSize, WithStyles, WithDrawings
     
     public function styles(Worksheet $sheet)
     {
-
         $styleArray = [
             'borders' => [
                 'allBorders' => [
@@ -44,7 +43,7 @@ class RekapExport implements FromView, ShouldAutoSize, WithStyles, WithDrawings
                 ],
             ],
         ];
-        $sheet->getStyle('A6:F15')->applyFromArray($styleArray);
+        $sheet->getStyle('A6:F100')->applyFromArray($styleArray);
 
         $styleArray = [
             'font' => [
@@ -59,7 +58,7 @@ class RekapExport implements FromView, ShouldAutoSize, WithStyles, WithDrawings
         $sheet->getStyle('A')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $sheet->getStyle('A6:F6')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
         ->getStartColor()->setARGB('6696e3');
-
+        $sheet->getTabColor()->setRGB('6696e3');
     }
 
     public function drawings()
