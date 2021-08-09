@@ -7,6 +7,7 @@ use App\Kajian;
 use App\Approval;
 use Illuminate\Http\Request;
 use App\Exports\KajianExport;
+use App\FUB;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -126,7 +127,6 @@ class KajianController extends Controller
                 'status' => 'Ditolak'
             ]);
         }
-
         Kajian::create($request->all());
         Alert::success('Success', "Kajian Berhasil Dibuat!");
         return redirect('/home');
@@ -304,6 +304,42 @@ class KajianController extends Controller
     public function export($id)
     {
         $kajians = Kajian::find($id);
-        return Excel::download(new KajianExport($kajians), 'kajian.xlsx');
+        $fups = FUP::where('id', $kajians->fup_id)->first();
+
+        $ket_up = $kajians->ket_up;
+        $ket_ups = explode("," , $ket_up);
+        $count_ketups = count($ket_ups);
+        // dd($ket_ups);
+
+        $ru_b = $kajians->ru_b;
+        $ru_bb = explode("," , $ru_b);
+        $count_rubb = count($ru_bb);
+        
+        $st_b = $kajians->st_b;
+        $st_bb = explode("," , $st_b);
+        $count_stbb = count($st_bb);
+        
+        $val_b = $kajians->val_b;
+        $val_bb = explode("," , $val_b);
+        $count_valbb = count($val_bb);
+        
+        $tr_b = $kajians->tr_b;
+        $tr_bb = explode("," , $tr_b);
+        $count_trbb = count($tr_bb);
+        
+        $ch_dis = $kajians->ch_dis;
+        $ch_diss = explode("," , $ch_dis);
+        $count_chdiss = count($ch_diss);
+        // dd($count_valbb);
+        // dd($ch_diss);
+        // dd($ch_diss, $count_chdiss);
+
+        return Excel::download(new KajianExport($kajians, $ket_ups, $count_ketups, 
+        $ru_bb, $count_rubb, 
+        $st_bb, $count_stbb, 
+        $val_bb, $count_valbb, 
+        $tr_bb, $count_trbb,
+        $ch_diss, $count_chdiss,
+        $fups), 'kajian.xlsx');
     }
 }

@@ -16,17 +16,17 @@ class KopExport implements FromView, ShouldAutoSize, WithStyles, WithDrawings
 {
     use Exportable;
 
-    protected $id;
+    protected $kontrols;
 
-    public function __construct($id)
+    public function __construct($kontrols)
     {
-        $this->id = $id;
+        $this->kontrols = $kontrols;
     }
 
     public function view(): View
     {
         return view('excel.excel-kop',[
-            'kontrols' => KontrolPerubahan::find($this->id)
+            'kontrols' => $this->kontrols
         ]);  
     }
 

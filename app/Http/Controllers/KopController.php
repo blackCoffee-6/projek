@@ -307,6 +307,7 @@ class KopController extends Controller
     public function export($id)
     {
         $kontrols = KontrolPerubahan::find($id);
+        // dd($kontrols->mpm_nama);
         return Excel::download(new KopExport($kontrols), 'kajian.xlsx');
     }
 }
