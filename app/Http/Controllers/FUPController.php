@@ -200,4 +200,11 @@ class FUPController extends Controller
 
         return view('count.closed-index', compact('fups', 'user'));
     }
+
+    public function prosesIndex(){
+        $fups = FUP::where('status', 'like', 'null')->orWhere('status', 'like', 'Ditanggapi')->orWhere('status', 'like', 'Dikaji')->paginate(10);
+        $user = Auth::user();
+
+        return view('count.proses-index', compact('fups', 'user'));
+    }
 }

@@ -72,7 +72,7 @@
                         </ul>
                     </li>
                     <li class="active">
-                        <a href="/Report/LihatRekap"> <i class="menu-icon fa fa-gears (alias)"></i>Kontrol (Inactive)</a>
+                        <a href="/Report/LihatRekap"> <i class="menu-icon fa fa-gears (alias)"></i>Rekaptulasi UP</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->

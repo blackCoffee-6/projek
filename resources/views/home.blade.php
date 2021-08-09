@@ -33,7 +33,7 @@
         <div class="card text-white bg-flat-color-5 rounded">
             <div class="card-body pb-0" style="max-width: 18rem; height: 11rem;">
                 <div class="dropdown float-right">
-                    <a href="/approve" class="btn bg-transparent theme-toggle text-light">
+                    <a href="/Dashboard/Proses" class="btn bg-transparent theme-toggle text-light">
                         <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
