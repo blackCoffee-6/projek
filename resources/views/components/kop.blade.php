@@ -35,7 +35,7 @@
                 </div>
             </td>
             <td><input type="text" class="form-control" name="{{$pic}}" id="{{$picid}}"></td>
-            <td><input type="text" class="form-control" name="{{$dok}}" id="{{$dokid}}"></td>
+            <td><input type="number" class="form-control" name="{{$dok}}" id="{{$dokid}}"></td>
             <td>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="{{$stat}}" id="{{$statid}}" value="closed">

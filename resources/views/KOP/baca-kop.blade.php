@@ -1774,7 +1774,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="pro_tlp" value="lhu"
                             {{ ($kontrols->pro_tlp == "lhu") ? "checked" : "" }} disabled>
-                            <label class="form-check-label">Laporan hasil uji<input type="text" name="pro_input" class="form-control mt-1" value="{{$kontrols->pro_input}}"></label>
+                            <label class="form-check-label">Laporan hasil uji<input type="text" name="pro_input" class="form-control mt-1" value="{{$kontrols->pro_input}}" disabled></label>
                         </div>
                     </td>
                     <td><input type="text" class="form-control" name="pro_pic" value="{{$kontrols->pro_pic}}" disabled></td>
@@ -1840,7 +1840,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="pro_tlp2" value="lhu2"
                             {{ ($kontrols->pro_tlp2 == "lhu2") ? "checked" : "" }} disabled>
-                            <label class="form-check-label">Laporan hasil uji<input type="text" name="pro_input2" class="form-control mt-1" value="{{$kontrols->pro_input2}}"></label>
+                            <label class="form-check-label">Laporan hasil uji<input type="text" name="pro_input2" class="form-control mt-1" value="{{$kontrols->pro_input2}}" disabled></label>
                         </div>
                     </td>
                     <td><input type="text" class="form-control" name="pro_pic2" value="{{$kontrols->pro_pic2}}" disabled></td>
@@ -2501,7 +2501,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="dok_tlp9" value="ma"
                             {{ ($kontrols->dok_tlp9 == "ma") ? "checked" : "" }} disabled>
-                            <label class="form-check-label">Metode analisa<input type="text" class="form-control" value="{{$kontrols->dok_input9}}" name="metodeantext"></label>
+                            <label class="form-check-label">Metode analisa<input type="text" class="form-control" value="{{$kontrols->dok_input9}}" name="metodeantext" disabled></label>
                         </div>
                     </td>
                     <td><input type="text" class="form-control" name="dok_pic9" value="{{$kontrols->dok_pic9}}" disabled></td>

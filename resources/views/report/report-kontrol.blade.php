@@ -48,18 +48,18 @@
                     </td>
                     <td>{{$fup->ket_usulan}}</td>
                     <td class="text-center">
-                        <?php $count = 0; $date = ''; $mitigasi ='';?>
+                        <?php $mitigasi = ''; $date = '';?>
                         @foreach($kontrols as $kontrol)
                             @if($fup->id == $kontrol->fup_id)
-                                <?php $count++; $date = $kontrol->hasil_mitigasi_date; $mitigasi = $kontrol->hasil_mitigasi?>
+                                <?php $mitigasi = $kontrol->hasil_mitigasi; $date = $kontrol->hasil_mitigasi_date;?>
+                                @if($mitigasi OR $date)
+                                    @if($mitigasi OR $date)
+                                        <a href="/Report/KontrolPerubahan/Export/{{$kontrol->id}}" target="_blank" class="btn btn-primary my-2 my-sm-0 rounded" type="submit"><i class="fa fa-cloud-download"></i> Download</a>
+                                    @elseif(!$kontrol->hasil_mitigasi)
+                                    @endif
+                                @endif
                             @endif
                         @endforeach
-                        @if($count < 1)
-                        @elseif($date)
-                            <a href="/Report/KontrolPerubahan/Export/{{$kontrol->id}}" target="_blank" class="btn btn-primary my-2 my-sm-0 rounded" type="submit"><i class="fa fa-cloud-download"></i> Download</a>
-                        @elseif($mitigasi)
-                            <a href="/Report/KontrolPerubahan/Export/{{$kontrol->id}}" target="_blank" class="btn btn-primary my-2 my-sm-0 rounded" type="submit"><i class="fa fa-cloud-download"></i> Download</a>
-                        @endif
                     </td>
                 </tr>
             @endforeach

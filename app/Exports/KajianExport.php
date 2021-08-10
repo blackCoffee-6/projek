@@ -105,6 +105,7 @@ class KajianExport implements FromView, ShouldAutoSize, WithStyles, WithDrawings
         $sheet->getStyle('D21:D60')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
         $sheet->getStyle('C22')->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
         $sheet->getStyle('C21:D21')->getFont()->setBold(\PhpOffice\PhpSpreadsheet\Style\Font::UNDERLINE_DOUBLE);
+        
         // penilaian resiko mutu
         $sheet->getStyle('A66:E66')->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
         

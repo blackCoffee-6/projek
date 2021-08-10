@@ -18,6 +18,9 @@
                 <th>Mitigasi Dampak Usulan Perubahan</th>
             </tr>
         </table>
+        @if ($errors->any())
+            <div style="color: red;">No. Dokumen must be numeric!</div>
+        @endif
         {{-- REGULASI --}}
         <x-kop kategori="Regulasi" 
         tlp="ru_tlp" tlpid="ru_tlp" tlpval="spip" tlplabel="Surat pelaporan ke instansi pemerintah" 

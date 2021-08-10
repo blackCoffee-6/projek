@@ -87,16 +87,21 @@
                             @endif
                         @endif
                     </td>
-                    @if(Auth::user()->bidang_id == NULL)
+                    @if(Auth::user()->role == 'Admin')
                     <td class="text-center">
-                        @if($count < 1)
-                        @elseif(!($mitigasi))
-                            <a href="/Edit/KP/{{$kontrol->id}}" class="btn btn-primary my-2 my-sm-0"><i class="fa fa-folder"></i>  Edit</a>
-                        @elseif($date)
-                            <a href="/Baca-KontrolPerubahan/{{$kontrol->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
-                        @elseif($mitigasi)
-                            <a href="/Baca-KontrolPerubahan/{{$kontrol->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
+                    <?php $mitigasi = ''; $date = '';?>
+                    @foreach($kontrols as $kontrol)
+                        @if($fup->id == $kontrol->fup_id)
+                        <?php $mitigasi = $kontrol->hasil_mitigasi; $date = $kontrol->hasil_mitigasi_date;?>
+                            @if($mitigasi OR $date)
+                                @if(!$kontrol->hasil_mitigasi)
+                                    <a href="/Edit/KP/{{$kontrol->id}}" class="btn btn-primary my-2 my-sm-0"><i class="fa fa-folder"></i>  Edit</a>
+                                @elseif($mitigasi OR $date)
+                                    <a href="/Baca-KontrolPerubahan/{{$kontrol->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
+                                @endif
+                            @endif
                         @endif
+                    @endforeach
                     </td>
                     @else
                     @endif
