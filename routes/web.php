@@ -76,6 +76,8 @@ Route::get('/Dashboard/TotalUP', 'FUPController@totalIndex');
 Route::get('/Dashboard/Rejected', 'FUPController@rejectedIndex');
 //--------Route Dashboard Closed Usulan Perubahan------------------//
 Route::get('/Dashboard/Closed', 'FUPController@closedIndex');
+//--------Route Dashboard Closed Usulan Perubahan------------------//
+Route::get('/Dashboard/Proses', 'FUPController@prosesIndex');
 
 Route::get('/list-up', function () {
     return view('list-usulan');
