@@ -42,6 +42,7 @@
                         @if(Auth::user()->role == 'Admin')
                         <th scope="col">Aksi</th>
                         @endif
+                        <th>File (*Jika Ada)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -81,13 +82,14 @@
                             @if($fup->id == $kajian->fup_id)
                                 <?php $flag++; $status = $kajian->ch_status?>
                                 @if($status)
-                                <a href="/Baca-kajian/{{$kajian->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
+                                <a href="/Baca-kajian/{{$kajian->id}}" class="btn btn-success rounded my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
                                 @else
                                 @endif
                             @endif
                         @endforeach
                         </td>
                         @endif
+                        <td></td>
                     </tr>
                 @endforeach
                 </tbody>

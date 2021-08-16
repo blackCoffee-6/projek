@@ -978,6 +978,19 @@
                         <textarea class="form-control" rows="3" name="kj_tambahan">{{old('catatan')}}</textarea>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label class="font-weight-bold">Masukan File / Dokumen (*Jika Diperlukan)</label>
+                            <input name="file" type="file" class="form-control-file @error('file') is-invalid @enderror"><p class="text-danger mt-1" style="font-size: 14px">Max: 2MB | PDF / JPG / JPEG / PNG</p>
+                        </div>
+                        @error('file')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>*File tidak sesuai dengan Ketentuan!</strong>
+                        </span>
+                        @enderror
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-bordered">
@@ -1013,7 +1026,7 @@
                 </tr>
                 <tr>
                     <td>Disetujui Oleh</td>
-                    <td>QA Specialist</td>
+                    <td>Manajer QA</td>
                     <td>
                         <input type="text" class="form-control" placeholder="Sertakan Nama" id="aq_nama" name="aq_nama" value="{{ old('aq_nama') }}">
                         <label 

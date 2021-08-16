@@ -117,38 +117,6 @@ class KopController extends Controller
     public function store(Request $request, $fup_id)
     {
         // dd($fup_id);
-        $request->validate([
-            'st_dok2' => 'numeric' ,
-            'me_dok2' => 'numeric' ,
-            'val_dok2' => 'numeric' ,
-            'val_dok3' => 'numeric' ,
-            'val_dok4' => 'numeric' ,
-            'val_dok5' => 'numeric' ,
-            'val_dok6' => 'numeric' ,
-            'val_dok7' => 'numeric' ,
-            'val_dok8' => 'numeric' ,
-            'val_dok9' => 'numeric' ,
-            'val_dok1' => 'numeric' ,
-            'val_dok1' => 'numeric' ,
-            'val_dok1' => 'numeric' ,
-            'val_dok1' => 'numeric' ,
-            'val_dok1' => 'numeric' ,
-            'tr_dok2' => 'numeric' ,
-            'tr_dok3' => 'numeric' ,
-            'tr_dok4' => 'numeric' ,
-            'tr_dok5' => 'numeric' ,
-            'tr_dok6' => 'numeric' ,
-            'pro_dok2' => 'numeric' ,
-            'pro_dok3' => 'numeric' ,
-            'dok_dok2' => 'numeric' ,
-            'dok_dok3' => 'numeric' ,
-            'dok_dok4' => 'numeric' ,
-            'dok_dok5' => 'numeric' ,
-            'dok_dok6' => 'numeric' ,
-            'dok_dok7' => 'numeric' ,
-            'dok_dok8' => 'numeric' ,
-            'dok_dok9' => 'numeric' 
-        ]);
 
         if($request->dis_setuju != null){
             $request->request->add(['dis_setuju' => implode(',', $request->dis_setuju)]);

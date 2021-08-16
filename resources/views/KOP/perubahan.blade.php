@@ -21,6 +21,8 @@
         @if ($errors->any())
             <div style="color: red;">No. Dokumen must be numeric!</div>
         @endif
+
+        //untuk KOP semua tanggal selesai dihapus
         {{-- REGULASI --}}
         <x-kop kategori="Regulasi" 
         tlp="ru_tlp" tlpid="ru_tlp" tlpval="spip" tlplabel="Surat pelaporan ke instansi pemerintah" 
@@ -32,6 +34,9 @@
         rencana="ru_rencana" rencanaid="ru_rencana"
         realisasi="ru_realisasi" realisasiid="ru_realisasi"
         />
+
+        //tambahin 1 inputan buat regulasi
+
         <hr>
         {{-- REGISTRASI --}}
         <x-kop kategori="Registrasi" 
@@ -359,6 +364,7 @@
         realisasi="pro_realisasi3" realisasiid="pro_realisasi3"
         />
         <hr>
+
         {{-- DOKUMEN  --}}
         <x-kop kategori="Dokumen" 
         tlp="dok_tlp" tlpid="dok_tlp" tlpval="mm" tlplabel="Manual Mutu" 
@@ -458,7 +464,13 @@
         rencana="dok_rencana9" rencanaid="dok_rencana9"
         realisasi="dok_realisasi9" realisasiid="dok_realisasi9"
         />
+
+        //tambahin 1 inputan sama kayak regulasi
         <hr>
+
+        {{-- DESAIN KEMASAN --}}
+        // bikin kyk sistem ERP tpi labelnya "Artwork Desain Kemasan"
+
         {{-- SISTEM ERP  --}}
         <x-kop kategori="Sistem ERP" 
         tlp="sis_tlp" tlpid="sis_tlp" tlpval="sppe" tlplabel="Screenshoot perubahan pada ER" 
@@ -494,6 +506,27 @@
                                 </div>
                             </div>
                         </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold"> Catatan :</td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea class="form-control" name="kop_tambahan" rows="3">{{old('catatan')}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label class="font-weight-bold">Masukan File / Dokumen (*Jika Diperlukan)</label>
+                            <input name="file" type="file" class="form-control-file @error('file') is-invalid @enderror"> <p class="text-danger mt-1" style="font-size: 14px">Max: 2MB | PDF / JPG/ JPEG / PNG</p>
+                        </div>
+                        @error('file')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>*File tidak sesuai dengan Ketentuan!</strong>
+                        </span>
+                        @enderror
                     </td>
                 </tr>
             </tbody>

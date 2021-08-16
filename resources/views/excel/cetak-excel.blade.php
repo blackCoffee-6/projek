@@ -21,7 +21,8 @@
                     <th> Tanggal Usulan</th>
                     <th> Bidang</th>
                     <th> Nomor Usulan</th>
-                    <th> Usulan Perubahan</th>
+                    <th> Nama Produk</th>
+                    <th> Jenis / Kategori</th>
                     <th> Status</th>
                 </tr>
             </thead>
@@ -33,7 +34,8 @@
                     <td>{{$fup->date}}</td>
                     <td>{{$fup->Bidang->name}}</td>
                     <td>{{$fup->no_usulan}}</td>
-                    <td>{{$fup->ket_usulan}}</td>
+                    <td>{{$fup->produk}}</td>
+                    <td></td>
                     <td>
                         <?php $flag = 0; $revisi = 0; ?>
                         @foreach($apps as $app)

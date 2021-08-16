@@ -949,7 +949,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Diperiksa oleh</td>
+                    <td>Disusun Oleh</td>
                     <td>Asman Prod. Eval.</td>
                     <td>
                         <input type="text" class="form-control" placeholder="Sertakan Nama" id="asman_nama" name="asman_nama" value="{{$kajians->asman_nama}}">
@@ -962,8 +962,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Dikaji oleh</td>
-                    <td>QA Specialist</td>
+                    <td>Disetujui Oleh</td>
+                    <td>Manajer QA</td>
                     <td>
                         <input type="text" class="form-control" placeholder="Sertakan Nama" id="aq_nama" name="aq_nama" value="{{$kajians->aq_nama}}">
                     </td>

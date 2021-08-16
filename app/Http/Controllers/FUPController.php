@@ -179,7 +179,7 @@ class FUPController extends Controller
         if($user->role == 'Staff'){
             $fups = FUP::where('bidang_id', 'like', "$user->bidang_id")->paginate(10);
         }else{
-            $fups = FUP::paginate(10);
+            $fups = FUP::orderBy('status', 'DESC')->paginate(10);
         }
         
         return view('count.fup-index', compact('fups','user'));

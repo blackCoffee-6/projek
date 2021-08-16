@@ -51,6 +51,7 @@
                     <th scope="col">Aksi</th>
                     @else
                     @endif
+                    <th>File (*Jika Ada)</th>
                 </tr>
             </thead>
             <tbody>
@@ -70,31 +71,31 @@
                     </td>
                     <td>{{$fup->ket_usulan}}</td>
                     <td class="text-center">
+                        @if(Auth::user()->role == 'Admin')
                         <?php $count = 0; $date = ''; $mitigasi ='';?>
-                        @foreach($kontrols as $kontrol)
-                            @if($fup->id == $kontrol->fup_id)
-                                <?php $count++; $date = $kontrol->hasil_mitigasi_date; $mitigasi = $kontrol->hasil_mitigasi?>
-                            @endif
-                        @endforeach
-                        @if($count < 1) <span class="badge rounded-pill bg-secondary text-light">Menunggu di Kontrol</span>
-                        @else
-                            @if(!($mitigasi))
-                                <span class="badge rounded-pill bg-warning">Sedang di Proses</span>
-                            @elseif($date)
-                                <span class="badge rounded-pill bg-danger">Closed</span>
-                            @elseif($mitigasi)
-                                <span class="badge rounded-pill bg-danger">Closed</span>
-                            @endif
+                            @foreach($kontrols as $kontrol)
+                                @if($fup->id == $kontrol->fup_id)
+                                    <?php $count++; $date = $kontrol->hasil_mitigasi_date; $mitigasi = $kontrol->hasil_mitigasi?>
+                                @endif
+                             @endforeach
+                            @if($count < 1) <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                            @else
+                                @if(!($mitigasi))
+                                    <span class="badge rounded-pill bg-warning">Sedang di Proses</span>
+                                @elseif($date)
+                                    <span class="badge rounded-pill bg-danger">Closed</span>
+                                @elseif($mitigasi)
+                                    <span class="badge rounded-pill bg-danger">Closed</span>
+                                @endif
                         @endif
                     </td>
-                    @if(Auth::user()->role == 'Admin')
                     <td class="text-center">
                     <?php $mitigasi = ''; $date = '';?>
                     @foreach($kontrols as $kontrol)
                         @if($fup->id == $kontrol->fup_id)
                         <?php $mitigasi = $kontrol->hasil_mitigasi; $date = $kontrol->hasil_mitigasi_date;?>
                             @if($mitigasi OR $date)
-                                @if(!$kontrol->hasil_mitigasi)
+                                @if(!$mitigasi)
                                     <a href="/Edit/KP/{{$kontrol->id}}" class="btn btn-primary my-2 my-sm-0"><i class="fa fa-folder"></i>  Edit</a>
                                 @elseif($mitigasi OR $date)
                                     <a href="/Baca-KontrolPerubahan/{{$kontrol->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
@@ -105,6 +106,7 @@
                     </td>
                     @else
                     @endif
+                    <td></td>
                 </tr>
             @endforeach
             </tbody>
