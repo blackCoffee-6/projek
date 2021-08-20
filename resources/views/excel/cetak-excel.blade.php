@@ -35,7 +35,59 @@
                     <td>{{$fup->Bidang->name}}</td>
                     <td>{{$fup->no_usulan}}</td>
                     <td>{{$fup->produk}}</td>
-                    <td></td>
+                    <td>
+                        @if($ket_up)
+                        {{$loop->iteration}}
+                        @endif
+
+                        @if($ket_up == 1)
+                        Spesifikasi Bahan / Produk
+                        @endif
+
+                        @if($ket_up == 2)
+                        Bahan Baku
+                        @endif
+
+                        @if($ket_up == 3)
+                        Formula / Proses
+                        @endif
+
+                        @if($ket_up == 4)
+                        Mesin dan Peralatan
+                        @endif
+
+                        @if($ket_up == 9)
+                        Lingkungan
+                        @endif
+
+                        @if($ket_up == 10)
+                        PIE
+                        @endif
+
+                        @if($ket_up == 11)
+                        Peraturan Perundangan
+                        @endif
+
+                        @if($ket_up == 12)
+                        {{$kajians->ket_else}}
+                        @endif
+
+                        @if($ket_up == 5)
+                        Metode Analisis
+                        @endif
+
+                        @if($ket_up == 6)
+                        Site Produksi
+                        @endif
+
+                        @if($ket_up == 7)
+                        Bangunan dan Fasilitas
+                        @endif
+
+                        @if($ket_up == 8)
+                        Dokumentasi
+                        @endif
+                    </td>
                     <td>
                         <?php $flag = 0; $revisi = 0; ?>
                         @foreach($apps as $app)
