@@ -13,4 +13,8 @@ class Kajian extends Model
     public function FUP(){
         return $this->hasOne(FUP::class);
     }
+
+    public function KajianFiles(){
+        return $this->hasOne(KajianFile::class);
+    }
 }

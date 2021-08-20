@@ -327,7 +327,6 @@ class CreateKontrolsTable extends Migration
             $table->text('hasil_mitigasi')->nullable();
             $table->date('hasil_mitigasi_date')->nullable();
             $table->string('kop_tambahan')->nullable();
-            $table->
 
             $table->text('mpm_nama');
             $table->date('mpm_date');

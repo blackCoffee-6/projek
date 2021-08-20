@@ -6,9 +6,11 @@ use App\FUP;
 use App\Kajian;
 use App\KontrolPerubahan;
 use App\Exports\KopExport;
+use App\KopFile;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -41,6 +43,7 @@ class KopController extends Controller
     {
         $user = Auth::user();
         $kontrols = KontrolPerubahan::all();
+        $files = KopFile::all();
 
         $kajians = Kajian::where('ch_status', 'like', 'disetujui')->get();
 
@@ -59,7 +62,7 @@ class KopController extends Controller
             $arrFupId = explode(',',$fup_id);//{1, 3}
             $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
         }
-        return view('KOP.showKontrol', compact('kontrols','fups', 'kajians'));
+        return view('KOP.showKontrol', compact('kontrols','fups', 'kajians','files'));
     }
 
     public function indexSearch(Request $request)
@@ -133,8 +136,19 @@ class KopController extends Controller
                 'status' => 'Ditolak'
             ]);
         }
-
         KontrolPerubahan::create($request->all());
+        $id = DB::getPdo()->lastInsertId();
+        
+        if($request->hasFile('kop_files'))
+        {
+            $fileName = $request->kop_files->getClientOriginalName() . '-' . time() . '-' . $request->kop_files->extension();
+            $request->kop_files->move(public_path('kop file'), $fileName);
+
+            KopFile::create([
+                'kop_files' => $fileName,
+                'kontrol_id' => $id
+            ]);
+        }
         Alert::success('Success', "Kontrol Perubahan Berhasil Dibuat!");
         return redirect('/home');
     }
@@ -151,6 +165,7 @@ class KopController extends Controller
     public function edit($kontrol_id)
     {
         $kontrols = KontrolPerubahan::find($kontrol_id);
+        $files = KopFile::where('kontrol_id', $kontrol_id)->get();
         
         $ru_tlp = $kontrols->ru_tlp;
         $ru_tlps = explode("," , $ru_tlp);
@@ -281,7 +296,7 @@ class KopController extends Controller
         'tr_tlps', 'tr_tlps2', 'tr_tlps3', 'tr_tlps4', 'tr_tlps5', 'tr_tlps6',
         'pro_tlps', 'pro_tlps2', 'pro_tlps3',
         'dok_tlps', 'dok_tlps2', 'dok_tlps3', 'dok_tlps4', 'dok_tlps5', 'dok_tlps6', 'dok_tlps7', 'dok_tlps8', 'dok_tlps9',
-        'sis_tlps', 'dis_setujus'));
+        'sis_tlps', 'dis_setujus','files'));
     }
     
     public function update(Request $request, $kontrol_id)
@@ -305,6 +320,14 @@ class KopController extends Controller
         $input = $request->all();
         $kontrols->fill($input)->save();
 
+        if ($request->hasFile('kop_files')){ 
+            $fileName = $request->kop_files->getClientOriginalName() . '-' . time() . '-' . $request->kop_files->extension();
+            $request->kop_files->move(public_path('kop file'), $fileName);
+
+            KopFile::where('kontrol_id', $kontrol_id)->update([
+                'kop_files' => $fileName
+            ]);
+        }
         return redirect('/List/Kontrol/Perubahan')->with('alert', "Kontrol Perubahan Updated Successfully!");
     }
 

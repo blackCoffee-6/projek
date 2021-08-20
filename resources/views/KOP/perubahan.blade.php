@@ -10,7 +10,7 @@
     <h1 class="display-5 mx-5 text-center">
         Kontrol Perubahan
     </h1>
-    <form action="/Store/KP/{{$fup->id}}" method="POST">
+    <form action="/Store/KP/{{$fup->id}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="container my-4">
         <table class="table table-bordered">
@@ -22,7 +22,6 @@
             <div style="color: red;">No. Dokumen must be numeric!</div>
         @endif
 
-        //untuk KOP semua tanggal selesai dihapus
         {{-- REGULASI --}}
         <x-kop kategori="Regulasi" 
         tlp="ru_tlp" tlpid="ru_tlp" tlpval="spip" tlplabel="Surat pelaporan ke instansi pemerintah" 
@@ -30,12 +29,17 @@
         dok="ru_dok" dokid="ru_dok"
         stat="ru_status" statid="ru_statusid"
         stat2="ru_status" statid2="ru_statusid2"
-        date="ru_date"
         rencana="ru_rencana" rencanaid="ru_rencana"
         realisasi="ru_realisasi" realisasiid="ru_realisasi"
         />
-
-        //tambahin 1 inputan buat regulasi
+        {{-- REGULASI 2 --}}
+        <x-kop3 kategori="" 
+        tlp="ru_tlp2" tlpid="ru_tlp2" tlpval="spip" tlpinput="ru_input2" 
+        pic="ru_pic2" picid="ru_pic2" 
+        dok="ru_dok2" dokid="ru_dok2"
+        rencana="ru_rencana2" rencanaid="ru_rencana2"
+        realisasi="ru_realisasi2" realisasiid="ru_realisasi2"
+        />
 
         <hr>
         {{-- REGISTRASI --}}
@@ -45,7 +49,6 @@
         dok="ri_dok" dokid="ri_dok"
         stat="ri_status" statid="ri_statusid"
         stat2="ri_status" statid2="ri_statusid2"
-        date="ri_date"
         rencana="ri_rencana" rencanaid="ri_rencana"
         realisasi="ri_realisasi" realisasiid="ri_realisasi"
         />
@@ -57,7 +60,6 @@
         dok="st_dok" dokid="st_dok"
         stat="st_status" statid="st_statusid"
         stat2="st_status" statid2="st_statusid2"
-        date="st_date"
         rencana="st_rencana" rencanaid="st_rencana"
         realisasi="st_realisasi" realisasiid="st_realisasi"
         />
@@ -68,7 +70,6 @@
         dok="st_dok2" dokid="st_dok2"
         stat="st_status2" statid="st_statusid3"
         stat2="st_status2" statid2="st_statusid4"
-        date="st_date2"
         rencana="st_rencana2" rencanaid="st_rencana2"
         realisasi="st_realisasi2" realisasiid="st_realisasi2"
         />
@@ -80,7 +81,6 @@
         dok="me_dok" dokid="me_dok"
         stat="me_status" statid="me_statusid"
         stat2="me_status" statid2="me_statusid2"
-        date="me_date"
         rencana="me_rencana" rencanaid="me_rencana"
         realisasi="me_realisasi" realisasiid="me_realisasi"
         />
@@ -90,7 +90,6 @@
         dok="me_dok2" dokid="me_dok2" 
         stat="me_status2" statid="me_statusid3"
         stat2="me_status2" statid2="me_statusid4"
-        date="me_date2"
         rencana="me_rencana2" rencanaid="me_rencana2"
         realisasi="me_realisasi2" realisasiid="me_realisasi2"
         />
@@ -103,7 +102,6 @@
         dok="val_dok" dokid="val_dok" 
         stat="val_status" statid="val_statusid"
         stat2="val_status" statid2="val_statusid2"
-        date="val_date"
         rencana="val_rencana" rencanaid="val_rencana"
         realisasi="val_realisasi" realisasiid="val_realisasi"
         />
@@ -115,7 +113,6 @@
         dok="val_dok2" dokid="val_dok2" 
         stat="val_status2" statid="val_statusid3"
         stat2="val_status2" statid2="val_statusid4"
-        date="val_date2"
         rencana="val_rencana2" rencanaid="val_rencana2"
         realisasi="val_realisasi2" realisasiid="val_realisasi2"
         />
@@ -127,7 +124,6 @@
         dok="val_dok3" dokid="val_dok3" 
         stat="val_status3" statid="val_statusid5"
         stat2="val_status3" statid2="val_statusid6"
-        date="val_date3"
         rencana="val_rencana3" rencanaid="val_rencana3"
         realisasi="val_realisasi3" realisasiid="val_realisasi3"
         />
@@ -139,7 +135,6 @@
         dok="val_dok4" dokid="val_dok4" 
         stat="val_status4" statid="val_statusid7"
         stat2="val_status4" statid2="val_statusid8"
-        date="val_date4"
         rencana="val_rencana4" rencanaid="val_rencana4"
         realisasi="val_realisasi4" realisasiid="val_realisasi4"
         />
@@ -151,7 +146,6 @@
         dok="val_dok5" dokid="val_dok5" 
         stat="val_status5" statid="val_statusid9"
         stat2="val_status5" statid2="val_statusid10"
-        date="val_date5"
         rencana="val_rencana5" rencanaid="val_rencana5"
         realisasi="val_realisasi5" realisasiid="val_realisasi5"
         />
@@ -163,7 +157,6 @@
         dok="val_dok6" dokid="val_dok6"
         stat="val_status6" statid="val_statusid11"
         stat2="val_status6" statid2="val_statusid12"
-        date="val_date6"
         rencana="val_rencana6" rencanaid="val_rencana6"
         realisasi="val_realisasi6" realisasiid="val_realisasi6"
         />
@@ -175,7 +168,6 @@
         dok="val_dok7" dokid="val_dok7" 
         stat="val_status7" statid="val_statusid13"
         stat2="val_status7" statid2="val_status14"
-        date="val_date7"
         rencana="val_rencana7" rencanaid="val_rencana7"
         realisasi="val_realisasi7" realisasiid="val_realisasi7"
         />
@@ -187,7 +179,6 @@
         dok="val_dok8" dokid="val_dok8" 
         stat="val_status8" statid="val_statusid15"
         stat2="val_status8" statid2="val_statusid16"
-        date="val_date8"
         rencana="val_rencana8" rencanaid="val_rencana8"
         realisasi="val_realisasi8" realisasiid="val_realisasi8"
         />
@@ -199,7 +190,6 @@
         dok="val_dok9" dokid="val_dok9" 
         stat="val_status9" statid="val_statusid17"
         stat2="val_status9" statid2="val_statusid18"
-        date="val_date9"
         rencana="val_rencana9" rencanaid="val_rencana9"
         realisasi="val_realisasi9" realisasiid="val_realisasi9"
         />
@@ -211,7 +201,6 @@
         dok="val_dok10" dokid="val_dok10"
         stat="val_status10" statid="val_statusid19"
         stat2="val_status10" statid2="val_statusid20"
-        date="val_date10"
         rencana="val_rencana10" rencanaid="val_rencana10"
         realisasi="val_realisasi10" realisasiid="val_realisasi10"
         />
@@ -223,7 +212,6 @@
         dok="val_dok11" dokid="val_dok11"
         stat="val_status11" statid="val_statusid21"
         stat2="val_status11" statid2="val_statusid22"
-        date="val_date11"
         rencana="val_rencana11" rencanaid="val_rencana11"
         realisasi="val_realisasi11" realisasiid="val_realisasi11"
         />
@@ -235,7 +223,6 @@
         dok="val_dok12" dokid="val_dok12" 
         stat="val_status12" statid="val_statusid23"
         stat2="val_status12" statid2="val_statusid24"
-        date="val_date12"
         rencana="val_rencana12" rencanaid="val_rencana12"
         realisasi="val_realisasi12" realisasiid="val_realisasi12"
         />
@@ -247,7 +234,6 @@
         dok="val_dok13" dokid="val_dok13"
         stat="val_status13" statid="val_statusid25"
         stat2="val_status13" statid2="val_statusid26"
-        date="val_date13"
         rencana="val_rencana13" rencanaid="val_rencana13"
         realisasi="val_realisasi13" realisasiid="val_realisasi13"
         />
@@ -258,7 +244,6 @@
         dok="val_dok14" dokid="val_dok14"
         stat="val_status14" statid="val_statusid27"
         stat2="val_status14" statid2="val_statusid28"
-        date="val_date14"
         rencana="val_rencana14" rencanaid="val_rencana14"
         realisasi="val_realisasi14" realisasiid="val_realisasi14"
         />
@@ -270,7 +255,6 @@
         dok="tr_dok" dokid="tr_dok" 
         stat="tr_status" statid="tr_statusid"
         stat2="tr_status" statid2="tr_statusid2"
-        date="tr_date"
         rencana="tr_rencana" rencanaid="tr_rencana"
         realisasi="tr_realisasi" realisasiid="tr_realisasi"
         />
@@ -281,7 +265,6 @@
         dok="tr_dok2" dokid="tr_dok2" 
         stat="tr_status2" statid="tr_statusid3"
         stat2="tr_status2" statid2="tr_statusid4"
-        date="tr_date2"
         rencana="tr_rencana2" rencanaid="tr_rencana2"
         realisasi="tr_realisasi2" realisasiid="tr_realisasi2"
         />
@@ -292,7 +275,6 @@
         dok="tr_dok3" dokid="tr_dok3" 
         stat="tr_status3" statid="tr_statusid5"
         stat2="tr_status3" statid2="tr_statusid6"
-        date="tr_date3"
         rencana="tr_rencana3" rencanaid="tr_rencana3"
         realisasi="tr_realisasi3" realisasiid="tr_realisasi3"
         />
@@ -303,7 +285,6 @@
         dok="tr_dok4" dokid="tr_dok4" 
         stat="tr_status4" statid="tr_status7"
         stat2="tr_status4" statid2="tr_status8"
-        date="tr_date4"
         rencana="tr_rencana4" rencanaid="tr_rencana4"
         realisasi="tr_realisasi4" realisasiid="tr_realisasi4"
         />
@@ -314,7 +295,6 @@
         dok="tr_dok5" dokid="tr_dok5" 
         stat="tr_status5" statid="tr_statusid9"
         stat2="tr_status5" statid2="tr_statusid10"
-        date="tr_date5"
         rencana="tr_rencana5" rencanaid="tr_rencana5"
         realisasi="tr_realisasi5" realisasiid="tr_realisasi5"
         />
@@ -325,7 +305,6 @@
         dok="tr_dok6" dokid="tr_dok6" 
         stat="tr_status6" statid="tr_status11"
         stat2="tr_status6" statid2="tr_status12"
-        date="tr_date6"
         rencana="tr_rencana6" rencanaid="tr_rencana6"
         realisasi="tr_realisasi6" realisasiid="tr_realisasi6"
         />
@@ -337,7 +316,6 @@
         dok="pro_dok" dokid="pro_dok" 
         stat="pro_status" statid="pro_statusid"
         stat2="pro_status" statid2="pro_statusid2"
-        date="pro_date"
         rencana="pro_rencana" rencanaid="pro_rencana"
         realisasi="pro_realisasi" realisasiid="pro_realisasi"
         />
@@ -348,7 +326,6 @@
         dok="pro_dok2" dokid="pro_dok2" 
         stat="pro_status2" statid="pro_statusid3"
         stat2="pro_status2" statid2="pro_statusid4"
-        date="pro_date2"
         rencana="pro_rencana2" rencanaid="pro_rencana2"
         realisasi="pro_realisasi2" realisasiid="pro_realisasi2"
         />
@@ -359,7 +336,6 @@
         dok="pro_dok3" dokid="pro_dok3" 
         stat="pro_status3" statid="pro_statusid5"
         stat2="pro_status3" statid2="pro_statusid6"
-        date="pro_date3"
         rencana="pro_rencana3" rencanaid="pro_rencana3"
         realisasi="pro_realisasi3" realisasiid="pro_realisasi3"
         />
@@ -372,7 +348,6 @@
         dok="dok_dok" dokid="dok_dok" 
         stat="dok_status" statid="dok_statusid"
         stat2="dok_status" statid2="dok_statusid2"
-        date="dok_date"
         rencana="dok_rencana" rencanaid="dok_rencana"
         realisasi="dok_realisasi" realisasiid="dok_realisasi"
         />
@@ -383,7 +358,6 @@
         dok="dok_dok2" dokid="dok_dok2" 
         stat="dok_status2" statid="dok_statusid3"
         stat2="dok_status2" statid2="dok_statusid4"
-        date="dok_date2"
         rencana="dok_rencana2" rencanaid="dok_rencana2"
         realisasi="dok_realisasi2" realisasiid="dok_realisasi2"
         />
@@ -394,7 +368,6 @@
         dok="dok_dok3" dokid="dok_dok3" 
         stat="dok_status3" statid="dok_statusid5"
         stat2="dok_status3" statid2="dok_statusid6"
-        date="dok_date3"
         rencana="dok_rencana3" rencanaid="dok_rencana3"
         realisasi="dok_realisasi3" realisasiid="dok_realisasi3"
         />
@@ -405,7 +378,6 @@
         dok="dok_dok4" dokid="dok_dok4" 
         stat="dok_status4" statid="dok_statusid7"
         stat2="dok_status4" statid2="dok_statusid8"
-        date="dok_date4"
         rencana="dok_rencana4" rencanaid="dok_rencana4"
         realisasi="dok_realisasi4" realisasiid="dok_realisasi4"
         />
@@ -416,7 +388,6 @@
         dok="dok_dok5" dokid="dok_dok5" 
         stat="dok_status5" statid="dok_statusid9"
         stat2="dok_status5" statid2="dok_statusid10"
-        date="dok_date5"
         rencana="dok_rencana5" rencanaid="dok_rencana5"
         realisasi="dok_realisasi5" realisasiid="dok_realisasi5"
         />
@@ -427,7 +398,6 @@
         dok="dok_dok6" dokid="dok_dok6" 
         stat="dok_status6" statid="dok_statusid11"
         stat2="dok_status6" statid2="dok_statusid12"
-        date="dok_date6"
         rencana="dok_rencana6" rencanaid="dok_rencana6"
         realisasi="dok_realisasi6" realisasiid="dok_realisasi6"
         />
@@ -438,7 +408,6 @@
         dok="dok_dok7" dokid="dok_dok7" 
         stat="dok_status7" statid="dok_statusid13"
         stat2="dok_status7" statid2="dok_statusid14"
-        date="dok_date7"
         rencana="dok_rencana7" rencanaid="dok_rencana7"
         realisasi="dok_realisasi7" realisasiid="dok_realisasi7"
         />
@@ -449,7 +418,6 @@
         dok="dok_dok8" dokid="dok_dok8" 
         stat="dok_status8" statid="dok_statusid15"
         stat2="dok_status8" statid2="dok_status16"
-        date="dok_date8"
         rencana="dok_rencana8" rencanaid="dok_rencana8"
         realisasi="dok_realisasi8" realisasiid="dok_realisasi8"
         />
@@ -460,16 +428,33 @@
         dok="dok_dok9" dokid="dok_dok9" 
         stat="dok_status9" statid="dok_status17"
         stat2="dok_status9" statid2="dok_status18"
-        date="dok_date9"
         rencana="dok_rencana9" rencanaid="dok_rencana9"
         realisasi="dok_realisasi9" realisasiid="dok_realisasi9"
         />
-
+        
         //tambahin 1 inputan sama kayak regulasi
+        <x-kop4 kategori="" 
+        tlp="dok_tlp10" tlpid="dok_tlp10" tlpval="ma" tlptext="dok_input10"
+        pic="dok_pic10" picid="dok_pic10" 
+        stat="dok_status10" statid="dok_status19"
+        stat2="dok_status10" statid2="dok_status20"
+        rencana="dok_rencana10" rencanaid="dok_rencana10"
+        realisasi="dok_realisasi10" realisasiid="dok_realisasi10"
+        />
         <hr>
 
         {{-- DESAIN KEMASAN --}}
-        // bikin kyk sistem ERP tpi labelnya "Artwork Desain Kemasan"
+        // bikin kyk sistem ERP tpi labelnya "Desain Kemasan"
+        <x-kop kategori="Desain Kemasan" 
+        tlp="dk_tlp" tlpid="dk_tlp" tlpval="sppe" tlplabel="Artwork Desain Kemasan" 
+        pic="dk_pic" picid="dk_pic" 
+        dok="dk_dok" dokid="dk_dok" 
+        stat="dk_status" statid="dk_statusid"
+        stat2="dk_status" statid2="dk_statusid2"
+        rencana="dk_rencana" rencanaid="dk_rencana"
+        realisasi="dk_realisasi" realisasiid="dk_realisasi"
+        />
+        <hr>
 
         {{-- SISTEM ERP  --}}
         <x-kop kategori="Sistem ERP" 
@@ -478,7 +463,6 @@
         dok="sis_dok" dokid="sis_dok" 
         stat="sis_status" statid="sis_statusid"
         stat2="sis_status" statid2="sis_statusid2"
-        date="sis_date"
         rencana="sis_rencana" rencanaid="sis_rencana"
         realisasi="sis_realisasi" realisasiid="sis_realisasi"
         />
@@ -520,9 +504,9 @@
                     <td>
                         <div class="form-group">
                             <label class="font-weight-bold">Masukan File / Dokumen (*Jika Diperlukan)</label>
-                            <input name="file" type="file" class="form-control-file @error('file') is-invalid @enderror"> <p class="text-danger mt-1" style="font-size: 14px">Max: 2MB | PDF / JPG/ JPEG / PNG</p>
+                            <input name="kop_files" type="file" class="form-control-file @error('kop_files') is-invalid @enderror"> <p class="text-danger mt-1" style="font-size: 14px">Max: 2MB | PDF / JPG/ JPEG / PNG</p>
                         </div>
-                        @error('file')
+                        @error('kop_files')
                         <span class="invalid-feedback" role="alert">
                             <strong>*File tidak sesuai dengan Ketentuan!</strong>
                         </span>

@@ -5,7 +5,7 @@
     <h1 class="display-5 mx-5 text-center">
         Kajian Perubahan
     </h1>
-    <form action="/Update/Kajian/{{$kajians->id}}" method="POST">
+    <form action="/Update/Kajian/{{$kajians->id}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="container my-4">
@@ -934,6 +934,24 @@
                     <td>
                         <textarea class="form-control" rows="3" name="kj_tambahan">{{$kajians->kj_tambahan}}</textarea>
                     </td>
+                </tr>
+                <tr>
+                    @foreach($files as $file)
+                    @if($file->kj_files)
+                    <td>
+                        <div class="form-group">
+                            <label class="font-weight-bold">Masukan File / Dokumen (*Jika Diperlukan)</label>
+                            <input name="kj_files" type="file" class="form-control-file @error('kj_files') is-invalid @enderror"> <p class="text-danger mt-1" style="font-size: 14px">Max: 2MB | PDF / JPG/ JPEG / PNG</p>
+                        </div>
+                        {{$file->kj_files}}
+                        @error('kj_files')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>*File tidak sesuai dengan Ketentuan!</strong>
+                        </span>
+                        @enderror
+                    </td>
+                    @endif
+                    @endforeach
                 </tr>
             </tbody>
         </table>

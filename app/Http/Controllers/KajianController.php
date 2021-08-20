@@ -8,7 +8,9 @@ use App\Approval;
 use Illuminate\Http\Request;
 use App\Exports\KajianExport;
 use App\FUB;
+use App\KajianFile;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -128,6 +130,20 @@ class KajianController extends Controller
             ]);
         }
         Kajian::create($request->all());
+
+        $id = DB::getPdo()->lastInsertId();
+        
+        if($request->hasFile('kajian_files'))
+        {
+            $fileName = $request->kajian_files->getClientOriginalName() . '-' . time() . '-' . $request->kajian_files->extension();
+            $request->kajian_files->move(public_path('kajian file'), $fileName);
+
+            KajianFile::create([
+                'kj_files' => $fileName,
+                'kajian_id' => $id
+            ]);
+        }
+        // dd($request->all());
         Alert::success('Success', "Kajian Berhasil Dibuat!");
         return redirect('/home');
     }
@@ -160,6 +176,7 @@ class KajianController extends Controller
     public function edit($kajian_id)
     {
         $kajians = Kajian::find($kajian_id);
+        $files = KajianFile::where('kajian_id', $kajian_id)->get();
         $auth = Auth::check();
         $role = 'Staff';
         
@@ -185,7 +202,7 @@ class KajianController extends Controller
         $ch_dis = $kajians->ch_dis;
         $ch_diss = explode("," , $ch_dis);
 
-        return view('kajian.editKajian', compact('role', 'kajians', 'ket_ups', 'ru_bb', 'val_bb', 'tr_bb','st_bb','ch_diss'));
+        return view('kajian.editKajian', compact('role', 'kajians', 'ket_ups', 'ru_bb', 'val_bb', 'tr_bb','st_bb','ch_diss','files'));
     }
 
     /**
@@ -248,6 +265,14 @@ class KajianController extends Controller
         $input = $request->all();
         $kajians->fill($input)->save();
 
+        if ($request->hasFile('kj_files')){ 
+            $fileName = $request->kj_files->getClientOriginalName() . '-' . time() . '-' . $request->kj_files->extension();
+            $request->kj_files->move(public_path('kajian file'), $fileName);
+
+            KajianFile::where('kajian_id', $kajian_id)->update([
+                'kj_files' => $fileName
+            ]);
+        }
         return redirect('/List/Kajian')->with('alert', "Kajian Updated Successfully!");
     }
     
@@ -255,6 +280,7 @@ class KajianController extends Controller
     {
         $user = Auth::user();
         $kajians = Kajian::all();
+        $files = KajianFile::all();
 
         $apps = Approval::where('decision', 'like', 'setuju')->get();
 
@@ -273,7 +299,7 @@ class KajianController extends Controller
             $arrFupId = explode(',',$fup_id);//{1, 3}
             $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
         }
-        return view('kajian.showKajian', compact('kajians','fups', 'apps'));
+        return view('kajian.showKajian', compact('kajians','fups', 'apps','files'));
     }
 
     public function bacaKajian($id)
