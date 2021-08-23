@@ -129,20 +129,21 @@ class KajianController extends Controller
                 'status' => 'Ditolak'
             ]);
         }
-        Kajian::create($request->all());
-
-        $id = DB::getPdo()->lastInsertId();
-        
         if($request->hasFile('kajian_files'))
         {
             $fileName = $request->kajian_files->getClientOriginalName() . '-' . time() . '-' . $request->kajian_files->extension();
             $request->kajian_files->move(public_path('kajian file'), $fileName);
 
-            KajianFile::create([
-                'kj_files' => $fileName,
-                'kajian_id' => $id
-            ]);
+            $request->request->add(['kj_files' => $fileName]);
+            // KajianFile::create([
+            //     'kj_files' => $fileName,
+            //     'kajian_id' => $id
+            // ]);
         }
+        Kajian::create($request->all());
+
+        // $id = DB::getPdo()->lastInsertId();
+        
         // dd($request->all());
         Alert::success('Success', "Kajian Berhasil Dibuat!");
         return redirect('/home');
@@ -280,7 +281,6 @@ class KajianController extends Controller
     {
         $user = Auth::user();
         $kajians = Kajian::all();
-        $files = KajianFile::all();
 
         $apps = Approval::where('decision', 'like', 'setuju')->get();
 
@@ -299,7 +299,8 @@ class KajianController extends Controller
             $arrFupId = explode(',',$fup_id);//{1, 3}
             $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
         }
-        return view('kajian.showKajian', compact('kajians','fups', 'apps','files'));
+        // dd($kajians);
+        return view('kajian.showKajian', compact('kajians','fups', 'apps'));
     }
 
     public function bacaKajian($id)
