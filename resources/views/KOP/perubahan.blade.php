@@ -32,6 +32,7 @@
         rencana="ru_rencana" rencanaid="ru_rencana"
         realisasi="ru_realisasi" realisasiid="ru_realisasi"
         />
+        // lupa ngasih status gue nya wkwk
         {{-- REGULASI 2 --}}
         <x-kop3 kategori="" 
         tlp="ru_tlp2" tlpid="ru_tlp2" tlpval="spip" tlpinput="ru_input2" 
@@ -432,7 +433,7 @@
         realisasi="dok_realisasi9" realisasiid="dok_realisasi9"
         />
         
-        //tambahin 1 inputan sama kayak regulasi
+        //ealah lupa di tambahin no dokumennya
         <x-kop4 kategori="" 
         tlp="dok_tlp10" tlpid="dok_tlp10" tlpval="ma" tlptext="dok_input10"
         pic="dok_pic10" picid="dok_pic10" 
@@ -444,7 +445,6 @@
         <hr>
 
         {{-- DESAIN KEMASAN --}}
-        // bikin kyk sistem ERP tpi labelnya "Desain Kemasan"
         <x-kop kategori="Desain Kemasan" 
         tlp="dk_tlp" tlpid="dk_tlp" tlpval="sppe" tlplabel="Artwork Desain Kemasan" 
         pic="dk_pic" picid="dk_pic" 
