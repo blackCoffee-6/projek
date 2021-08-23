@@ -10,7 +10,7 @@
     <h1 class="display-5 mx-5 text-center">
         Kontrol Perubahan
     </h1>
-    <form action="/Update/KP/{{$kontrols->id}}" method="POST">
+    <form action="/Update/KP/{{$kontrols->id}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="container my-4">
@@ -40,9 +40,6 @@
                 <th scope="col" width="1%">
                     <center>Status</center>
                 </th>
-                <th scope="col" width="5%">
-                    <center>Tanggal Selesai</center>
-                </th>
             </tr>
             </thead>
             <tbody>
@@ -69,9 +66,6 @@
                         <label class="form-check-label">Pending</label>
                     </div>
                 </td>
-                <td class="text-center" width="3%">
-                    <input type="date" value="{{ $kontrols->ru_date }}" class="form-control" name="ru_date" width="3%">
-                </td>
             </tr>
             </tbody>
         </table>
@@ -82,10 +76,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="ru_rencana" rows="3">{{ $kontrols->ru_rencana }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->ru_rencana}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="ru_realisasi" rows="3">{{ $kontrols->ru_realisasi }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->ru_realisasi}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -112,9 +106,6 @@
                     <th scope="col" width="1%">
                         <center>Status</center>
                     </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -140,9 +131,6 @@
                         <label class="form-check-label">Pending</label>
                     </div>
                 </td>
-                <td class="text-center" width="3%">
-                    <input type="date" value="{{ $kontrols->ri_date }}" class="form-control" name="ri_date" width="3%">
-                </td>
             </tr>
         </tbody>
         </table>
@@ -153,10 +141,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="ri_rencana" rows="3">{{ $kontrols->ri_rencana }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->ri_rencana}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="ri_realisasi" rows="3">{{ $kontrols->ri_realisasi }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->ri_realisasi}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -183,9 +171,6 @@
                     <th scope="col" width="1%">
                         <center>Status</center>
                     </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -211,9 +196,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->st_date }}" class="form-control" name="st_date" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -224,10 +206,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="st_rencana" rows="3">{{ $kontrols->st_rencana }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->st_rencana}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="st_realisasi" rows="3">{{ $kontrols->st_realisasi }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->st_realisasi}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -251,9 +233,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -280,9 +259,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->st_date2 }}" class="form-control" name="st_date2" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -293,10 +269,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="st_rencana2" rows="3">{{ $kontrols->st_rencana2 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->st_rencana2}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="st_realisasi2" rows="3">{{ $kontrols->st_realisasi2 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->st_realisasi2}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -323,9 +299,6 @@
                     <th scope="col" width="1%">
                         <center>Status</center>
                     </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -351,9 +324,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->me_date }}" class="form-control" name="me_date" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -364,10 +334,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="me_rencana" rows="3">{{ $kontrols->me_rencana }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->me_rencana}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="me_realisasi" rows="3">{{ $kontrols->me_realisasi }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->me_realisasi}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -391,9 +361,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -420,9 +387,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->me_date2 }}" class="form-control" name="me_date2" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -433,10 +397,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="me_rencana2" rows="3">{{ $kontrols->me_rencana2 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->me_rencana2}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="me_realisasi2" rows="3">{{ $kontrols->me_realisasi2 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->me_realisasi2}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -463,9 +427,6 @@
                     <th scope="col" width="1%">
                         <center>Status</center>
                     </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -491,9 +452,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->val_date }}" class="form-control" name="val_date" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -504,10 +462,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="val_rencana" rows="3">{{ $kontrols->val_rencana }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="val_realisasi" rows="3">{{ $kontrols->val_realisasi }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -531,9 +489,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -560,9 +515,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->val_date2 }}" class="form-control" name="val_date2" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -573,10 +525,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="val_rencana2" rows="3">{{ $kontrols->val_rencana2 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana2}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="val_realisasi2" rows="3">{{ $kontrols->val_realisasi2 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi2}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -600,9 +552,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -629,9 +578,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->val_date3 }}" class="form-control" name="val_date3" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -642,10 +588,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="val_rencana3" rows="3">{{ $kontrols->val_rencana3 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana3}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="val_realisasi3" rows="3">{{ $kontrols->val_realisasi3 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi3}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -669,9 +615,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -698,9 +641,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->val_date4 }}" class="form-control" name="val_date4" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -711,10 +651,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="val_rencana4" rows="3">{{ $kontrols->val_rencana4 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana4}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="val_realisasi4" rows="3">{{ $kontrols->val_realisasi4 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi4}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -738,9 +678,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -767,9 +704,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->val_date5 }}" class="form-control" name="val_date5" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -780,10 +714,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="val_rencana5" rows="3">{{ $kontrols->val_rencana5 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana5}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="val_realisasi5" rows="3">{{ $kontrols->val_realisasi5 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi5}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -807,9 +741,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -836,9 +767,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->val_date6 }}" class="form-control" name="val_date6" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -849,10 +777,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="val_rencana6" rows="3">{{ $kontrols->val_rencana6 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana6}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="val_realisasi6" rows="3">{{ $kontrols->val_realisasi6 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi6}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -876,9 +804,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -905,9 +830,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->val_date7 }}" class="form-control" name="val_date7" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -918,10 +840,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="val_rencana7" rows="3">{{ $kontrols->val_rencana7 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana7}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="val_realisasi7" rows="3">{{ $kontrols->val_realisasi7 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi7}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -945,9 +867,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -974,9 +893,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->val_date8 }}" class="form-control" name="val_date8" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -987,10 +903,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="val_rencana8" rows="3">{{ $kontrols->val_rencana8 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana8}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="val_realisasi8" rows="3">{{ $kontrols->val_realisasi8 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi8}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1014,9 +930,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -1043,9 +956,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->val_date9 }}" class="form-control" name="val_date9" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -1056,10 +966,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="val_rencana9" rows="3">{{ $kontrols->val_rencana9 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana9}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="val_realisasi9" rows="3">{{ $kontrols->val_realisasi9 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi9}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1083,9 +993,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -1112,9 +1019,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->val_date10 }}" class="form-control" name="val_date10" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -1125,10 +1029,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="val_rencana10" rows="3">{{ $kontrols->val_rencana10 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana10}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="val_realisasi10" rows="3">{{ $kontrols->val_realisasi10 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi10}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1152,9 +1056,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -1181,9 +1082,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->val_date11 }}" class="form-control" name="val_date11" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -1194,10 +1092,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="val_rencana11" rows="3">{{ $kontrols->val_rencana11 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana11}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="val_realisasi11" rows="3">{{ $kontrols->val_realisasi11 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi11}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1221,9 +1119,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -1250,9 +1145,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->val_date12 }}" class="form-control" name="val_date12" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -1263,10 +1155,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="val_rencana12" rows="3">{{ $kontrols->val_rencana12 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana12}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="val_realisasi12" rows="3">{{ $kontrols->val_realisasi12 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi12}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1290,9 +1182,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -1319,9 +1208,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->val_date13 }}" class="form-control" name="val_date13" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -1332,10 +1218,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="val_rencana13" rows="3">{{ $kontrols->val_rencana13 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana13}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="val_realisasi13" rows="3">{{ $kontrols->val_realisasi13 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi13}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1359,9 +1245,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -1388,9 +1271,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->val_date14 }}" class="form-control" name="val_date14" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -1401,10 +1281,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="val_rencana14" rows="3">{{ $kontrols->val_rencana14 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana14}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="val_realisasi14" rows="3">{{ $kontrols->val_realisasi14 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi14}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1431,9 +1311,6 @@
                     <th scope="col" width="1%">
                         <center>Status</center>
                     </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -1459,9 +1336,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->tr_date }}" class="form-control" name="tr_date" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -1472,10 +1346,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="tr_rencana" rows="3">{{ $kontrols->tr_rencana }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_rencana}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="tr_realisasi" rows="3">{{ $kontrols->tr_realisasi }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_realisasi}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1499,9 +1373,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -1528,9 +1399,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->tr_date2 }}" class="form-control" name="tr_date2" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -1541,10 +1409,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="tr_rencana2" rows="3">{{ $kontrols->tr_rencana2 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_rencana2}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="tr_realisasi2" rows="3">{{ $kontrols->tr_realisasi2 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_realisasi2}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1568,9 +1436,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -1597,9 +1462,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->tr_date3 }}" class="form-control" name="tr_date3" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -1610,10 +1472,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="tr_rencana3" rows="3">{{ $kontrols->tr_rencana3 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_rencana3}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="tr_realisasi3" rows="3">{{ $kontrols->tr_realisasi3 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_realisasi3}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1637,9 +1499,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -1666,9 +1525,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->tr_date4 }}" class="form-control" name="tr_date4" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -1679,10 +1535,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="tr_rencana4" rows="3">{{ $kontrols->tr_rencana4 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_rencana4}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="tr_realisasi4" rows="3">{{ $kontrols->tr_realisasi4 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_realisasi4}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1706,9 +1562,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -1735,9 +1588,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->tr_date5 }}" class="form-control" name="tr_date5" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -1748,10 +1598,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="tr_rencana5" rows="3">{{ $kontrols->tr_rencana5 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_rencana5}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="tr_realisasi5" rows="3">{{ $kontrols->tr_realisasi5 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_realisasi5}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1775,9 +1625,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -1804,9 +1651,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->tr_date6 }}" class="form-control" name="tr_date6" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -1817,10 +1661,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="tr_rencana6" rows="3">{{ $kontrols->tr_rencana6 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_rencana6}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="tr_realisasi6" rows="3">{{ $kontrols->tr_realisasi6 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_realisasi6}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1847,9 +1691,6 @@
                     <th scope="col" width="1%">
                         <center>Status</center>
                     </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -1875,9 +1716,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->pro_date }}" class="form-control" name="pro_date" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -1888,10 +1726,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="pro_rencana" rows="3">{{$kontrols->pro_rencana}}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->pro_rencana}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="pro_realisasi" rows="3">{{$kontrols->pro_realisasi}}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->pro_realisasi}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1915,9 +1753,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -1943,9 +1778,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->pro_date2 }}" class="form-control" name="pro_date2" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -1956,10 +1788,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="pro_rencana2" rows="3">{{ $kontrols->pro_rencana2 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->pro_rencana2}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="pro_realisasi2" rows="3">{{ $kontrols->pro_realisasi2 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->pro_realisasi2}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1983,9 +1815,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -2012,9 +1841,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->pro_date3 }}" class="form-control" name="pro_date3" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -2025,10 +1851,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="pro_rencana3" rows="3">{{ $kontrols->pro_rencana3 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->pro_rencana3}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="pro_realisasi3" rows="3">{{ $kontrols->pro_realisasi3 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->pro_realisasi3}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2055,9 +1881,6 @@
                     <th scope="col" width="1%">
                         <center>Status</center>
                     </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -2083,9 +1906,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->dok_date }}" class="form-control" name="dok_date" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -2096,10 +1916,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="dok_rencana" rows="3">{{ $kontrols->dok_rencana }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_rencana}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="dok_realisasi" rows="3">{{ $kontrols->dok_realisasi }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_realisasi}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2123,9 +1943,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -2152,9 +1969,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->dok_date2 }}" class="form-control" name="dok_date2" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -2165,10 +1979,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="dok_rencana2" rows="3">{{ $kontrols->dok_rencana2 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_rencana2}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="dok_realisasi2" rows="3">{{ $kontrols->dok_realisasi2 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_realisasi2}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2192,9 +2006,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -2221,9 +2032,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->dok_date3 }}" class="form-control" name="dok_date3" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -2234,10 +2042,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="dok_rencana3" rows="3">{{ $kontrols->dok_rencana3 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_rencana3}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="dok_realisasi3" rows="3">{{ $kontrols->dok_realisasi3 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_realisasi3}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2261,9 +2069,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -2290,9 +2095,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->dok_date4 }}" class="form-control" name="dok_date4" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -2303,10 +2105,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="dok_rencana4" rows="3">{{ $kontrols->dok_rencana4 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_rencana4}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="dok_realisasi4" rows="3">{{ $kontrols->dok_realisasi4 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_realisasi4}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2330,9 +2132,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -2359,9 +2158,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->dok_date5 }}" class="form-control" name="dok_date5" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -2372,10 +2168,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="dok_rencana5" rows="3">{{ $kontrols->dok_rencana5 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_rencana5}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="dok_realisasi5" rows="3">{{ $kontrols->dok_realisasi5 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_realisasi5}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2399,9 +2195,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -2428,9 +2221,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->dok_date6 }}" class="form-control" name="dok_date6" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -2441,10 +2231,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="dok_rencana6" rows="3">{{ $kontrols->dok_rencana6 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_rencana6}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="dok_realisasi6" rows="3">{{ $kontrols->dok_realisasi6 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_realisasi6}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2468,9 +2258,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -2497,9 +2284,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->dok_date7 }}" class="form-control" name="dok_date7" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -2510,10 +2294,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="dok_rencana7" rows="3">{{ $kontrols->dok_rencana7 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_rencana7}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="dok_realisasi7" rows="3">{{ $kontrols->dok_realisasi7 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_realisasi7}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2537,9 +2321,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -2566,9 +2347,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->dok_date8 }}" class="form-control" name="dok_date8" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -2579,10 +2357,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="dok_rencana8" rows="3">{{ $kontrols->dok_rencana8 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_rencana8}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="dok_realisasi8" rows="3">{{ $kontrols->dok_realisasi8 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_realisasi8}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2606,9 +2384,6 @@
                     </th>
                     <th scope="col" width="1%">
                         <center>Status</center>
-                    </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
                     </th>
                 </tr>
             </thead>
@@ -2635,9 +2410,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->dok_date9 }}" class="form-control" name="dok_date9" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -2648,10 +2420,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="dok_rencana9" rows="3">{{ $kontrols->dok_rencana9 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_rencana9}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="dok_realisasi9" rows="3">{{ $kontrols->dok_realisasi9 }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_realisasi9}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2678,9 +2450,6 @@
                     <th scope="col" width="1%">
                         <center>Status</center>
                     </th>
-                    <th scope="col" width="5%">
-                        <center>Tanggal Selesai</center>
-                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -2706,9 +2475,6 @@
                             <label class="form-check-label">Pending</label>
                         </div>
                     </td>
-                    <td class="text-center" width="3%">
-                        <input type="date" value="{{ $kontrols->sis_date }}" class="form-control" name="sis_date" width="3%">
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -2719,10 +2485,10 @@
             </thead>
             <tbody>
                 <td>
-                    <textarea class="form-control" name="sis_rencana">{{ $kontrols->sis_rencana }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->sis_rencana}}" width="3%">
                 </td>
                 <td>
-                    <textarea class="form-control" name="sis_realisasi">{{ $kontrols->sis_realisasi }}</textarea>
+                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->sis_realisasi}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2752,6 +2518,32 @@
                             </div>
                         </div>
                     </td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold"> Catatan :</td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea class="form-control" name="kop_tambahan" rows="3">{{$kontrols->kop_tambahan}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    @foreach($files as $file)
+                    @if($file->kop_files)
+                    <td>
+                        <div class="form-group">
+                            <label class="font-weight-bold">Masukan File / Dokumen (*Jika Diperlukan)</label>
+                            <input name="kop_files" type="file" class="form-control-file @error('kop_files') is-invalid @enderror"> <p class="text-danger mt-1" style="font-size: 14px">Max: 2MB | PDF / JPG/ JPEG / PNG</p>
+                        </div>
+                        {{$file->kop_files}}
+                        @error('kop_files')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>*File tidak sesuai dengan Ketentuan!</strong>
+                        </span>
+                        @enderror
+                    </td>
+                    @endif
+                    @endforeach
                 </tr>
             </tbody>
         </table>

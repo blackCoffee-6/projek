@@ -94,19 +94,26 @@
                     @foreach($kontrols as $kontrol)
                         @if($fup->id == $kontrol->fup_id)
                         <?php $mitigasi = $kontrol->hasil_mitigasi; $date = $kontrol->hasil_mitigasi_date;?>
-                            @if($mitigasi OR $date)
-                                @if(!$mitigasi)
-                                    <a href="/Edit/KP/{{$kontrol->id}}" class="btn btn-primary my-2 my-sm-0"><i class="fa fa-folder"></i>  Edit</a>
-                                @elseif($mitigasi OR $date)
-                                    <a href="/Baca-KontrolPerubahan/{{$kontrol->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
-                                @endif
+                            @if(!$mitigasi)
+                                <a href="/Edit/KP/{{$kontrol->id}}" class="btn btn-primary my-2 my-sm-0"><i class="fa fa-folder"></i>  Edit</a>
+                            @elseif($mitigasi OR $date)
+                                <a href="/Baca-KontrolPerubahan/{{$kontrol->id}}" class="btn btn-success my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
                             @endif
                         @endif
                     @endforeach
                     </td>
                     @else
                     @endif
-                    <td></td>
+                    <td>
+                        @foreach($files as $f)
+                            @foreach($kontrols as $kontrol)
+                                @if($f->kontrol_id == $kontrol->id)
+                                <!-- button masih berantakan -->
+                                    <a href="/kop file/{{$f->kop_files}}" target="_blank"  class="btn btn-success my-2 my-sm-0 rounded" type="submit"><i class="fa fa-eye"></i> Lihat</a>   
+                                @endif
+                            @endforeach
+                        @endforeach
+                    </td>
                 </tr>
             @endforeach
             </tbody>

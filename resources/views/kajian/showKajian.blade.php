@@ -75,21 +75,36 @@
                                 @endif
                             @endif
                         </td>
+                        <!-- button masih berantakan -->
                         @if(Auth::user()->role == 'Admin')
                         <td class="text-center">
-                        <?php $flag = 0; $status = '';?>
+                        <?php $status = '';?>
                         @foreach($kajians as $kajian)
                             @if($fup->id == $kajian->fup_id)
-                                <?php $flag++; $status = $kajian->ch_status?>
+                                <?php $status = $kajian->ch_status?>
                                 @if($status)
-                                <a href="/Baca-kajian/{{$kajian->id}}" class="btn btn-success rounded my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
+                                    <a href="/Baca-kajian/{{$kajian->id}}" class="btn btn-success rounded my-2 my-sm-0"><i class="fa fa-folder"></i>  Lihat</a>
                                 @else
                                 @endif
                             @endif
                         @endforeach
                         </td>
                         @endif
-                        <td></td>
+                        <td>
+                            <!-- button masih berantakan -->
+                            <?php $flag = 0;?>
+                            @foreach($files as $f)
+                                @foreach($kajians as $kajian)
+                                    @if($kajian->id == $f->kajian_id)
+                                        <?php $flag++?>
+                                    @endif
+                                @endforeach
+                                    @if($f->kj_files)
+                                        <a href="/kajian file/{{$f->kj_files}}" target="_blank"  class="btn btn-success my-2 my-sm-0 rounded" type="submit"><i class="fa fa-eye"></i> Lihat</a>
+                                    @else
+                                    @endif
+                            @endforeach
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

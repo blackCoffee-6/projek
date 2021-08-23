@@ -13,4 +13,8 @@ class KontrolPerubahan extends Model
     public function FUP(){
         return $this->hasOne(FUP::class);
     }
+    
+    public function KopFiles(){
+        return $this->hasOne(KopFile::class);
+    }
 }

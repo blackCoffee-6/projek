@@ -19,9 +19,6 @@
             <th scope="col" width="1%">
                 <center>Status</center>
             </th>
-            <th scope="col" width="5%">
-                <center>Tanggal Selesai</center>
-            </th>
         </tr>
     </thead>
     <tbody>
@@ -46,9 +43,6 @@
                     <label class="form-check-label">Pending</label>
                 </div>
             </td>
-            <td class="text-center" width="3%">
-                <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$date}}" width="3%">
-            </td>
         </tr>
     </tbody>
 </table>
@@ -59,10 +53,10 @@
     </thead>
     <tbody>
         <td>
-            <textarea class="form-control" id="{{$rencanaid}}" name="{{$rencana}}" rows="3"></textarea>
+            <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$rencana}}" id="{{$rencanaid}}" width="3%">
         </td>
         <td>
-            <textarea class="form-control" id="{{$realisasiid}}" name="{{$realisasi}}" rows="3"></textarea>
+            <input type="date" value="{{ date('Y-m-d') }}" class="form-control" id="{{$realisasiid}}" name="{{$realisasi}}" width="3%">
         </td>
     </tbody>
 </table>

@@ -111,7 +111,8 @@ class FUPController extends Controller
         $user = User::all();
         $bidang = Bidang::all();
         $bidang2 = Bidang::all();
-        return view('FUP.edit', compact('fup', 'user', 'bidang','bidang2'));
+        $files = File::where('fup_id', $id)->get();
+        return view('FUP.edit', compact('fup', 'user', 'bidang','bidang2','files'));
     }
 
     public function update(Request $request, $id)

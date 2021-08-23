@@ -153,12 +153,22 @@
                 </tbody>
                 <thead>
                     <tr>
+                    @foreach($files as $file)
+                    @if($file->file)
                         <td>
                             <div class="form-group">
                                 <label for="exampleFormControlFile1" class="font-weight-bold">Masukan File / Dokumen (*Jika diperlukan)</label>
                                 <input name="file" type="file" class="form-control-file" value="{{$fup->file}}">
                             </div>
+                            {{$file->file}}
+                            @error('file')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>*File tidak sesuai dengan Ketentuan!</strong>
+                            </span>
+                            @enderror
                         </td>
+                    @endif
+                    @endforeach
                     </tr>
                 </thead>
                 <tbody>

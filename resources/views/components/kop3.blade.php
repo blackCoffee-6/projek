@@ -16,9 +16,6 @@
                     </div>
                 </center>
             </th>
-            <th scope="col" width="1%">
-                <center>Status</center>
-            </th>
         </tr>
     </thead>
     <tbody>
@@ -27,22 +24,12 @@
             <td align="justify">{{$kategori}}</td>
             <td>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="{{$tlp}}" id="{{$tlpid}}" value="{{$tlpval}}">
-                    <label class="form-check-label" name="">{{$tlplabel}}</label>
+                    <input type="checkbox" name="{{$tlp}}" id="{{$tlpid}}" value="{{$tlpval}}">
+                    <label><input type="text" name="{{$tlpinput}}" class="form-control mt-1"></label>
                 </div>
             </td>
             <td><input type="text" class="form-control" name="{{$pic}}" id="{{$picid}}"></td>
             <td><input type="number" class="form-control" name="{{$dok}}" id="{{$dokid}}"></td>
-            <td>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="{{$stat}}" id="{{$statid}}" value="closed">
-                    <label class="form-check-label">Closed</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="{{$stat2}}" id="{{$statid2}}" value="pending">
-                    <label class="form-check-label">Pending</label>
-                </div>
-            </td>
         </tr>
     </tbody>
 </table>

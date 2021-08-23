@@ -5,7 +5,7 @@
     <h1 class="display-5 mx-5 text-center">
         Kajian Perubahan
     </h1>
-    <form action="/Store/Kajian/{{$fup->id}}" method="POST">
+    <form action="/Store/Kajian/{{$fup->id}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="container my-4">
         <table class="table table-bordered my-3">
@@ -589,6 +589,25 @@
             </tbody>
         </table>
         <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Masukan File / Dokumen (*Jika Diperlukan)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input name="kajian_files" type="file" class="form-control-file @error('kajian_files') is-invalid @enderror"> <p class="text-danger mt-1" style="font-size: 14px">Max: 2MB | PDF / JPG/ JPEG / PNG</p>
+                        @error('kajian_files')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>*File tidak sesuai dengan Ketentuan!</strong>
+                        </span>
+                        @enderror
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
             <tr>
                 <th>D. Penilaian Risiko Mutu</th>
             </tr>
@@ -976,19 +995,6 @@
                 <tr>
                     <td>
                         <textarea class="form-control" rows="3" name="kj_tambahan">{{old('catatan')}}</textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="form-group">
-                            <label class="font-weight-bold">Masukan File / Dokumen (*Jika Diperlukan)</label>
-                            <input name="file" type="file" class="form-control-file @error('file') is-invalid @enderror"><p class="text-danger mt-1" style="font-size: 14px">Max: 2MB | PDF / JPG / JPEG / PNG</p>
-                        </div>
-                        @error('file')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>*File tidak sesuai dengan Ketentuan!</strong>
-                        </span>
-                        @enderror
                     </td>
                 </tr>
             </tbody>

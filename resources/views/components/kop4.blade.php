@@ -4,18 +4,6 @@
             <th scope="col" width="5%" align="justify">Kategori :</th>
             <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
             <th scope="col" width="7%"><center> PIC</center></th>
-            <th scope="col" width="5%">
-                <center>
-                    <div class="row">
-                        <div class="col-md-12">
-                            No.
-                        </div>
-                        <div class="col-md-12">
-                            Dokumen
-                        </div>
-                    </div>
-                </center>
-            </th>
             <th scope="col" width="1%">
                 <center>Status</center>
             </th>
@@ -28,11 +16,10 @@
             <td>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="{{$tlp}}" id="{{$tlpid}}" value="{{$tlpval}}">
-                    <label class="form-check-label" name="">{{$tlplabel}}</label>
+                    <label class="form-check-label"><input type="text" name="{{$tlptext}}" class="form-control mt-1"></label>
                 </div>
             </td>
             <td><input type="text" class="form-control" name="{{$pic}}" id="{{$picid}}"></td>
-            <td><input type="number" class="form-control" name="{{$dok}}" id="{{$dokid}}"></td>
             <td>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="{{$stat}}" id="{{$statid}}" value="closed">
