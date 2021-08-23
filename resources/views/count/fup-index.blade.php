@@ -29,7 +29,6 @@ table.table-bordered > tbody > tr > td{
                     <th scope="col">Nomor Usulan</th>
                     <th scope="col">Tanggal Usulan</th>
                     <th scope="col" width="20%">Usulan Perubahan</th>
-                    <th scope="col" width="10%">Tanggal Berlaku</th>
                     <th scope="col">Status</th>
                 </tr>
                 </thead>
@@ -45,7 +44,6 @@ table.table-bordered > tbody > tr > td{
                         <td>
                             {{$fup->ket_usulan}}
                         </td>
-                        <td>12/05/2021</td>
                         <td class="text-center">
                             @if($fup->status == 'Closed')
                                 <span class="badge rounded-pill bg-success text-light">Closed</span>

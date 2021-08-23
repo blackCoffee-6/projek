@@ -88,13 +88,13 @@
                         </td>
                         @endif
                         <td>
-                            <!-- button masih berantakan -->
-                            <?php $status = '';?>
+                            <!-- coba di cek lagi -->
                             @foreach($kajians as $kajian)
-                                @if($kajian->kj_files)
-                                    <a href="/kajian file/{{$kajian->kj_files}}" target="_blank"  class="btn btn-success my-2 my-sm-0 rounded" type="submit"><i class="fa fa-eye"></i> Lihat</a>    
-                                @elseif(!$kajian->kj_files)
-
+                                @if($kajian->fup_id == $fup->id)
+                                    @if($kajian->kj_files)
+                                        <a href="/kajian file/{{$kajian->kj_files}}" target="_blank"  class="btn btn-success my-2 my-sm-0 rounded" type="submit"><i class="fa fa-eye"></i> Lihat</a>    
+                                    @else
+                                    @endif
                                 @endif
                             @endforeach
                         </td>

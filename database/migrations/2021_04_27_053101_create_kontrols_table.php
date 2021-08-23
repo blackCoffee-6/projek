@@ -31,6 +31,7 @@ class CreateKontrolsTable extends Migration
             $table->text('ru_input2')->nullable();
             $table->text('ru_pic2')->nullable();
             $table->text('ru_dok2')->nullable();
+            $table->text('ru_status2')->nullable();
             $table->date('ru_rencana2')->nullable();
             $table->date('ru_realisasi2')->nullable();
 
@@ -306,6 +307,7 @@ class CreateKontrolsTable extends Migration
             $table->text('dok_tlp10')->nullable();
             $table->text('dok_input10')->nullable();
             $table->text('dok_pic10')->nullable();
+            $table->text('dok_dok10')->nullable();
             $table->text('dok_status10')->nullable();
             $table->date('dok_rencana10')->nullable();
             $table->date('dok_realisasi10')->nullable();

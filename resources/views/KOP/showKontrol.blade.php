@@ -105,13 +105,14 @@
                     @else
                     @endif
                     <td>
-                        @foreach($files as $f)
-                            @foreach($kontrols as $kontrol)
-                                @if($f->kontrol_id == $kontrol->id)
-                                <!-- button masih berantakan -->
-                                    <a href="/kop file/{{$f->kop_files}}" target="_blank"  class="btn btn-success my-2 my-sm-0 rounded" type="submit"><i class="fa fa-eye"></i> Lihat</a>   
+                        <!-- button masih berantakan -->
+                        @foreach($files as $file)
+                            @if($file->kontrol_id == $fup->id)
+                                @if($file->kop_files)
+                                    <a href="/kop file/{{$file->kop_files}}" target="_blank"  class="btn btn-success my-2 my-sm-0 rounded" type="submit"><i class="fa fa-eye"></i> Lihat</a>
+                                @else
                                 @endif
-                            @endforeach
+                            @endif
                         @endforeach
                     </td>
                 </tr>

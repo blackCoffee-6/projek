@@ -83,7 +83,6 @@ class ReportController extends Controller
         $user = Auth::user();
         $fups = FUP::paginate(10);
 
-
         if($request->has('search'))
         {
             $from = $request->input('from');
@@ -94,14 +93,16 @@ class ReportController extends Controller
         {
             $from = $request->input('from');
             $to = $request->input('to');
-            return Excel::download(new RekapExport($from, $to), 'Excel-reports.xlsx');
+
+            $kajians = Kajian::all();
+            
+            $ket_up = $kajians->ket_up;
+            $ket_ups = explode(",", $ket_up);
+            $count_ketups = count($ket_ups);
+
+            return Excel::download(new RekapExport($from, $to, $kajians, $ket_ups, $count_ketups), 'Excel-reports.xlsx');
         }
 
         return view('report.import', compact('fups', 'apps', 'user'));
-    }
-
-    public function rekapExport()
-    {
-
     }
 }
