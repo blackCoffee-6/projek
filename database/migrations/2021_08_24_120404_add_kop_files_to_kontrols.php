@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKopFilesTable extends Migration
+class AddKopFilesToKontrols extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateKopFilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('kop_files', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('kontrol_id')->constrained()
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
+        Schema::table('kontrols', function (Blueprint $table) {
             $table->string('kop_files')->nullable();
-            $table->timestamps();
         });
     }
 
@@ -30,6 +25,8 @@ class CreateKopFilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kop_files');
+        Schema::table('kontrols', function (Blueprint $table) {
+            $table->dropColumn('kop_files');
+        });
     }
 }

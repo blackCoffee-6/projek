@@ -88,11 +88,10 @@
                         </td>
                         @endif
                         <td>
-                            <!-- coba di cek lagi -->
                             @foreach($kajians as $kajian)
                                 @if($kajian->fup_id == $fup->id)
                                     @if($kajian->kj_files)
-                                        <a href="/kajian file/{{$kajian->kj_files}}" target="_blank"  class="btn btn-success my-2 my-sm-0 rounded" type="submit"><i class="fa fa-eye"></i> Lihat</a>    
+                                        <a href="/kajian files/{{$kajian->kj_files}}" target="_blank"  class="btn btn-success my-2 my-sm-0 rounded" type="submit"><i class="fa fa-eye"></i> Lihat</a>    
                                     @else
                                     @endif
                                 @endif

@@ -597,8 +597,8 @@
             <tbody>
                 <tr>
                     <td>
-                        <input name="kajian_files" type="file" class="form-control-file @error('kajian_files') is-invalid @enderror"> <p class="text-danger mt-1" style="font-size: 14px">Max: 2MB | PDF / JPG/ JPEG / PNG</p>
-                        @error('kajian_files')
+                        <input name="kj_files" type="file" class="form-control-file @error('kj_files') is-invalid @enderror"> <p class="text-danger mt-1" style="font-size: 14px">Max: 2MB | PDF / JPG/ JPEG / PNG</p>
+                        @error('kj_files')
                         <span class="invalid-feedback" role="alert">
                             <strong>*File tidak sesuai dengan Ketentuan!</strong>
                         </span>
