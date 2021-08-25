@@ -29,7 +29,7 @@
                 </div>
             </td>
             <td><input type="text" class="form-control" name="{{$pic}}" id="{{$picid}}"></td>
-            <td><input type="number" class="form-control" name="{{$dok}}" id="{{$dokid}}"></td>
+            <td><input type="text" class="form-control" name="{{$dok}}" id="{{$dokid}}"></td>
         </tr>
     </tbody>
 </table>
@@ -40,10 +40,10 @@
     </thead>
     <tbody>
         <td>
-            <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$rencana}}" id="{{$rencanaid}}" width="3%">
+            <input type="date" class="form-control" name="{{$rencana}}" id="{{$rencanaid}}" width="3%">
         </td>
         <td>
-            <input type="date" value="{{ date('Y-m-d') }}" class="form-control" id="{{$realisasiid}}" name="{{$realisasi}}" width="3%">
+            <input type="date" class="form-control" id="{{$realisasiid}}" name="{{$realisasi}}" width="3%">
         </td>
     </tbody>
 </table>

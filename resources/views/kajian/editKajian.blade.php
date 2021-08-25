@@ -936,14 +936,13 @@
                     </td>
                 </tr>
                 <tr>
-                    @foreach($files as $file)
-                    @if($file->kj_files)
+                    @if($kajians->kj_files)
                     <td>
                         <div class="form-group">
                             <label class="font-weight-bold">Masukan File / Dokumen (*Jika Diperlukan)</label>
                             <input name="kj_files" type="file" class="form-control-file @error('kj_files') is-invalid @enderror"> <p class="text-danger mt-1" style="font-size: 14px">Max: 2MB | PDF / JPG/ JPEG / PNG</p>
                         </div>
-                        {{$file->kj_files}}
+                        {{$kajians->kj_files}}
                         @error('kj_files')
                         <span class="invalid-feedback" role="alert">
                             <strong>*File tidak sesuai dengan Ketentuan!</strong>
@@ -951,7 +950,6 @@
                         @enderror
                     </td>
                     @endif
-                    @endforeach
                 </tr>
             </tbody>
         </table>
