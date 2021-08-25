@@ -71,8 +71,12 @@
                             <li><i class="fa fa-circle-o"></i><a href="/Report/KontrolPerubahan">Kontrol Perubahan </a></li>
                         </ul>
                     </li>
-                    <li class="active">
-                        <a href="/Report/LihatRekap"> <i class="menu-icon fa fa-gears (alias)"></i>Rekaptulasi UP</a>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-gears (alias)"></i>Rekaptulasi</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-circle-o"></i><a href="/Report/LihatRekap">Usulan Perubahan </a></li>
+                            <li><i class="fa fa-circle-o"></i><a href="/Report/RekapKOP">Kontrol Perubahan </a></li>
+                        </ul>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
