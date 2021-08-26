@@ -105,4 +105,35 @@ class ReportController extends Controller
 
         return view('report.import', compact('fups', 'apps', 'user'));
     }
+
+    public function rekapKopIndex(Request $request)
+    {
+        $user = Auth::user();
+        $kontrols = KontrolPerubahan::all();
+
+        $kajians = Kajian::where('ch_status', 'like', 'disetujui')->get();
+        $fup_id = '';
+        foreach($kajians as $kajian){
+            $fup_id .= $kajian->fup_id.',';
+        }
+        $arrFupId = explode(',', $fup_id);
+        $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
+
+        if($request->has('search'))
+        {
+            $from = $request->input('from');
+            $to = $request->input('to');
+
+            $kop = Kajian::whereBetween('aq_date', [$from, $to])->get();
+
+            return view('report.import-kop', compact('kontrols', 'fups', 'kajians'));
+        }elseif($request->has('exportExcel'))
+        {
+            $from = $request->input('from');
+            $to = $request->input('to');
+
+            // return Excel::download(new KopExport($from, $to), 'Excel-Kop.xlsx');
+        }
+        return view('report.import-kop', compact('kontrols', 'fups', 'kajians'));
+    }
 }

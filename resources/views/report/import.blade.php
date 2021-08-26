@@ -35,8 +35,8 @@ table.table-bordered > tbody > tr > td{
                     <button type="submit" class="btn btn-primary rounded" name="search" >Search</button>
                 </form>
                     <button type="submit" class="btn btn-success rounded" name="exportExcel" >Export Excel</button>
-                </div>
-            </div>
+        </div>
+    </div>
         
             <table class="table table-bordered my-3">
                 <thead class="thead-dark">
@@ -64,9 +64,9 @@ table.table-bordered > tbody > tr > td{
                         <td class="text-center">
                         <?php $flag = 0; $revisi = 0; ?>
                         @foreach($apps as $app)
-                        @if($app->fup_id == $fup->id)
-                        <?php $flag = 1; ?>
-                        @endif
+                            @if($app->fup_id == $fup->id)
+                            <?php $flag = 1; ?>
+                            @endif
                             @if($app->fup_id == $fup->id AND $app->decision == "setuju")
                                     <span class="badge rounded-pill bg-success text-light">Approved</span>
 
@@ -79,7 +79,7 @@ table.table-bordered > tbody > tr > td{
                             @endif
                         @endforeach
                         @if($flag == 0)
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
                         @endif
                         </td>
                         @endif
