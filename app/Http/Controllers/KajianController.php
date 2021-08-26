@@ -262,6 +262,7 @@ class KajianController extends Controller
             
             $input['kj_files'] = $fileName;
         }
+        // dd($input);
         $kajians->fill($input)->save();
         return redirect('/List/Kajian')->with('alert', "Kajian Updated Successfully!");
     }

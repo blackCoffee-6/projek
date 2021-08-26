@@ -139,6 +139,7 @@ class KopController extends Controller
         {
             $fileName = $request->kop_files->getClientOriginalName() . '-' . time() . '-' . $request->kop_files->extension();
             $request->kop_files->move(public_path('kop files'), $fileName);
+            // $request->file('kop_files')->storeAs('public/kontrol files', $fileName);
 
             $input['kop_files'] = $fileName;
         }
@@ -162,6 +163,9 @@ class KopController extends Controller
         
         $ru_tlp = $kontrols->ru_tlp;
         $ru_tlps = explode("," , $ru_tlp);
+
+        $ru_tlp2 = $kontrols->ru_tlp2;
+        $ru_tlps2 = explode("," , $ru_tlp2);
         
         $ri_tlp = $kontrols->ri_tlp;
         $ri_tlps = explode("," , $ri_tlp);
@@ -274,22 +278,31 @@ class KopController extends Controller
         $dok_tlp9 = $kontrols->dok_tlp9;
         $dok_tlps9 = explode("," , $dok_tlp9);
         
+        $dok_tlp10 = $kontrols->dok_tlp10;
+        $dok_tlps10 = explode("," , $dok_tlp10);
+        
+        $dk_tlp = $kontrols->dk_tlp;
+        $dk_tlps = explode("," , $dk_tlp);
+        
         $sis_tlp = $kontrols->sis_tlp;
         $sis_tlps = explode("," , $sis_tlp);
+        
         
         $dis_setuju = $kontrols->dis_setuju;
         $dis_setujus = explode("," , $dis_setuju);
 
         return view('KOP.edit-kop', compact('kontrols',
-        'ru_tlps', 'ri_tlps', 'st_tlps', 'st_tlps2',
+        'ru_tlps', 'ri_tlps', 
+        'ru_tlps2',
+        'st_tlps', 'st_tlps2',
         'me_tlps', 'me_tlps2',
         'val_tlps', 'val_tlps2', 'val_tlps3', 'val_tlps4', 'val_tlps5', 'val_tlps6',
         'val_tlps7', 'val_tlps8', 'val_tlps9', 'val_tlps10', 'val_tlps11', 'val_tlps12',
         'val_tlps13', 'val_tlps14',
         'tr_tlps', 'tr_tlps2', 'tr_tlps3', 'tr_tlps4', 'tr_tlps5', 'tr_tlps6',
         'pro_tlps', 'pro_tlps2', 'pro_tlps3',
-        'dok_tlps', 'dok_tlps2', 'dok_tlps3', 'dok_tlps4', 'dok_tlps5', 'dok_tlps6', 'dok_tlps7', 'dok_tlps8', 'dok_tlps9',
-        'sis_tlps', 'dis_setujus'));
+        'dok_tlps', 'dok_tlps2', 'dok_tlps3', 'dok_tlps4', 'dok_tlps5', 'dok_tlps6', 'dok_tlps7', 'dok_tlps8', 'dok_tlps9','dok_tlps10',
+        'dk_tlps','sis_tlps', 'dis_setujus'));
     }
     
     public function update(Request $request, $kontrol_id)
@@ -312,9 +325,10 @@ class KopController extends Controller
         
         $input = $request->all();
         if($request->hasFile('kop_files'))
-        {
+        {   
             $fileName = $request->kop_files->getClientOriginalName() . '-' . time() . '-' . $request->kop_files->extension();
             $request->kop_files->move(public_path('kop files'), $fileName);
+            // $request->file('kop_files')->storeAs('public/kontrol files', $fileName);
             
             $input['kop_files'] = $fileName;
         }

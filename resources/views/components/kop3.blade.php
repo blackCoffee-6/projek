@@ -16,6 +16,9 @@
                     </div>
                 </center>
             </th>
+            <th scope="col" width="1%">
+                <center>Status</center>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -30,6 +33,16 @@
             </td>
             <td><input type="text" class="form-control" name="{{$pic}}" id="{{$picid}}"></td>
             <td><input type="text" class="form-control" name="{{$dok}}" id="{{$dokid}}"></td>
+            <td>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{$stat}}" id="{{$statid}}" value="closed">
+                    <label class="form-check-label">Closed</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{$stat2}}" id="{{$statid2}}" value="pending">
+                    <label class="form-check-label">Pending</label>
+                </div>
+            </td>
         </tr>
     </tbody>
 </table>

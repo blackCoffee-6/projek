@@ -76,10 +76,74 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->ru_rencana}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->ru_rencana}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->ru_realisasi}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->ru_realisasi}}" width="3%">
+                </td>
+            </tbody>
+        </table>
+        {{-- REGULASI 2--}}
+        <table class="table table-bordered my-3">
+            <thead>
+            <tr>
+                <th scope="col" width="5%" align="justify">Kategori :</th>
+                <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
+                <th scope="col" width="7%"><center> PIC</center></th>
+                <th scope="col" width="5%">
+                    <center>
+                        <div class="row">
+                            <div class="col-md-12">
+                                No.
+                            </div>
+                            <div class="col-md-12">
+                                Dokumen
+                            </div>
+                        </div>
+                    </center>
+                </th>
+                <th scope="col" width="1%">
+                    <center>Status</center>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td align="justify"></td>
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="ru_tlp2" id="ru_tlp2" value="spip2"
+                        {{ in_array("spip2", $ru_tlps2) ? "checked" : "" }}>
+                        <label class="form-check-label"><input type="text" class="form-control" value="{{$kontrols->ru_input2}}" name="ru_input2"></label>
+                    </div>
+                </td>
+                <td><input type="text" class="form-control" name="ru_pic2" id="ru_pic2" value="{{ $kontrols->ru_pic2 }}"></td>
+                <td><input type="text" class="form-control" name="ru_dok2" id="ru_dok2" value="{{ $kontrols->ru_dok2 }}"></td>
+                <td>
+                    <div class="form-check">
+                    <input type="hidden" value="{{$kontrols->ru_status2}}" id="ru2">
+                        <input class="form-check-input" type="radio" name="ru_status2" id="ru_statusid3" value="closed">
+                        <label class="form-check-label">Closed</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="ru_status2" id="ru_statusid4" value="pending">
+                        <label class="form-check-label">Pending</label>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered my-1">
+            <thead>
+                <th>Rencana Penyelesaian :</th>
+                <th>Realisasi Penyelesaian :</th>
+            </thead>
+            <tbody>
+                <td>
+                    <input type="date" class="form-control" value="{{$kontrols->ru_rencana2}}" width="3%">
+                </td>
+                <td>
+                    <input type="date" class="form-control" value="{{$kontrols->ru_realisasi2}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -118,8 +182,8 @@
                         <label class="form-check-label">PIE / Approvable Letter</label>
                     </div>
                 </td>
-                <td><input type="text" class="form-control" name="ri_dok" id="ru_dok" value="{{ $kontrols->ri_dok }}"></td>
-                <td><input type="text" class="form-control" name="ri_dok" id="ru_dok" value="{{ $kontrols->ri_dok }}"></td>
+                <td><input type="text" class="form-control" name="ri_pic" id="ri_pic" value="{{ $kontrols->ri_pic }}"></td>
+                <td><input type="text" class="form-control" name="ri_dok" id="ri_dok" value="{{ $kontrols->ri_dok }}"></td>
                 <td>
                     <div class="form-check">
                         <input type="hidden" value="{{$kontrols->ri_status}}" id="ri">
@@ -141,10 +205,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->ri_rencana}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->ri_rencana}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->ri_realisasi}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->ri_realisasi}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -206,10 +270,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->st_rencana}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->st_rencana}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->st_realisasi}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->st_realisasi}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -269,10 +333,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->st_rencana2}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->st_rencana2}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->st_realisasi2}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->st_realisasi2}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -306,8 +370,8 @@
                     <td align="justify">Masa Edar</td>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="me_tlp" value="srdpe"
-                            {{ in_array("srdpe", $me_tlps) ? "checked" : "" }}>
+                            <input class="form-check-input" type="checkbox" name="me_tlp" value="ddp"
+                            {{ in_array("ddp", $me_tlps) ? "checked" : "" }}>
                             <label class="form-check-label">Daftar daluwarsa produk</label>
                         </div>
                     </td>
@@ -334,10 +398,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->me_rencana}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->me_rencana}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->me_realisasi}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->me_realisasi}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -375,7 +439,7 @@
                         </div>
                     </td>
                     <td><input type="text" class="form-control" name="me_pic2" value="{{ $kontrols->me_pic2 }}"></td>
-                    <td><input type="text" class="form-control" name="me_dok2" value="{{ $kontrols->me_pic2 }}"></td>
+                    <td><input type="text" class="form-control" name="me_dok2" value="{{ $kontrols->me_dok2 }}"></td>
                     <td>
                         <div class="form-check">
                         <input type="hidden" value="{{$kontrols->me_status2}}" id="me2">
@@ -397,10 +461,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->me_rencana2}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->me_rencana2}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->me_realisasi2}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->me_realisasi2}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -462,10 +526,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_rencana}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_realisasi}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -525,10 +589,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana2}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_rencana2}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi2}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_realisasi2}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -588,10 +652,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana3}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_rencana3}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi3}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_realisasi3}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -651,10 +715,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana4}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_rencana4}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi4}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_realisasi4}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -714,10 +778,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana5}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_rencana5}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi5}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_realisasi5}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -749,8 +813,8 @@
                     <td align="justify"></td>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="val_tlp6" value="lvp"
-                            {{ in_array("lvp", $val_tlps6) ? "checked" : "" }}>
+                            <input class="form-check-input" type="checkbox" name="val_tlp6" value="lvpem"
+                            {{ in_array("lvpem", $val_tlps6) ? "checked" : "" }}>
                             <label class="form-check-label">Laporan validasi pembersihan</label>
                         </div>
                     </td>
@@ -777,10 +841,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana6}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_rencana6}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi6}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_realisasi6}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -840,10 +904,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana7}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_rencana7}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi7}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_realisasi7}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -903,10 +967,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana8}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_rencana8}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi8}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_realisasi8}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -966,10 +1030,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana9}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_rencana9}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi9}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_realisasi9}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1029,10 +1093,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana10}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_rencana10}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi10}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_realisasi10}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1092,10 +1156,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana11}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_rencana11}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi11}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_realisasi11}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1155,10 +1219,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana12}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_rencana12}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi12}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_realisasi12}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1218,10 +1282,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana13}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_rencana13}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi13}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_realisasi13}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1281,10 +1345,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_rencana14}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_rencana14}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->val_realisasi14}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->val_realisasi14}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1346,10 +1410,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_rencana}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->tr_rencana}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_realisasi}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->tr_realisasi}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1409,10 +1473,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_rencana2}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->tr_rencana2}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_realisasi2}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->tr_realisasi2}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1472,10 +1536,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_rencana3}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->tr_rencana3}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_realisasi3}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->tr_realisasi3}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1535,10 +1599,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_rencana4}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->tr_rencana4}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_realisasi4}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->tr_realisasi4}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1598,10 +1662,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_rencana5}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->tr_rencana5}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_realisasi5}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->tr_realisasi5}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1661,10 +1725,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_rencana6}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->tr_rencana6}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->tr_realisasi6}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->tr_realisasi6}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1726,10 +1790,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->pro_rencana}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->pro_rencana}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->pro_realisasi}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->pro_realisasi}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1770,6 +1834,7 @@
                     <td><input type="text" name="pro_dok2" class="form-control" value="{{$kontrols->pro_dok2}}"></td>
                     <td>
                         <div class="form-check">
+                        <input type="hidden" value="{{$kontrols->pro_status2}}" id="pro2">
                             <input class="form-check-input" type="radio" name="pro_status2" id="pro_statusid3" value="closed">
                             <label class="form-check-label">Closed</label>
                         </div>
@@ -1788,10 +1853,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->pro_rencana2}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->pro_rencana2}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->pro_realisasi2}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->pro_realisasi2}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1851,10 +1916,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->pro_rencana3}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->pro_rencana3}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->pro_realisasi3}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->pro_realisasi3}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1916,10 +1981,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_rencana}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->dok_rencana}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_realisasi}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->dok_realisasi}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -1979,10 +2044,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_rencana2}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->dok_rencana2}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_realisasi2}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->dok_realisasi2}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2042,10 +2107,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_rencana3}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->dok_rencana3}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_realisasi3}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->dok_realisasi3}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2105,10 +2170,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_rencana4}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->dok_rencana4}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_realisasi4}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->dok_realisasi4}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2168,10 +2233,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_rencana5}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->dok_rencana5}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_realisasi5}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->dok_realisasi5}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2231,10 +2296,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_rencana6}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->dok_rencana6}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_realisasi6}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->dok_realisasi6}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2294,10 +2359,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_rencana7}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->dok_rencana7}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_realisasi7}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->dok_realisasi7}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2357,10 +2422,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_rencana8}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->dok_rencana8}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_realisasi8}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->dok_realisasi8}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2420,10 +2485,138 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_rencana9}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->dok_rencana9}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->dok_realisasi9}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->dok_realisasi9}}" width="3%">
+                </td>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col" width="5%" align="justify">Kategori :</th>
+                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
+                    <th scope="col" width="7%"><center> PIC</center></th>
+                    <th scope="col" width="5%">
+                        <center>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    No.
+                                </div>
+                                <div class="col-md-12">
+                                    Dokumen
+                                </div>
+                            </div>
+                        </center>
+                    </th>
+                    <th scope="col" width="1%">
+                        <center>Status</center>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td align="justify"></td>
+                    <td>
+                        <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="dok_tlp10" value="ma2"
+                            {{ in_array("ma2", $dok_tlps10) ? "checked" : "" }}>
+                            <label class="form-check-label"><input type="text" class="form-control" value="{{$kontrols->dok_input10}}" name="dok_input10"></label>
+                        </div>
+                    </td>
+                    <td><input type="text" name="dok_pic10" class="form-control" value="{{ $kontrols->dok_pic10 }}"></td>
+                    <td><input type="text" name="dok_dok10" class="form-control" value="{{ $kontrols->dok_dok10 }}"></td>
+                    <td>
+                        <div class="form-check">
+                        <input type="hidden" value="{{$kontrols->dok_status10}}" id="dok10">
+                            <input class="form-check-input" type="radio" name="dok_status10" id="dok_statusid19" value="closed">
+                            <label class="form-check-label">Closed</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="dok_status10" id="dok_statusid20" value="pending">
+                            <label class="form-check-label">Pending</label>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <thead>
+                <th>Rencana Penyelesaian :</th>
+                <th>Realisasi Penyelesaian :</th>
+            </thead>
+            <tbody>
+                <td>
+                    <input type="date" class="form-control" value="{{$kontrols->dok_rencana10}}" width="3%">
+                </td>
+                <td>
+                    <input type="date" class="form-control" value="{{$kontrols->dok_realisasi10}}" width="3%">
+                </td>
+            </tbody>
+        </table>
+        <hr>
+        <table class="table table-bordered my-3">
+            {{-- DESAIN KEMASAN --}}
+            <thead>
+                <tr>
+                    <th scope="col" width="5%" align="justify">Kategori :</th>
+                    <th scope="col" width="15%"><center> Tindak Lanjut Perubahan</center></th>
+                    <th scope="col" width="7%"><center> PIC</center></th>
+                    <th scope="col" width="5%">
+                        <center>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    No.
+                                </div>
+                                <div class="col-md-12">
+                                    Dokumen
+                                </div>
+                            </div>
+                        </center>
+                    </th>
+                    <th scope="col" width="1%">
+                        <center>Status</center>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td align="justify">Desain Kemasan</td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="dk_tlp" value="adk"
+                            {{ in_array("adk", $dk_tlps) ? "checked" : "" }}>
+                            <label class="form-check-label">Artwork Desain Kemasan</label>
+                        </div>
+                    </td>
+                    <td><input type="text" name="dk_pic" class="form-control" value="{{ $kontrols->dk_pic }}"></td>
+                    <td><input type="text" name="dk_dok" class="form-control" value="{{ $kontrols->dk_dok }}"></td>
+                    <td>
+                        <div class="form-check">
+                        <input type="hidden" value="{{ $kontrols->dk_status }}" id="dk">
+                            <input class="form-check-input" type="radio" name="dk_status" id="dk_statusid" value="closed">
+                            <label class="form-check-label">Closed</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="dk_status" id="dk_statusid2" value="pending">
+                            <label class="form-check-label">Pending</label>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <thead>
+                <th>Rencana Penyelesaian :</th>
+                <th>Realisasi Penyelesaian :</th>
+            </thead>
+            <tbody>
+                <td>
+                    <input type="date" class="form-control" value="{{$kontrols->dk_rencana}}" width="3%">
+                </td>
+                <td>
+                    <input type="date" class="form-control" value="{{$kontrols->dk_realisasi}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2485,10 +2678,10 @@
             </thead>
             <tbody>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->sis_rencana}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->sis_rencana}}" width="3%">
                 </td>
                 <td>
-                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="{{$kontrols->sis_realisasi}}" width="3%">
+                    <input type="date" class="form-control" value="{{$kontrols->sis_realisasi}}" width="3%">
                 </td>
             </tbody>
         </table>
@@ -2653,6 +2846,15 @@
     }
     else if(value === 'pending'){
         $("#ru_statusid2").attr('checked', 'checked');
+    }
+    else{}
+    
+    var value = $('#ru2').val()
+    if(value === 'closed'){
+        $("#ru_statusid3").attr('checked', 'checked');
+    }
+    else if(value === 'pending'){
+        $("#ru_statusid4").attr('checked', 'checked');
     }
     else{}
     
@@ -2995,6 +3197,24 @@
     }
     else if(value === 'pending'){
         $("#dok_statusid18").attr('checked', 'checked');
+    }
+    else{}
+    
+    var value = $('#dok10').val()
+    if(value === 'closed'){
+        $("#dok_statusid19").attr('checked', 'checked');
+    }
+    else if(value === 'pending'){
+        $("#dok_statusid20").attr('checked', 'checked');
+    }
+    else{}
+    
+    var value = $('#dk').val()
+    if(value === 'closed'){
+        $("#dk_statusid").attr('checked', 'checked');
+    }
+    else if(value === 'pending'){
+        $("#dk_statusid2").attr('checked', 'checked');
     }
     else{}
     

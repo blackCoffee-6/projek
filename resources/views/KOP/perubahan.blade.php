@@ -32,12 +32,13 @@
         rencana="ru_rencana" rencanaid="ru_rencana"
         realisasi="ru_realisasi" realisasiid="ru_realisasi"
         />
-        // lupa ngasih status gue nya wkwk
         {{-- REGULASI 2 --}}
         <x-kop3 kategori="" 
-        tlp="ru_tlp2" tlpid="ru_tlp2" tlpval="spip" tlpinput="ru_input2" 
+        tlp="ru_tlp2" tlpid="ru_tlp2" tlpval="spip2" tlpinput="ru_input2" 
         pic="ru_pic2" picid="ru_pic2" 
         dok="ru_dok2" dokid="ru_dok2"
+        stat="ru_status2" statid="ru_statusid"
+        stat2="ru_status2" statid2="ru_statusid2"
         rencana="ru_rencana2" rencanaid="ru_rencana2"
         realisasi="ru_realisasi2" realisasiid="ru_realisasi2"
         />
@@ -77,7 +78,7 @@
         <hr>
         {{-- MASA EDAR  --}}
         <x-kop kategori="Masa Edar" 
-        tlp="me_tlp" tlpid="me_tlp" tlpval="srdpe" tlplabel="Daftar daluwarsa produk" 
+        tlp="me_tlp" tlpid="me_tlp" tlpval="ddp" tlplabel="Daftar daluwarsa produk" 
         pic="me_pic" picid="me_pic" 
         dok="me_dok" dokid="me_dok"
         stat="me_status" statid="me_statusid"
@@ -153,7 +154,7 @@
         
         <x-kop kategori="" 
         tlp="val_tlp6" tlpid="val_tlp6" 
-        tlpval="lvp" tlplabel="Laporan validasi pembersihan" 
+        tlpval="lvpem" tlplabel="Laporan validasi pembersihan" 
         pic="val_pic6" picid="val_pic6" 
         dok="val_dok6" dokid="val_dok6"
         stat="val_status6" statid="val_statusid11"
@@ -433,10 +434,10 @@
         realisasi="dok_realisasi9" realisasiid="dok_realisasi9"
         />
         
-        //ealah lupa di tambahin no dokumennya
-        <x-kop4 kategori="" 
-        tlp="dok_tlp10" tlpid="dok_tlp10" tlpval="ma" tlptext="dok_input10"
+        <x-kop2 kategori="" 
+        tlp="dok_tlp10" tlpid="dok_tlp10" tlpval="ma2" tlplabel="" tlptext="dok_input10"
         pic="dok_pic10" picid="dok_pic10" 
+        dok="dok_dok10" dokid="dok_dok10" 
         stat="dok_status10" statid="dok_status19"
         stat2="dok_status10" statid2="dok_status20"
         rencana="dok_rencana10" rencanaid="dok_rencana10"
@@ -446,7 +447,7 @@
 
         {{-- DESAIN KEMASAN --}}
         <x-kop kategori="Desain Kemasan" 
-        tlp="dk_tlp" tlpid="dk_tlp" tlpval="sppe" tlplabel="Artwork Desain Kemasan" 
+        tlp="dk_tlp" tlpid="dk_tlp" tlpval="adk" tlplabel="Artwork Desain Kemasan" 
         pic="dk_pic" picid="dk_pic" 
         dok="dk_dok" dokid="dk_dok" 
         stat="dk_status" statid="dk_statusid"

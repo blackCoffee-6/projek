@@ -538,6 +538,22 @@
             </tbody>
         </table>
         <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    @if($kajians->kj_files)
+                    <td>
+                        <div class="form-group">
+                            <label class="font-weight-bold">File / Dokumen</label>
+                        </div>
+                        {{$kajians->kj_files}}
+                    </td>
+                    @else
+                    <td>Tidak ada</td>
+                    @endif
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
             <tr>
                 <th>D. Penilaian Risiko Mutu</th>
             </tr>
