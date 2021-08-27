@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class BidangController extends Controller
 {
-    //untuk melihat list bidang
     public function index(){
         $bidang = Bidang::all();
         return view('bidang.index', compact('bidang'));
@@ -19,6 +18,10 @@ class BidangController extends Controller
     }
 
     public function store(Request $request){
+        $request->validate([
+            'name' => 'required'
+        ]);
+        
         Bidang::create($request->all());
         return redirect('/Bidang')->with('alert', "Bidang Created Successfully!");
     }
@@ -36,6 +39,5 @@ class BidangController extends Controller
         $bidang->fill($input)->save();
         return redirect('/Bidang')->with('alert', "Bidang Updated Successfully!");
     }
-
 
 }
