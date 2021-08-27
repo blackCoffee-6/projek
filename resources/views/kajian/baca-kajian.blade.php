@@ -968,8 +968,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Dikaji oleh</td>
-                    <td>QA Specialist</td>
+                    <td>Disetujui oleh</td>
+                    <td>Manajer QA</td>
                     <td>
                         <input type="text" class="form-control" placeholder="Sertakan Nama" id="aq_nama" name="aq_nama" value="{{$kajians->aq_nama}}" disabled>
                     </td>

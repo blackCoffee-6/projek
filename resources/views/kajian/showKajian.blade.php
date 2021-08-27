@@ -87,7 +87,7 @@
                         @endforeach
                         </td>
                         @endif
-                        <td>
+                        <td class="text-center">
                             @foreach($kajians as $kajian)
                                 @if($kajian->fup_id == $fup->id)
                                     @if($kajian->kj_files)

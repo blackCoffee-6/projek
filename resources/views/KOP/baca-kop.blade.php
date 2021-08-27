@@ -70,12 +70,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->ru_rencana}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->ru_realisasi}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->ru_rencana}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->ru_realisasi}}" disabled></td>
             </tbody>
         </table>
         {{-- REGULASI 2--}}
@@ -112,10 +108,10 @@
                             <label class="form-check-label"><input type="text" class="form-control" value="{{$kontrols->ru_input2}}" disabled></label>
                         </div>
                     </td>
-                    <td><input type="text" class="form-control" value="{{$kontrols->ru_pic}}" disabled></td>
-                    <td><input type="text" class="form-control" value="{{$kontrols->ru_dok}}" disabled></td>
+                    <td><input type="text" class="form-control" value="{{$kontrols->ru_pic2}}" disabled></td>
+                    <td><input type="text" class="form-control" value="{{$kontrols->ru_dok2}}" disabled></td>
                     <td class="text-center">
-                        @if($kontrols->ru_status == "closed")
+                        @if($kontrols->ru_status2 == "closed")
                             <span class="badge rounded-pill bg-danger text-light">Closed</span>
                         @else
                             <span class="badge rounded-pill bg-secondary text-light">Pending</span>
@@ -130,12 +126,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->ru_rencana}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->ru_realisasi}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->ru_rencana2}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->ru_realisasi2}}" disabled></td>
             </tbody>
         </table>
         
@@ -192,12 +184,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->ri_rencana}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->ri_realisasi}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->ri_rencana}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->ri_realisasi}}" disabled></td>
             </tbody>
         </table>
         <hr>
@@ -253,12 +241,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->st_rencana}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->st_realisasi}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->st_rencana}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->st_realisasi}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -313,12 +297,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->st_rencana2}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->st_realisasi2}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->st_rencana2}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->st_realisasi2}}" disabled></td>
             </tbody>
         </table>
         <hr>
@@ -374,12 +354,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->me_rencana}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->me_realisasi}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->me_rencana}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->me_realisasi}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -434,12 +410,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->me_rencana2}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->me_realisasi2}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->me_rencana2}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->me_realisasi2}}" disabled></td>
             </tbody>
         </table>
         <hr>
@@ -495,12 +467,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_rencana}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_realisasi}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_rencana}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_realisasi}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -555,12 +523,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_rencana2}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_realisasi2}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_rencana2}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_realisasi2}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -615,12 +579,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_rencana3}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_realisasi3}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_rencana3}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_realisasi3}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -675,12 +635,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_rencana4}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_realisasi4}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_rencana4}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_realisasi4}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -735,12 +691,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_rencana5}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_realisasi5}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_rencana5}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_realisasi5}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -795,12 +747,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_rencana6}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_realisasi6}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_rencana6}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_realisasi6}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -855,12 +803,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_rencana7}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_realisasi7}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_rencana7}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_realisasi7}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -915,12 +859,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_rencana8}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_realisasi8}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_rencana8}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_realisasi8}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -975,12 +915,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_rencana9}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_realisasi9}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_rencana9}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_realisasi9}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -1035,12 +971,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_rencana10}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_realisasi10}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_rencana10}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_realisasi10}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -1095,12 +1027,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_rencana11}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_realisasi11}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_rencana11}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_realisasi11}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -1155,12 +1083,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_rencana12}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_realisasi12}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_rencana12}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_realisasi12}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -1215,12 +1139,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_rencana13}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_realisasi13}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_rencana13}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_realisasi13}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -1275,12 +1195,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_rencana14}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->val_realisasi14}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_rencana14}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->val_realisasi14}}" disabled></td>
             </tbody>
         </table>
         <hr>
@@ -1336,12 +1252,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->tr_rencana}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->tr_realisasi}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->tr_rencana}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->tr_realisasi}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -1396,12 +1308,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->tr_rencana2}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->tr_realisasi2}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->tr_rencana2}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->tr_realisasi2}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -1456,12 +1364,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->tr_rencana3}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->tr_realisasi3}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->tr_rencana3}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->tr_realisasi3}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -1516,12 +1420,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->tr_rencana4}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->tr_realisasi4}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->tr_rencana4}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->tr_realisasi4}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -1576,12 +1476,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->tr_rencana5}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->tr_realisasi5}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->tr_rencana5}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->tr_realisasi5}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -1636,12 +1532,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->tr_rencana6}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->tr_realisasi6}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->tr_rencana6}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->tr_realisasi6}}" disabled></td>
             </tbody>
         </table>
         <hr>
@@ -1697,12 +1589,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->pro_rencana}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->pro_realisasi}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->pro_rencana}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->pro_realisasi}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -1757,12 +1645,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->pro_rencana2}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->pro_realisasi2}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->pro_rencana2}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->pro_realisasi2}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -1817,12 +1701,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->pro_rencana3}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->pro_realisasi3}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->pro_rencana3}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->pro_realisasi3}}" disabled></td>
             </tbody>
         </table>
         <hr>
@@ -1878,12 +1758,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_rencana}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_realisasi}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_rencana}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_realisasi}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -1938,12 +1814,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_rencana2}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_realisasi2}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_rencana2}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_realisasi2}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -1998,12 +1870,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_rencana3}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_realisasi3}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_rencana3}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_realisasi3}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -2058,12 +1926,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_rencana4}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_realisasi4}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_rencana4}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_realisasi4}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -2118,12 +1982,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_rencana5}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_realisasi5}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_rencana5}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_realisasi5}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -2178,12 +2038,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_rencana6}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_realisasi6}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_rencana6}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_realisasi6}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -2238,12 +2094,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_rencana7}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_realisasi7}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_rencana7}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_realisasi7}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -2298,12 +2150,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_rencana8}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_realisasi8}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_rencana8}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_realisasi8}}" disabled></td>
             </tbody>
         </table>
         <table class="table table-bordered my-3">
@@ -2358,12 +2206,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_rencana9}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_realisasi9}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_rencana9}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_realisasi9}}" disabled></td>
             </tbody>
         </table>
         <!-- dok10 -->
@@ -2418,12 +2262,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_rencana10}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dok_realisasi10}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_rencana10}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dok_realisasi10}}" disabled></td>
             </tbody>
         </table>
         <hr>
@@ -2480,12 +2320,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dk_rencana}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->dk_realisasi}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dk_rencana}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->dk_realisasi}}" disabled></td>
             </tbody>
         </table>
         <hr>
@@ -2541,12 +2377,8 @@
                 <th>Realisasi Penyelesaian :</th>
             </thead>
             <tbody>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->sis_rencana}}</textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" rows="3" disabled>{{$kontrols->sis_realisasi}}</textarea>
-                </td>
+                <td><input type="date" class="form-control" value="{{$kontrols->sis_rencana}}" disabled></td>
+                <td><input type="date" class="form-control" value="{{$kontrols->sis_realisasi}}" disabled></td>
             </tbody>
         </table>
         <hr>

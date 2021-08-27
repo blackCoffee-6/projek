@@ -94,13 +94,9 @@ class ReportController extends Controller
             $from = $request->input('from');
             $to = $request->input('to');
 
-            $kajians = Kajian::all();
-            
-            $ket_up = $kajians->ket_up;
-            $ket_ups = explode(",", $ket_up);
-            $count_ketups = count($ket_ups);
+            $fups = FUP::whereBetween('date', [$from, $to])->get();
 
-            return Excel::download(new RekapExport($from, $to, $kajians, $ket_ups, $count_ketups), 'Excel-reports.xlsx');
+            return Excel::download(new RekapExport($from, $to, $fups), 'Excel-reports.xlsx');
         }
 
         return view('report.import', compact('fups', 'apps', 'user'));
@@ -124,7 +120,7 @@ class ReportController extends Controller
             $from = $request->input('from');
             $to = $request->input('to');
 
-            $kop = Kajian::whereBetween('aq_date', [$from, $to])->get();
+            $kontrols = Kajian::whereBetween('aq_date', [$from, $to])->get();
 
             return view('report.import-kop', compact('kontrols', 'fups', 'kajians'));
         }elseif($request->has('exportExcel'))
