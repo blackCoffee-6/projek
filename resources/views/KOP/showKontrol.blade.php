@@ -104,7 +104,7 @@
                     </td>
                     @else
                     @endif
-                    <td>
+                    <td class="text-center">
                         @foreach($kontrols as $kontrol)
                             @if($kontrol->fup_id == $fup->id)
                                 @if($kontrol->kop_files)

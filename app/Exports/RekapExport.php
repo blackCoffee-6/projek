@@ -17,12 +17,10 @@ class RekapExport implements FromView, ShouldAutoSize, WithStyles, WithDrawings
 {
     use Exportable;
 
-    public function __construct(String $from = null, String $to = null, $kajians, $ket_ups)
+    public function __construct(String $from = null, String $to = null)
     {
         $this->from = $from;
         $this->to = $to;
-        $this->kajians = $kajians;
-        $this->ket_ups = $ket_ups;
     }
 
     public function view(): View
@@ -32,9 +30,6 @@ class RekapExport implements FromView, ShouldAutoSize, WithStyles, WithDrawings
             'fups' => FUP::where('date', '>=', $this->from)->where('date', '<=', $this->to)->get(),
             'from' => $this->from,
             'to' => $this->to,
-
-            'kajians' => $this->kajians,
-            'ket_ups' => $this->ket_ups,
         ]);
     }
     
