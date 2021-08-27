@@ -43,8 +43,7 @@ Route::post('/store/{id}', 'ApproveController@store');
 Route::resource('user', 'UserController');
 
 //----- Route Bidang ------//
-Route::get('/List/Data/Bidang', 'BidangController@index');
-Route::get('/Hapus/Data/Bidang/{id}', 'BidangController@destroy');
+Route::resource('Bidang', 'BidangController');
 
 //-----Route Tanggapan-----//
 Route::post('/Store/Tanggapan/{id}', 'TanggapanController@store');

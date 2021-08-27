@@ -10,16 +10,32 @@ class BidangController extends Controller
     //untuk melihat list bidang
     public function index(){
         $bidang = Bidang::all();
-        return view('/listBidang', compact('bidang'));
+        return view('bidang.index', compact('bidang'));
     }
 
-    //untuk menghapus bidang
-    public function destroy($id){
-        $bidang = Bidang::where('id',$id)->firstOrFail();
-        $bidang->delete();
-        if($bidang != null){
-            $bidang->delete();
-        }
-        return redirect()->back()->with('failed', "Bidang berhasil di hapus!");
+    public function create()
+    {
+        return view('bidang.create');
     }
+
+    public function store(Request $request){
+        Bidang::create($request->all());
+        return redirect('/Bidang')->with('alert', "Bidang Created Successfully!");
+    }
+
+    public function edit ($bidang_id){
+        $bidang = Bidang::findOrFail($bidang_id);
+        return view('bidang.edit', compact('bidang'));
+    }
+    
+    public function update(Request $request, $bidang_id)
+    {
+        $bidang = Bidang::findOrFail($bidang_id);
+
+        $input = $request->all();
+        $bidang->fill($input)->save();
+        return redirect('/Bidang')->with('alert', "Bidang Updated Successfully!");
+    }
+
+
 }
