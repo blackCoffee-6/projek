@@ -30,14 +30,30 @@
       </form>
       <a href="#"><button class="btn btn-danger mx-3">Reset</button></a>    
     </div>
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th scope="col">Nomor Usulan :</th>
+          <th scope="col">Bidang Menanggapi :</th>
+          <th scope="col">Usulan Perubahan :</th>
+          <th scope="col">Tanggal Usulan :</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{$fups->no_usulan}}</td>
+          <td>{{$fups->Bidang->name}}</td>
+          <td>{{$fups->ket_usulan}}</td>
+          <td>{{$fups->date}}</td>
+        </tr>
+      </tbody>
+    </table>
     <table class="table table-bordered my-3">
       <thead class="thead-dark">
         <tr align="center">
-          <th scope="col">No.</th>
-          <th scope="col">Bidang Menanggapi</th>
-          <th scope="col">Tanggal Menanggapi</th>
-          <th scope="col">Usulan Perubahan</th>
-          <th scope="col">Aksi</th>
+          <th scope="col" width="3%">No.</th>
+          <th scope="col" width="20%">Bidang Menanggapi</th>
+          <th scope="col">Tanggapan Bidang</th>
         </tr>
       </thead>
                 <tbody>
@@ -49,14 +65,7 @@
                     @else
                       <td>{{$tanggapan->Bidang->name}}</td>
                     @endif
-                    <td>{{$fups->date}}</td>
-                    <td>
-                        {{$fups->ket_usulan}}
-                    </td>
-                    <td class="text-center">
-                        <!-- kalo yg login R&D abis dia isi button lihat nya harusnya ilang -->
-                          <a href="/Tanggapan/{{$tanggapan->id}}/edit" class="btn btn-success my-2 my-sm-0" type="submit" ><i class="fa fa-folder"></i>  Lihat</a>
-                    </td>
+                    <td>{{$tanggapan->tg_bidang}}</td>
                 </tr>
                 @endforeach
                 </tbody>

@@ -41,11 +41,21 @@ table.table-bordered > tbody > tr > td{
             <table class="table table-bordered my-3">
                 <thead class="thead-dark">
                 <tr class="text-center">
-                    <th scope="col">No.</th>
-                    <th scope="col">Bidang</th>
+                    <th scope="col" width="3%">No.</th>
+                    <th scope="col">Tanggal Masuk</th>
+                    <th scope="col">Tanggal Disetujui</th>
+                    <th scope="col">Tanggal Kontrol Perubahan</th>
                     <th scope="col">Nomor Usulan</th>
-                    <th scope="col">Tanggal Usulan</th>
-                    <th scope="col" width="20%">Usulan Perubahan</th>
+                    <th scope="col">Jenis / Kategori</th>
+                    <th scope="col">Asal Bidang</th>
+                    <th scope="col">Nama Produk</th>
+                    <th scope="col">Usulan Perubahan</th>
+                    <th scope="col">Sifat(Sementara / Tetap)</th>
+                    <th scope="col">Disetujui / Ditolak</th>
+                    <th scope="col">Kontrol Perubahan</th>
+                    <th scope="col">Rencana Penyelesaian</th>
+                    <th scope="col">Realisasi Penyelesaian</th>
+                    <th scope="col">PIC</th>
                     <th scope="col">Status</th>
                 </tr>
                 </thead>
@@ -55,34 +65,39 @@ table.table-bordered > tbody > tr > td{
                     <tr>
                         @if($user->id == $fup->user_id || $user->bidang_id == $fup->bidang_id || $user->role == 'Admin')
                         <td scope="row" class="font-weight-bold text-center">{{$number++}}</td>
-                        <td>{{$fup->Bidang->name}}</td>
-                        <td>{{$fup->no_usulan}}</td>
+                        <td>{{$fup->date}}</td>
+                        <td></td>
                         <td>{{$fup->date}}</td>
                         <td>
-                            {{$fup->ket_usulan}}
+                            {{$fup->no_usulan}}
                         </td>
                         <td class="text-center">
-                        <?php $flag = 0; $revisi = 0; ?>
-                        @foreach($apps as $app)
-                            @if($app->fup_id == $fup->id)
-                            <?php $flag = 1; ?>
-                            @endif
-                            @if($app->fup_id == $fup->id AND $app->decision == "setuju")
-                                    <span class="badge rounded-pill bg-success text-light">Approved</span>
-
-                                @elseif($app->fup_id == $fup->id AND $app->decision == "tidak")
-                                    <span class="badge rounded-pill bg-danger text-dark">Not Approved</span>
-                                    
-                                @elseif($app->fup_id == $fup->id AND $app->decision == "revisi")
-                                <?php $revisi = 1; ?>
-                                    <span class="badge rounded-pill bg-warning text-dark">Perlu di Revisi</span>
-                            @endif
-                        @endforeach
-                        @if($flag == 0)
-                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
-                        @endif
                         </td>
                         @endif
+                        <td></td>
+                        <td>{{$fup->produk}}</td>
+                        <td>{{$fup->ket_usulan}}</td>
+                        <td>{{$fup->ch_sifat}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="text-center">
+                            @if ($fup->status == 'Closed')
+                            <span class="badge rounded-pill bg-success text-light">Closed</span>
+                            @elseif ($fup->status == 'null')
+                            <span class="badge rounded-pill bg-info text-light">Menunggu Tanggapan</span>
+                            @elseif ($fup->status == 'Ditanggapi')
+                            <span class="badge rounded-pill bg-primary text-light">Sudah Ditanggapi</span>
+                            @elseif ($fup->status == 'Dikaji')
+                            <span class="badge rounded-pill bg-warning">Disetujui</span>
+                            @elseif ($fup->status == 'Ditolak')
+                            <span class="badge rounded-pill bg-danger text-light">Ditolak</span>
+                            @elseif ($fup->status == 'Pending')
+                            <span class="badge rounded-pill bg-secondary text-light">Open</span>
+                            @endif
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
