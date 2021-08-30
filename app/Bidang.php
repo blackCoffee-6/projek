@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 class Bidang extends Model
 {
     protected $table = "bidangs";
+    protected $guarded = ['id'];
 
     public function User(){
         return $this->hasOne(User::class);

@@ -50,7 +50,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-plus-square"></i>Master Data</a>
                         <ul class="sub-menu children dropdown-menu">
                             @if(Auth::user()->role == 'Admin' | Auth::user()->role == 'Approval')
-                            <li><i class="fa fa-laptop"></i><a href="/List/Data/Bidang">Data Bidang </a></li>
+                            <li><i class="fa fa-laptop"></i><a href="/Bidang">Data Bidang </a></li>
                             <li><i class="fa fa-group (alias)"></i><a href="/user">Data User </a></li>
                             @endif
                         </ul>
