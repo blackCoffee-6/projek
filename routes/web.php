@@ -95,9 +95,6 @@ Route::get('/Report/KontrolPerubahan/Export/{id}', 'KOPController@export');
 Route::get('/Report/Rekap', 'ReportController@rekapExport');
 Route::get('/Report/LihatRekap', 'ReportController@rekapIndex');
 Route::get('/searchRek', 'ReportController@rekapIndex');
-//
-Route::get('/Report/RekapKOP', 'ReportController@rekapKopIndex');
-Route::get('/searchRekop', 'ReportController@rekapKopIndex');
 
 //--------Route for searching FUP in Approve Blade--------//
 Route::get('/searchApp', 'ApproveController@indexSearch');

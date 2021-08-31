@@ -82,6 +82,14 @@ class ReportController extends Controller
         $apps = Approval::all();
         $user = Auth::user();
         $fups = FUP::paginate(10);
+        $kajians = Kajian::all();
+        $kontrols = KontrolPerubahan::all();
+
+        $ket_ups = '';
+        foreach($kajians as $kajian){
+            $ket_ups .= $kajian->ket_up.',';
+        }
+        $arrKetUp = explode(',', $ket_ups);
 
         if($request->has('search'))
         {
@@ -99,37 +107,37 @@ class ReportController extends Controller
             return Excel::download(new RekapExport($from, $to, $fups), 'Excel-reports.xlsx');
         }
 
-        return view('report.import', compact('fups', 'apps', 'user'));
+        return view('report.import', compact('fups', 'apps', 'user','kajians','kontrols','arrKetUp'));
     }
 
-    public function rekapKopIndex(Request $request)
-    {
-        $user = Auth::user();
-        $kontrols = KontrolPerubahan::all();
+    // public function rekapKopIndex(Request $request)
+    // {
+    //     $user = Auth::user();
+    //     $kontrols = KontrolPerubahan::all();
 
-        $kajians = Kajian::where('ch_status', 'like', 'disetujui')->get();
-        $fup_id = '';
-        foreach($kajians as $kajian){
-            $fup_id .= $kajian->fup_id.',';
-        }
-        $arrFupId = explode(',', $fup_id);
-        $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
+    //     $kajians = Kajian::where('ch_status', 'like', 'disetujui')->get();
+    //     $fup_id = '';
+    //     foreach($kajians as $kajian){
+    //         $fup_id .= $kajian->fup_id.',';
+    //     }
+    //     $arrFupId = explode(',', $fup_id);
+    //     $fups = FUP::whereIn('id', $arrFupId)->paginate(10);
 
-        if($request->has('search'))
-        {
-            $from = $request->input('from');
-            $to = $request->input('to');
+    //     if($request->has('search'))
+    //     {
+    //         $from = $request->input('from');
+    //         $to = $request->input('to');
 
-            $kontrols = Kajian::whereBetween('aq_date', [$from, $to])->get();
+    //         $kontrols = Kajian::whereBetween('aq_date', [$from, $to])->get();
 
-            return view('report.import-kop', compact('kontrols', 'fups', 'kajians'));
-        }elseif($request->has('exportExcel'))
-        {
-            $from = $request->input('from');
-            $to = $request->input('to');
+    //         return view('report.import-kop', compact('kontrols', 'fups', 'kajians'));
+    //     }elseif($request->has('exportExcel'))
+    //     {
+    //         $from = $request->input('from');
+    //         $to = $request->input('to');
 
-            // return Excel::download(new KopExport($from, $to), 'Excel-Kop.xlsx');
-        }
-        return view('report.import-kop', compact('kontrols', 'fups', 'kajians'));
-    }
+    //         // return Excel::download(new KopExport($from, $to), 'Excel-Kop.xlsx');
+    //     }
+    //     return view('report.import-kop', compact('kontrols', 'fups', 'kajians'));
+    // }
 }
