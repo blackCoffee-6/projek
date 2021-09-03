@@ -568,8 +568,8 @@
                             <label class="form-check-label">Teknik</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="dis_setuju[]" value="6">
-                            <input type="text" name="dis_input" class="form-control" id="dis_input">
+                            <input class="form-check-input boxcheck" type="checkbox" name="dis_setuju[]" value="6">
+                            <input type="text" name="dis_input" class="form-control boxtext" id="dis_input">
                         </div>
                     </td>
                     <td>
@@ -601,5 +601,16 @@
 	$(document).on('change', '#TDD', function () {
 		$('#DDtext').css('display', 'none');
 	});
+
+    // for distribusi persetujuan perubahan
+    $(document).ready(function() {
+    $("input.boxtext").on("keyup blur", function() {
+        $("input.boxcheck").prop("checked", this.value != "");
+    });
+
+    $("input.boxcheck").click(function() {
+        return false;
+    });
+    });
 </script>
 @endsection

@@ -27,8 +27,8 @@
             <td align="justify">{{$kategori}}</td>
             <td>
                 <div class="form-check">
-                    <input type="checkbox" name="{{$tlp}}" id="{{$tlpid}}" value="{{$tlpval}}">
-                    <label><input type="text" name="{{$tlpinput}}" class="form-control mt-1"></label>
+                    <input type="checkbox" class="boxcheck" name="{{$tlp}}" id="{{$tlpid}}" value="{{$tlpval}}">
+                    <label><input type="text" name="{{$tlpinput}}" class="form-control mt-1 boxtext"></label>
                 </div>
             </td>
             <td><input type="text" class="form-control" name="{{$pic}}" id="{{$picid}}"></td>
@@ -60,3 +60,16 @@
         </td>
     </tbody>
 </table>
+
+<script>
+    // for regulasi 2
+    $(document).ready(function() {
+    $("input.boxtext").on("keyup blur", function() {
+        $("input.boxcheck").prop("checked", this.value != "");
+    });
+
+    $("input.boxcheck").click(function() {
+        return false;
+    });
+    });
+</script>

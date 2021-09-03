@@ -28,7 +28,7 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Search Usulan" aria-label="Search Usulan" name="query" value="{{Request::input('query')}}">
         <button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i>  Cari</button>
       </form>
-      <a href='/Tanggapan'><button class="btn btn-danger mx-3">Reset</button></a>    
+      <a href='/resetTanggapan'><button class="btn btn-danger mx-3">Reset</button></a>    
     </div>
     <br>
     @if(session('alert'))

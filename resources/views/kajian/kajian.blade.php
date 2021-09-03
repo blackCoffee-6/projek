@@ -66,8 +66,8 @@
                             <label class="form-check-label">Peraturan Perundangan</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ket_up[]" value="12" id="else">
-                            <input type="text" class="form-control" name="ket_else" {{ (is_array(old('ket_up')) && in_array(12, old('ket_up'))) ? ' checked' : '' }}>
+                            <input class="form-check-input boxcheck" type="checkbox" name="ket_up[]" value="12" id="else">
+                            <input type="text" class="form-control boxtext" name="ket_else" {{ (is_array(old('ket_up')) && in_array(12, old('ket_up'))) ? ' checked' : '' }}>
                         </div>
                     </td>
                 </tr>
@@ -129,8 +129,8 @@
                                 <label class="form-check-label" id="regult2">Balai POM</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="ru_b[]" id="regul3" value="regulasielse" {{ (is_array(old('ru_b')) && in_array("regulasielse", old('ru_b'))) ? ' checked' : '' }}>
-                                <input type="text" class="form-control" id="regult3" name="ru_else">
+                                <input class="form-check-input boxcheck2" type="checkbox" name="ru_b[]" id="regul3" value="regulasielse" {{ (is_array(old('ru_b')) && in_array("regulasielse", old('ru_b'))) ? ' checked' : '' }}>
+                                <input type="text" class="form-control boxtext2" id="regult3" name="ru_else">
                             </div>
                         </div>
                         <label
@@ -1094,8 +1094,8 @@
                             <label class="form-check-label">Pengadaan</label>
                         </div>
                         <div class="form-check mx-3">
-                            <input class="form-check-input" type="checkbox" name="ch_dis[]" value="8" {{ (is_array(old('ch_dis')) && in_array(8, old('ch_dis'))) ? ' checked' : '' }}>
-                            <input type="text" class="form-control" name="ch_else">
+                            <input class="form-check-input boxcheck3" type="checkbox" name="ch_dis[]" value="8" {{ (is_array(old('ch_dis')) && in_array(8, old('ch_dis'))) ? ' checked' : '' }}>
+                            <input type="text" class="form-control boxtext3" name="ch_else">
                         </div>
                     </td>
                     <label
@@ -1440,5 +1440,38 @@
             document.getElementById('dxo').value=result;
         }
     }
+
+    // for ket_up
+    $(document).ready(function() {
+    $("input.boxtext").on("keyup blur", function() {
+        $("input.boxcheck").prop("checked", this.value != "");
+    });
+
+    $("input.boxcheck").click(function() {
+        return false;
+    });
+    });
+    
+    // for bagian A
+    $(document).ready(function() {
+    $("input.boxtext2").on("keyup blur", function() {
+        $("input.boxcheck2").prop("checked", this.value != "");
+    });
+
+    $("input.boxcheck").click(function() {
+        return false;
+    });
+    });
+    
+    // for distribusi persetujuan perubahan
+    $(document).ready(function() {
+    $("input.boxtext3").on("keyup blur", function() {
+        $("input.boxcheck3").prop("checked", this.value != "");
+    });
+
+    $("input.boxcheck").click(function() {
+        return false;
+    });
+    });
 </script>
 @endsection

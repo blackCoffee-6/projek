@@ -27,7 +27,7 @@
                     <input class="form-control mr-sm-2" type="search" placeholder="Search Usulan" aria-label="Search Usulan" name="query" value="{{Request::input('query')}}">
                     <a href="/FUP/"><button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i>  Cari</button></a>
                 </form>
-                <a href='/List/Menunggu/Kajian'><button class="btn btn-danger mx-3">Reset</button></a>
+                <a href="/resetKajian" class="btn btn-danger mx-3">Reset</a>
             </div>
 
             <table class="table table-bordered my-3">

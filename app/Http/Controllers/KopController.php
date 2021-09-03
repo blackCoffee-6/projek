@@ -346,4 +346,10 @@ class KopController extends Controller
         // dd($dis_setujus, $count_dissetujus); 
         return Excel::download(new KopExport($kontrols, $fups, $dis_setujus, $count_dissetujus), 'kop.xlsx');
     }
+
+    public function reset()
+    {
+        KontrolPerubahan::truncate();
+        return redirect()->back();
+    }
 }

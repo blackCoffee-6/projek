@@ -359,4 +359,10 @@ class KajianController extends Controller
         $ch_diss, $count_chdiss,
         $fups), 'kajian.xlsx');
     }
+
+    public function reset()
+    {
+        Kajian::truncate();
+        return redirect()->back();
+    }
 }

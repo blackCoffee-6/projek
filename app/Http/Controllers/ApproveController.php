@@ -134,4 +134,10 @@ class ApproveController extends Controller
         $tanggapans2 = explode(",", $tanggapan2);
         return view('approve.baca-approve', compact('fup', 'role','tanggapans2','bidang'));
     }
+
+    public function reset()
+    {
+        Approval::truncate();
+        return redirect()->back();
+    }
 }

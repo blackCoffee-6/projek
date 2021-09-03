@@ -177,4 +177,10 @@ class TanggapanController extends Controller
         }
         return view('tanggapan.detail', compact('fups','tanggapans'));
     }
+
+    public function reset()
+    {
+        Tanggapan::truncate();
+        return redirect()->back();
+    }
 }

@@ -38,6 +38,7 @@ Route::resource('FUP', 'FUPController');
 Route::get('/approve', 'ApproveController@index');
 Route::get('/lihat-data/{id}', 'ApproveController@edit');
 Route::post('/store/{id}', 'ApproveController@store');
+Route::get('/resetApprove', 'ApproveController@reset');
 
 //-----Route USER-----//
 Route::resource('user', 'UserController');
@@ -49,6 +50,7 @@ Route::resource('Bidang', 'BidangController');
 Route::post('/Store/Tanggapan/{id}', 'TanggapanController@store');
 Route::resource('Tanggapan', 'TanggapanController');
 Route::get('List/Menanggapi/{id}','TanggapanController@showDetail');
+Route::get('/resetTanggapan', 'TanggapanController@reset');
 
 //--------Route Kajian----------//
 Route::get('/List/Kajian', 'KajianController@index');
@@ -56,6 +58,7 @@ Route::post('/Store/Kajian/{fup_id}', 'KajianController@store');
 Route::get('/Detail/Kajian/{fup_id}', 'KajianController@show');
 Route::get('/Edit/Kajian/{kajian_id}', 'KajianController@edit');
 Route::put('/Update/Kajian/{kajian_id}', 'KajianController@update');
+Route::get('/resetKajian', 'KajianController@reset');
 // ini buat list yang ada di menunggu kajian
 Route::get('/List/Menunggu/Kajian', 'KajianController@listKajian');
 Route::get('/Baca-kajian/{id}', 'KajianController@bacaKajian');
@@ -68,6 +71,7 @@ Route::get('/List/Kontrol/Perubahan', 'KopController@listKop');
 Route::get('/Baca-KontrolPerubahan/{kop_id}', 'KopController@bacaKop');
 Route::get('/Edit/KP/{kontrol_id}', 'KopController@edit');
 Route::put('/Update/KP/{kontrol_id}', 'KopController@update');
+Route::get('/resetKOP', 'KOPController@reset');
 
 //--------Route Dashboard Usulan Perubahan------------------//
 Route::get('/Dashboard/TotalUP', 'FUPController@totalIndex');
