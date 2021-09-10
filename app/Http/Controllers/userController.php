@@ -92,4 +92,32 @@ class UserController extends Controller
 
         return redirect('/user')->with('failed', "User profil berhasil di hapus!");
     }
+
+    // Create User dari Data User
+    public function registerUser(Request $request){
+        $validated = $this->validateRequest($request);
+        if($validated->fails()) return redirect()->back()->withInput($request->all())->withErrors($validated->errors());
+        
+        try{
+            $user = new User;
+            $user->username = $request->name;
+            $user->email = $request->email;
+            $user->role = "Staff";
+            $user->phone = $request->phone;
+            $user->password = bcrypt($request->password);
+            $user->status = "Not Verified";
+            $user->bidang_id = $request->bidang;
+            $user->save();
+            return redirect('/user')->with('status', "Register Behasil!");
+        }
+        catch(Exception $e){
+            dd($e->message);
+            return redirect('/user/register')->with('failed', "Terjadi Error saat melakukan Registrasi");
+        }
+    }
+
+    public function getBidang2(){
+        $bidang = Bidang::all();
+        return view('user.create', compact('bidang'));
+    }
 }

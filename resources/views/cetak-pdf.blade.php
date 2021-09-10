@@ -135,15 +135,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <input type="hidden" value="{{$fups->ch_sifat}}" id="sifat">
-                                <div class="control">
-                                    <input class="form-check-input" type="radio" name="ch_sifat" id="sementara" value="sementara">
-                                    <label class="form-check-label" for="sementara">Sementara</label>
-                                </div>
-                                <div class="control">
-                                    <input class="form-check-input" type="radio" name="ch_sifat" id="tetap" value="tetap">
-                                    <label class="form-check-label" for="tetap">Tetap</label>
-                                </div>
+                                {{$fup->ch_sifat}}
                             </td>
                         </tr>
                     </tbody>

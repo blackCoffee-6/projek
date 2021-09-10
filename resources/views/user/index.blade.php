@@ -21,7 +21,6 @@
     <h1 class="display-5 mx-5">
         List Data User
     </h1>
-    <!-- <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a> -->
     <div class="container my-4">
         @if(session('alert'))
             <div class="alert alert-success" role="alert">
@@ -35,6 +34,7 @@
             </div>  
         @endif
         <table class="table table-bordered my-3">
+            <a href="/user/create"><button class="btn rounded btn-success"><i class="fa fa-plus-square"></i> Tambah User</button></a>
             <thead class="thead-dark">
                 <tr class="text-center">
                     <th scope="col">No.</th>
@@ -63,7 +63,7 @@
                     @endif
                     <td>{{$user->role}}</td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Not Verified</span>
+                        <span class="badge rounded-pill bg-secondary text-light">Not Active</span>
                     </td>
                     <td class="text-center">
                         <form action="/user/{{$user->id}}" method="POST">
@@ -97,47 +97,6 @@
               </li>
             </ul>
         </nav>
-
-        <h1 class="display-5 mt-5">
-            List Data Masuk User
-        </h1>
-        <table class="table table-bordered mt-4">
-            <thead class="thead-dark">
-                <tr class="text-center">
-                    <th scope="col">No.</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">E-mail</th>
-                    <th scope="col">Nomor Telepon</th>
-                    <th scope="col">Bidang</th>
-                    <th scope="col">Level</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td scope="row" class="font-weight-bold text-center">1</td>
-                    <td>Siapa</td>
-                    <td>Email</td>
-                    <td>Nomor</td>
-                    @if($user->bidang_id == null)
-                        <td></td>
-                    
-                    @else
-                        <td>Bidang</td>
-                    
-                    @endif
-                    <td>Role</td>
-                    <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Not Verified</span>
-                    </td>
-                    <td class="text-center">
-                        <a href="#" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-check-circle-o"></i></a>
-                        <button class="btn btn-danger my-2 my-sm-0" type="submit" onclick="return confirm('Apakah anda yakin?');"><i class="fa fa-window-close-o"></i></button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </div>
 </div>
 @endsection

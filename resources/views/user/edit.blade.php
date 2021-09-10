@@ -39,6 +39,18 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Change Password') }}</label>
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ $user->password }}" required autocomplete="password">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>   
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
                             <div class="col-md-6">
                                 <input id="phone" type="number" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ $user->phone }}" required autocomplete="phone">
@@ -47,6 +59,19 @@
                                         <strong>{{ $message }}</strong>
                                     </span>   
                                 @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Status') }}</label>
+
+                            <div class="form-check form-check-inline mx-3">
+                                <input class="form-check-input" type="radio" name="ch_sifat" id="sementara" value="sementara" {{ (old('status') == 'active') ? 'checked' : ''}}>
+                                <label class="form-check-label" for="sementara">Non Active</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ch_sifat" id="tetap" value="tetap" {{ (old('status') == 'nonactive') ? 'checked' : ''}}>
+                                <label class="form-check-label" for="tetap">Active</label>
                             </div>
                         </div>
 

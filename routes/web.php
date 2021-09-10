@@ -42,6 +42,7 @@ Route::get('/resetApprove', 'ApproveController@reset');
 
 //-----Route USER-----//
 Route::resource('user', 'UserController');
+Route::get('/user/create', 'userController@getBidang2');
 
 //----- Route Bidang ------//
 Route::resource('Bidang', 'BidangController');
