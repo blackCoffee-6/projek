@@ -92,12 +92,12 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Status') }}</label>
 
                             <div class="form-check form-check-inline mx-3">
-                                <input class="form-check-input" type="radio" name="ch_sifat" id="sementara" value="sementara" {{ (old('status') == 'active') ? 'checked' : ''}}>
-                                <label class="form-check-label" for="sementara">Non Active</label>
+                                <input class="form-check-input" type="radio" name="status" id="nonactive" value="nonactive" {{ (old('status') == 'nonactive') ? 'checked' : ''}}>
+                                <label class="form-check-label" for="nonactive">Non Active</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ch_sifat" id="tetap" value="tetap" {{ (old('status') == 'nonactive') ? 'checked' : ''}}>
-                                <label class="form-check-label" for="tetap">Active</label>
+                                <input class="form-check-input" type="radio" name="status" id="active" value="active" {{ (old('status') == 'active') ? 'checked' : ''}}>
+                                <label class="form-check-label" for="active">Active</label>
                             </div>
                         </div>
 

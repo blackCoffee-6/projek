@@ -63,7 +63,7 @@
                     @endif
                     <td>{{$user->role}}</td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">Not Active</span>
+                        <span class="badge rounded-pill bg-secondary text-light">{{$user->status}}</span>
                     </td>
                     <td class="text-center">
                         <form action="/user/{{$user->id}}" method="POST">

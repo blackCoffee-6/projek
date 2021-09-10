@@ -44,7 +44,7 @@ class UserController extends Controller
             $user->role = "Staff";
             $user->phone = $request->phone;
             $user->password = bcrypt($request->password);
-            $user->status = "Not Verified";
+            $user->status = $request->status;
             $user->bidang_id = $request->bidang;
             $user->save();
             return redirect('/login')->with('status', "Register Behasil!");
@@ -79,7 +79,9 @@ class UserController extends Controller
 
         $user->username = $request->username;
         $user->email = $request->email;
+        $user->password = bcrypt($request->password);
         $user->phone = $request->phone;
+        $user->status = $request->status;
         $user->save();
 
         Alert::success('Success', "Profile Updated Successfully!");
