@@ -44,13 +44,12 @@ class UserController extends Controller
             $user->role = "Staff";
             $user->phone = $request->phone;
             $user->password = bcrypt($request->password);
-            $user->status = $request->status;
+            $user->status = 'notactive';
             $user->bidang_id = $request->bidang;
             $user->save();
             return redirect('/login')->with('status', "Register Behasil!");
         }
         catch(Exception $e){
-            dd($e->message);
             return redirect('/registerview')->with('failed', "Terjadi Error saat melakukan Registrasi");
         }
     }

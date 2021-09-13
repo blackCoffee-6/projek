@@ -88,6 +88,10 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <p class="text-danger mx-5">*Silahkan hubungi admin jika sudah melakukan Register</p>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary" name="submit">

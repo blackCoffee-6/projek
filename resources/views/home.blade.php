@@ -19,7 +19,11 @@
                 </div>
                 <p class="text-light" style="font-size: 105%">Total Usulan Perubahan</p>
                 <h3 class="mb-0">
+                    @if(Auth::user()->role == 'Admin')
                     <span class="count">{{$fup}}</span>
+                    @else
+                    <span class="count">{{$fupz}}</span>
+                    @endif
                 </h3>
                 <div class="dropdown mt-1 float-right">
                     <i class="fa fa-archive" style="font-size: 70px;"></i>
@@ -39,7 +43,11 @@
                 </div>
                 <p class="text-light" style="font-size: 105%">Sedang di Proses</p>
                 <h3 class="mb-0">
+                    @if(Auth::user()->role == 'Admin')
                     <span class="count">{{$proses_count}}</span>
+                    @else
+                    <span class="count">{{$proses_counts}}</span>
+                    @endif
                 </h3>
                 <div class="dropdown mt-1 float-right">
                     <i class="fa fa-gear" style="font-size: 70px;"></i>
@@ -58,7 +66,11 @@
                 </div>
                 <p class="text-light" style="font-size: 105%">UP Rejected</p>
                 <h3 class="mb-0">
+                    @if(Auth::user()->role == 'Admin')
                     <span class="count">{{$reject_count}}</span>
+                    @else
+                    <span class="count">{{$reject_counts}}</span>
+                    @endif
                 </h3>
                 <div class="dropdown mt-1 float-right">
                     <i class="fa fa-calendar-times-o" style="font-size: 70px;"></i>
@@ -80,7 +92,7 @@
                     @if(Auth::user()->role == 'Admin')
                     <span class="count">{{$closed_count}}</span>
                     @else
-                    <span class="count">0</span>
+                    <span class="count">{{$closed_counts}}</span>
                     @endif
                 </h3>
                 <div class="dropdown mt-1 float-right">
@@ -113,7 +125,11 @@
                 </a>
             </div>
             <h4 class="mb-0">
+                @if(Auth::user()->role == 'Admin')
                 <span class="count">{{$mdup_count}}</span>
+                @else
+                <span class="count">{{$mdup_counts}}</span>
+                @endif
             </h4>
             <p class="text-light">Menunggu Disetujui Usulan Perubahan</p>
             <div class="chart-wrapper px-0" style="height:70px;" height="70">
@@ -132,7 +148,11 @@
                 </a>
             </div>
             <h4 class="mb-0">
+                @if(Auth::user()->role == 'Admin')
                 <span class="count">{{$tanggapan_count}}</span>
+                @else
+                <span class="count">{{$tanggapan_counts}}</span>
+                @endif
             </h4>
             <p class="text-light">Menunggu Tanggapan</p>
             <div class="chart-wrapper px-0" style="height:70px;" height="70">
@@ -154,7 +174,7 @@
                 @if(Auth::user()->role == 'Admin')
                 <span class="count">{{$kajian_count}}</span>
                 @else
-                <span class="count">0</span>
+                <span class="count">{{$kajian_counts}}</span>
                 @endif        
             </h4>
             <p class="text-light">Kajian</p>
@@ -177,7 +197,7 @@
                 @if(Auth::user()->role == 'Admin')
                 <span class="count">{{$kontrol_count}}</span>
                 @else
-                <span class="count">0</span>
+                <span class="count">{{$kontrol_counts}}</span>
                 @endif
             </h4>
             <p class="text-light">Kontrol Perubahan</p>

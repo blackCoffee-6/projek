@@ -54,14 +54,19 @@ class HomeController extends Controller
             $kajian = Approval::where('decision', '=', 'setuju')->count();
             $hasilCTKop = KontrolPerubahan::where('hasil_mitigasi', '!=', null)->count();
             $kopz = KontrolPerubahan::where('hasil_mitigasi', '=', null)->count();
+            //Count Dashboard Bawah
+            $mdup_counts = FUP::where('status', '=', 'Pending')->where('bidang_id', 'like', Auth::user()->bidang_id)->count();
+            $tanggapan_counts = FUP::where('status', '=', 'null')->where('bidang_id', 'like', Auth::user()->bidang_id)->count();
+            $kajian_counts = FUP::where('status', '=', 'Ditanggapi')->where('bidang_id', 'like', Auth::user()->bidang_id)->count();
+            $kontrol_counts = FUP::where('status', '=', 'Dikaji')->where('bidang_id', 'like', Auth::user()->bidang_id)->count();
+            //Count Dashboard Atas
+            $fupz = FUP::where('bidang_id', 'like', Auth::user()->bidang_id)->count();
+            $reject_counts = FUP::where('status', '=', 'Ditolak')->where('bidang_id', 'like', Auth::user()->bidang_id)->count();
+            $closed_counts = FUP::where('status', '=', 'Closed')->where('bidang_id', 'like', Auth::user()->bidang_id)->count();
 
-            if($fup){
-                $fup = $fup->count();
-            }
-
-            $hasilCT = $tanggapan + $kajian + $hasilCTKop + $kopz;
+            $proses_counts = $tanggapan_counts + $kajian_counts + $kontrol_counts;
             
-            return view('home', compact('user','fup', 'tanggapan', 'role', 'usul', 'hasilCT'));
+            return view('home', compact('user','fup', 'tanggapan_counts', 'role', 'usul', 'fupz', 'mdup_counts', 'proses_counts', 'kajian_counts', 'kontrol_counts', 'reject_counts', 'closed_counts'));
         }
         else{
             $kajian = Kajian::all();

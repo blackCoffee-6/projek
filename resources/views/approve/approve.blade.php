@@ -21,7 +21,6 @@
         <h1 class="display-5 mx-5">
             List Data Entry Untuk Di Setujui
         </h1>
-        <!-- <a href="javascript:history.back()"><button class="btn btn-primary mx-5"><i class="fa fa-reply"></i>  Kembali</button></a> -->
         <div class="container my-4">
             <div class="input-group">
                 <form action="/searchApp" method="GET" class="form-inline">
@@ -44,46 +43,47 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($fups as $fup)
-                <tr>
-                    @if(Auth::user()->id == $fup->user_id || Auth::user()->bidang_id == $fup->bidang_id || Auth::user()->role == 'Admin' || Auth::user()->role == 'Approval')
-                    <td scope="row" class="font-weight-bold text-center">{{$loop->iteration}}</td>
-                    <td>{{$fup->Bidang->name}}</td>
-                    <td>{{$fup->no_usulan}}</td>
-                    <td>{{$fup->date}}</td>
-                    <td>
-                        {{$fup->ket_usulan}}
-                    </td>
-                    <td class="text-center">
-                        <?php  $count = 0; ?>
-                        @foreach($apps as $app)
-                            @if($app->fup_id == $fup->id)
-                            <?php $count++?>
-                                @if($app->decision == "setuju")
-                                <span class="badge rounded-pill {{($app->decision == "setuju") ? 'bg-success text-light' : 'bg-warning text-dark'}}">{{($app->decision == "setuju") ? 'Approved' : 'Not Approved'}}</span>
-                                @elseif($app->decision == "tidak")
-                                <span class="badge rounded-pill bg-danger text-light">{{($app->decision == "setuju") ? 'Approved' : 'Not Approved'}}</span>
-                                @else
-                                <span class="badge rounded-pill bg-warning">Perlu di Revisi</span>
+                    <?php $number = 1; ?>
+                    @foreach($fups as $fup)
+                    <tr>
+                        @if(Auth::user()->id == $fup->user_id || Auth::user()->bidang_id == $fup->bidang_id || Auth::user()->role == 'Admin' || Auth::user()->role == 'Approval')
+                        <td scope="row" class="font-weight-bold text-center">{{$number++}}</td>
+                        <td>{{$fup->Bidang->name}}</td>
+                        <td>{{$fup->no_usulan}}</td>
+                        <td>{{$fup->date}}</td>
+                        <td>
+                            {{$fup->ket_usulan}}
+                        </td>
+                        <td class="text-center">
+                            <?php  $count = 0; ?>
+                            @foreach($apps as $app)
+                                @if($app->fup_id == $fup->id)
+                                <?php $count++?>
+                                    @if($app->decision == "setuju")
+                                    <span class="badge rounded-pill {{($app->decision == "setuju") ? 'bg-success text-light' : 'bg-warning text-dark'}}">{{($app->decision == "setuju") ? 'Approved' : 'Not Approved'}}</span>
+                                    @elseif($app->decision == "tidak")
+                                    <span class="badge rounded-pill bg-danger text-light">{{($app->decision == "setuju") ? 'Approved' : 'Not Approved'}}</span>
+                                    @else
+                                    <span class="badge rounded-pill bg-warning">Perlu di Revisi</span>
+                                    @endif
+                        </td> 
+                        <td>
+                                    @if($app->decision == "revisi" )
+                                    <a href="/lihat-data/{{$fup->id}}"><button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</button></a>
+                                    @endif
                                 @endif
-                    </td> 
-                    <td>
-                                @if($app->decision == "revisi" )
-                                <a href="/lihat-data/{{$fup->id}}"><button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</button></a>
-                                @endif
+                            @endforeach
+                            @if($count < 1)
+                            <span class="badge rounded-pill bg-secondary text-light">Pending</span>
                             @endif
-                        @endforeach
+                        </td>
                         @if($count < 1)
-                        <span class="badge rounded-pill bg-secondary text-light">Pending</span>
+                        <td class="text-center">
+                            <a href="/lihat-data/{{$fup->id}}" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
+                        </td>
                         @endif
-                    </td>
-                    @if($count < 1)
-                    <td class="text-center">
-                        <a href="/lihat-data/{{$fup->id}}" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-folder"></i>  Lihat</a>
-                    </td>
-                    @endif
-                @endif
-                </tr>
+                        @endif
+                    </tr>
                 @endforeach
                 </tbody>
             </table>

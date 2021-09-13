@@ -56,14 +56,17 @@
                     <td>{{$user->phone}}</td>
                     @if($user->bidang_id == null)
                         <td></td>
-                    
                     @else
                         <td>{{$user->Bidang->name}}</td>
                     
                     @endif
                     <td>{{$user->role}}</td>
                     <td class="text-center">
-                        <span class="badge rounded-pill bg-secondary text-light">{{$user->status}}</span>
+                        @if($user->status == 'active')
+                        <span class="badge rounded-pill bg-success text-light">Active</span>
+                        @else
+                        <span class="badge rounded-pill bg-secondary text-light">Not Active</span>
+                        @endif
                     </td>
                     <td class="text-center">
                         <form action="/user/{{$user->id}}" method="POST">

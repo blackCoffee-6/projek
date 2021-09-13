@@ -22,7 +22,7 @@ table.table-bordered > tbody > tr > td{
         </h1>
         <div class="container my-4">
             <div class="input-group mb-4">
-                <a href="/FUP/create"><button class="btn btn-success"><i class="fa fa-plus-square"></i>   Buat Ulasan Perubahan</button></a> 
+                <a href="/FUP/create"><button class="btn rounded btn-success"><i class="fa fa-plus-square"></i>   Buat Ulasan Perubahan</button></a> 
             </div>
             @if(session('alert'))
             <div class="alert alert-success" role="alert">

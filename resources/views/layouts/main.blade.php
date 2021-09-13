@@ -46,23 +46,27 @@
                         <a href="/home"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <h3 class="menu-title">Menu</h3><!-- /.menu-title -->
+                    @if(Auth::user()->role == 'Admin' | Auth::user()->role == 'Approval')
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-plus-square"></i>Master Data</a>
                         <ul class="sub-menu children dropdown-menu">
-                            @if(Auth::user()->role == 'Admin' | Auth::user()->role == 'Approval')
                             <li><i class="fa fa-laptop"></i><a href="/Bidang">Data Bidang </a></li>
                             <li><i class="fa fa-group (alias)"></i><a href="/user">Data User </a></li>
-                            @endif
                         </ul>
                     </li>
+                    @endif
+                    
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-shopping-cart"></i>Transaksi</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-circle-o"></i><a href="/FUP">Entry Usulan Perubahan </a></li>
-                            <li><i class="fa fa-circle-o"></i><a href="/List/Kajian">Entry Kajian </a></li>
-                            <li><i class="fa fa-circle-o"></i><a href="/List/KP">Entry Kontrol Perubahan </a></li>
+                            @if(Auth::user()->role == 'Admin' | Auth::user()->role == 'Approval')
+                                <li><i class="fa fa-circle-o"></i><a href="/List/Kajian">Entry Kajian </a></li>
+                                <li><i class="fa fa-circle-o"></i><a href="/List/KP">Entry Kontrol Perubahan </a></li>
+                            @endif
                         </ul>
                     </li>
+                    
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-folder-open-o"></i>Report</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -71,6 +75,7 @@
                             <li><i class="fa fa-circle-o"></i><a href="/Report/KontrolPerubahan">Kontrol Perubahan </a></li>
                         </ul>
                     </li>
+                    
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-gears (alias)"></i>Rekaptulasi</a>
                         <ul class="sub-menu children dropdown-menu">

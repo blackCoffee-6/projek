@@ -24,7 +24,7 @@
                             @if(Auth::user()->bidang_id != null)
                                 <option value="{{Auth::user()->Bidang->id}}">{{Auth::user()->Bidang->name}}</option>
                                 @foreach($bidang as $bidang)
-                                <option value="{{$bidang->id}}">{{$bidang->name}}</option>
+                                <option value="{{$bidang->id}}" disabled>{{$bidang->name}}</option>
                                 @endforeach
                             @else
                                 @foreach($bidang as $bidang)

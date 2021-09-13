@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             'phone' => '0812345678',
             'email' => 'admin@admin.com',
             'password' => bcrypt('admins'),
-            'status' => 'verified'
+            'status' => 'active'
         ]);
 
         DB::table('users')->insert([
@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
             'phone' => '0812345678',
             'email' => 'approval@approval.com',
             'password' => bcrypt('approval'),
-            'status' => 'verified'
+            'status' => 'active'
         ]);
     }
 }
