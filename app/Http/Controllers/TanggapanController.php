@@ -141,6 +141,7 @@ class TanggapanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //create
     public function show($id)
     {
         $auth = Auth::check();
@@ -155,6 +156,7 @@ class TanggapanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //show
     public function edit($id)
     {
         $tanggapan = Tanggapan::where('id', $id)->first();
@@ -166,6 +168,23 @@ class TanggapanController extends Controller
             $role = Auth::user()->role;
         }
         return view('tanggapan.edit', compact('fup', 'tanggapan', 'role'));
+    }
+
+    public function edit2($tanggapan_id)
+    {
+        $tanggapan = Tanggapan::find($tanggapan_id);
+        $fup = FUP::find($tanggapan->FUP->id);
+        $bidangs = FUB::where('fup_id', $tanggapan->FUP->id)->get();
+        // dd($tanggapan);
+        return view('tanggapan.edit2', compact('tanggapan', 'fup', 'bidangs'));
+    }
+
+    public function update(Request $request, $tanggapan_id)
+    {
+        $tanggapan = Tanggapan::findOrFail($tanggapan_id);
+        $input = $request->all();
+        $tanggapan->fill($input)->save();
+        return redirect('/Tanggapan');
     }
 
     public function showDetail($id){

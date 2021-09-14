@@ -51,6 +51,8 @@ Route::resource('Bidang', 'BidangController');
 Route::post('/Store/Tanggapan/{id}', 'TanggapanController@store');
 Route::resource('Tanggapan', 'TanggapanController');
 Route::get('List/Menanggapi/{id}','TanggapanController@showDetail');
+Route::get('/Edit/Tanggapan/{tanggapan_id}', 'TanggapanController@edit2');
+Route::put('/Update/Tanggapan/{tanggapan_id}', 'TanggapanController@update');
 Route::get('/resetTanggapan', 'TanggapanController@reset');
 
 //--------Route Kajian----------//

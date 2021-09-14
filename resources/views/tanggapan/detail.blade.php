@@ -54,6 +54,7 @@
           <th scope="col" width="3%">No.</th>
           <th scope="col" width="20%">Bidang Menanggapi</th>
           <th scope="col">Tanggapan Bidang</th>
+          <th scope="col" width="10%">Aksi</th>
         </tr>
       </thead>
                 <tbody>
@@ -66,6 +67,7 @@
                       <td>{{$tanggapan->Bidang->name}}</td>
                     @endif
                     <td>{{$tanggapan->tg_bidang}}</td>
+                    <td><a href="/Edit/Tanggapan/{{$tanggapan->id}}" class="btn btn-success my-2 my-sm-0" type="submit" ><i class="fa fa-folder"></i>  Edit</a></td>
                 </tr>
                 @endforeach
                 </tbody>
