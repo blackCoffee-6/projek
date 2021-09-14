@@ -46,10 +46,12 @@ class TanggapanController extends Controller
 
             $fup_id = "";
                 foreach($apps as $app){
-                    $fup_id .= $app->id.","; 
+                    $fup_id .= $app->fup_id.","; 
                 }
             $arrFupId = explode(",",$fup_id);
+            // dd($arrFupId);
             $fups = FUP::whereIn('id', $arrFupId)->get();
+            // dd($fups);
             $tanggapanFlag = Tanggapan::whereIn('fup_id', $arrFupId)->get();
         }
 
